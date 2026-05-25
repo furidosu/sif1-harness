@@ -69,15 +69,39 @@ ENVELOPE_FIELDS = {
     "present_cnt", "museum_info",
 }
 
-# Function declaration: `function ...(args)` -- captures the arg list.
+# Function declaration: `function ...(args)` -- captures (optional name, args).
 # Matches `function foo(a)`, `function tbl.foo(a)`, `function(a)`,
 # `local foo = function(a)`, etc.
-FN_DECL_RE = re.compile(r"\bfunction\s*(?:[\w.:]+\s*)?\(([^)]*)\)")
+FN_DECL_RE = re.compile(r"\bfunction\s*([\w.:]*)\s*\(([^)]*)\)")
 
-# Lua block-opening / closing keywords. `function` opens, but we count
-# it via FN_DECL_RE separately for arg capture; here we count all opens
-# uniformly for balance tracking.
-OPEN_RE = re.compile(r"\b(function|if|for|while|do|repeat)\b")
+# Local assignment of an anonymous function: `local foo = function(a)` or
+# `foo = function(a)`. Used by helper-following to map identifier -> body
+# when the source uses the local-assignment form instead of a named
+# function declaration.
+LOCAL_FN_ASSIGN_RE = re.compile(
+    r"^\s*(?:local\s+)?(\w+)\s*=\s*function\s*\(([^)]*)\)"
+)
+
+# Builtins / keywords / language ops we should NEVER try to follow as a
+# helper call. Decompiled bytecode rarely has these as callees of
+# tainted args, but a guard keeps recursion deterministic.
+BUILTIN_CALLEES = frozenset({
+    "pcall", "xpcall", "assert", "print", "tostring", "tonumber", "select",
+    "ipairs", "pairs", "type", "setmetatable", "getmetatable",
+    "rawget", "rawset", "rawequal", "next", "unpack", "error", "require",
+    "if", "while", "for", "return", "function", "and", "or", "not",
+    "string", "table", "math", "io", "os", "debug", "package", "coroutine",
+})
+
+# Lua block-opening / closing keywords. Note `do` is NOT in this list:
+# `for ... do ... end` and `while ... do ... end` are a single block per
+# the language grammar; `for`/`while` opens and `end` closes (paired with
+# `do` only syntactically). Counting `do` would double-open and the
+# balance counter would never reach 0. Standalone `do ... end` blocks are
+# essentially nonexistent in decompiled bytecode; if we hit one, we'll
+# accumulate one stray close — recoverable in practice but flagged here
+# as a known limitation.
+OPEN_RE = re.compile(r"\b(function|if|for|while|repeat)\b")
 CLOSE_RE = re.compile(r"\b(end|until)\b")
 
 # Lua single-line comments and strings should be stripped before block-
@@ -95,6 +119,14 @@ LOCAL_ASSIGN_RE = re.compile(r"^\s*local\s+(\w+)\s*=\s*(.+?)\s*$")
 # reuses locals.
 BARE_ASSIGN_RE = re.compile(r"^\s*(\w+)\s*=\s*(.+?)\s*$")
 
+# `for K[, V] in <iter_expr> do` -- captures (K, V_or_None, iter_expr).
+# Used to propagate taint: when iter_expr references a tainted local,
+# the value variable V (or K if no V) inherits the same prefix because
+# list-element indices `.[N]` collapse during merger normalization, so
+# `cached.unit_list.[1].id` and `cached.unit_list.id` end up at the
+# same path.
+FOR_ITER_RE = re.compile(r"\bfor\s+(\w+)\s*(?:,\s*(\w+))?\s+in\s+(.+?)\s+do\b")
+
 
 def strip_noise(line: str) -> str:
     line = STRING_RE.sub('""', line)
@@ -103,7 +135,7 @@ def strip_noise(line: str) -> str:
 
 
 def find_function_bodies(text: str):
-    """Yield (first_arg, body_start_line, body_end_line, lines_slice).
+    """Yield (name_or_none, first_arg, body_start_line, body_end_line, lines_slice).
 
     body_end_line is INCLUSIVE -- the line containing the matching `end`.
     Nested functions yield their own (start, end) ranges; the outer one
@@ -111,31 +143,31 @@ def find_function_bodies(text: str):
     """
     lines = text.splitlines()
     n = len(lines)
-    # Pre-strip noise once per line.
     stripped = [strip_noise(line) for line in lines]
     for i in range(n):
         m = FN_DECL_RE.search(stripped[i])
+        local_assign_m = None
+        # `local foo = function(a)` -- the FN_DECL_RE captures `function(a)`
+        # without the assigned name. Check separately so we can still index
+        # the body by identifier for helper-following.
+        if m and not m.group(1):
+            local_assign_m = LOCAL_FN_ASSIGN_RE.search(stripped[i])
         if not m:
             continue
-        args = m.group(1).strip()
+        name = m.group(1) or None
+        if not name and local_assign_m:
+            name = local_assign_m.group(1)
+        args = m.group(2).strip()
         if not args:
             continue
         first_arg = args.split(",")[0].strip()
         if not first_arg or not re.match(r"^\w+$", first_arg):
             continue
-        # Walk forward, balancing opens vs closes, until depth returns to 0.
-        # The function decl itself counts as 1 open; the keyword is at
-        # m.start() within stripped[i].
-        # On line i, count opens/closes BOTH before and after m.end()?
-        # No -- the function itself is already the open; any opens BEFORE
-        # it on the same line belong to an enclosing scope, not us. Count
-        # opens/closes only AFTER m.end() on the first line.
         depth = 1
         tail = stripped[i][m.end():]
         depth += len(OPEN_RE.findall(tail))
         depth -= len(CLOSE_RE.findall(tail))
         if depth <= 0:
-            # Single-line function; not useful for our pattern (no body).
             continue
         end_line = -1
         for j in range(i + 1, n):
@@ -147,74 +179,252 @@ def find_function_bodies(text: str):
                 break
         if end_line < 0:
             continue
-        yield first_arg, i, end_line, lines[i:end_line + 1]
+        yield name, first_arg, i, end_line, lines[i:end_line + 1]
 
 
-def harvest_one_function(arg_name: str, body: list[str]) -> set[str]:
-    """Within a function body, find response_data field reads chained
-    off the function's first arg. Returns set of `response_data.<field>`
-    paths (no leading prefix; the merger adds it).
+def build_named_function_index(text: str) -> dict[str, tuple[str, list[str]]]:
+    """Identifier -> (first_arg, body_lines) for every function declaration
+    or local-assignment-of-function in the file. Used by helper-following:
+    when a closure passes a tainted local to `<helper>(<L>)`, we look up
+    <helper> in this index to recurse into its body.
+
+    Decompiled bytecode tends to reuse the same local names across many
+    function definitions, so later defs OVERWRITE earlier ones. That's
+    fine for our purposes -- we want the most recently defined body for a
+    given identifier in file order, which is usually the right one when
+    the call site appears further down the file.
     """
+    out: dict[str, tuple[str, list[str]]] = {}
+    for name, first_arg, _start, _end, body in find_function_bodies(text):
+        if name:
+            out[name] = (first_arg, body)
+    return out
+
+
+# Generic `<callee>(<arg_list>)` matcher used for helper-following. Captures
+# the callee identifier and the raw arg list; arg parsing is done after.
+HELPER_CALL_RE = re.compile(r"\b(\w+)\s*\(([^)]*)\)")
+
+# `local? <lhs> = <ident>.<field_chain>` -- captures the immediate parent
+# ident so we can decide whether the assignment is to a tainted local's
+# field (taint-propagating) or to something else (taint-clearing).
+LOCAL_FIELD_ASSIGN_RE = re.compile(
+    r"^\s*(?:local\s+)?(\w+)\s*=\s*(\w+)\.([a-z_][a-z0-9_]*)\s*$"
+)
+
+# `local? <lhs> = <ident>` exact -- copies the value (and taint) wholesale.
+LOCAL_COPY_ASSIGN_RE = re.compile(r"^\s*(?:local\s+)?(\w+)\s*=\s*(\w+)\s*$")
+
+# `local? <lhs> = <expr>` general -- if neither of the above match but
+# this does, the assignment overwrote the lhs with an unrelated value
+# and the lhs should be DE-TAINTED. We use this to invalidate stale
+# taint after locals are reused (very common in decompiled bytecode).
+ANY_ASSIGN_RE = re.compile(r"^\s*(?:local\s+)?(\w+)\s*=")
+
+
+def harvest_one_function(
+    arg_name: str,
+    body: list[str],
+    *,
+    file_fn_index: dict[str, tuple[str, list[str]]] | None = None,
+    base_prefix: str | None = None,
+    visited: set[str] | None = None,
+    max_depth: int = 2,
+) -> set[str]:
+    """Harvest response_data-relative field paths from a function body.
+
+    Top-level invocation: base_prefix=None (the closure receives the
+    envelope; the entry point is `<arg>.response_data[.<field>]`).
+
+    Recursive invocation (helper-following): base_prefix=str. The
+    closure passed a tainted local to a helper; that helper's first arg
+    represents the subtree at `response_data.<base_prefix>`. Reads of
+    `<arg>.<field>` map to `response_data.<base_prefix>.<field>`.
+
+    Single-pass design: walk the body in source order, maintaining a
+    `taint` map (local_name -> response_data subpath). At each line we
+    (a) harvest field reads against the CURRENT taint, then (b) update
+    the taint based on assignments. Decompiled bytecode reuses local
+    names heavily, so a reassignment to an untainted RHS must
+    DE-TAINT the lhs -- otherwise every subsequent `<lhs>.<field>` is
+    wrongly attributed to the response subtree the local previously
+    held.
+    """
+    if visited is None:
+        visited = set()
     fields: set[str] = set()
 
-    # Stage 1: build the taint set. The arg itself is tainted (any
-    # `<arg>.response_data` access propagates). Then walk for assignments
-    # that capture .response_data into a local.
-    #
-    # taint[<local_name>] = path-of-cached-table (e.g. "" for the
-    # response_data root, "unit_list" for L = response_data.unit_list).
+    # Initial taint. In subtree mode, arg itself is tainted at base_prefix.
+    # In envelope mode, no taint until we see `<arg>.response_data` capture.
     taint: dict[str, str] = {}
+    if base_prefix is not None:
+        taint[arg_name] = base_prefix
 
-    arg_re = re.compile(rf"\b{re.escape(arg_name)}\.response_data\b")
-    arg_field_re = re.compile(rf"\b{re.escape(arg_name)}\.response_data\.([a-z_][a-z0-9_]*)")
+    # Envelope-mode anchors -- only used when base_prefix is None.
+    if base_prefix is None:
+        rd_field_re = re.compile(
+            rf"\b{re.escape(arg_name)}\.response_data\.([a-z_][a-z0-9_]*)"
+        )
+        rd_root_re = re.compile(rf"^{re.escape(arg_name)}\.response_data$")
+        rd_root_field_re = re.compile(
+            rf"^{re.escape(arg_name)}\.response_data\.([a-z_][a-z0-9_]*)$"
+        )
+    else:
+        rd_field_re = rd_root_re = rd_root_field_re = None
 
-    for line in body:
-        s = strip_noise(line)
+    # Per-line alias map for helper-following: <local> -> <function_ident>.
+    alias_map: dict[str, str] = {}
+    # Per-line helper-call candidates: list of (line_text, taint_snapshot,
+    # alias_snapshot). We collect during the single pass and recurse at
+    # the end so a helper's harvest doesn't pollute the outer taint state.
+    pending_recurse: list[tuple[str, dict[str, str], dict[str, str]]] = []
 
-        # Direct: <arg>.response_data.<field>
-        for f in arg_field_re.findall(s):
-            fields.add(f)
-
-        # Capture: local X = <arg>.response_data  (root capture)
-        for assign_re in (LOCAL_ASSIGN_RE, BARE_ASSIGN_RE):
-            m = assign_re.match(s)
-            if not m:
-                continue
-            lhs, rhs = m.group(1), m.group(2)
-            # rhs matches `<arg>.response_data` exactly (no further chain
-            # -- if it had a chain, we'd want to taint with that chain).
-            if arg_re.search(rhs) and ".response_data." not in rhs:
-                # Capture only if rhs is essentially "<arg>.response_data"
-                # (allow trailing whitespace / comments which we stripped).
-                if rhs.strip().endswith(".response_data"):
-                    taint[lhs] = ""
-            # Capture nested: local X = <arg>.response_data.<field>
-            mf = arg_field_re.search(rhs)
-            if mf and rhs.strip() == f"{arg_name}.response_data.{mf.group(1)}":
-                taint[lhs] = mf.group(1)
-                fields.add(mf.group(1))
-
-    # Stage 2: another pass; now harvest `<tainted>.<field>` reads.
-    # Also propagate the taint one more hop (local Y = X.<field>) so
-    # `for k,v in pairs(X.unit_list)` and `Y = X.unit_list; Y.[1].id`
-    # both register their parent field.
-    if not taint:
-        return fields
+    ident_re = re.compile(r"\b(\w+)\b")
 
     for line in body:
         s = strip_noise(line)
-        for local_name, prefix in list(taint.items()):
+
+        # (1) ENVELOPE-MODE HARVEST: direct `<arg>.response_data.<field>`
+        # reads. Only matters when base_prefix is None.
+        if rd_field_re is not None:
+            for f in rd_field_re.findall(s):
+                fields.add(f)
+
+        # (2) GENERAL HARVEST: for every currently-tainted local, harvest
+        # `<local>.<field>` reads on this line. Done BEFORE taint updates
+        # so reassignments take effect only on subsequent lines.
+        for local_name, local_prefix in list(taint.items()):
             tre = re.compile(rf"\b{re.escape(local_name)}\.([a-z_][a-z0-9_]*)")
             for f in tre.findall(s):
-                path = f"{prefix}.{f}" if prefix else f
+                path = f"{local_prefix}.{f}" if local_prefix else f
                 fields.add(path)
-                # Propagate taint one hop on bare/local assignment.
-                for assign_re in (LOCAL_ASSIGN_RE, BARE_ASSIGN_RE):
-                    am = assign_re.match(s)
-                    if am and am.group(2).strip() == f"{local_name}.{f}":
-                        lhs2 = am.group(1)
-                        if lhs2 not in taint:
-                            taint[lhs2] = path
+
+        # (3) FOR-LOOP ITERATION TAINT. `for K, V in <iter> do` -- if any
+        # ident in <iter> is currently tainted, V (or K if no V) inherits
+        # that prefix (list-element index collapses in merger).
+        fm = FOR_ITER_RE.search(s)
+        if fm:
+            k_var, v_var, iter_expr = fm.group(1), fm.group(2), fm.group(3)
+            target = v_var or k_var
+            if target:
+                for ident in ident_re.findall(iter_expr):
+                    if ident in taint:
+                        taint[target] = taint[ident]
+                        break
+
+        # (4) HELPER-CALL CANDIDATES: queue for post-pass recursion. We
+        # snapshot taint + alias so the helper's body sees the state at
+        # the call site, not a stale-or-future one.
+        if file_fn_index is not None and max_depth > 0:
+            for m in HELPER_CALL_RE.finditer(s):
+                callee = m.group(1)
+                if callee in BUILTIN_CALLEES or callee in visited:
+                    continue
+                args_str = m.group(2)
+                first_arg = args_str.split(",")[0].strip()
+                if not first_arg or first_arg not in taint:
+                    continue
+                resolved = callee if callee in file_fn_index else alias_map.get(callee)
+                if not resolved or resolved not in file_fn_index or resolved in visited:
+                    continue
+                pending_recurse.append(
+                    (resolved, dict(taint), {"first_arg": first_arg})
+                )
+
+        # (5) ASSIGNMENT-BASED TAINT UPDATES. Order matters: check the
+        # most specific patterns first.
+        #
+        # Envelope-mode captures: `lhs = <arg>.response_data[.<f>]?`
+        if rd_root_re is not None:
+            cap_done = False
+            mfa = ANY_ASSIGN_RE.match(s)
+            if mfa:
+                lhs = mfa.group(1)
+                # Get just the RHS for shape testing.
+                rhs_match = re.match(r"^\s*(?:local\s+)?\w+\s*=\s*(.*?)\s*$", s)
+                if rhs_match:
+                    rhs = rhs_match.group(1)
+                    if rd_root_re.match(rhs):
+                        taint[lhs] = ""
+                        cap_done = True
+                    else:
+                        mfx = rd_root_field_re.match(rhs)
+                        if mfx:
+                            taint[lhs] = mfx.group(1)
+                            fields.add(mfx.group(1))
+                            cap_done = True
+            if cap_done:
+                continue  # don't fall through to generic ident/field handling
+
+        # Identifier copy: `lhs = rhs_ident` -- alias for helper-following
+        # AND propagates taint if rhs_ident is tainted.
+        ma = LOCAL_COPY_ASSIGN_RE.match(s)
+        if ma:
+            lhs, rhs = ma.group(1), ma.group(2)
+            alias_map = dict(alias_map)
+            # Transitive resolution through alias chain.
+            target = rhs
+            seen_chain = {lhs}
+            while target in alias_map and target not in seen_chain:
+                seen_chain.add(target)
+                target = alias_map[target]
+            alias_map[lhs] = target
+            # Taint propagation: if rhs is tainted, copy. Otherwise
+            # DE-TAINT lhs.
+            if rhs in taint:
+                taint[lhs] = taint[rhs]
+            elif lhs in taint:
+                del taint[lhs]
+            continue
+
+        # Field-access copy: `lhs = ident.field` -- propagates taint if
+        # ident is tainted (prefix.field).
+        mf = LOCAL_FIELD_ASSIGN_RE.match(s)
+        if mf:
+            lhs, rhs_ident, rhs_field = mf.group(1), mf.group(2), mf.group(3)
+            if rhs_ident in taint:
+                parent_prefix = taint[rhs_ident]
+                new_prefix = f"{parent_prefix}.{rhs_field}" if parent_prefix else rhs_field
+                taint[lhs] = new_prefix
+                fields.add(new_prefix)
+            elif lhs in taint:
+                del taint[lhs]
+            # Also note this isn't an identifier alias for helper-following
+            # purposes (alias_map tracks only ident-to-ident).
+            continue
+
+        # Generic assignment to ANY rhs -- if the RHS isn't one of the
+        # taint-propagating forms above, DE-TAINT the lhs (it now holds
+        # an unrelated value). This is critical because decompiled
+        # bytecode aggressively reuses locals.
+        ag = ANY_ASSIGN_RE.match(s)
+        if ag:
+            lhs = ag.group(1)
+            if lhs in taint:
+                del taint[lhs]
+            # Drop alias too -- the local no longer points at the
+            # previously-aliased function ident.
+            if lhs in alias_map:
+                alias_map = dict(alias_map)
+                del alias_map[lhs]
+
+    # Recurse into queued helper calls. Outer taint is already finalized;
+    # each helper gets its own subtree-mode harvest.
+    for resolved, taint_snapshot, info in pending_recurse:
+        first_arg = info["first_arg"]
+        if first_arg not in taint_snapshot:
+            continue
+        helper_arg, helper_body = file_fn_index[resolved]
+        new_visited = visited | {resolved}
+        sub_fields = harvest_one_function(
+            helper_arg,
+            helper_body,
+            file_fn_index=file_fn_index,
+            base_prefix=taint_snapshot[first_arg],
+            visited=new_visited,
+            max_depth=max_depth - 1,
+        )
+        fields |= sub_fields
 
     return fields
 
@@ -270,7 +480,10 @@ def build_corpus_frequency() -> dict[str, int]:
 
 def filter_by_corpus(fields: set[str], corpus: dict[str, int]) -> tuple[set[str], set[str]]:
     """Returns (kept, dropped). Drops field paths whose LEAF token
-    appears in > CORPUS_THRESHOLD of UI files.
+    appears in > CORPUS_THRESHOLD of UI files, OR whose path contains
+    "response_data" as a non-leading segment (a leak from recursion into
+    a helper that destructures arg.response_data despite being passed
+    a subtree, not an envelope -- the path is structurally wrong).
     """
     total = corpus.get("__total_files__", 0)
     if total <= 0:
@@ -279,8 +492,15 @@ def filter_by_corpus(fields: set[str], corpus: dict[str, int]) -> tuple[set[str]
     kept: set[str] = set()
     dropped: set[str] = set()
     for path in fields:
-        leaf = path.rsplit(".", 1)[-1]
+        segments = path.split(".")
+        leaf = segments[-1]
         if leaf in ENVELOPE_FIELDS:
+            dropped.add(path)
+            continue
+        # "response_data" should never appear as an internal path segment;
+        # if it does, the recursion mismatched an envelope-shaped helper
+        # against a subtree-shaped arg.
+        if "response_data" in segments:
             dropped.add(path)
             continue
         if corpus.get(leaf, 0) > threshold:
@@ -307,15 +527,20 @@ def extract_for_endpoint(
             text = fp.read_text(errors="replace")
         except OSError:
             continue
+        # File-wide function index for helper-following.
+        fn_index = build_named_function_index(text)
         file_fields: set[str] = set()
-        for arg_name, _start, _end, body in find_function_bodies(text):
+        for _name, arg_name, _start, _end, body in find_function_bodies(text):
             # Pre-check: skip the body unless it contains the response_data
             # anchor at all. Faster than running the full harvester.
             if "response_data" not in "".join(body):
                 continue
-            file_fields |= harvest_one_function(arg_name, body)
+            file_fields |= harvest_one_function(
+                arg_name, body, file_fn_index=fn_index
+            )
+        rel = str(fp.relative_to(SOURCE_ROOT))
         if file_fields:
-            per_file[str(fp.relative_to(SOURCE_ROOT))] = sorted(file_fields)
+            per_file[rel] = sorted(file_fields)
             raw |= file_fields
 
     kept, dropped = filter_by_corpus(raw, corpus)

@@ -4,13 +4,13 @@ Total endpoints: **358**
 
 | Bucket | Count | What NPPS4 does with this |
 |---|---:|---|
-| `harness-covered` | 243 | Schema-correctable via harness output |
+| `harness-covered` | 247 | Schema-correctable via harness output |
 | `envelope-only` | 31 | extra='allow' stub is correct as-is |
-| `ui-only` | 67 | Tier 2 follow-on candidate (handler invocation) |
+| `ui-only` | 63 | Tier 2 follow-on candidate (handler invocation) |
 | `needs-Frida` | 17 | Hand back: needs wire capture / state injection |
 
 
-## `harness-covered` (243 endpoints)
+## `harness-covered` (247 endpoints)
 
 - `achievement.initialAccomplishedList` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `achievement.pagingAccomplishedList` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -20,16 +20,17 @@ Total endpoints: **358**
 - `achievement.unaccomplishList` — 9 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `ad.changeAd` — listener discovered 1 field path(s) beyond declared schema
 - `album.albumAll` — 13 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
+- `album.seriesAll` — listener discovered 4 field path(s) beyond declared schema
 - `area.addReward` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `area.list` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.cheerUnitDeck` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.dailyRanking` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.dreamLiveEnd` — listener discovered 1 field path(s) beyond declared schema
-- `arena.dreamLiveGameOver` — listener discovered 5 field path(s) beyond declared schema
+- `arena.dreamLiveGameOver` — listener discovered 4 field path(s) beyond declared schema
 - `arena.dreamLiveStart` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.matchLiveContinue` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.matchLiveEnd` — listener discovered 5 field path(s) beyond declared schema
-- `arena.matchLiveGameOver` — listener discovered 4 field path(s) beyond declared schema
+- `arena.matchLiveGameOver` — listener discovered 3 field path(s) beyond declared schema
 - `arena.matchLiveStart` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.privateMatchLiveEnd` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.privateMatchLiveGameOver` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -38,7 +39,7 @@ Total endpoints: **358**
 - `arena.recoveryAutoPlayableCount` — listener discovered 1 field path(s) beyond declared schema
 - `arena.rivalLiveContinue` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.rivalLiveEnd` — listener discovered 1 field path(s) beyond declared schema
-- `arena.rivalLiveGameOver` — listener discovered 5 field path(s) beyond declared schema
+- `arena.rivalLiveGameOver` — listener discovered 4 field path(s) beyond declared schema
 - `arena.rivalLiveStart` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.sessionRanking` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `arena.tierRanking` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -46,14 +47,13 @@ Total endpoints: **358**
 - `award.awardInfo` — listener discovered 2 field path(s) beyond declared schema
 - `background.backgroundInfo` — listener discovered 3 field path(s) beyond declared schema
 - `banner.bannerList` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `battle.battleInfo` — listener discovered 2 field path(s) beyond declared schema
 - `battle.endRoom` — listener discovered 4 field path(s) beyond declared schema
-- `battle.endWait` — listener discovered 2 field path(s) beyond declared schema
+- `battle.endWait` — listener discovered 6 field path(s) beyond declared schema
 - `battle.gameover` — listener discovered 5 field path(s) beyond declared schema
 - `battle.liveEnd` — 7 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `battle.liveStart` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `battle.matching` — listener discovered 4 field path(s) beyond declared schema
-- `battle.startWait` — listener discovered 2 field path(s) beyond declared schema
+- `battle.matching` — listener discovered 5 field path(s) beyond declared schema
+- `battle.startWait` — listener discovered 6 field path(s) beyond declared schema
 - `battle.top` — listener discovered 1 field path(s) beyond declared schema
 - `challenge.challengeInfo` — listener discovered 5 field path(s) beyond declared schema
 - `challenge.checkpoint` — listener discovered 2 field path(s) beyond declared schema
@@ -62,7 +62,7 @@ Total endpoints: **358**
 - `challenge.gameover` — listener discovered 4 field path(s) beyond declared schema
 - `challenge.proceed` — listener discovered 1 field path(s) beyond declared schema
 - `challenge.retire` — listener discovered 4 field path(s) beyond declared schema
-- `challenge.status` — listener discovered 4 field path(s) beyond declared schema
+- `challenge.status` — listener discovered 2 field path(s) beyond declared schema
 - `challenge.top` — listener discovered 1 field path(s) beyond declared schema
 - `class.commitChallengeMission` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `class.competitionFinalLiveEnd` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -70,23 +70,21 @@ Total endpoints: **358**
 - `class.competitionGameover` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `class.competitionGeneralRanking` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `class.competitionLiveEnd` — 9 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `class.competitionLivePlay` — listener discovered 1 field path(s) beyond declared schema
-- `class.competitionOwnDeckRanking` — listener discovered 3 field path(s) beyond declared schema
-- `class.competitionSpectateLive` — listener discovered 1 field path(s) beyond declared schema
+- `class.competitionOwnDeckRanking` — listener discovered 4 field path(s) beyond declared schema
 - `class.gameover` — 8 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `class.livePlay` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `class.liveResult` — listener discovered 4 field path(s) beyond declared schema
-- `class.selectCompetitionArea` — listener discovered 3 field path(s) beyond declared schema
+- `class.selectCompetitionArea` — listener discovered 2 field path(s) beyond declared schema
 - `class.skipChallengeMission` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `class.top` — 12 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `comeback.achieveInfo` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `common.recoveryEnergy` — listener discovered 6 field path(s) beyond declared schema
 - `concert.liveContinue` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `concert.liveEnd` — listener discovered 4 field path(s) beyond declared schema
-- `concert.liveGameOver` — listener discovered 3 field path(s) beyond declared schema
+- `concert.liveGameOver` — listener discovered 8 field path(s) beyond declared schema
 - `concert.livePartyList` — listener discovered 3 field path(s) beyond declared schema
-- `concert.liveStart` — listener discovered 3 field path(s) beyond declared schema
-- `concert.lootBoxPick` — listener discovered 3 field path(s) beyond declared schema
+- `concert.liveStart` — listener discovered 8 field path(s) beyond declared schema
+- `concert.lootBoxPick` — listener discovered 8 field path(s) beyond declared schema
 - `concert.lootBoxReset` — listener discovered 2 field path(s) beyond declared schema
 - `concert.lootBoxTop` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `concert.top` — 16 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -98,21 +96,21 @@ Total endpoints: **358**
 - `duel.endRoom` — listener discovered 4 field path(s) beyond declared schema
 - `duel.endWait` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `duel.gpsMatch` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `duel.liveEnd` — listener discovered 7 field path(s) beyond declared schema
+- `duel.liveEnd` — listener discovered 5 field path(s) beyond declared schema
 - `duel.liveStart` — listener discovered 2 field path(s) beyond declared schema
 - `duel.matching` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `duel.privateClose` — listener discovered 8 field path(s) beyond declared schema
+- `duel.privateClose` — listener discovered 10 field path(s) beyond declared schema
 - `duel.privateCreate` — 12 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `duel.privateJoin` — 13 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `duel.privateMakeMatch` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `duel.privateOpenMatch` — listener discovered 3 field path(s) beyond declared schema
+- `duel.privateOpenMatch` — listener discovered 5 field path(s) beyond declared schema
 - `duel.privateStartWait` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `duel.startWait` — listener discovered 6 field path(s) beyond declared schema
 - `duel.top` — listener discovered 10 field path(s) beyond declared schema
 - `duty.allUserMission` — 7 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `duty.dutyInfo` — listener discovered 10 field path(s) beyond declared schema
+- `duty.dutyInfo` — listener discovered 9 field path(s) beyond declared schema
 - `duty.endRoom` — listener discovered 1 field path(s) beyond declared schema
-- `duty.endWait` — listener discovered 10 field path(s) beyond declared schema
+- `duty.endWait` — listener discovered 9 field path(s) beyond declared schema
 - `duty.gameover` — listener discovered 10 field path(s) beyond declared schema
 - `duty.liveEnd` — 8 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `duty.liveStart` — 8 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -123,7 +121,7 @@ Total endpoints: **358**
 - `duty.privateJoinMatch` — listener discovered 5 field path(s) beyond declared schema
 - `duty.privateMakeMatch` — listener discovered 6 field path(s) beyond declared schema
 - `duty.privateStartWait` — listener discovered 6 field path(s) beyond declared schema
-- `duty.startWait` — listener discovered 11 field path(s) beyond declared schema
+- `duty.startWait` — listener discovered 10 field path(s) beyond declared schema
 - `duty.top` — listener discovered 1 field path(s) beyond declared schema
 - `effortPoint.selectLimitedBox` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `eventscenario.reward` — listener discovered 4 field path(s) beyond declared schema
@@ -135,16 +133,16 @@ Total endpoints: **358**
 - `festival.festivalInfo` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `festival.gameover` — listener discovered 5 field path(s) beyond declared schema
 - `festival.liveReward` — listener discovered 4 field path(s) beyond declared schema
-- `festival.liveSetList` — listener discovered 7 field path(s) beyond declared schema
+- `festival.liveSetList` — listener discovered 5 field path(s) beyond declared schema
 - `festival.liveStart` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `festival.missionStatus` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `festival.top` — listener discovered 1 field path(s) beyond declared schema
 - `festival.updateLiveList` — listener discovered 5 field path(s) beyond declared schema
 - `friend.list` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `friend.search` — 7 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `gdpr.detail` — listener discovered 2 field path(s) beyond declared schema
+- `gdpr.detail` — listener discovered 1 field path(s) beyond declared schema
 - `gdpr.get` — 8 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `gdpr.update` — listener discovered 4 field path(s) beyond declared schema
+- `gdpr.update` — listener discovered 3 field path(s) beyond declared schema
 - `handover.kidCheck` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `handover.kidHandover` — listener discovered 3 field path(s) beyond declared schema
 - `handover.reserveTransfer` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -159,10 +157,13 @@ Total endpoints: **358**
 - `klab_id.kidUnaccomplishList` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `lbonus.adReward` — listener discovered 1 field path(s) beyond declared schema
 - `lbonus.execute` — listener discovered 3 field path(s) beyond declared schema
+- `live.continue` — listener discovered 1 field path(s) beyond declared schema
+- `live.gameover` — listener discovered 1 field path(s) beyond declared schema
 - `live.liveStatus` — 13 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `live.partyList` — listener discovered 3 field path(s) beyond declared schema
 - `live.play` — 14 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `live.preciseScore` — 7 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
+- `live.publishPreciseScoreId` — listener discovered 1 field path(s) beyond declared schema
 - `live.reward` — listener discovered 4 field path(s) beyond declared schema
 - `live.schedule` — listener discovered 1 field path(s) beyond declared schema
 - `liveicon.liveiconInfo` — listener discovered 1 field path(s) beyond declared schema
@@ -176,13 +177,11 @@ Total endpoints: **358**
 - `multiunit.multiunitscenarioStatus` — listener discovered 1 field path(s) beyond declared schema
 - `multiunit.scenarioReward` — listener discovered 4 field path(s) beyond declared schema
 - `museum.info` — listener discovered 2 field path(s) beyond declared schema
-- `notice.noticeFriendGreeting` — listener discovered 7 field path(s) beyond declared schema
+- `notice.noticeFriendGreeting` — listener discovered 3 field path(s) beyond declared schema
 - `notice.noticeFriendVariety` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `notice.noticeMarquee` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `notice.noticeUserGreetingHistory` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `online.exhibitionResult` — listener discovered 1 field path(s) beyond declared schema
 - `online.play` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `online.playExhibition` — listener discovered 1 field path(s) beyond declared schema
 - `online.result` — 7 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `payment.history` — listener discovered 1 field path(s) beyond declared schema
 - `payment.month` — listener discovered 1 field path(s) beyond declared schema
@@ -190,7 +189,7 @@ Total endpoints: **358**
 - `payment.receipt` — listener discovered 1 field path(s) beyond declared schema
 - `personalnotice.get` — 16363 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `platformAccount.connectAccounts` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `preciseScore.manualUpdate` — listener discovered 1 field path(s) beyond declared schema
+- `preciseScore.manualUpdate` — listener discovered 2 field path(s) beyond declared schema
 - `profile.cardRanking` — 8 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `profile.liveCnt` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `quest.continue` — listener discovered 1 field path(s) beyond declared schema
@@ -202,7 +201,7 @@ Total endpoints: **358**
 - `quest.questReward` — listener discovered 4 field path(s) beyond declared schema
 - `quest.questStart` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `quest.useSeal` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `ranking.eventFriendLive` — listener discovered 4 field path(s) beyond declared schema
+- `ranking.eventFriendLive` — listener discovered 3 field path(s) beyond declared schema
 - `ranking.eventFriendPlayer` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `ranking.eventLive` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `ranking.eventLiveDetail` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
@@ -214,11 +213,12 @@ Total endpoints: **358**
 - `reward.exchangeList` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `reward.open` — listener discovered 6 field path(s) beyond declared schema
 - `reward.openAll` — listener discovered 5 field path(s) beyond declared schema
-- `reward.rewardHistory` — listener discovered 4 field path(s) beyond declared schema
+- `reward.rewardHistory` — listener discovered 2 field path(s) beyond declared schema
 - `reward.rewardList` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `reward.sellUnit` — listener discovered 6 field path(s) beyond declared schema
 - `reward.useLotteryTicket` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `rlive.continue` — listener discovered 1 field path(s) beyond declared schema
+- `rlive.gameover` — listener discovered 1 field path(s) beyond declared schema
 - `rlive.lot` — listener discovered 3 field path(s) beyond declared schema
 - `rlive.play` — 7 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `rlive.reward` — listener discovered 4 field path(s) beyond declared schema
@@ -227,7 +227,7 @@ Total endpoints: **358**
 - `secretbox.multi` — listener discovered 1 field path(s) beyond declared schema
 - `secretbox.pon` — listener discovered 1 field path(s) beyond declared schema
 - `secretbox.showDetail` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `secretbox.stampDetail` — listener discovered 8 field path(s) beyond declared schema
+- `secretbox.stampDetail` — listener discovered 9 field path(s) beyond declared schema
 - `sns.addReward` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `sns.getReward` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `stamp.stampInfo` — listener discovered 1 field path(s) beyond declared schema
@@ -235,36 +235,42 @@ Total endpoints: **358**
 - `subscenario.subscenarioStatus` — listener discovered 2 field path(s) beyond declared schema
 - `tos.tosAgree` — listener discovered 2 field path(s) beyond declared schema
 - `unit.accessoryAll` — 7 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `unit.activate` — listener discovered 4 field path(s) beyond declared schema
+- `unit.activate` — listener discovered 6 field path(s) beyond declared schema
 - `unit.changeDelegate` — listener discovered 6 field path(s) beyond declared schema
 - `unit.createAccessory` — listener discovered 3 field path(s) beyond declared schema
 - `unit.deckInfo` — 5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
 - `unit.exchangePointRankUp` — 13 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
-- `unit.favorite` — listener discovered 4 field path(s) beyond declared schema
-- `unit.maxLevelUp` — listener discovered 4 field path(s) beyond declared schema
+- `unit.favorite` — listener discovered 6 field path(s) beyond declared schema
+- `unit.favoriteAccessory` — listener discovered 6 field path(s) beyond declared schema
+- `unit.maxLevelUp` — listener discovered 5 field path(s) beyond declared schema
 - `unit.merge` — listener discovered 7 field path(s) beyond declared schema
 - `unit.mergeAccessory` — listener discovered 2 field path(s) beyond declared schema
 - `unit.rankUp` — listener discovered 5 field path(s) beyond declared schema
+- `unit.removableSkillEquipment` — listener discovered 3 field path(s) beyond declared schema
 - `unit.removableSkillInfo` — listener discovered 1 field path(s) beyond declared schema
 - `unit.removableSkillRankUp` — listener discovered 4 field path(s) beyond declared schema
+- `unit.removableSkillSell` — listener discovered 3 field path(s) beyond declared schema
 - `unit.sale` — listener discovered 5 field path(s) beyond declared schema
 - `unit.saleAccessory` — listener discovered 1 field path(s) beyond declared schema
 - `unit.supporterAll` — listener discovered 4 field path(s) beyond declared schema
 - `unit.unitAll` — 6 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)
+- `unit.wearAccessory` — listener discovered 5 field path(s) beyond declared schema
 - `user.addFriendMax` — listener discovered 1 field path(s) beyond declared schema
 - `user.addUnitMax` — listener discovered 1 field path(s) beyond declared schema
 - `user.changeName` — listener discovered 1 field path(s) beyond declared schema
 - `user.userInfo` — listener discovered 2 field path(s) beyond declared schema
 
-## `ui-only` (67 endpoints)
+## `ui-only` (63 endpoints)
 
-- `album.seriesAll` — 4 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `announce.checkState` — 3 keys via listener; 3 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `arena.matching` — 4 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `arena.moveUpStage` — 2 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
+- `battle.battleInfo` — 4 keys via listener; 4 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `class.competitionHallOfFame` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
+- `class.competitionLivePlay` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `class.competitionReady` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `class.competitionResult` — 3 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
+- `class.competitionSpectateLive` — 4 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `class.competitionStartWait` — 4 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `class.entryFinal` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `class.entrySemifinal` — 2 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
@@ -293,19 +299,17 @@ Total endpoints: **358**
 - `handover.kidDelete` — 4 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `handover.kidInfo` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `handover.kidStatus` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `live.continue` — 4 keys via listener; 3 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `live.gameover` — 3 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `live.publishPreciseScoreId` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `livese.liveseInfo` — 4 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `multiunit.scenarioStartup` — 4 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `navigation.specialCutin` — 4 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `online.deck` — 2 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
+- `online.exhibitionResult` — 3 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `online.info` — 4 keys via listener; 3 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
+- `online.playExhibition` — 4 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `payment.processLog` — 2 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `profile.profileInfo` — 2 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `profile.profileRegister` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `quest.gameover` — 4 keys via listener; 3 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `rlive.gameover` — 3 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `scenario.scenarioStatus` — 4 keys via listener; 10 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `scenario.startup` — 4 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `secretbox.knapsackReset` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
@@ -319,10 +323,6 @@ Total endpoints: **358**
 - `unit.accessoryMaterialAll` — 4 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `unit.accessoryTab` — 4 keys via listener; 2 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `unit.deckName` — 2 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `unit.favoriteAccessory` — 2 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `unit.removableSkillEquipment` — 3 keys via listener; 4 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `unit.removableSkillSell` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
-- `unit.wearAccessory` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `user.changeNavi` — 3 keys via listener; 1 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 - `user.getNavi` — 3 keys via listener; 4 UI file(s) reference fn_name — response likely unpacked in UI handler, not Cachable listener
 

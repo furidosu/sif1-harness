@@ -8,9 +8,9 @@ field-extraction pass) hits its ceiling.
 
 | Bucket | Count | What it means |
 |---|---:|---|
-| `harness-covered` | **243** | Listener fired, UI handler invoked, OR static extraction harvested ≥1 field path from a per-call success closure. Schema-correctable from harness output. |
+| `harness-covered` | **247** | Listener fired, UI handler invoked, OR static extraction harvested ≥1 field path from a per-call success closure (with optional helper-following one hop into same-file functions). Schema-correctable from harness output. |
 | `envelope-only` | **31** | Fire-and-forget acks (`cancel`, `leave`, `skip`, `set`, etc.). `extra="allow"` empty Pydantic stub is correct. |
-| `ui-only` | **67** | Static extraction found no anchor (no UI file references the cache_key / fn_name, or the file has no `function(arg) ... arg.response_data` pattern). Remaining residual after Approaches B + D. |
+| `ui-only` | **63** | Static extraction found no anchor (no UI file references the cache_key / fn_name, the file has no `function(arg) ... arg.response_data` pattern, or the destructure flows through patterns the extractor doesn't handle yet — multi-LHS assignments, cross-file helpers). Remaining residual after Approaches B + D. |
 | `needs-Frida` | **17** | Neither listener nor UI file references the cache_key/fn_name. State-dependent: matching queues, polling streams, handover token flow, KLab ID sync, download URL signing. |
 
 Each `harness-covered` field path carries a confidence label on
@@ -111,27 +111,44 @@ function(A0_3)                    -- the success_cb
 end
 ```
 
-Three precision passes keep noise low:
+Five precision passes keep noise low:
 
 1. **Anchor specificity** — only harvest from inner `function(<arg>) ... end`
    bodies where `<arg>.response_data` is read; co-mingled UI state on
    unrelated variables is ignored.
-2. **Corpus filter** — a field name appearing on >25% of all
-   m_* UI files is flagged as a UI-wide token (`appear`, `middle`, `ok`,
-   `is_open`) and dropped.
-3. **Listener verification** — re-fires the listener pass with the
-   harvested fields populated in the candidate response, then cross-
-   checks against the production listener observation. Fields touched
-   by a listener are tagged `static_extracted_verified` (high
-   confidence); others are `static_extracted_unverified` (still
-   source-grounded but listener doesn't reach the read site, which is
-   expected for ui-only endpoints by definition).
+2. **Single-pass taint with de-taint on reassign** — decompiled
+   bytecode reuses local names aggressively. Walking the body line-by-
+   line with a taint map that's CLEARED when the local is rebound to
+   an untainted RHS prevents bogus `foo.bar.baz` chains from sticking
+   to locals after they were overwritten with an unrelated value.
+3. **For-loop iteration taint** — `for K, V in pairs(tainted)` taints
+   the value var; element-index `.[N]` collapses in the merger so
+   `cached.unit_list.[1].id` and `cached.unit_list.id` end up at the
+   same path.
+4. **Helper-following one hop** — when the closure passes a tainted
+   local to a same-file function (with one hop of `<local> = <fn>`
+   aliasing to resolve decompiler-inserted indirections), recurse into
+   that helper's body using its first arg pre-tainted at the call-site
+   prefix. Cycle-break via `visited` set; depth-cap = 2.
+5. **Corpus filter** — a field name appearing on >25% of all m_* UI
+   files is flagged as a UI-wide token (`appear`, `middle`, `ok`,
+   `is_open`) and dropped. Also drops paths containing `response_data`
+   as a non-leading segment (artifact of recursing an envelope-shaped
+   helper against a subtree arg).
+
+Listener verification (orthogonal layer) re-fires the listener pass
+with the harvested fields populated in the candidate response and
+cross-checks against the production listener observation. Fields
+touched by a listener are tagged `static_extracted_verified` (high
+confidence); others are `static_extracted_unverified` (still
+source-grounded but listener doesn't reach the read site, which is
+expected for ui-only endpoints by definition).
 
 Measured lift:
 
-- **65 endpoints** moved from `ui-only` to `harness-covered`
-- **96 additional unique discovered field paths** surfaced in
-  `runtime_listener_observations.json`
+- **69 endpoints** moved from `ui-only` to `harness-covered` (132 → 63)
+- **112 additional unique discovered field paths** surfaced in
+  `runtime_listener_observations.json` (81 → 193)
 
 End-to-end pipeline still runs in ~20s (the static-extraction pass
 takes ~6s including corpus-frequency precompute).
@@ -177,7 +194,7 @@ docstring overstates its reach — kept for the rare case where a future
 endpoint's `on_success` does more than envelope plumbing, but not part
 of the production pipeline.
 
-## The 243 `harness-covered` endpoints — what we ship
+## The 247 `harness-covered` endpoints — what we ship
 
 These have either ≥1 discovered field path (a listener read of a field
 the schema didn't declare, OR a static-extraction harvest from a UI
@@ -228,21 +245,21 @@ $ python src/tools/merge_observations.py
 
 # Step 6: static field-extraction over UI source (Approach D)
 $ python src/tools/extract_ui_field_reads.py --bucket ui-only
-done: 63 endpoints with >=1 kept field, 45 with 0;
-      231 fields kept, 23 dropped by corpus filter,
-      40 verified by listener; ~4s
+done: 64 endpoints with >=1 kept field, 44 with 0;
+      263 fields kept, 54 dropped by corpus filter,
+      ~40 verified by listener; ~4s
 
 # Step 7: merge invoke_classes + static traces into observations
 $ python src/tools/merge_observations.py
-  endpoints with discoveries: 136
-  unique field paths: 177
+  endpoints with discoveries: 140
+  unique field paths: 193
 
 # Step 8: re-classify with merged data (full union of all three passes)
 $ python src/tools/classify_coverage.py
   envelope-only        31
-  harness-covered      243
+  harness-covered      247
   needs-Frida          17
-  ui-only              67
+  ui-only              63
 
 # Step 9: wire-compare vs NPPS4
 $ python integration/npps4/wire_compare.py --mode static-diff
