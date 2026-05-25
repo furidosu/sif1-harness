@@ -50,13 +50,16 @@ aggregate: harness
 	$(PY) src/tools/aggregate_listener_observations.py
 
 # Approach B: invoke ui-handler-class methods after pre-populating cache.
-# Requires classify (which writes coverage_classification.json — the
-# bucket info ui-classes reads to pick which endpoints to probe).
-# But classify also depends on aggregate. Order is: harness -> aggregate
-# -> classify (initial) -> ui-handlers (build map) -> ui-classes
-# -> merge -> classify (final).
+# Requires classify (the bucket info ui-classes reads to pick which
+# endpoints to probe). Order: harness -> aggregate -> classify --initial
+# (writes coverage_classification_initial.{json,md}) -> ui-handlers
+# (build map) -> ui-classes -> ui-static -> merge -> classify (writes
+# canonical coverage_classification.{json,md} from final observations).
+# Using a separate file for the pre-merge snapshot keeps the canonical
+# coverage_classification.json from being left in a stale post-aggregate
+# state when an intermediate target (ui-static, merge) is run alone.
 ui-handlers: aggregate
-	$(PY) src/tools/classify_coverage.py
+	$(PY) src/tools/classify_coverage.py --initial
 	$(PY) src/tools/find_ui_handlers.py
 
 ui-classes: ui-handlers
@@ -78,9 +81,13 @@ ui-static: ui-classes
 
 merge: ui-static
 	$(PY) src/tools/merge_observations.py
-
-classify: merge
 	$(PY) src/tools/classify_coverage.py
+
+# Alias for backward-compat / muscle memory. `merge` already runs the
+# final classify, so `make classify` and `make merge` are equivalent
+# entry points to "run the full pipeline through the final bucket
+# assignment".
+classify: merge
 
 priors:
 	NPPS4_SRC=$(NPPS4_SRC) DLAPI_SRC=$(DLAPI_SRC) \
@@ -122,6 +129,8 @@ clean:
 	         $(BUILD)/runtime_listener_summary.md \
 	         $(BUILD)/coverage_classification.json \
 	         $(BUILD)/coverage_classification.md \
+	         $(BUILD)/coverage_classification_initial.json \
+	         $(BUILD)/coverage_classification_initial.md \
 	         $(BUILD)/ui_handler_map.json \
 	         $(BUILD)/wire_compare_static.md; do \
 	  if [ -f "$$f" ]; then mv "$$f" "$$HOME/.Trash/$$(basename $$f).$$(date +%s)"; fi; \

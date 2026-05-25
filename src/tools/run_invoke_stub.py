@@ -30,7 +30,11 @@ HARNESS_DIR = ROOT / "src" / "harness"
 SOURCE_ROOT = ROOT / "assets" / "decompiled" / "all"
 MERGED_PATH = ROOT / "build" / "merged_endpoints.json"
 EXTRACTED_PATH = ROOT / "build" / "extracted_apis.json"
-COVERAGE_PATH = ROOT / "build" / "coverage_classification.json"
+# Use the pre-merge bucket assignment (see classify_coverage.py --initial).
+# This tool is a documented dead end (Approach C) but kept in tree; if
+# anyone reruns it, the bucket selection should match the other pre-merge
+# tools.
+COVERAGE_PATH = ROOT / "build" / "coverage_classification_initial.json"
 DEFAULT_TRACES_DIR = ROOT / "build" / "runtime" / "traces_stub"
 
 

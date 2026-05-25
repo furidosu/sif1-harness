@@ -11,10 +11,14 @@ USAGE
   # No infra required — uses build/npps4_priors.json + build/runtime_listener_observations.json
   uv run --no-project python integration/npps4/wire_compare.py --mode static-diff --out report.md
 
-  # Regression — compare current harness output vs committed snapshot
+  # Regression — compare current harness output vs committed snapshot.
+  # Pair --current-coverage with --current to also diff per-endpoint
+  # bucket assignments (catches drifts the observations file alone hides).
   uv run --no-project python integration/npps4/wire_compare.py --mode regression \
       --baseline build/runtime_listener_observations.json \
-      --current /tmp/fresh_observations.json --out regression.md
+      --current /tmp/fresh_observations.json \
+      --current-coverage /tmp/fresh_classification.json \
+      --out regression.md
 
   # Live-probe — gated on NPPS4 Docker stack (see PLAN Stage 3 gating). NOT
   # currently implemented; PLAN Stage 3 ships static-diff + regression only.
@@ -31,6 +35,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PRIORS_PATH = ROOT / "build" / "npps4_priors.json"
 OBS_PATH = ROOT / "build" / "runtime_listener_observations.json"
 MERGED_PATH = ROOT / "build" / "merged_endpoints.json"
+COVERAGE_PATH = ROOT / "build" / "coverage_classification.json"
 
 
 def load_json(path: Path) -> dict:
@@ -225,8 +230,21 @@ def static_diff_report(findings: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def regression(baseline_path: Path, current_path: Path) -> dict:
-    """Diff a previous observation snapshot vs a fresh harness run."""
+def regression(
+    baseline_path: Path,
+    current_path: Path,
+    baseline_coverage_path: Path | None = None,
+    current_coverage_path: Path | None = None,
+) -> dict:
+    """Diff a previous observation snapshot vs a fresh harness run.
+
+    Also diffs the bucket assignment in coverage_classification.json if
+    paths are provided. The classification depends on per-endpoint
+    `accessed_keys` lists that aren't fully captured in
+    `runtime_listener_observations.json`, so a clean observations diff
+    can still hide a real bucket drift (e.g. an endpoint moving
+    harness-covered → ui-only).
+    """
     base = load_json(baseline_path)
     curr = load_json(current_path)
     common = set(base) & set(curr)
@@ -242,10 +260,37 @@ def regression(baseline_path: Path, current_path: Path) -> dict:
                 "fields_lost": sorted(b - c),
                 "fields_gained": sorted(c - b),
             })
+
+    bucket_changes: list[dict] = []
+    bucket_totals_diff: dict[str, dict[str, int]] = {}
+    if baseline_coverage_path and current_coverage_path:
+        bcov = load_json(baseline_coverage_path)
+        ccov = load_json(current_coverage_path)
+        b_eps = bcov.get("endpoints") or {}
+        c_eps = ccov.get("endpoints") or {}
+        for ep in sorted(set(b_eps) & set(c_eps)):
+            bb = b_eps[ep].get("bucket")
+            cb = c_eps[ep].get("bucket")
+            if bb != cb:
+                bucket_changes.append({
+                    "endpoint": ep,
+                    "bucket_before": bb,
+                    "bucket_after": cb,
+                })
+        # Per-bucket totals (mostly for the summary line).
+        b_totals = bcov.get("by_bucket") or {}
+        c_totals = ccov.get("by_bucket") or {}
+        for b in sorted(set(b_totals) | set(c_totals)):
+            bt, ct = b_totals.get(b, 0), c_totals.get(b, 0)
+            if bt != ct:
+                bucket_totals_diff[b] = {"before": bt, "after": ct}
+
     return {
         "endpoints_only_in_baseline": only_base,
         "endpoints_only_in_current": only_curr,
         "changed_endpoints": changed,
+        "bucket_changes": bucket_changes,
+        "bucket_totals_diff": bucket_totals_diff,
     }
 
 
@@ -255,9 +300,23 @@ def regression_report(diff: dict) -> str:
     n_lost = len(diff["endpoints_only_in_baseline"])
     n_new = len(diff["endpoints_only_in_current"])
     n_chg = len(diff["changed_endpoints"])
+    n_bkt = len(diff.get("bucket_changes") or [])
     lines.append(f"- Endpoints lost since baseline: **{n_lost}**")
     lines.append(f"- New endpoints since baseline: **{n_new}**")
-    lines.append(f"- Endpoints with field-set change: **{n_chg}**\n")
+    lines.append(f"- Endpoints with field-set change: **{n_chg}**")
+    lines.append(f"- Endpoints with coverage-bucket change: **{n_bkt}**\n")
+    bucket_totals = diff.get("bucket_totals_diff") or {}
+    if bucket_totals:
+        lines.append("## Bucket totals\n")
+        lines.append("| Bucket | Before | After | Δ |")
+        lines.append("|---|---:|---:|---:|")
+        for b, vals in bucket_totals.items():
+            delta = vals["after"] - vals["before"]
+            sign = "+" if delta > 0 else ""
+            lines.append(
+                f"| `{b}` | {vals['before']} | {vals['after']} | {sign}{delta} |"
+            )
+        lines.append("")
     if diff["endpoints_only_in_baseline"]:
         lines.append("## Lost endpoints\n")
         for ep in diff["endpoints_only_in_baseline"]:
@@ -277,6 +336,14 @@ def regression_report(diff: dict) -> str:
                 lines.append("- Gained: " + ", ".join(
                     f"`{x}`" for x in c["fields_gained"]))
             lines.append("")
+    if diff.get("bucket_changes"):
+        lines.append("## Endpoints with coverage-bucket change\n")
+        for b in diff["bucket_changes"]:
+            lines.append(
+                f"- `{b['endpoint']}`: `{b['bucket_before']}` → "
+                f"`{b['bucket_after']}`"
+            )
+        lines.append("")
     return "\n".join(lines) + "\n"
 
 
@@ -290,12 +357,25 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--out", type=Path, default=Path("report.md"))
     ap.add_argument(
         "--baseline", type=Path,
-        help="(regression mode) committed snapshot path",
+        help="(regression mode) committed observations snapshot path",
         default=OBS_PATH,
     )
     ap.add_argument(
         "--current", type=Path,
-        help="(regression mode) fresh harness output path",
+        help="(regression mode) fresh harness observations output path",
+    )
+    ap.add_argument(
+        "--baseline-coverage", type=Path,
+        help=(
+            "(regression mode) committed coverage_classification.json. "
+            "If both baseline and current coverage are provided, the "
+            "report also diffs per-endpoint bucket assignments."
+        ),
+        default=COVERAGE_PATH,
+    )
+    ap.add_argument(
+        "--current-coverage", type=Path,
+        help="(regression mode) fresh coverage_classification.json",
     )
     args = ap.parse_args(argv)
 
@@ -311,12 +391,19 @@ def main(argv: list[str] | None = None) -> int:
     if args.mode == "regression":
         if not args.current:
             ap.error("--current required for regression mode")
-        diff = regression(args.baseline, args.current)
+        # Coverage diff is opt-in: only compute it when the caller passes
+        # --current-coverage. If they pass neither, we silently skip the
+        # bucket-diff block; if they pass only --current-coverage, we
+        # pair it with the default --baseline-coverage.
+        bcov = args.baseline_coverage if args.current_coverage else None
+        ccov = args.current_coverage
+        diff = regression(args.baseline, args.current, bcov, ccov)
         args.out.write_text(regression_report(diff))
         n = (
             len(diff["endpoints_only_in_baseline"])
             + len(diff["endpoints_only_in_current"])
             + len(diff["changed_endpoints"])
+            + len(diff.get("bucket_changes") or [])
         )
         print(f"wrote {args.out} ({n} differences)")
         return 0 if n == 0 else 1  # non-zero exit = regression detected

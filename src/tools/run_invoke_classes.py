@@ -27,7 +27,10 @@ HARNESS_DIR = ROOT / "src" / "harness"
 SOURCE_ROOT = ROOT / "assets" / "decompiled" / "all"
 MERGED_PATH = ROOT / "build" / "merged_endpoints.json"
 EXTRACTED_PATH = ROOT / "build" / "extracted_apis.json"
-COVERAGE_PATH = ROOT / "build" / "coverage_classification.json"
+# Use the pre-merge bucket assignment — invoke_classes runs before merge,
+# so reading the canonical post-merge coverage file would shrink the
+# probe set spuriously. See classify_coverage.py --initial.
+COVERAGE_PATH = ROOT / "build" / "coverage_classification_initial.json"
 PROMOTED_PATH = ROOT / "build" / "response_types_promoted.json"
 SYNTHESIZED_PATH = ROOT / "build" / "synthesized_types.json"
 UI_HANDLER_MAP = ROOT / "build" / "ui_handler_map.json"

@@ -404,10 +404,10 @@
       "discovered_field_count": 0,
       "fn_name": "battleInfo",
       "ui_handler_files": [
-        "m_event/event.lua",
         "common/event_cache.lua",
+        "common/model/battle/battle.lua",
         "common/model/battle/battle_info.lua",
-        "common/model/battle/battle.lua"
+        "m_event/event.lua"
       ]
     },
     "battle.endRoom": {
@@ -676,8 +676,8 @@
       "discovered_field_count": 0,
       "fn_name": "classCompetitionResult",
       "ui_handler_files": [
-        "m_class/model/competition_result.lua",
-        "m_class/model/competition_final.lua"
+        "m_class/model/competition_final.lua",
+        "m_class/model/competition_result.lua"
       ]
     },
     "class.competitionSpectateLive": {
@@ -1482,16 +1482,16 @@
       "discovered_field_count": 0,
       "fn_name": "eventscenarioStatus",
       "ui_handler_files": [
+        "common/event_scenario_helper.lua",
+        "common/model/badge_model.lua",
+        "common/polling.lua",
+        "m_achievement/result_manager.lua",
+        "m_boot/initialize.lua",
+        "m_location/model/location.lua",
+        "m_scenario_menu/model/scenario_menu.lua",
         "m_scenario_menu/start.lua",
         "m_sns/model/sns.lua",
-        "m_scenario_menu/model/scenario_menu.lua",
-        "common/polling.lua",
-        "common/event_scenario_helper.lua",
-        "m_achievement/result_manager.lua",
-        "m_location/model/location.lua",
-        "m_boot/initialize.lua",
-        "m_top/view.lua",
-        "common/model/badge_model.lua"
+        "m_top/view.lua"
       ]
     },
     "exchange.itemInfo": {
@@ -1511,8 +1511,8 @@
       "discovered_field_count": 0,
       "fn_name": "exchangeOwningPoint",
       "ui_handler_files": [
-        "common/polling.lua",
-        "common/model/exchange_point.lua"
+        "common/model/exchange_point.lua",
+        "common/polling.lua"
       ]
     },
     "exchange.usePoint": {
@@ -2080,8 +2080,8 @@
       "discovered_field_count": 0,
       "fn_name": "liveseInfo",
       "ui_handler_files": [
-        "common/polling.lua",
-        "common/model/live/live_se.lua"
+        "common/model/live/live_se.lua",
+        "common/polling.lua"
       ]
     },
     "login.login": {
@@ -2193,8 +2193,8 @@
       "discovered_field_count": 0,
       "fn_name": "navigationSpecialCutin",
       "ui_handler_files": [
-        "common/polling.lua",
-        "common/model/navi/special_cutin.lua"
+        "common/model/navi/special_cutin.lua",
+        "common/polling.lua"
       ]
     },
     "notice.noticeFriendGreeting": {
@@ -2250,8 +2250,8 @@
       "discovered_field_count": 0,
       "fn_name": "onlineExhibitionResult",
       "ui_handler_files": [
-        "m_online/model/exhibition.lua",
-        "common/svext/online.lua"
+        "common/svext/online.lua",
+        "m_online/model/exhibition.lua"
       ]
     },
     "online.info": {
@@ -2262,9 +2262,9 @@
       "discovered_field_count": 0,
       "fn_name": "onlineInfo",
       "ui_handler_files": [
-        "m_top/banner.lua",
         "m_boot/initialize.lua",
-        "m_online/online.lua"
+        "m_online/online.lua",
+        "m_top/banner.lua"
       ]
     },
     "online.play": {
@@ -2468,8 +2468,8 @@
       "discovered_field_count": 0,
       "fn_name": "profileUser",
       "ui_handler_files": [
-        "m_player_profile/view_tab.lua",
-        "m_player_profile/user.lua"
+        "m_player_profile/user.lua",
+        "m_player_profile/view_tab.lua"
       ]
     },
     "profile.profileRegister": {
@@ -2500,9 +2500,9 @@
       "discovered_field_count": 0,
       "fn_name": "questGameover",
       "ui_handler_files": [
-        "m_quest/model/main_live.lua",
+        "common/svext/quest.lua",
         "m_quest/model/free_live.lua",
-        "common/svext/quest.lua"
+        "m_quest/model/main_live.lua"
       ]
     },
     "quest.itemInfo": {
@@ -2783,16 +2783,16 @@
       "discovered_field_count": 0,
       "fn_name": "scenarioStatus",
       "ui_handler_files": [
-        "m_hint/start.lua",
-        "m_location/model/location.lua",
+        "common/error.lua",
+        "common/event_scenario_helper.lua",
+        "common/model/badge_model.lua",
+        "common/model/scenario.lua",
         "common/navi.lua",
         "common/polling.lua",
-        "common/event_scenario_helper.lua",
-        "m_scenario_menu/model/scenario_menu.lua",
+        "m_hint/start.lua",
+        "m_location/model/location.lua",
         "m_scenario/scenario_model.lua",
-        "common/error.lua",
-        "common/model/scenario.lua",
-        "common/model/badge_model.lua"
+        "m_scenario_menu/model/scenario_menu.lua"
       ]
     },
     "scenario.startup": {
@@ -3027,8 +3027,8 @@
       "discovered_field_count": 0,
       "fn_name": "unitAccessoryMaterialAll",
       "ui_handler_files": [
-        "m_unit/unit_menu_stage.lua",
-        "common/model/accessory.lua"
+        "common/model/accessory.lua",
+        "m_unit/unit_menu_stage.lua"
       ]
     },
     "unit.accessoryTab": {
@@ -3039,8 +3039,8 @@
       "discovered_field_count": 0,
       "fn_name": "unitAccessoryTab",
       "ui_handler_files": [
-        "m_unit/unit_menu_stage.lua",
-        "common/model/accessory.lua"
+        "common/model/accessory.lua",
+        "m_unit/unit_menu_stage.lua"
       ]
     },
     "unit.activate": {

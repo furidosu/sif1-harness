@@ -21,7 +21,13 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE_ROOT = ROOT / "assets" / "decompiled" / "all"
 EXTRACTED_PATH = ROOT / "build" / "extracted_apis.json"
 MERGED_PATH = ROOT / "build" / "merged_endpoints.json"
-COVERAGE_PATH = ROOT / "build" / "coverage_classification.json"
+# Read the pre-merge bucket assignment: invoke_classes / static extraction
+# need to target endpoints that are still ui-only after the notifyUpdate
+# pass alone. The canonical coverage_classification.json reflects the
+# POST-merge state, by which point many of those endpoints have already
+# been lifted to harness-covered — so reading it would shrink the probe
+# set on every iteration after the first.
+COVERAGE_PATH = ROOT / "build" / "coverage_classification_initial.json"
 OUT = ROOT / "build" / "ui_handler_map.json"
 
 DEFINE_RE = re.compile(r'define\s*\(\s*"([^"]+)"', re.MULTILINE)
@@ -74,6 +80,9 @@ def candidate_files_for(action: str, fn_name: str,
         if not (rel.startswith("m_") or rel.startswith("common/")):
             continue
         files.append(rel)
+    # Stable order across machines: rg's emit order depends on filesystem
+    # directory-entry order (macOS HFS+ insertion, ext4 hashed, etc.).
+    files.sort()
     return files
 
 

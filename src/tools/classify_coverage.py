@@ -17,6 +17,7 @@ prioritized list, not "everything we haven't done".
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 from pathlib import Path
@@ -28,8 +29,18 @@ OBS_PATH = ROOT / "build" / "runtime_listener_observations.json"
 MERGED_PATH = ROOT / "build" / "merged_endpoints.json"
 EXTRACTED_PATH = ROOT / "build" / "extracted_apis.json"
 SOURCE_ROOT = ROOT / "assets" / "decompiled" / "all"
+# Final bucket assignment, written after merge has produced the union
+# observations. This is the file regression-mode + find_ui_handlers' UI
+# consumers should treat as canonical.
 OUT_JSON = ROOT / "build" / "coverage_classification.json"
 OUT_MD = ROOT / "build" / "coverage_classification.md"
+# Pre-merge bucket assignment used by find_ui_handlers.py to pick which
+# endpoints are still ui-only and therefore worth probing via
+# invoke_classes / static extraction. Writing this to its own file keeps
+# the canonical coverage_classification.json from being clobbered with
+# a stale intermediate state. See --initial flag.
+INITIAL_OUT_JSON = ROOT / "build" / "coverage_classification_initial.json"
+INITIAL_OUT_MD = ROOT / "build" / "coverage_classification_initial.md"
 
 # Heuristic: action names matching these prefixes are typically fire-and-forget
 # acks that legitimately have no response body of interest. PLAN Priors §1
@@ -88,6 +99,11 @@ def grep_uihandler_callers(
         if "/svapi/" in rel:
             continue
         candidates.append(rel)
+    # rg's output order depends on the filesystem's directory entry order
+    # (macOS HFS+ is insertion-ordered, ext4 is hash-ordered, etc.), so
+    # sort to keep the committed coverage_classification.json byte-stable
+    # across runs and machines.
+    candidates.sort()
     return candidates
 
 
@@ -161,6 +177,21 @@ def classify_one(
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument(
+        "--initial",
+        action="store_true",
+        help=(
+            "Write to build/coverage_classification_initial.{json,md} "
+            "instead of the canonical paths. Used by the ui-handlers "
+            "make step so the canonical file isn't overwritten with a "
+            "pre-merge snapshot."
+        ),
+    )
+    args = ap.parse_args()
+    out_json = INITIAL_OUT_JSON if args.initial else OUT_JSON
+    out_md = INITIAL_OUT_MD if args.initial else OUT_MD
+
     if not TRACES_DIR.exists():
         raise SystemExit(f"missing traces dir: {TRACES_DIR}")
     with OBS_PATH.open() as f:
@@ -222,8 +253,8 @@ def main() -> int:
         "by_bucket": {b: len(v) for b, v in sorted(by_bucket.items())},
         "endpoints": classifications,
     }
-    OUT_JSON.write_text(json.dumps(summary, indent=2, sort_keys=False))
-    print(f"wrote {OUT_JSON.relative_to(ROOT)}")
+    out_json.write_text(json.dumps(summary, indent=2, sort_keys=False))
+    print(f"wrote {out_json.relative_to(ROOT)}")
 
     md: list[str] = []
     md.append("# Per-endpoint coverage classification\n")
@@ -248,8 +279,8 @@ def main() -> int:
         for ep in sorted(eps):
             c = classifications[ep]
             md.append(f"- `{ep}` — {c['rationale']}")
-    OUT_MD.write_text("\n".join(md) + "\n")
-    print(f"wrote {OUT_MD.relative_to(ROOT)}")
+    out_md.write_text("\n".join(md) + "\n")
+    print(f"wrote {out_md.relative_to(ROOT)}")
 
     print("\nBucket totals:")
     for b, count in summary["by_bucket"].items():

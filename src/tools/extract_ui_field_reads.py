@@ -52,7 +52,10 @@ HARNESS_DIR = ROOT / "src" / "harness"
 SOURCE_ROOT = ROOT / "assets" / "decompiled" / "all"
 MERGED_PATH = ROOT / "build" / "merged_endpoints.json"
 EXTRACTED_PATH = ROOT / "build" / "extracted_apis.json"
-COVERAGE_PATH = ROOT / "build" / "coverage_classification.json"
+# Use the pre-merge bucket assignment — static extraction runs before
+# merge, so reading the canonical post-merge coverage file would shrink
+# the probe set spuriously. See classify_coverage.py --initial.
+COVERAGE_PATH = ROOT / "build" / "coverage_classification_initial.json"
 DEFAULT_TRACES_DIR = ROOT / "build" / "runtime" / "traces_static"
 
 # Field name appearing on > this fraction of UI files is treated as a
