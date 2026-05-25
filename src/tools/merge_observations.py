@@ -21,12 +21,6 @@ CLASSES_DIR = ROOT / "build" / "runtime" / "traces_classes"
 # The static_only fields stay in the traces_static/<ep>.json files for
 # manual review but don't ship as wire-compare findings.
 STATIC_DIR = ROOT / "build" / "runtime" / "traces_static"
-# Cache-consumer extraction traces from extract_cache_consumer_reads.py.
-# Harvested from model files that read `Cachable.get(cache_key).<field>`
-# — the cache value's shape mirrors the response. Same trust level as
-# traces_static: source-grounded but not (yet) listener-verified, so
-# unioned into accessed_keys as candidate field reads.
-CACHE_CONSUMER_DIR = ROOT / "build" / "runtime" / "traces_cache_consumer"
 PROMOTED_PATH = ROOT / "build" / "response_types_promoted.json"
 SYNTHESIZED_PATH = ROOT / "build" / "synthesized_types.json"
 OBS_PATH = ROOT / "build" / "runtime_listener_observations.json"
@@ -145,18 +139,6 @@ def main() -> int:
             static_verified_by_ep[ep] = verified
             static_unverified_by_ep[ep] = extracted - verified
 
-    # Cache-consumer extraction: same union semantics as STATIC_DIR. These
-    # traces don't carry a listener-verification signal (the cache reads
-    # they harvest are post-Cachable.set, not inside the listener body),
-    # so every harvested path lands in static_unverified_by_ep.
-    if CACHE_CONSUMER_DIR.exists():
-        for fp in sorted(CACHE_CONSUMER_DIR.glob("*.json")):
-            ep = fp.stem
-            with fp.open() as f:
-                trace = json.load(f)
-            extracted = set(trace.get("accessed_keys") or [])
-            accessed_by_ep.setdefault(ep, set()).update(extracted)
-            static_unverified_by_ep.setdefault(ep, set()).update(extracted)
 
     # Recompute discovered fields per endpoint.
     out: dict[str, dict] = {}

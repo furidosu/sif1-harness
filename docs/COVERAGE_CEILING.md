@@ -4,13 +4,13 @@ Empirical analysis of the 358 endpoint surface and where the harness
 (notifyUpdate pass + invoke_classes UI-handler pass + two static
 field-extraction passes) hits its ceiling.
 
-## Summary (after Approach D2 `extract_cache_consumer_reads` lift)
+## Summary (after Approach D2 unified into extract_ui_field_reads with wrapper-following)
 
 | Bucket | Count | What it means |
 |---|---:|---|
-| `harness-covered` | **261** | Listener fired, UI handler invoked, OR static extraction harvested ≥1 field path from one of: (a) a per-call success closure, (b) a registered `Cachable.addListener` body, or (c) a model file that pulls `Cachable.get(cache_key)` and destructures the cache value. Schema-correctable from harness output. |
-| `envelope-only` | **31** | Fire-and-forget acks (`cancel`, `leave`, `skip`, `set`, etc.). `extra="allow"` empty Pydantic stub is correct. |
-| `ui-only` | **49** | Static extraction found no anchor (no UI file references the cache_key / fn_name, the file has no `function(arg) ... arg.response_data` pattern, no `Cachable.addListener("$key", fn)` listener body that destructures, AND no `Cachable.get(cache_key)` consumer body — or the destructure flows through patterns the extractor doesn't handle yet, like wrapper functions one indirection deep, multi-LHS assignments, cross-file helpers). Remaining residual after Approaches B + D + D2. |
+| `harness-covered` | **266** | Listener fired, UI handler invoked, OR static extraction harvested ≥1 field path from one of: (a) a per-call success closure, (b) a registered `Cachable.addListener` body, or (c) a model file that pulls `Cachable.get(cache_key)` and destructures the cache value — directly OR through a wrapper function classified as cache-returning via fixpoint analysis. Schema-correctable from harness output. |
+| `envelope-only` | **31** | Fire-and-forget acks (`cancel`, `leave`, `skip`, `set`, etc.). `extra="allow"` empty Pydantic stub is correct. The cache-consumer pass runs against these endpoints but finds no Cachable.get(cache_key) calls, confirming the empty-response classification. |
+| `ui-only` | **44** | Static extraction found no anchor (no UI file references the cache_key / fn_name, the file has no `function(arg) ... arg.response_data` pattern, no `Cachable.addListener("$key", fn)` listener body that destructures, AND no `Cachable.get(cache_key)` consumer body — including through known cache-returning wrappers — or the destructure flows through patterns the extractor doesn't handle yet, like multi-LHS assignments, cross-file helpers). Remaining residual after Approaches B + D + D2. |
 | `needs-Frida` | **17** | Neither listener nor UI file references the cache_key/fn_name. State-dependent: matching queues, polling streams, handover token flow, KLab ID sync, download URL signing. |
 
 Each `harness-covered` field path carries a confidence label on
@@ -257,23 +257,19 @@ done: ~75 endpoints with >=1 kept field, ~35 with 0;
       ~330 fields kept, ~55 dropped by corpus filter,
       ~50 verified by listener; ~4s
 
-# Step 7: static field-extraction over Cachable.get consumers (Approach D2)
-$ python src/tools/extract_cache_consumer_reads.py
-done: ~52 endpoints with >=1 harvested field; ~195 field paths total; ~2s
-
-# Step 8: merge all trace dirs (notifyUpdate + invoke_classes + static + cache-consumer)
+# Step 7: merge all trace dirs (notifyUpdate + invoke_classes + static-with-D2)
 $ python src/tools/merge_observations.py
-  endpoints with discoveries: 166
-  unique field paths: 356
+  endpoints with discoveries: 232
+  unique field paths: 949
 
-# Step 9: re-classify with merged data (full union of all four passes)
+# Step 8: re-classify with merged data (full union of all four passes)
 $ python src/tools/classify_coverage.py
   envelope-only        31
-  harness-covered      261
+  harness-covered      266
   needs-Frida          17
-  ui-only              49
+  ui-only              44
 
-# Step 10: wire-compare vs NPPS4
+# Step 9: wire-compare vs NPPS4
 $ python integration/npps4/wire_compare.py --mode static-diff
 wrote build/wire_compare_static.md
 ```

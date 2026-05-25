@@ -130,6 +130,89 @@ BARE_ASSIGN_RE = re.compile(r"^\s*(\w+)\s*=\s*(.+?)\s*$")
 # same path.
 FOR_ITER_RE = re.compile(r"\bfor\s+(\w+)\s*(?:,\s*(\w+))?\s+in\s+(.+?)\s+do\b")
 
+# Cache-consumer (Anchor 3) module-level patterns. Decompiled bytecode
+# spreads the binding chain across multiple lines:
+#
+#   L0_1 = import
+#   L1_1 = "Cachable"
+#   L0_1 = L0_1(L1_1)              -- L0_1 now == Cachable module
+#   ...
+#   L6_1.cache_key = "$exchangeOwningPoint"
+#   ...
+#   L2_2 = L0_1.get                -- bind .get method off Cachable
+#   L3_2 = L6_1.cache_key           -- arg via field-of-object, OR a
+#   L2_2 = L2_2(L3_2)              --   "$key" string literal inline
+#
+# We pre-detect the cachable_locals (L0_1 here) and cache_key_objs (L6_1
+# here) per-file so the harvest pass can recognize the call site without
+# re-parsing the whole module.
+CACHABLE_IMPORT_LINE_RE = re.compile(r'^(L\d+_\d+)\s*=\s*import\s*$')
+STR_ASSIGN_LINE_RE = re.compile(r'^(L\d+_\d+)\s*=\s*"([^"]+)"\s*$')
+CALL_REASSIGN_LINE_RE = re.compile(
+    r'^(L\d+_\d+)\s*=\s*(L\d+_\d+)\((L\d+_\d+)\)\s*$'
+)
+TABLE_FIELD_LITERAL_RE = re.compile(
+    r'^([A-Z]\d+_\d+)\.([a-z_][a-z0-9_]*)\s*=\s*"([^"]+)"\s*$'
+)
+# `L = X.get` -- binds .get method off an arbitrary local. The harvest
+# uses this together with `cachable_locals` (which X must be in) to
+# recognize a Cachable.get binding.
+GET_BIND_LINE_RE = re.compile(r'^(L\d+_\d+)\s*=\s*(L\d+_\d+)\.get\s*$')
+# Same-line return capture: `return <local>` or just `return`. The
+# stripped-noise body lets us match on this loosely.
+RETURN_LOCAL_RE = re.compile(r'^\s*return\s+(\w+)\s*$')
+
+
+def find_cachable_locals(text: str) -> set[str]:
+    """Return locals (e.g. {"L0_1"}) bound to the Cachable module in this file.
+
+    Detects the three-line pattern:
+        L<X> = import
+        L<Y> = "Cachable"
+        L<X> = L<X>(L<Y>)
+    where the first and third lines bind the same local X. Multiple
+    Cachable bindings per file are rare but supported.
+    """
+    cachable: set[str] = set()
+    import_bound: set[str] = set()
+    string_assigns: dict[str, str] = {}
+    for raw in text.splitlines():
+        s = raw.strip()
+        m_imp = CACHABLE_IMPORT_LINE_RE.match(s)
+        if m_imp:
+            import_bound.add(m_imp.group(1))
+            continue
+        m_str = STR_ASSIGN_LINE_RE.match(s)
+        if m_str:
+            string_assigns[m_str.group(1)] = m_str.group(2)
+            continue
+        m_call = CALL_REASSIGN_LINE_RE.match(s)
+        if m_call:
+            lhs, callee, arg = m_call.group(1), m_call.group(2), m_call.group(3)
+            if (lhs == callee and callee in import_bound
+                    and string_assigns.get(arg) == "Cachable"):
+                cachable.add(lhs)
+    return cachable
+
+
+def find_cache_key_objs(text: str, cache_key: str) -> set[str]:
+    """Return locals (e.g. {"L6_1"}) whose `.cache_key` field equals cache_key.
+
+    Pattern at module scope:
+        L6_1 = {}
+        L6_1.cache_key = "$exchangeOwningPoint"
+
+    Returns an empty set if cache_key is empty/None.
+    """
+    if not cache_key:
+        return set()
+    objs: set[str] = set()
+    for raw in text.splitlines():
+        m = TABLE_FIELD_LITERAL_RE.match(raw.strip())
+        if m and m.group(2) == "cache_key" and m.group(3) == cache_key:
+            objs.add(m.group(1))
+    return objs
+
 
 def strip_noise(line: str) -> str:
     line = STRING_RE.sub('""', line)
@@ -137,12 +220,18 @@ def strip_noise(line: str) -> str:
     return line
 
 
-def find_function_bodies(text: str):
+def find_function_bodies(text: str, require_arg: bool = True):
     """Yield (name_or_none, first_arg, body_start_line, body_end_line, lines_slice).
 
     body_end_line is INCLUSIVE -- the line containing the matching `end`.
     Nested functions yield their own (start, end) ranges; the outer one
     still spans the whole block (nesting is via the balance counter).
+
+    `require_arg`: when True (default, kept for backward compat with the
+    closure/listener anchors), skip argless functions like `function foo()`
+    — they have no taint anchor. When False (used by Pass 3 cache-consumer),
+    yield them too with first_arg="" so the harvest can seed taint
+    internally via Cachable.get / cache-returning-callee patterns.
     """
     lines = text.splitlines()
     n = len(lines)
@@ -161,11 +250,15 @@ def find_function_bodies(text: str):
         if not name and local_assign_m:
             name = local_assign_m.group(1)
         args = m.group(2).strip()
-        if not args:
-            continue
-        first_arg = args.split(",")[0].strip()
-        if not first_arg or not re.match(r"^\w+$", first_arg):
-            continue
+        first_arg = args.split(",")[0].strip() if args else ""
+        if require_arg:
+            if not first_arg or not re.match(r"^\w+$", first_arg):
+                continue
+        else:
+            # Pass 3 mode: accept argless bodies; validate first_arg shape
+            # only if non-empty (an argless function gets first_arg="").
+            if first_arg and not re.match(r"^\w+$", first_arg):
+                continue
         depth = 1
         tail = stripped[i][m.end():]
         depth += len(OPEN_RE.findall(tail))
@@ -195,9 +288,16 @@ def build_named_function_index(text: str) -> dict[str, list[tuple[str, list[str]
     pick the definition that was current at a particular point in source
     order -- e.g. `M.initialize = L10_1 @ line 284` captured whichever
     L10_1 body was most-recently defined BEFORE line 284.
+
+    Indexes BOTH argful and argless bodies (require_arg=False): the
+    cache-returning fixpoint needs to see wrapper functions like
+    `function getCache() return Cachable.get(key) end`, which have no
+    args. For argless bodies first_arg is "".
     """
     out: dict[str, list[tuple[str, list[str], int]]] = {}
-    for name, first_arg, start, _end, body in find_function_bodies(text):
+    for name, first_arg, start, _end, body in find_function_bodies(
+        text, require_arg=False
+    ):
         if name:
             out.setdefault(name, []).append((first_arg, body, start))
     return out
@@ -349,47 +449,113 @@ LOCAL_COPY_ASSIGN_RE = re.compile(r"^\s*(?:local\s+)?(\w+)\s*=\s*(\w+)\s*$")
 # taint after locals are reused (very common in decompiled bytecode).
 ANY_ASSIGN_RE = re.compile(r"^\s*(?:local\s+)?(\w+)\s*=")
 
+# Cache-consumer (Anchor 3) per-line patterns. Together they let
+# harvest_one_function recognize a `Cachable.get(cache_key)` call site
+# even though the decompiler hoists every step onto its own line:
+#
+#   L<lhs> = L<cachable>.get        -- bind .get method, GET_BIND_INLINE_RE
+#   L<arg> = "$cacheKey"            -- arg via inline literal
+#   ... OR ...
+#   L<arg> = L<obj>.cache_key       -- arg via .cache_key field
+#   L<lhs> = L<get_fn>(L<arg>)     -- the call, CALL_SINGLE_INLINE_RE
+#
+# Plus the multi-LHS form the decompiler emits for multi-return calls:
+#   L<lhs>, L<lhs2>, ... = L<callee>(<args>)
+GET_BIND_INLINE_RE = re.compile(
+    r"^\s*(?:local\s+)?(\w+)\s*=\s*(\w+)\.get\s*$"
+)
+CALL_SINGLE_INLINE_RE = re.compile(
+    r"^\s*(?:local\s+)?(\w+)\s*=\s*(\w+)\(([^)]*)\)\s*$"
+)
+MULTI_LHS_CALL_RE = re.compile(
+    r"^\s*(?:local\s+)?(\w+)(?:\s*,\s*\w+)+\s*=\s*(\w+)\(([^)]*)\)\s*$"
+)
+
 
 def harvest_one_function(
-    arg_name: str,
+    arg_name: str | None,
     body: list[str],
     *,
     file_fn_index: dict[str, tuple[str, list[str]]] | None = None,
     base_prefix: str | None = None,
     visited: set[str] | None = None,
     max_depth: int = 2,
-) -> set[str]:
+    cache_key: str | None = None,
+    cachable_locals: set[str] | None = None,
+    cache_key_objs: set[str] | None = None,
+    cache_returning_idents: dict[str, str] | None = None,
+    track_return: bool = False,
+) -> tuple[set[str], str | None]:
     """Harvest response_data-relative field paths from a function body.
 
-    Top-level invocation: base_prefix=None (the closure receives the
-    envelope; the entry point is `<arg>.response_data[.<field>]`).
+    THREE INVOCATION MODES, distinguished by base_prefix and arg_name:
 
-    Recursive invocation (helper-following): base_prefix=str. The
-    closure passed a tainted local to a helper; that helper's first arg
-    represents the subtree at `response_data.<base_prefix>`. Reads of
-    `<arg>.<field>` map to `response_data.<base_prefix>.<field>`.
+    1. ENVELOPE (base_prefix=None, arg_name=str): the closure receives
+       the wire envelope; the entry point is `<arg>.response_data.<field>`.
+    2. SUBTREE (base_prefix=str, arg_name=str): helper invocation. The
+       caller passed a tainted local; this body's `<arg>` represents
+       the subtree at `response_data.<base_prefix>`.
+    3. CACHE-CONSUMER (arg_name=None or unused): no anchor arg. Taint
+       seeds INTERNALLY when the body has `lhs = Cachable.get(cache_key)`
+       or `lhs = <cache_returning_callee>(...)`. The cache value is
+       semantically equivalent to `response_data`, so seeds taint at
+       prefix "" (cache root).
 
-    Single-pass design: walk the body in source order, maintaining a
+    Single-pass walk over the body in source order, maintaining a
     `taint` map (local_name -> response_data subpath). At each line we
     (a) harvest field reads against the CURRENT taint, then (b) update
-    the taint based on assignments. Decompiled bytecode reuses local
-    names heavily, so a reassignment to an untainted RHS must
-    DE-TAINT the lhs -- otherwise every subsequent `<lhs>.<field>` is
-    wrongly attributed to the response subtree the local previously
-    held.
+    taint based on assignments. Decompiled bytecode reuses local names
+    heavily, so reassignment to an untainted RHS must DE-TAINT the lhs.
+
+    cache_key + cachable_locals + cache_key_objs enable inline Cachable.get
+    seeding (mode 3). cache_returning_idents enables "this callee returns
+    a tainted value" propagation — call sites taint their lhs.
+
+    If track_return is True, also returns the return-taint prefix iff the
+    body's `return <local>` references a tainted local. Used by the
+    fixpoint that classifies cache-returning functions.
+
+    Returns (fields, return_taint_or_None).
     """
     if visited is None:
         visited = set()
+    if cachable_locals is None:
+        cachable_locals = set()
+    if cache_key_objs is None:
+        cache_key_objs = set()
+    if cache_returning_idents is None:
+        cache_returning_idents = {}
     fields: set[str] = set()
 
     # Initial taint. In subtree mode, arg itself is tainted at base_prefix.
     # In envelope mode, no taint until we see `<arg>.response_data` capture.
+    # In cache-consumer mode, no initial taint — seeded by internal call sites.
+    #
+    # arg_name="" is special: it can mean (a) Pass 3 cache-consumer mode
+    # (intentional — no anchor arg) or (b) Pass 2 picked an argless
+    # listener-body (the decompiler bound the same name to multiple bodies,
+    # and pick_body_at_line returned an argless wrapper that's actually
+    # for a DIFFERENT cache_key, not this endpoint's). Case (b) is
+    # over-collection but historically catches adjacent fields in shared
+    # listener-registration files like m_boot/initialize.lua, so we
+    # preserve it: `taint[""] = ""` makes the harvest regex match every
+    # `.<field>` access in the body. The corpus filter downstream catches
+    # the worst noise. To disable this leniency entirely (e.g. for a
+    # strict Pass 3 invocation), pass base_prefix=None alongside arg_name="".
     taint: dict[str, str] = {}
-    if base_prefix is not None:
+    if base_prefix is not None and arg_name is not None:
         taint[arg_name] = base_prefix
 
-    # Envelope-mode anchors -- only used when base_prefix is None.
-    if base_prefix is None:
+    # Locals currently bound to the Cachable.get method ref (mode 3).
+    get_fns: set[str] = set()
+    # Return-taint tracker (mode 3 fixpoint).
+    return_taint: str | None = None
+
+    # Envelope-mode anchors -- only used when base_prefix is None AND we
+    # have a concrete arg_name to anchor on. Pass 3 (cache-consumer) calls
+    # us with arg_name="" because the function has no params; that's
+    # fine — taint seeds via internal Cachable.get patterns instead.
+    if base_prefix is None and arg_name:
         rd_field_re = re.compile(
             rf"\b{re.escape(arg_name)}\.response_data\.([a-z_][a-z0-9_]*)"
         )
@@ -463,6 +629,59 @@ def harvest_one_function(
     # may bind to MULTIPLE definitions (decompiler reuses names); harvest
     # the first one (earliest def, typically the one captured by a
     # class-field assignment right after).
+
+        # (4b) RETURN TRACKING. `return <local>` — if the local is
+        # tainted, surface that prefix to the caller so it can mark
+        # this function as cache-returning.
+        if track_return:
+            mr = RETURN_LOCAL_RE.match(s)
+            if mr and mr.group(1) in taint and return_taint is None:
+                return_taint = taint[mr.group(1)]
+
+        # (4c) CACHE-CONSUMER TAINT ORIGINS (mode 3 — Anchor 3).
+        # These run BEFORE the envelope-mode captures so a Cachable.get
+        # call site beats the generic field-access copy detector
+        # below (which would otherwise de-taint the lhs).
+        #
+        # Pattern A: bind .get method off a Cachable module local.
+        m_bind = GET_BIND_INLINE_RE.match(s)
+        if m_bind and m_bind.group(2) in cachable_locals:
+            get_fns.add(m_bind.group(1))
+            continue
+
+        # Pattern B: call to a known get-fn local OR a known
+        # cache-returning ident. Match both the single-LHS form
+        # `lhs = X(args)` and the multi-LHS form `lhs, _, _ = X(args)`.
+        m_call_s = CALL_SINGLE_INLINE_RE.match(s)
+        m_call_m = MULTI_LHS_CALL_RE.match(s)
+        m_call = m_call_s or m_call_m
+        if m_call:
+            lhs, callee, args_str = (
+                m_call.group(1), m_call.group(2), m_call.group(3)
+            )
+            args_split = [a.strip() for a in args_str.split(",") if a.strip()]
+            first_arg = args_split[0] if args_split else ""
+            handled = False
+            # B1: Cachable.get(cache_key) — taint at cache root.
+            if (callee in get_fns
+                    and cache_key
+                    and _arg_resolves_to_cache_key(
+                        first_arg, body, line, cache_key, cache_key_objs
+                    )):
+                taint[lhs] = ""
+                handled = True
+            # B2: call to a cache-returning ident (wrapper).
+            elif callee in cache_returning_idents:
+                taint[lhs] = cache_returning_idents[callee]
+                handled = True
+            # B3: call to an alias_map ident that resolves to a
+            # cache-returning ident.
+            elif (callee in alias_map
+                    and alias_map[callee] in cache_returning_idents):
+                taint[lhs] = cache_returning_idents[alias_map[callee]]
+                handled = True
+            if handled:
+                continue
 
         # (5) ASSIGNMENT-BASED TAINT UPDATES. Order matters: check the
         # most specific patterns first.
@@ -554,17 +773,110 @@ def harvest_one_function(
             continue
         helper_arg, helper_body = bodies[0][0], bodies[0][1]
         new_visited = visited | {resolved}
-        sub_fields = harvest_one_function(
+        sub_fields, _ret = harvest_one_function(
             helper_arg,
             helper_body,
             file_fn_index=file_fn_index,
             base_prefix=taint_snapshot[first_arg],
             visited=new_visited,
             max_depth=max_depth - 1,
+            cache_key=cache_key,
+            cachable_locals=cachable_locals,
+            cache_key_objs=cache_key_objs,
+            cache_returning_idents=cache_returning_idents,
         )
         fields |= sub_fields
 
-    return fields
+    return fields, return_taint
+
+
+def compute_cache_returning_idents(
+    fn_index: dict[str, list[tuple[str, list[str], int]]],
+    cache_key: str | None,
+    cachable_locals: set[str],
+    cache_key_objs: set[str],
+    max_passes: int = 4,
+) -> dict[str, str]:
+    """Classify which functions in the file return a cache-rooted value.
+
+    Returns ident -> return-prefix. Empty string "" means "the cache
+    value itself"; a non-empty prefix would mean a sub-field (rare; the
+    decompiler usually `return getCache()` rather than
+    `return getCache().some_field`, but the harvest tracks both).
+
+    Method: iterate fixpoint. Each pass runs harvest_one_function on
+    every fn body with `track_return=True`, accumulating the
+    cache_returning_idents map. Stop when a pass adds nothing — usually
+    converges in 2-3 passes (direct Cachable.get → first wrappers →
+    wrappers-of-wrappers).
+
+    No-cache-key shortcut: if there's no cache_key for this endpoint,
+    there's nothing to seed taint from, so return empty.
+    """
+    if not cache_key or (not cachable_locals and not fn_index):
+        return {}
+    result: dict[str, str] = {}
+    for _pass in range(max_passes):
+        grew = False
+        for ident, bodies in fn_index.items():
+            if ident in result:
+                continue
+            for arg, body, _start in bodies:
+                _fields, ret = harvest_one_function(
+                    arg, body,
+                    file_fn_index=fn_index,
+                    cache_key=cache_key,
+                    cachable_locals=cachable_locals,
+                    cache_key_objs=cache_key_objs,
+                    cache_returning_idents=result,
+                    track_return=True,
+                    max_depth=0,  # no helper-following during classification
+                )
+                if ret is not None and ident not in result:
+                    result[ident] = ret
+                    grew = True
+                    break
+        if not grew:
+            break
+    return result
+
+
+def _arg_resolves_to_cache_key(
+    arg: str,
+    body: list[str],
+    current_line: str,
+    cache_key: str,
+    cache_key_objs: set[str],
+) -> bool:
+    """Walk backward from current_line to see if `arg` resolves to cache_key.
+
+    Two recognized forms:
+      1. Inline literal: `arg = "$cacheKey"` somewhere earlier in body.
+      2. Module-table field: `arg = L<obj>.cache_key` where L<obj> was
+         set up with `L<obj>.cache_key = "$cacheKey"` at module scope
+         (passed in via cache_key_objs).
+    Stops the walk at any unrecognized reassignment of `arg` to avoid
+    a stale earlier binding being mistaken for the current value.
+    """
+    try:
+        idx = body.index(current_line)
+    except ValueError:
+        return False
+    for prev in body[:idx][::-1]:
+        ps = prev.strip()
+        m_str = STR_ASSIGN_LINE_RE.match(ps)
+        if m_str and m_str.group(1) == arg:
+            return m_str.group(2) == cache_key
+        # `arg = L<obj>.cache_key`
+        m_field = LOCAL_FIELD_ASSIGN_RE.match(ps)
+        if (m_field and m_field.group(1) == arg
+                and m_field.group(3) == "cache_key"
+                and m_field.group(2) in cache_key_objs):
+            return True
+        # Any other reassignment of arg invalidates the walk-back.
+        if re.match(rf"^\s*(?:local\s+)?{re.escape(arg)}\s*=", ps):
+            return False
+    return False
 
 
 def find_files_for_endpoint(action: str, fn_name: str, cache_key: str | None) -> list[Path]:
@@ -653,7 +965,22 @@ def extract_for_endpoint(
     merged_entry: dict,
     cache_key: str | None,
     corpus: dict[str, int],
+    cache_consumer_only: bool = False,
 ) -> dict:
+    """Run static field-extraction for one endpoint.
+
+    cache_consumer_only:
+      False (default): run all three anchors (closure / listener / cache-
+        consumer). Should be restricted to endpoints in the ui-only
+        bucket — Pass 1 (closure-anchored) over-collects when run on
+        ack-style endpoints because find_files_for_endpoint matches
+        cache_key in shared files like m_boot/initialize.lua, where
+        unrelated listener closures' arg.response_data reads would leak
+        in.
+      True: run ONLY Pass 3 (cache-consumer). Safe for any endpoint with
+        a cache_key — taint seeds only via Cachable.get(target_cache_key)
+        so cross-listener leaks can't happen.
+    """
     action = ep.split(".", 1)[1] if "." in ep else ep
     fn_name = merged_entry.get("fn_name") or action
     files = find_files_for_endpoint(action, fn_name, cache_key)
@@ -667,30 +994,78 @@ def extract_for_endpoint(
             continue
         # File-wide function index for helper-following + listener detection.
         fn_index = build_named_function_index(text)
+        # File-wide cache-consumer context (Anchor 3 enabler).
+        cachable_locals = find_cachable_locals(text)
+        cache_key_objs = find_cache_key_objs(text, cache_key or "")
+        # Fixpoint: classify functions whose body returns a tainted value.
+        # Wrappers like `function getCache() return Cachable.get(key) end`
+        # become known "cache-returning" idents so call sites taint their
+        # lhs without us having to inline the wrapper.
+        cache_returning_idents = compute_cache_returning_idents(
+            fn_index, cache_key, cachable_locals, cache_key_objs
+        ) if cache_key else {}
+
         file_fields: set[str] = set()
 
-        # Pass 1: closure-anchored harvest. For each inner
-        # `function(arg) ... arg.response_data` site, harvest fields.
-        for _name, arg_name, _start, _end, body in find_function_bodies(text):
-            if "response_data" not in "".join(body):
-                continue
-            file_fields |= harvest_one_function(
-                arg_name, body, file_fn_index=fn_index
-            )
+        # Common kwargs passed to every harvest invocation in this file
+        # so all three anchors see the same file context.
+        harvest_ctx = {
+            "file_fn_index": fn_index,
+            "cache_key": cache_key,
+            "cachable_locals": cachable_locals,
+            "cache_key_objs": cache_key_objs,
+            "cache_returning_idents": cache_returning_idents,
+        }
 
-        # Pass 2: cache-listener harvest. Functions registered via
-        # `Cachable.addListener("$cacheKey", fn)` receive response_data
-        # DIRECTLY (not the envelope) as their first arg, so they don't
-        # match the closure anchor's `arg.response_data` pattern. The
-        # detector returns concrete (arg, body) tuples already resolved
-        # via line-aware lookup so we pick the right body for names the
-        # decompiler reused across the file.
-        for arg_name, body in find_cache_listener_fn_idents(
-            text, cache_key or "", fn_index
-        ):
-            file_fields |= harvest_one_function(
-                arg_name, body, file_fn_index=fn_index, base_prefix=""
-            )
+        if not cache_consumer_only:
+            # Pass 1: closure-anchored harvest. For each inner
+            # `function(arg) ... arg.response_data` site, harvest fields.
+            for _name, arg_name, _start, _end, body in find_function_bodies(text):
+                if "response_data" not in "".join(body):
+                    continue
+                sub, _ret = harvest_one_function(
+                    arg_name, body, **harvest_ctx,
+                )
+                file_fields |= sub
+
+            # Pass 2: cache-listener harvest. Functions registered via
+            # `Cachable.addListener("$cacheKey", fn)` receive response_data
+            # DIRECTLY (not the envelope) as their first arg, so they don't
+            # match the closure anchor's `arg.response_data` pattern. The
+            # detector returns concrete (arg, body) tuples already resolved
+            # via line-aware lookup so we pick the right body for names the
+            # decompiler reused across the file.
+            for arg_name, body in find_cache_listener_fn_idents(
+                text, cache_key or "", fn_index
+            ):
+                sub, _ret = harvest_one_function(
+                    arg_name, body, base_prefix="", **harvest_ctx,
+                )
+                file_fields |= sub
+
+        # Pass 3: cache-consumer harvest. Any function in the file whose
+        # body calls Cachable.get(cache_key) directly OR calls a known
+        # cache-returning ident (the wrapper case) seeds taint internally.
+        # The harvest engine handles it via the same machinery; we iterate
+        # over EVERY function body, including argless ones — the closure
+        # pattern requires an arg but the cache-consumer pattern doesn't.
+        #
+        # IMPORTANT: pass arg_name="" so envelope-mode is DISABLED. Pass 3
+        # must NOT use the arg.response_data anchor because Pass 3 visits
+        # every body regardless of which cache_key the body is tied to.
+        # If envelope mode were on, a closure registered for a different
+        # cache_key (e.g. m_boot/initialize.lua has 50+ closures, one per
+        # listener) would leak its arg.response_data reads into our
+        # endpoint's harvest. Pass 1 (closure-anchored) handles those
+        # reads correctly, scoped to its file selection.
+        if cache_key and (cachable_locals or cache_returning_idents):
+            for _name, _arg_name, _start, _end, body in find_function_bodies(
+                text, require_arg=False
+            ):
+                sub, _ret = harvest_one_function(
+                    "", body, **harvest_ctx,
+                )
+                file_fields |= sub
 
         rel = str(fp.relative_to(SOURCE_ROOT))
         if file_fields:
@@ -831,19 +1206,48 @@ def main(argv: list[str] | None = None) -> int:
             if ck:
                 cache_keys[f"{api['module']}.{api['action']}"] = ck
 
+    # Endpoint dispatch. Each endpoint gets either the full 3-anchor
+    # harvest (closure + listener + cache-consumer) or just Pass 3
+    # (cache-consumer only):
+    #
+    #   envelope-only / ack-style: cache-consumer only. Their candidate
+    #     file set tends to include shared listener-registration files
+    #     (e.g. m_boot/initialize.lua has 50+ listeners side-by-side).
+    #     Pass 1 (closure-anchored) on those files leaks unrelated reads:
+    #     ANY `<arg>.response_data.<field>` closure body is harvested
+    #     and attributed to whichever target endpoint we're processing,
+    #     regardless of which listener the closure actually belongs to.
+    #     For ack-style endpoints (cancel/leave/expel/etc.) the wire
+    #     response is empty anyway, so the closure-anchored fields are
+    #     all noise. Pass 3 is safe because it only seeds taint from
+    #     `Cachable.get(target_cache_key)` calls — no leak possible.
+    #
+    #   everything else (ui-only, harness-covered, needs-Frida): full
+    #     harvest. Their candidate files don't tend to be the shared
+    #     listener-registration sinks, so Pass 1 stays scoped.
+    cache_only_keys_set: set[str] = set()
     keys: list[str]
     if args.endpoint:
         keys = list(args.endpoint)
-    elif args.all:
-        keys = sorted(merged.keys())
-    else:
-        # Default: ui-only (the bucket this tool exists to lift).
-        bucket = args.bucket or "ui-only"
+    elif args.bucket:
         coverage = json.load(COVERAGE_PATH.open())
         keys = sorted([
             ep for ep, c in coverage["endpoints"].items()
-            if c["bucket"] == bucket
+            if c["bucket"] == args.bucket
         ])
+    else:
+        # All endpoints with a cache_key; tag the ack-style ones to
+        # downgrade them to cache-consumer-only harvest.
+        from classify_coverage import ACK_PREFIXES, ACK_SUFFIXES  # noqa: PLC0415
+        keys = []
+        for ep in sorted(merged.keys()):
+            if not (merged.get(ep) or {}).get("cache_key"):
+                continue
+            keys.append(ep)
+            action = ep.split(".", 1)[1] if "." in ep else ep
+            if ACK_PREFIXES.match(action) or ACK_SUFFIXES.search(action):
+                cache_only_keys_set.add(ep)
+    cache_only_set = cache_only_keys_set
 
     traces_dir = Path(args.out)
     if not traces_dir.is_absolute():
@@ -899,7 +1303,10 @@ def main(argv: list[str] | None = None) -> int:
             entry = merged.get(ep)
             if not entry:
                 continue
-            trace = extract_for_endpoint(ep, entry, cache_keys.get(ep), corpus)
+            trace = extract_for_endpoint(
+                ep, entry, cache_keys.get(ep), corpus,
+                cache_consumer_only=(ep in cache_only_set),
+            )
             kept_n = len(trace["accessed_keys"])
             dropped_n = len(trace["dropped_by_corpus_filter"])
             extracted_set = set(trace["accessed_keys"])
