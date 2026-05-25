@@ -1,0 +1,6682 @@
+{
+  "achievement.pagingUnaccomplishList": {
+    "module": "achievement",
+    "action": "pagingUnaccomplishList",
+    "fn_name": "achievementPagingUnaccomplishList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "is_last": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "count": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "achievement_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "achievement.rewardOpen": {
+    "module": "achievement",
+    "action": "rewardOpen",
+    "fn_name": "achievementRewardOpen",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "accomplished_achievement_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "added_achievement_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "reward_item_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "achievement.rewardOpenAll": {
+    "module": "achievement",
+    "action": "rewardOpenAll",
+    "fn_name": "achievementRewardOpenAll",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "reward_item_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "is_last": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "achievement.initialAccomplishedList": {
+    "module": "achievement",
+    "action": "initialAccomplishedList",
+    "fn_name": "achievementInitialAccomplishedList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "achievement.pagingAccomplishedList": {
+    "module": "achievement",
+    "action": "pagingAccomplishedList",
+    "fn_name": "achievementPagingAccomplishedList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "achievement.unaccomplishList": {
+    "module": "achievement",
+    "action": "unaccomplishList",
+    "fn_name": "achievementUnaccomplishList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "ad.changeAd": {
+    "module": "ad",
+    "action": "changeAd",
+    "fn_name": "adChangeAd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "ad_status": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "album.albumAll": {
+    "module": "album",
+    "action": "albumAll",
+    "fn_name": "albumAll",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "album.seriesAll": {
+    "module": "album",
+    "action": "seriesAll",
+    "fn_name": "albumSeriesAll",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "announce.checkState": {
+    "module": "announce",
+    "action": "checkState",
+    "fn_name": "announceCheckState",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "area.addReward": {
+    "module": "area",
+    "action": "addReward",
+    "fn_name": "areaAddReward",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "area.list": {
+    "module": "area",
+    "action": "list",
+    "fn_name": "areaList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "arena.matchLiveAutoPlay": {
+    "module": "arena",
+    "action": "matchLiveAutoPlay",
+    "fn_name": "arenaMatchLiveAutoPlay",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.cancelDreamSession": {
+    "module": "arena",
+    "action": "cancelDreamSession",
+    "fn_name": "arenaCancelDreamSession",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "arena.cheerUnitDeck": {
+    "module": "arena",
+    "action": "cheerUnitDeck",
+    "fn_name": "arenaCheerUnitDeck",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.dailyRanking": {
+    "module": "arena",
+    "action": "dailyRanking",
+    "fn_name": "arenaDailyRanking",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.dreamLiveEnd": {
+    "module": "arena",
+    "action": "dreamLiveEnd",
+    "fn_name": "arenaDreamLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "live_info": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "fields": {
+                  "live_difficulty_id": {
+                    "type": "int",
+                    "optional": false,
+                    "enum_values": [],
+                    "_promoted_from": "Any",
+                    "_promotion_source": "db_column"
+                  }
+                }
+              }
+            },
+            "arena_match_result": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "session_success": {
+                  "type": "bool",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "arena.dreamLiveGameOver": {
+    "module": "arena",
+    "action": "dreamLiveGameOver",
+    "fn_name": "arenaDreamLiveGameOver",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "arena.dreamLiveStart": {
+    "module": "arena",
+    "action": "dreamLiveStart",
+    "fn_name": "arenaDreamLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "available_live_resume": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "arena.matchLiveContinue": {
+    "module": "arena",
+    "action": "matchLiveContinue",
+    "fn_name": "arenaMatchLiveContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.matchLiveEnd": {
+    "module": "arena",
+    "action": "matchLiveEnd",
+    "fn_name": "arenaMatchLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "arena_challengeable_point": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "live_info": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "fields": {
+                  "live_difficulty_id": {
+                    "type": "int",
+                    "optional": false,
+                    "enum_values": [],
+                    "_promoted_from": "Any",
+                    "_promotion_source": "db_column"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "arena.matchLiveGameOver": {
+    "module": "arena",
+    "action": "matchLiveGameOver",
+    "fn_name": "arenaMatchLiveGameOver",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.matchLiveStart": {
+    "module": "arena",
+    "action": "matchLiveStart",
+    "fn_name": "arenaMatchLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "available_live_resume": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "arena.matching": {
+    "module": "arena",
+    "action": "matching",
+    "fn_name": "arenaMatching",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.moveUpStage": {
+    "module": "arena",
+    "action": "moveUpStage",
+    "fn_name": "arenaMoveUpStage",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "arena.privateMatchLiveEnd": {
+    "module": "arena",
+    "action": "privateMatchLiveEnd",
+    "fn_name": "arenaPrivateMatchLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "live_info": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "fields": {
+                  "live_difficulty_id": {
+                    "type": "int",
+                    "optional": false,
+                    "enum_values": [],
+                    "_promoted_from": "Any",
+                    "_promotion_source": "db_column"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "arena.privateMatchLiveGameOver": {
+    "module": "arena",
+    "action": "privateMatchLiveGameOver",
+    "fn_name": "arenaPrivateMatchLiveGameOver",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "arena.privateMatchLiveStart": {
+    "module": "arena",
+    "action": "privateMatchLiveStart",
+    "fn_name": "arenaPrivateMatchLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "available_live_resume": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "arena.privateMatching": {
+    "module": "arena",
+    "action": "privateMatching",
+    "fn_name": "arenaPrivateMatching",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "arena.read": {
+    "module": "arena",
+    "action": "read",
+    "fn_name": "arenaRead",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.recoveryAutoPlayableCount": {
+    "module": "arena",
+    "action": "recoveryAutoPlayableCount",
+    "fn_name": "arenaRecoveryAutoPlayableCount",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "auto_playable_count": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "arena.rivalLiveContinue": {
+    "module": "arena",
+    "action": "rivalLiveContinue",
+    "fn_name": "arenaRivalLiveContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.rivalLiveEnd": {
+    "module": "arena",
+    "action": "rivalLiveEnd",
+    "fn_name": "arenaRivalLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "live_info": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "fields": {
+                  "live_difficulty_id": {
+                    "type": "int",
+                    "optional": false,
+                    "enum_values": [],
+                    "_promoted_from": "Any",
+                    "_promotion_source": "db_column"
+                  }
+                }
+              }
+            },
+            "arena_match_result": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "session_success": {
+                  "type": "bool",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "arena.rivalLiveGameOver": {
+    "module": "arena",
+    "action": "rivalLiveGameOver",
+    "fn_name": "arenaRivalLiveGameOver",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.rivalLiveStart": {
+    "module": "arena",
+    "action": "rivalLiveStart",
+    "fn_name": "arenaRivalLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "available_live_resume": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "arena.sessionRanking": {
+    "module": "arena",
+    "action": "sessionRanking",
+    "fn_name": "arenaSessionRanking",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.tierRanking": {
+    "module": "arena",
+    "action": "tierRanking",
+    "fn_name": "arenaTierRanking",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "arena.top": {
+    "module": "arena",
+    "action": "top",
+    "fn_name": "arenaTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "award.set": {
+    "module": "award",
+    "action": "set",
+    "fn_name": "awardSet",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "isNew": {
+          "type": "bool",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "award.awardInfo": {
+    "module": "award",
+    "action": "awardInfo",
+    "fn_name": "awardInfo",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "background.set": {
+    "module": "background",
+    "action": "set",
+    "fn_name": "backgroundSet",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "background.backgroundInfo": {
+    "module": "background",
+    "action": "backgroundInfo",
+    "fn_name": "backgroundInfo",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "banner.bannerList": {
+    "module": "banner",
+    "action": "bannerList",
+    "fn_name": "bannerList",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "battle.endRoom": {
+    "module": "battle",
+    "action": "endRoom",
+    "fn_name": "battleEndRoom",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "battle.gameover": {
+    "module": "battle",
+    "action": "gameover",
+    "fn_name": "battleGameover",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "battle.liveEnd": {
+    "module": "battle",
+    "action": "liveEnd",
+    "fn_name": "battleLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "battle.liveStart": {
+    "module": "battle",
+    "action": "liveStart",
+    "fn_name": "battleLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "battle.matching": {
+    "module": "battle",
+    "action": "matching",
+    "fn_name": "battleMatching",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "battle.startWait": {
+    "module": "battle",
+    "action": "startWait",
+    "fn_name": "battleStartWait",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "battle_player_num": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "capacity": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "db_column"
+            }
+          }
+        }
+      }
+    }
+  },
+  "battle.top": {
+    "module": "battle",
+    "action": "top",
+    "fn_name": "battleTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_status": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "battle.endWait": {
+    "module": "battle",
+    "action": "endWait",
+    "fn_name": "battleEndWait",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "ended_flag": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "end_wait_time": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [
+                "1"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "battle.battleInfo": {
+    "module": "battle",
+    "action": "battleInfo",
+    "fn_name": "battleInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "challenge.checkpoint": {
+    "module": "challenge",
+    "action": "checkpoint",
+    "fn_name": "challengeCheckpoint",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "can_proceed": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "challenge_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "challenge.continue": {
+    "module": "challenge",
+    "action": "continue",
+    "fn_name": "challengeContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "challenge.finalize": {
+    "module": "challenge",
+    "action": "finalize",
+    "fn_name": "challengeFinalize",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "challenge.gameover": {
+    "module": "challenge",
+    "action": "gameover",
+    "fn_name": "challengeGameover",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "challenge.init": {
+    "module": "challenge",
+    "action": "init",
+    "fn_name": "challengeInit",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "challenge.proceed": {
+    "module": "challenge",
+    "action": "proceed",
+    "fn_name": "challengeProceed",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "challenge.retire": {
+    "module": "challenge",
+    "action": "retire",
+    "fn_name": "challengeRetire",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "challenge.status": {
+    "module": "challenge",
+    "action": "status",
+    "fn_name": "challengeStatus",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "challenge_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "challenge.top": {
+    "module": "challenge",
+    "action": "top",
+    "fn_name": "challengeTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_status": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "challenge.challengeInfo": {
+    "module": "challenge",
+    "action": "challengeInfo",
+    "fn_name": "challengeInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "scenario_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "load_setting": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "class.commitChallengeMission": {
+    "module": "class",
+    "action": "commitChallengeMission",
+    "fn_name": "classCommitChallengeMission",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "challenge_mission_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "challenge_rank_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "capital_value": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "db_column"
+            },
+            "challenge_reset_date": {
+              "type": "str",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "class.competitionFinalLiveEnd": {
+    "module": "class",
+    "action": "competitionFinalLiveEnd",
+    "fn_name": "classCompetitionFinalLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.competitionFinalLivePlay": {
+    "module": "class",
+    "action": "competitionFinalLivePlay",
+    "fn_name": "classCompetitionFinalLivePlay",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "class.competitionGameover": {
+    "module": "class",
+    "action": "competitionGameover",
+    "fn_name": "classCompetitionGameover",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.competitionGeneralRanking": {
+    "module": "class",
+    "action": "competitionGeneralRanking",
+    "fn_name": "classCompetitionGeneralRanking",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "class.competitionHallOfFame": {
+    "module": "class",
+    "action": "competitionHallOfFame",
+    "fn_name": "classCompetitionHallOfFame",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "result": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "class.competitionLiveEnd": {
+    "module": "class",
+    "action": "competitionLiveEnd",
+    "fn_name": "classCompetitionLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.competitionLivePlay": {
+    "module": "class",
+    "action": "competitionLivePlay",
+    "fn_name": "classCompetitionLivePlay",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "class.competitionOwnDeckRanking": {
+    "module": "class",
+    "action": "competitionOwnDeckRanking",
+    "fn_name": "classCompetitionOwnDeckRanking",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "class.competitionReady": {
+    "module": "class",
+    "action": "competitionReady",
+    "fn_name": "classCompetitionReady",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "class.competitionResult": {
+    "module": "class",
+    "action": "competitionResult",
+    "fn_name": "classCompetitionResult",
+    "callsite_count": 3,
+    "resolved_count": 3,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "result": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "class.competitionSpectateLive": {
+    "module": "class",
+    "action": "competitionSpectateLive",
+    "fn_name": "classCompetitionSpectateLive",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "class.competitionStartWait": {
+    "module": "class",
+    "action": "competitionStartWait",
+    "fn_name": "classCompetitionStartWait",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": null
+  },
+  "class.entryFinal": {
+    "module": "class",
+    "action": "entryFinal",
+    "fn_name": "classEntryFinal",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.entrySemifinal": {
+    "module": "class",
+    "action": "entrySemifinal",
+    "fn_name": "classEntrySemifinal",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.gameover": {
+    "module": "class",
+    "action": "gameover",
+    "fn_name": "classGameover",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "_promoted_from": "Any",
+            "_promotion_source": "list_parent_name"
+          }
+        }
+      }
+    }
+  },
+  "class.livePlay": {
+    "module": "class",
+    "action": "livePlay",
+    "fn_name": "classLivePlay",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "class.liveResult": {
+    "module": "class",
+    "action": "liveResult",
+    "fn_name": "classLiveResult",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.selectCompetitionArea": {
+    "module": "class",
+    "action": "selectCompetitionArea",
+    "fn_name": "classSelectCompetitionArea",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "ranking_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "class.selectCompetitionPromise": {
+    "module": "class",
+    "action": "selectCompetitionPromise",
+    "fn_name": "classSelectCompetitionPromise",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.skipChallengeMission": {
+    "module": "class",
+    "action": "skipChallengeMission",
+    "fn_name": "classSkipChallengeMission",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "challenge_mission_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "capital_value": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "db_column"
+            },
+            "challenge_rank_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "challenge_reset_date": {
+              "type": "str",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "class.voteFinal": {
+    "module": "class",
+    "action": "voteFinal",
+    "fn_name": "classVoteFinal",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.voteSemifinal": {
+    "module": "class",
+    "action": "voteSemifinal",
+    "fn_name": "classVoteSemifinal",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "class.top": {
+    "module": "class",
+    "action": "top",
+    "fn_name": "classTop",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "comeback.achieveInfo": {
+    "module": "comeback",
+    "action": "achieveInfo",
+    "fn_name": "comebackAchieveInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "common.checkNgword": {
+    "module": "common",
+    "action": "checkNgword",
+    "fn_name": "commonCheckNgword",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "common.liveResume": {
+    "module": "common",
+    "action": "liveResume",
+    "fn_name": "commonLiveResume",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "common.recoveryEnergy": {
+    "module": "common",
+    "action": "recoveryEnergy",
+    "fn_name": "commonRecoveryEnergy",
+    "callsite_count": 4,
+    "resolved_count": 4,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "item_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "common.logger": {
+    "module": "common",
+    "action": "logger",
+    "fn_name": "commonLogger",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "concert.liveContinue": {
+    "module": "concert",
+    "action": "liveContinue",
+    "fn_name": "concertLiveContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "concert.liveEnd": {
+    "module": "concert",
+    "action": "liveEnd",
+    "fn_name": "concertLiveEnd",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "concert.liveGameOver": {
+    "module": "concert",
+    "action": "liveGameOver",
+    "fn_name": "concertLiveGameOver",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "concert.liveInit": {
+    "module": "concert",
+    "action": "liveInit",
+    "fn_name": "concertLiveInit",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "concert.livePartyList": {
+    "module": "concert",
+    "action": "livePartyList",
+    "fn_name": "concertLivePartyList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "concert.liveStart": {
+    "module": "concert",
+    "action": "liveStart",
+    "fn_name": "concertLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "concert.lootBoxPick": {
+    "module": "concert",
+    "action": "lootBoxPick",
+    "fn_name": "concertLootBoxPick",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "can_reset": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "voltage_point": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "concert.lootBoxReset": {
+    "module": "concert",
+    "action": "lootBoxReset",
+    "fn_name": "concertLootBoxReset",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "concert.lootBoxTop": {
+    "module": "concert",
+    "action": "lootBoxTop",
+    "fn_name": "concertLootBoxTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "concert.top": {
+    "module": "concert",
+    "action": "top",
+    "fn_name": "concertTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "concert_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "costume.costumeStatus": {
+    "module": "costume",
+    "action": "costumeStatus",
+    "fn_name": "costumeCostumeStatus",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "costume.dressUp": {
+    "module": "costume",
+    "action": "dressUp",
+    "fn_name": "costumeDressUp",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "costume.makeCostume": {
+    "module": "costume",
+    "action": "makeCostume",
+    "fn_name": "costumeMakeCostume",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "costume_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "costume.costumeList": {
+    "module": "costume",
+    "action": "costumeList",
+    "fn_name": "costumeCostumeList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "download.additional": {
+    "module": "download",
+    "action": "additional",
+    "fn_name": "downloadAdditional",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "download.batch": {
+    "module": "download",
+    "action": "batch",
+    "fn_name": "downloadBatch",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "download.event": {
+    "module": "download",
+    "action": "event",
+    "fn_name": "downloadEvent",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "download.getUrl": {
+    "module": "download",
+    "action": "getUrl",
+    "fn_name": "downloadGetUrl",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "download.update": {
+    "module": "download",
+    "action": "update",
+    "fn_name": "downloadUpdate",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "download.luaDownload": {
+    "module": "download",
+    "action": "luaDownload",
+    "fn_name": "luadownload",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duel.assistLog": {
+    "module": "duel",
+    "action": "assistLog",
+    "fn_name": "duelAssistLog",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "type": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "subscription_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "restriction_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "assist_log": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "list_parent_name"
+              }
+            }
+          }
+        },
+        "item_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        }
+      }
+    }
+  },
+  "duel.duelSubDeck": {
+    "module": "duel",
+    "action": "duelSubDeck",
+    "fn_name": "duelDuelSubDeck",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "duel.endRoom": {
+    "module": "duel",
+    "action": "endRoom",
+    "fn_name": "duelEndRoom",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": null
+  },
+  "duel.endWait": {
+    "module": "duel",
+    "action": "endWait",
+    "fn_name": "duelEndWait",
+    "callsite_count": 4,
+    "resolved_count": 4,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "matching_user": {
+              "type": "list",
+              "optional": false,
+              "element": {
+                "type": "object",
+                "fields": {}
+              },
+              "_flipped_pattern_c": true
+            },
+            "end_flag": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duel.fixTime": {
+    "module": "duel",
+    "action": "fixTime",
+    "fn_name": "duelFixTime",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duel.gpsMatch": {
+    "module": "duel",
+    "action": "gpsMatch",
+    "fn_name": "duelGpsMatch",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "duel.leave": {
+    "module": "duel",
+    "action": "leave",
+    "fn_name": "duelLeave",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "duel.liveEnd": {
+    "module": "duel",
+    "action": "liveEnd",
+    "fn_name": "duelLiveEnd",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": null
+  },
+  "duel.liveLog": {
+    "module": "duel",
+    "action": "liveLog",
+    "fn_name": "duelLiveLog",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duel.livePolling": {
+    "module": "duel",
+    "action": "livePolling",
+    "fn_name": "duelLivePolling",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duel.liveStart": {
+    "module": "duel",
+    "action": "liveStart",
+    "fn_name": "duelLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "all_user_goal": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "goal_type": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duel.matching": {
+    "module": "duel",
+    "action": "matching",
+    "fn_name": "duelMatching",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "room_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "live_track_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "select_time": {
+          "type": "int",
+          "optional": false,
+          "enum_values": []
+        },
+        "live_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "fields": {
+              "live_difficulty_id": {
+                "type": "int",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "db_column"
+              }
+            }
+          }
+        },
+        "event_team_duty": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "deck_bonus_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "duel.privateClose": {
+    "module": "duel",
+    "action": "privateClose",
+    "fn_name": "duelPrivateClose",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duel.privateCreate": {
+    "module": "duel",
+    "action": "privateCreate",
+    "fn_name": "duelPrivateCreate",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "entry_token": {
+              "type": "str",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "room_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "room_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "live_track_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "select_time": {
+          "type": "int",
+          "optional": false,
+          "enum_values": []
+        },
+        "live_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "fields": {
+              "live_difficulty_id": {
+                "type": "int",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "db_column"
+              }
+            }
+          }
+        },
+        "event_team_duty": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "deck_bonus_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "duel.privateJoin": {
+    "module": "duel",
+    "action": "privateJoin",
+    "fn_name": "duelPrivateJoin",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "error_code": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "difficulty": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "db_column"
+            },
+            "room_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "room_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "live_track_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "select_time": {
+          "type": "int",
+          "optional": false,
+          "enum_values": []
+        },
+        "live_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "fields": {
+              "live_difficulty_id": {
+                "type": "int",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "db_column"
+              }
+            }
+          }
+        },
+        "event_team_duty": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "deck_bonus_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "duel.privateLeave": {
+    "module": "duel",
+    "action": "privateLeave",
+    "fn_name": "duelPrivateLeave",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duel.privateMakeMatch": {
+    "module": "duel",
+    "action": "privateMakeMatch",
+    "fn_name": "duelPrivateMakeMatch",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "room_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "live_track_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "select_time": {
+          "type": "int",
+          "optional": false,
+          "enum_values": []
+        },
+        "live_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "fields": {
+              "live_difficulty_id": {
+                "type": "int",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "db_column"
+              }
+            }
+          }
+        },
+        "event_team_duty": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "deck_bonus_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "duel.privateOpenMatch": {
+    "module": "duel",
+    "action": "privateOpenMatch",
+    "fn_name": "duelPrivateOpenMatch",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duel.privateStartWait": {
+    "module": "duel",
+    "action": "privateStartWait",
+    "fn_name": "duelPrivateStartWait",
+    "callsite_count": 3,
+    "resolved_count": 3,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "matching_user": {
+              "type": "list",
+              "optional": false,
+              "element": {
+                "type": "object",
+                "fields": {}
+              },
+              "_flipped_pattern_c": true
+            },
+            "start_flag": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duel.startWait": {
+    "module": "duel",
+    "action": "startWait",
+    "fn_name": "duelStartWait",
+    "callsite_count": 3,
+    "resolved_count": 3,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "matching_user": {
+              "type": "list",
+              "optional": false,
+              "element": {
+                "type": "object",
+                "fields": {}
+              },
+              "_flipped_pattern_c": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "duel.top": {
+    "module": "duel",
+    "action": "top",
+    "fn_name": "duelTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "is_open": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.allUserMission": {
+    "module": "duty",
+    "action": "allUserMission",
+    "fn_name": "dutyAllUserMission",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "all_user_mission_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "fields": {
+                  "has_played": {
+                    "type": "bool",
+                    "optional": false,
+                    "enum_values": [],
+                    "_promoted_from": "Any",
+                    "_promotion_source": "name_convention"
+                  },
+                  "goal_list": {
+                    "type": "list",
+                    "optional": false,
+                    "enum_values": [],
+                    "_promoted_from": "Any",
+                    "_promotion_source": "name_convention"
+                  }
+                }
+              }
+            },
+            "all_user_mission_total": {
+              "type": "Any",
+              "optional": false,
+              "enum_values": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.endRoom": {
+    "module": "duty",
+    "action": "endRoom",
+    "fn_name": "dutyEndRoom",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_team_duty": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "sibling"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.gameover": {
+    "module": "duty",
+    "action": "gameover",
+    "fn_name": "dutyGameover",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_team_duty": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "all_user_mission_value": {
+                  "type": "object",
+                  "optional": false,
+                  "enum_values": [],
+                  "fields": {
+                    "Live": {
+                      "type": "object",
+                      "optional": false,
+                      "enum_values": [],
+                      "fields": {
+                        "getInstance": {
+                          "type": "object",
+                          "optional": false,
+                          "enum_values": [],
+                          "fields": {
+                            "onFinishLive": {
+                              "type": "Any",
+                              "optional": false,
+                              "enum_values": []
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.history": {
+    "module": "duty",
+    "action": "history",
+    "fn_name": "dutyHistory",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "room_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.historyDetail": {
+    "module": "duty",
+    "action": "historyDetail",
+    "fn_name": "dutyHistoryDetail",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duty.liveEnd": {
+    "module": "duty",
+    "action": "liveEnd",
+    "fn_name": "dutyLiveEnd",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "duty.liveStart": {
+    "module": "duty",
+    "action": "liveStart",
+    "fn_name": "dutyLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_team_duty": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "sibling"
+            },
+            "live_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "list_parent_name"
+              }
+            }
+          }
+        },
+        "medley_index": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "spent_ms": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "note_log": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "duty.matching": {
+    "module": "duty",
+    "action": "matching",
+    "fn_name": "dutyMatching",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "room_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "live_track_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "select_time": {
+          "type": "int",
+          "optional": false,
+          "enum_values": []
+        },
+        "live_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "fields": {
+              "live_difficulty_id": {
+                "type": "int",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "db_column"
+              }
+            }
+          }
+        },
+        "event_team_duty": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "deck_bonus_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "duty.privateClose": {
+    "module": "duty",
+    "action": "privateClose",
+    "fn_name": "dutyPrivateClose",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duty.privateCreate": {
+    "module": "duty",
+    "action": "privateCreate",
+    "fn_name": "dutyPrivateCreate",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "room_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "entry_token": {
+              "type": "str",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.privateJoin": {
+    "module": "duty",
+    "action": "privateJoin",
+    "fn_name": "dutyPrivateJoin",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "error_code": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "difficulty": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "db_column"
+            },
+            "room_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.privateJoinMatch": {
+    "module": "duty",
+    "action": "privateJoinMatch",
+    "fn_name": "dutyPrivateJoinMatch",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "start_after": {
+              "type": "Any",
+              "optional": false,
+              "enum_values": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.privateLeave": {
+    "module": "duty",
+    "action": "privateLeave",
+    "fn_name": "dutyPrivateLeave",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "duty.privateMakeMatch": {
+    "module": "duty",
+    "action": "privateMakeMatch",
+    "fn_name": "dutyPrivateMakeMatch",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "room_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "live_track_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "select_time": {
+          "type": "int",
+          "optional": false,
+          "enum_values": []
+        },
+        "live_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "fields": {
+              "live_difficulty_id": {
+                "type": "int",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "db_column"
+              }
+            }
+          }
+        },
+        "event_team_duty": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        },
+        "deck_bonus_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "duty.privateStartWait": {
+    "module": "duty",
+    "action": "privateStartWait",
+    "fn_name": "dutyPrivateStartWait",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "start_flag": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.startWait": {
+    "module": "duty",
+    "action": "startWait",
+    "fn_name": "dutyStartWait",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": null
+  },
+  "duty.top": {
+    "module": "duty",
+    "action": "top",
+    "fn_name": "dutyTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_team_duty": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "all_user_mission_value": {
+                  "type": "object",
+                  "optional": false,
+                  "enum_values": [],
+                  "fields": {
+                    "Live": {
+                      "type": "object",
+                      "optional": false,
+                      "enum_values": [],
+                      "fields": {
+                        "getInstance": {
+                          "type": "object",
+                          "optional": false,
+                          "enum_values": [],
+                          "fields": {
+                            "onFinishLive": {
+                              "type": "Any",
+                              "optional": false,
+                              "enum_values": []
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "duty.dutyInfo": {
+    "module": "duty",
+    "action": "dutyInfo",
+    "fn_name": "dutyDutyInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "duty.endWait": {
+    "module": "duty",
+    "action": "endWait",
+    "fn_name": "dutyEndWait",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "end_flag": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "effortPoint.selectLimitedBox": {
+    "module": "effortPoint",
+    "action": "selectLimitedBox",
+    "fn_name": "effortPointSelectLimitedBox",
+    "callsite_count": 3,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "event.eventList": {
+    "module": "event",
+    "action": "eventList",
+    "fn_name": "eventEventList",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "event.eventYellDeck": {
+    "module": "event",
+    "action": "eventYellDeck",
+    "fn_name": "eventEventYellDeck",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "eventscenario.open": {
+    "module": "eventscenario",
+    "action": "open",
+    "fn_name": "eventscenarioOpen",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "eventscenario.reward": {
+    "module": "eventscenario",
+    "action": "reward",
+    "fn_name": "eventscenarioReward",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "eventscenario.startup": {
+    "module": "eventscenario",
+    "action": "startup",
+    "fn_name": "eventscenarioStartup",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "eventscenario.status": {
+    "module": "eventscenario",
+    "action": "status",
+    "fn_name": "eventscenarioStatus",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "exchange.itemInfo": {
+    "module": "exchange",
+    "action": "itemInfo",
+    "fn_name": "exchangeItemInfo",
+    "callsite_count": 3,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "exchange_item_info": {
+              "type": "list",
+              "optional": false,
+              "element": {
+                "type": "object",
+                "fields": {}
+              },
+              "_flipped_pattern_c": true
+            },
+            "exchange_point_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "exchange.usePoint": {
+    "module": "exchange",
+    "action": "usePoint",
+    "fn_name": "exchangeUsePoint",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "exchange.owningPoint": {
+    "module": "exchange",
+    "action": "owningPoint",
+    "fn_name": "exchangeOwningPoint",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "festival.continue": {
+    "module": "festival",
+    "action": "continue",
+    "fn_name": "festivalContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "festival.deckList": {
+    "module": "festival",
+    "action": "deckList",
+    "fn_name": "festivalDeckList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "festival": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "event_festival_live_list": {
+                  "type": "list",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                }
+              }
+            },
+            "festival_previous_item_ids": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "available_mission_bonus_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "festival.gameover": {
+    "module": "festival",
+    "action": "gameover",
+    "fn_name": "festivalGameover",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "festival.liveReward": {
+    "module": "festival",
+    "action": "liveReward",
+    "fn_name": "festivalLiveReward",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "festival.liveSetList": {
+    "module": "festival",
+    "action": "liveSetList",
+    "fn_name": "festivalLiveSetList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "live_track_ids": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "festival.liveStart": {
+    "module": "festival",
+    "action": "liveStart",
+    "fn_name": "festivalLiveStart",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "festival.missionStatus": {
+    "module": "festival",
+    "action": "missionStatus",
+    "fn_name": "festivalMissionStatus",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "now_mission": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "next_page_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [
+                "0"
+              ]
+            },
+            "mission_status_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "__init": {
+          "type": "Any",
+          "optional": false,
+          "enum_values": []
+        }
+      }
+    }
+  },
+  "festival.top": {
+    "module": "festival",
+    "action": "top",
+    "fn_name": "festivalTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_status": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "mission_status": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "failed_mission_status": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "is_new_mission": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "festival.updateLiveList": {
+    "module": "festival",
+    "action": "updateLiveList",
+    "fn_name": "festivalUpdateLiveList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "live_track_ids": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "festival.festivalInfo": {
+    "module": "festival",
+    "action": "festivalInfo",
+    "fn_name": "festivalInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "freeLive.play": {
+    "module": "freeLive",
+    "action": "play",
+    "fn_name": "freeLivePlay",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "friend.expel": {
+    "module": "friend",
+    "action": "expel",
+    "fn_name": "friendExpel",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "friend.list": {
+    "module": "friend",
+    "action": "list",
+    "fn_name": "friendList",
+    "callsite_count": 4,
+    "resolved_count": 4,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "friend_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "new_friend_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "item_count": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "sibling"
+            }
+          }
+        }
+      }
+    }
+  },
+  "friend.request": {
+    "module": "friend",
+    "action": "request",
+    "fn_name": "friendRequest",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "friend.requestCancel": {
+    "module": "friend",
+    "action": "requestCancel",
+    "fn_name": "friendRequestCancel",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "friend.response": {
+    "module": "friend",
+    "action": "response",
+    "fn_name": "friendResponse",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "friend.search": {
+    "module": "friend",
+    "action": "search",
+    "fn_name": "friendSearch",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "gdpr.detail": {
+    "module": "gdpr",
+    "action": "detail",
+    "fn_name": "gdprDetail",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "permission": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "granted": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [
+                    "1"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "gdpr.get": {
+    "module": "gdpr",
+    "action": "get",
+    "fn_name": "gdprGet",
+    "callsite_count": 3,
+    "resolved_count": 3,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "_fs": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "Any",
+            "optional": false,
+            "enum_values": []
+          }
+        },
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "enable_gdpr": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "is_eea": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "resume": {
+              "type": "Any",
+              "optional": false,
+              "enum_values": []
+            },
+            "views": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "gdpr.update": {
+    "module": "gdpr",
+    "action": "update",
+    "fn_name": "gdprUpdate",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "greet.delete": {
+    "module": "greet",
+    "action": "delete",
+    "fn_name": "greetDelete",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "greet.user": {
+    "module": "greet",
+    "action": "user",
+    "fn_name": "greetUser",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "handover.abortTransfer": {
+    "module": "handover",
+    "action": "abortTransfer",
+    "fn_name": "handoverAbortTransfer",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "handover.create": {
+    "module": "handover",
+    "action": "create",
+    "fn_name": "handoverCreate",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "handover.exec": {
+    "module": "handover",
+    "action": "exec",
+    "fn_name": "handoverExec",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "disappear": {
+          "type": "bool",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "handover.kidCheck": {
+    "module": "handover",
+    "action": "kidCheck",
+    "fn_name": "handoverKidCheck",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "status_code": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [
+            "200"
+          ]
+        },
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "user_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "level": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                },
+                "name": {
+                  "type": "str",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "handover.kidDelete": {
+    "module": "handover",
+    "action": "kidDelete",
+    "fn_name": "handoverKidDelete",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "status_code": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [
+            "200"
+          ]
+        }
+      }
+    }
+  },
+  "handover.kidHandover": {
+    "module": "handover",
+    "action": "kidHandover",
+    "fn_name": "handoverKidHandover",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "status_code": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [
+            "200"
+          ]
+        }
+      }
+    }
+  },
+  "handover.kidRegister": {
+    "module": "handover",
+    "action": "kidRegister",
+    "fn_name": "handoverKidRegister",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "status_code": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [
+            "200"
+          ]
+        }
+      }
+    }
+  },
+  "handover.kidStatus": {
+    "module": "handover",
+    "action": "kidStatus",
+    "fn_name": "handoverKidStatus",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "has_klab_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "handover.reserveTransfer": {
+    "module": "handover",
+    "action": "reserveTransfer",
+    "fn_name": "handoverReserveTransfer",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "handover.start": {
+    "module": "handover",
+    "action": "start",
+    "fn_name": "handoverStart",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "handover.kidInfo": {
+    "module": "handover",
+    "action": "kidInfo",
+    "fn_name": "handoverKidInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "status_code": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [
+            "200"
+          ]
+        },
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "auth_url": {
+              "type": "str",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "item.exchange": {
+    "module": "item",
+    "action": "exchange",
+    "fn_name": "itemExchange",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after_user_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "level": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "item.useBuff": {
+    "module": "item",
+    "action": "useBuff",
+    "fn_name": "itemUseBuff",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "item.useLotteryTicket": {
+    "module": "item",
+    "action": "useLotteryTicket",
+    "fn_name": "itemUseLotteryTicket",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "item_id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        }
+      }
+    }
+  },
+  "item.useReinforceItem": {
+    "module": "item",
+    "action": "useReinforceItem",
+    "fn_name": "itemUseReinforceItem",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "display_rank": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        },
+        "after": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "unit_owning_user_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "unit_skill_exp": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "db_column"
+            }
+          }
+        }
+      }
+    }
+  },
+  "item.userRankUp": {
+    "module": "item",
+    "action": "userRankUp",
+    "fn_name": "itemUserRankUp",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after_user_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "level": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "item.list": {
+    "module": "item",
+    "action": "list",
+    "fn_name": "itemList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.kidPagingUnaccomplishList": {
+    "module": "klab_id",
+    "action": "kidPagingUnaccomplishList",
+    "fn_name": "klab_idKidPagingUnaccomplishList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.kidRewardOpen": {
+    "module": "klab_id",
+    "action": "kidRewardOpen",
+    "fn_name": "klab_idKidRewardOpen",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.kidRewardOpenAll": {
+    "module": "klab_id",
+    "action": "kidRewardOpenAll",
+    "fn_name": "klab_idKidRewardOpenAll",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.sync": {
+    "module": "klab_id",
+    "action": "sync",
+    "fn_name": "klab_idSync",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.syncActivate": {
+    "module": "klab_id",
+    "action": "syncActivate",
+    "fn_name": "klab_idSyncActivate",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.syncDeactivate": {
+    "module": "klab_id",
+    "action": "syncDeactivate",
+    "fn_name": "klab_idSyncDeactivate",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.kidInitialAccomplishedList": {
+    "module": "klab_id",
+    "action": "kidInitialAccomplishedList",
+    "fn_name": "klab_idKidInitialAccomplishedList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.kidPagingAccomplishedList": {
+    "module": "klab_id",
+    "action": "kidPagingAccomplishedList",
+    "fn_name": "klab_idKidPagingAccomplishedList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "klab_id.kidUnaccomplishList": {
+    "module": "klab_id",
+    "action": "kidUnaccomplishList",
+    "fn_name": "klab_idKidUnaccomplishList",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "lbonus.adReward": {
+    "module": "lbonus",
+    "action": "adReward",
+    "fn_name": "lBonusAdReward",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "reward_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "lbonus.execute": {
+    "module": "lbonus",
+    "action": "execute",
+    "fn_name": "lBonusExecute",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "sheets": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "start_dash_sheets": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "element": {
+            "type": "object",
+            "optional": false,
+            "enum_values": [],
+            "_promoted_from": "Any",
+            "_promotion_source": "list_parent_name"
+          }
+        },
+        "comeback_info": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "get_item": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "calendar_info": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "get_item": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "current_date": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        },
+        "license_lbonus_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "getStatus": {
+          "type": "Any",
+          "optional": false,
+          "enum_values": []
+        },
+        "accomplished_achievement_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "added_achievement_list": {
+          "type": "list",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "effort_point": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "limited_effort_box": {
+          "type": "Any",
+          "optional": false,
+          "enum_values": []
+        },
+        "new_achievement_cnt": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        },
+        "unaccomplished_achievement_cnt": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "name_convention"
+        }
+      }
+    }
+  },
+  "live.continue": {
+    "module": "live",
+    "action": "continue",
+    "fn_name": "liveContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "live.gameover": {
+    "module": "live",
+    "action": "gameover",
+    "fn_name": "liveGameover",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "live.play": {
+    "module": "live",
+    "action": "play",
+    "fn_name": "livePlay",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "live.preciseScore": {
+    "module": "live",
+    "action": "preciseScore",
+    "fn_name": "livePreciseScore",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "live.publishPreciseScoreId": {
+    "module": "live",
+    "action": "publishPreciseScoreId",
+    "fn_name": "livePublishPreciseScoreId",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "precise_score_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "live.reward": {
+    "module": "live",
+    "action": "reward",
+    "fn_name": "liveReward",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "live.partyList": {
+    "module": "live",
+    "action": "partyList",
+    "fn_name": "livePartyList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "live.schedule": {
+    "module": "live",
+    "action": "schedule",
+    "fn_name": "liveSchedule",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "live.liveStatus": {
+    "module": "live",
+    "action": "liveStatus",
+    "fn_name": "liveStatus",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "liveicon.liveiconInfo": {
+    "module": "liveicon",
+    "action": "liveiconInfo",
+    "fn_name": "liveiconInfo",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "livese.liveseInfo": {
+    "module": "livese",
+    "action": "liveseInfo",
+    "fn_name": "liveseInfo",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "login.login": {
+    "module": "login",
+    "action": "login",
+    "fn_name": "loginLogin",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "login.unitList": {
+    "module": "login",
+    "action": "unitList",
+    "fn_name": "loginUnitList",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "login.unitSelect": {
+    "module": "login",
+    "action": "unitSelect",
+    "fn_name": "loginUnitSelect",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "login.topInfo": {
+    "module": "login",
+    "action": "topInfo",
+    "fn_name": "topInfo",
+    "callsite_count": 5,
+    "resolved_count": 3,
+    "shape": null
+  },
+  "login.topInfoOnce": {
+    "module": "login",
+    "action": "topInfoOnce",
+    "fn_name": "topInfoOnce",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "marathon.top": {
+    "module": "marathon",
+    "action": "top",
+    "fn_name": "marathonTop",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "event_status": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "marathon.marathonInfo": {
+    "module": "marathon",
+    "action": "marathonInfo",
+    "fn_name": "marathonInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "multiunit.scenarioReward": {
+    "module": "multiunit",
+    "action": "scenarioReward",
+    "fn_name": "multiunitScenarioReward",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "multiunit.scenarioStartup": {
+    "module": "multiunit",
+    "action": "scenarioStartup",
+    "fn_name": "multiunitScenarioStartup",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "multiunit.multiunitscenarioStatus": {
+    "module": "multiunit",
+    "action": "multiunitscenarioStatus",
+    "fn_name": "multiunitScenarioStatus",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "museum.info": {
+    "module": "museum",
+    "action": "info",
+    "fn_name": "museumInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "navigation.specialCutin": {
+    "module": "navigation",
+    "action": "specialCutin",
+    "fn_name": "navigationSpecialCutin",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "notice.noticeFriendGreeting": {
+    "module": "notice",
+    "action": "noticeFriendGreeting",
+    "fn_name": "noticeFriendGreeting",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "next_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "notice_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "sibling"
+            }
+          }
+        }
+      }
+    }
+  },
+  "notice.noticeFriendVariety": {
+    "module": "notice",
+    "action": "noticeFriendVariety",
+    "fn_name": "noticeFriendVariety",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "item_count": {
+              "type": "int",
+              "optional": false,
+              "enum_values": []
+            },
+            "notice_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "list_parent_name"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "notice.noticeMarquee": {
+    "module": "notice",
+    "action": "noticeMarquee",
+    "fn_name": "noticeMarquee",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "notice.noticeUserGreetingHistory": {
+    "module": "notice",
+    "action": "noticeUserGreetingHistory",
+    "fn_name": "noticeUserGreetingHistory",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "has_next": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "notice_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "fields": {
+                  "notice_id": {
+                    "type": "int",
+                    "optional": false,
+                    "enum_values": [],
+                    "_promoted_from": "Any",
+                    "_promotion_source": "name_convention"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "online.deck": {
+    "module": "online",
+    "action": "deck",
+    "fn_name": "onlineDeck",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "online.exhibitionResult": {
+    "module": "online",
+    "action": "exhibitionResult",
+    "fn_name": "onlineExhibitionResult",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "online.play": {
+    "module": "online",
+    "action": "play",
+    "fn_name": "onlinePlay",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "online.playExhibition": {
+    "module": "online",
+    "action": "playExhibition",
+    "fn_name": "onlinePlayExhibition",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "online.result": {
+    "module": "online",
+    "action": "result",
+    "fn_name": "onlineResult",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "online.info": {
+    "module": "online",
+    "action": "info",
+    "fn_name": "onlineInfo",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "payment.history": {
+    "module": "payment",
+    "action": "history",
+    "fn_name": "paymentHistory",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "payment_history_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "list_parent_name"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "payment.month": {
+    "module": "payment",
+    "action": "month",
+    "fn_name": "paymentMonth",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "payment_month_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "element": {
+                "type": "object",
+                "optional": false,
+                "enum_values": [],
+                "_promoted_from": "Any",
+                "_promotion_source": "list_parent_name"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "payment.receipt": {
+    "module": "payment",
+    "action": "receipt",
+    "fn_name": "paymentReceipt",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "payment.setBirth": {
+    "module": "payment",
+    "action": "setBirth",
+    "fn_name": "paymentSetBirth",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "payment.processLog": {
+    "module": "payment",
+    "action": "processLog",
+    "fn_name": "paymentProcessLog",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "payment.productList": {
+    "module": "payment",
+    "action": "productList",
+    "fn_name": "paymentProductList",
+    "callsite_count": 11,
+    "resolved_count": 10,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "sns_product_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "subscription_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "under_age_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "birth_set": {
+                  "type": "object",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                },
+                "has_limit": {
+                  "type": "bool",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                }
+              }
+            },
+            "restriction_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "product_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "payment.subscriptionRead": {
+    "module": "payment",
+    "action": "subscriptionRead",
+    "fn_name": "paymentSubscriptionRead",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "personalnotice.agree": {
+    "module": "personalnotice",
+    "action": "agree",
+    "fn_name": "personalnoticeAgree",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "personalnotice.clearCache": {
+    "module": "personalnotice",
+    "action": "clearCache",
+    "fn_name": "personalnoticeClearCache",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "personalnotice.get": {
+    "module": "personalnotice",
+    "action": "get",
+    "fn_name": "personalnoticeGet",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "has_notice": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "platformAccount.handover": {
+    "module": "platformAccount",
+    "action": "handover",
+    "fn_name": "platformAccountHandover",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "platformAccount.connectAccounts": {
+    "module": "platformAccount",
+    "action": "connectAccounts",
+    "fn_name": "platformAccountConnectAccounts",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "platformAccount.disconnectAccounts": {
+    "module": "platformAccount",
+    "action": "disconnectAccounts",
+    "fn_name": "platformAccountDisconnectAccounts",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "platformAccount.isConnectedLlAccount": {
+    "module": "platformAccount",
+    "action": "isConnectedLlAccount",
+    "fn_name": "platformAccountIsConnectedLlAccount",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "platformAccount.isConnectedPfAccount": {
+    "module": "platformAccount",
+    "action": "isConnectedPfAccount",
+    "fn_name": "platformAccountIsConnectedPfAccount",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "preciseScore.manualUpdate": {
+    "module": "preciseScore",
+    "action": "manualUpdate",
+    "fn_name": "preciseScoreManualUpdate",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "profile.profileRegister": {
+    "module": "profile",
+    "action": "profileRegister",
+    "fn_name": "profileRegister",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "status_code": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [
+            "200"
+          ]
+        }
+      }
+    }
+  },
+  "profile.cardRanking": {
+    "module": "profile",
+    "action": "cardRanking",
+    "fn_name": "profileCardRank",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "profile.liveCnt": {
+    "module": "profile",
+    "action": "liveCnt",
+    "fn_name": "profileLiveCnt",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "profile.profileInfo": {
+    "module": "profile",
+    "action": "profileInfo",
+    "fn_name": "profileUser",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "quest.continue": {
+    "module": "quest",
+    "action": "continue",
+    "fn_name": "questContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "quest.gameover": {
+    "module": "quest",
+    "action": "gameover",
+    "fn_name": "questGameover",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "quest.itemInfo": {
+    "module": "quest",
+    "action": "itemInfo",
+    "fn_name": "questItemInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "quest.questList": {
+    "module": "quest",
+    "action": "questList",
+    "fn_name": "questList",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "quest.partyList": {
+    "module": "quest",
+    "action": "partyList",
+    "fn_name": "questPartyList",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "quest.questReward": {
+    "module": "quest",
+    "action": "questReward",
+    "fn_name": "questReward",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "quest.questStart": {
+    "module": "quest",
+    "action": "questStart",
+    "fn_name": "questStart",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "quest.useSeal": {
+    "module": "quest",
+    "action": "useSeal",
+    "fn_name": "questUseSeal",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "quest.questInfo": {
+    "module": "quest",
+    "action": "questInfo",
+    "fn_name": "questInfo",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "quest.owningSeal": {
+    "module": "quest",
+    "action": "owningSeal",
+    "fn_name": "questOwningSeal",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "ranking.eventFriendLive": {
+    "module": "ranking",
+    "action": "eventFriendLive",
+    "fn_name": "rankingEventFriendLive",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "ranking.eventFriendPlayer": {
+    "module": "ranking",
+    "action": "eventFriendPlayer",
+    "fn_name": "rankingEventFriendPlayer",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "ranking.eventLive": {
+    "module": "ranking",
+    "action": "eventLive",
+    "fn_name": "rankingEventLive",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "ranking.eventLiveDetail": {
+    "module": "ranking",
+    "action": "eventLiveDetail",
+    "fn_name": "rankingEventLiveDetail",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "ranking.eventPlayer": {
+    "module": "ranking",
+    "action": "eventPlayer",
+    "fn_name": "rankingEventPlayer",
+    "callsite_count": 2,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "ranking.live": {
+    "module": "ranking",
+    "action": "live",
+    "fn_name": "rankingLive",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "ranking.player": {
+    "module": "ranking",
+    "action": "player",
+    "fn_name": "rankingPlayer",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "reward.adReward": {
+    "module": "reward",
+    "action": "adReward",
+    "fn_name": "rewardAdReward",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "reward_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "reward.exchange": {
+    "module": "reward",
+    "action": "exchange",
+    "fn_name": "rewardExchange",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "reward.exchangeList": {
+    "module": "reward",
+    "action": "exchangeList",
+    "fn_name": "rewardExchangeList",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "reward.open": {
+    "module": "reward",
+    "action": "open",
+    "fn_name": "rewardOpen",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "reward.openAll": {
+    "module": "reward",
+    "action": "openAll",
+    "fn_name": "rewardOpenAll",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "reward_item_list": {
+              "type": "list",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "opened_num": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [
+                "0"
+              ]
+            },
+            "total_num": {
+              "type": "int",
+              "optional": false,
+              "enum_values": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "reward.sellUnit": {
+    "module": "reward",
+    "action": "sellUnit",
+    "fn_name": "rewardSellUnit",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "total": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "reward_box_flag": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "reward.useLotteryTicket": {
+    "module": "reward",
+    "action": "useLotteryTicket",
+    "fn_name": "rewardUseLotteryTicket",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "reward.rewardHistory": {
+    "module": "reward",
+    "action": "rewardHistory",
+    "fn_name": "rewardHistory",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "reward.rewardList": {
+    "module": "reward",
+    "action": "rewardList",
+    "fn_name": "rewardList",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "item_count": {
+              "type": "int",
+              "optional": false,
+              "enum_values": []
+            },
+            "ad_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "items": {
+              "type": "Any",
+              "optional": false,
+              "enum_values": []
+            }
+          }
+        }
+      }
+    }
+  },
+  "rlive.continue": {
+    "module": "rlive",
+    "action": "continue",
+    "fn_name": "rliveContinue",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "rlive.gameover": {
+    "module": "rlive",
+    "action": "gameover",
+    "fn_name": "rliveGameover",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "rlive.lot": {
+    "module": "rlive",
+    "action": "lot",
+    "fn_name": "rliveLot",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "live_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "live_difficulty_id": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "rlive.play": {
+    "module": "rlive",
+    "action": "play",
+    "fn_name": "rlivePlay",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "rlive.reward": {
+    "module": "rlive",
+    "action": "reward",
+    "fn_name": "rliveReward",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "scenario.reward": {
+    "module": "scenario",
+    "action": "reward",
+    "fn_name": "scenarioReward",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "scenario.startup": {
+    "module": "scenario",
+    "action": "startup",
+    "fn_name": "scenarioStartup",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "scenario.scenarioStatus": {
+    "module": "scenario",
+    "action": "scenarioStatus",
+    "fn_name": "scenarioStatus",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "secretbox.knapsackReset": {
+    "module": "secretbox",
+    "action": "knapsackReset",
+    "fn_name": "secretboxKnapsackReset",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "secretbox.knapsackSelect": {
+    "module": "secretbox",
+    "action": "knapsackSelect",
+    "fn_name": "secretboxKnapsackSelect",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "secretbox.multi": {
+    "module": "secretbox",
+    "action": "multi",
+    "fn_name": "secretboxMulti",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "secretbox.pon": {
+    "module": "secretbox",
+    "action": "pon",
+    "fn_name": "secretboxPon",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "secretbox.selectPickUp": {
+    "module": "secretbox",
+    "action": "selectPickUp",
+    "fn_name": "secretboxSelectPickUp",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "secretbox.selectUnit": {
+    "module": "secretbox",
+    "action": "selectUnit",
+    "fn_name": "secretboxSelectUnit",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "secretbox.showDetail": {
+    "module": "secretbox",
+    "action": "showDetail",
+    "fn_name": "secretboxShowDetail",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "secretbox.all": {
+    "module": "secretbox",
+    "action": "all",
+    "fn_name": "secretboxAll",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "secretbox.stampDetail": {
+    "module": "secretbox",
+    "action": "stampDetail",
+    "fn_name": "secretboxStampDetail",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "skit.skitInfo": {
+    "module": "skit",
+    "action": "skitInfo",
+    "fn_name": "skitInfo",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "sns.addReward": {
+    "module": "sns",
+    "action": "addReward",
+    "fn_name": "snsAddReward",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "sns.getReward": {
+    "module": "sns",
+    "action": "getReward",
+    "fn_name": "snsGetReward",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "stamp.set": {
+    "module": "stamp",
+    "action": "set",
+    "fn_name": "stampSet",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "stamp.stampInfo": {
+    "module": "stamp",
+    "action": "stampInfo",
+    "fn_name": "stampInfo",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "subscenario.reward": {
+    "module": "subscenario",
+    "action": "reward",
+    "fn_name": "subscenarioReward",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "subscenario.startup": {
+    "module": "subscenario",
+    "action": "startup",
+    "fn_name": "subscenarioStartup",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "subscenario.subscenarioStatus": {
+    "module": "subscenario",
+    "action": "subscenarioStatus",
+    "fn_name": "subscenarioStatus",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "tos.tosAgree": {
+    "module": "tos",
+    "action": "tosAgree",
+    "fn_name": "tosAgree",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": null
+  },
+  "tos.tosCheck": {
+    "module": "tos",
+    "action": "tosCheck",
+    "fn_name": "tosCheck",
+    "callsite_count": 4,
+    "resolved_count": 2,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "is_agreed": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "tos_id": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tutorial.progress": {
+    "module": "tutorial",
+    "action": "progress",
+    "fn_name": "tutorialProgress",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "status_code": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [
+            "200"
+          ]
+        }
+      }
+    }
+  },
+  "tutorial.skip": {
+    "module": "tutorial",
+    "action": "skip",
+    "fn_name": "tutorialSkip",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.activate": {
+    "module": "unit",
+    "action": "activate",
+    "fn_name": "unitActivate",
+    "callsite_count": 2,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "unit.changeDelegate": {
+    "module": "unit",
+    "action": "changeDelegate",
+    "fn_name": "unitChangeDelegate",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "unit.createAccessory": {
+    "module": "unit",
+    "action": "createAccessory",
+    "fn_name": "unitCreateAccessory",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "created_accessory": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "unit_removable_skill": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "owning_info": {
+                  "type": "object",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "unit.deck": {
+    "module": "unit",
+    "action": "deck",
+    "fn_name": "unitDeck",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.deckName": {
+    "module": "unit",
+    "action": "deckName",
+    "fn_name": "unitDeckName",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.exchangePointRankUp": {
+    "module": "unit",
+    "action": "exchangePointRankUp",
+    "fn_name": "unitExchangePointRankUp",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "unit.favorite": {
+    "module": "unit",
+    "action": "favorite",
+    "fn_name": "unitFavorite",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "unit.favoriteAccessory": {
+    "module": "unit",
+    "action": "favoriteAccessory",
+    "fn_name": "unitFavoriteAccessory",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "unit.maxLevelUp": {
+    "module": "unit",
+    "action": "maxLevelUp",
+    "fn_name": "unitMaxLevelUp",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "max_level": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "unit.merge": {
+    "module": "unit",
+    "action": "merge",
+    "fn_name": "unitMerge",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "unit_skill_exp": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "unit.mergeAccessory": {
+    "module": "unit",
+    "action": "mergeAccessory",
+    "fn_name": "unitMergeAccessory",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "accessory_owning_user_id": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "unit.rankUp": {
+    "module": "unit",
+    "action": "rankUp",
+    "fn_name": "unitRankUp",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "display_rank": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "unit.removableSkillEquipment": {
+    "module": "unit",
+    "action": "removableSkillEquipment",
+    "fn_name": "unitRemovableSkillEquipment",
+    "callsite_count": 4,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "unit.removableSkillRankUp": {
+    "module": "unit",
+    "action": "removableSkillRankUp",
+    "fn_name": "unitRemovableSkillRankUp",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.removableSkillSell": {
+    "module": "unit",
+    "action": "removableSkillSell",
+    "fn_name": "unitRemovableSkillSell",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after_user_info": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "sibling"
+            }
+          }
+        }
+      }
+    }
+  },
+  "unit.sale": {
+    "module": "unit",
+    "action": "sale",
+    "fn_name": "unitSale",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "reward_box_flag": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "unit.saleAccessory": {
+    "module": "unit",
+    "action": "saleAccessory",
+    "fn_name": "unitSaleAccessory",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "sibling"
+        }
+      }
+    }
+  },
+  "unit.setDisplayRank": {
+    "module": "unit",
+    "action": "setDisplayRank",
+    "fn_name": "unitSetDisplayRank",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "unit.wait": {
+    "module": "unit",
+    "action": "wait",
+    "fn_name": "unitWait",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "unit.wearAccessory": {
+    "module": "unit",
+    "action": "wearAccessory",
+    "fn_name": "unitWearAccessory",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "unit.accessoryAll": {
+    "module": "unit",
+    "action": "accessoryAll",
+    "fn_name": "unitAccessoryAll",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.accessoryMaterialAll": {
+    "module": "unit",
+    "action": "accessoryMaterialAll",
+    "fn_name": "unitAccessoryMaterialAll",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.accessoryTab": {
+    "module": "unit",
+    "action": "accessoryTab",
+    "fn_name": "unitAccessoryTab",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.unitAll": {
+    "module": "unit",
+    "action": "unitAll",
+    "fn_name": "unitAll",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.deckInfo": {
+    "module": "unit",
+    "action": "deckInfo",
+    "fn_name": "unitDeckInfo",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.removableSkillInfo": {
+    "module": "unit",
+    "action": "removableSkillInfo",
+    "fn_name": "unitRemovableSkillInfo",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "unit.supporterAll": {
+    "module": "unit",
+    "action": "supporterAll",
+    "fn_name": "unitSupporterAll",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "user.abortDelete": {
+    "module": "user",
+    "action": "abortDelete",
+    "fn_name": "userAbortDelete",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": null
+  },
+  "user.addFriendMax": {
+    "module": "user",
+    "action": "addFriendMax",
+    "fn_name": "userAddFriendMax",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "after_friend_max": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "used_loveca": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "user.addUnitMax": {
+    "module": "user",
+    "action": "addUnitMax",
+    "fn_name": "userAddUnitMax",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "used_loveca": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            },
+            "after_unit_max": {
+              "type": "int",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "user.changeName": {
+    "module": "user",
+    "action": "changeName",
+    "fn_name": "userChangeName",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": null
+  },
+  "user.changeNavi": {
+    "module": "user",
+    "action": "changeNavi",
+    "fn_name": "userChangeNavi",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "user.reserveDelete": {
+    "module": "user",
+    "action": "reserveDelete",
+    "fn_name": "userReserveDelete",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "user.setBirth": {
+    "module": "user",
+    "action": "setBirth",
+    "fn_name": "userSetBirth",
+    "callsite_count": 1,
+    "resolved_count": 1,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "is_today_birthday": {
+              "type": "bool",
+              "optional": false,
+              "enum_values": [],
+              "_promoted_from": "Any",
+              "_promotion_source": "name_convention"
+            }
+          }
+        }
+      }
+    }
+  },
+  "user.setNotification": {
+    "module": "user",
+    "action": "setNotification",
+    "fn_name": "userSetNotification",
+    "callsite_count": 2,
+    "resolved_count": 2,
+    "shape": null
+  },
+  "user.setNotificationToken": {
+    "module": "user",
+    "action": "setNotificationToken",
+    "fn_name": "userSetNotificationToken",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "user.getNavi": {
+    "module": "user",
+    "action": "getNavi",
+    "fn_name": "userGetNavi",
+    "callsite_count": 1,
+    "resolved_count": 0,
+    "shape": null
+  },
+  "user.userInfo": {
+    "module": "user",
+    "action": "userInfo",
+    "fn_name": "userInfo",
+    "callsite_count": 14,
+    "resolved_count": 7,
+    "shape": {
+      "type": "object",
+      "optional": false,
+      "enum_values": [],
+      "fields": {
+        "id": {
+          "type": "int",
+          "optional": false,
+          "enum_values": [],
+          "_promoted_from": "Any",
+          "_promotion_source": "db_column"
+        },
+        "response_data": {
+          "type": "object",
+          "optional": false,
+          "enum_values": [],
+          "fields": {
+            "user": {
+              "type": "object",
+              "optional": false,
+              "enum_values": [],
+              "fields": {
+                "lp_recovery_item": {
+                  "type": "object",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "name_convention"
+                },
+                "sns_coin": {
+                  "type": "int",
+                  "optional": false,
+                  "enum_values": [],
+                  "_promoted_from": "Any",
+                  "_promotion_source": "db_column"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "user.showAllItem": {
+    "module": "user",
+    "action": "showAllItem",
+    "fn_name": "userShowAllItem",
+    "callsite_count": 0,
+    "resolved_count": 0,
+    "shape": null
+  }
+}

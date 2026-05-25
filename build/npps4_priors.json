@@ -1,0 +1,1350 @@
+{
+  "achievement.initialAccomplishedList": {
+    "action": "initialAccomplishedList",
+    "fields": {
+      "__root__": "list[AchievementUnaccomplishedFilter]",
+      "__root_item__.achievement_list": "list[achievement.AchievementData]",
+      "__root_item__.count": "int",
+      "__root_item__.filter_category_id": "int",
+      "__root_item__.is_last": "bool"
+    },
+    "module": "achievement",
+    "return_type": "AchievementUnaccomplishedResponse",
+    "source_file": "npps4/game/achievement.py"
+  },
+  "achievement.rewardOpen": {
+    "action": "rewardOpen",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "new_achievement_cnt": "int",
+      "present_cnt": "int",
+      "reward_item_list": "list[pydantic.SerializeAsAny[common.AnyItem]]",
+      "server_timestamp": "int",
+      "unaccomplished_achievement_cnt": "int",
+      "unit_support_list": "list[unit_model.SupporterInfoResponse]"
+    },
+    "module": "achievement",
+    "return_type": "AchievementRewardOpenResponse",
+    "source_file": "npps4/game/achievement.py"
+  },
+  "achievement.rewardOpenAll": {
+    "action": "rewardOpenAll",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "is_last": "bool",
+      "new_achievement_cnt": "int",
+      "opened_num": "int",
+      "present_cnt": "int",
+      "reward_item_list": "list[pydantic.SerializeAsAny[common.AnyItem]]",
+      "server_timestamp": "int",
+      "unaccomplished_achievement_cnt": "int",
+      "unit_support_list": "list[unit_model.SupporterInfoResponse]"
+    },
+    "module": "achievement",
+    "return_type": "AchievementRewardOpenAllResponse",
+    "source_file": "npps4/game/achievement.py"
+  },
+  "achievement.unaccomplishList": {
+    "action": "unaccomplishList",
+    "fields": {
+      "__root__": "list[AchievementUnaccomplishedFilter]",
+      "__root_item__.achievement_list": "list[achievement.AchievementData]",
+      "__root_item__.count": "int",
+      "__root_item__.filter_category_id": "int",
+      "__root_item__.is_last": "bool"
+    },
+    "module": "achievement",
+    "return_type": "AchievementUnaccomplishedResponse",
+    "source_file": "npps4/game/achievement.py"
+  },
+  "ad.changeAd": {
+    "action": "changeAd",
+    "fields": {},
+    "module": "ad",
+    "return_type": "None",
+    "source_file": "npps4/game/ad.py"
+  },
+  "album.albumAll": {
+    "action": "albumAll",
+    "fields": {
+      "__root__": "list[AlbumInfo]",
+      "__root_item__.all_max_flag": "bool",
+      "__root_item__.favorite_point": "int",
+      "__root_item__.highest_love_per_unit": "int",
+      "__root_item__.love_max_flag": "bool",
+      "__root_item__.rank_level_max_flag": "bool",
+      "__root_item__.rank_max_flag": "bool",
+      "__root_item__.sign_flag": "bool",
+      "__root_item__.total_love": "int",
+      "__root_item__.unit_id": "int"
+    },
+    "module": "album",
+    "return_type": "AlbumAllResponse",
+    "source_file": "npps4/game/album.py"
+  },
+  "album.seriesAll": {
+    "action": "seriesAll",
+    "fields": {
+      "__root__": "list[AlbumSeriesInfo]",
+      "__root_item__.series_id": "int",
+      "__root_item__.unit_list": "list[AlbumInfo]"
+    },
+    "module": "album",
+    "return_type": "AlbumSeriesAllResponse",
+    "source_file": "npps4/game/album.py"
+  },
+  "announce.checkState": {
+    "action": "checkState",
+    "fields": {
+      "has_unread_announce": "bool",
+      "present_cnt": "int",
+      "server_timestamp": "int"
+    },
+    "module": "announce",
+    "return_type": "AnnounceStateResponse",
+    "source_file": "npps4/game/announce.py"
+  },
+  "award.awardInfo": {
+    "action": "awardInfo",
+    "fields": {
+      "award_info": "list[AwardInfo]"
+    },
+    "module": "award",
+    "return_type": "AwardInfoResponse",
+    "source_file": "npps4/game/award.py"
+  },
+  "award.set": {
+    "action": "set",
+    "fields": {},
+    "module": "award",
+    "return_type": "None",
+    "source_file": "npps4/game/award.py"
+  },
+  "background.backgroundInfo": {
+    "action": "backgroundInfo",
+    "fields": {
+      "background_info": "list[BackgroundInfo]"
+    },
+    "module": "background",
+    "return_type": "BackgroundInfoResponse",
+    "source_file": "npps4/game/background.py"
+  },
+  "background.set": {
+    "action": "set",
+    "fields": {},
+    "module": "background",
+    "return_type": "None",
+    "source_file": "npps4/game/background.py"
+  },
+  "banner.bannerList": {
+    "action": "bannerList",
+    "fields": {
+      "banner_list": "list[BannerInfo]",
+      "time_limit": "str"
+    },
+    "module": "banner",
+    "return_type": "BannerListResponse",
+    "source_file": "npps4/game/banner.py"
+  },
+  "challenge.challengeInfo": {
+    "action": "challengeInfo",
+    "fields": {
+      "root": "ChallengeInfoData | idol.core.DummyModel"
+    },
+    "module": "challenge",
+    "return_type": "ChallengeInfoResponse",
+    "source_file": "npps4/game/challenge.py"
+  },
+  "common.liveResume": {
+    "action": "liveResume",
+    "fields": {},
+    "module": "common",
+    "return_type": "None",
+    "source_file": "npps4/game/common.py"
+  },
+  "common.recoveryEnergy": {
+    "action": "recoveryEnergy",
+    "fields": {
+      "after_game_coin": "int",
+      "after_sns_coin": "int",
+      "before_game_coin": "int",
+      "before_sns_coin": "int",
+      "energy_full_time": "str",
+      "energy_max": "int",
+      "item_list": "list[common.ItemCount]",
+      "over_max_energy": "int",
+      "present_cnt": "int",
+      "server_timestamp": "int",
+      "training_energy": "int",
+      "training_energy_max": "int"
+    },
+    "module": "common",
+    "return_type": "CommonRecoveryEnergyResponse",
+    "source_file": "npps4/game/common.py"
+  },
+  "costume.costumeList": {
+    "action": "costumeList",
+    "fields": {
+      "costume_list": "list"
+    },
+    "module": "costume",
+    "return_type": "CustomeListResponse",
+    "source_file": "npps4/game/costume.py"
+  },
+  "download.additional": {
+    "action": "additional",
+    "fields": {
+      "__root__": "list[DownloadInfo]",
+      "__root_item__.size": "str",
+      "__root_item__.url": "str"
+    },
+    "module": "download",
+    "return_type": "DownloadCommonResponse",
+    "source_file": "npps4/game/download.py"
+  },
+  "download.batch": {
+    "action": "batch",
+    "fields": {
+      "__root__": "list[DownloadInfo]",
+      "__root_item__.size": "str",
+      "__root_item__.url": "str"
+    },
+    "module": "download",
+    "return_type": "DownloadCommonResponse",
+    "source_file": "npps4/game/download.py"
+  },
+  "download.event": {
+    "action": "event",
+    "fields": {
+      "__root__": "list[DownloadInfo]",
+      "__root_item__.size": "str",
+      "__root_item__.url": "str"
+    },
+    "module": "download",
+    "return_type": "DownloadCommonResponse",
+    "source_file": "npps4/game/download.py"
+  },
+  "download.getUrl": {
+    "action": "getUrl",
+    "fields": {
+      "url_list": "list[str]"
+    },
+    "module": "download",
+    "return_type": "DownloadGetUrlResponse",
+    "source_file": "npps4/game/download.py"
+  },
+  "download.update": {
+    "action": "update",
+    "fields": {
+      "__root__": "list[DownloadUpdateInfo]",
+      "__root_item__.size": "str",
+      "__root_item__.url": "str",
+      "__root_item__.version": "str"
+    },
+    "module": "download",
+    "return_type": "DownloadUpdateResponse",
+    "source_file": "npps4/game/download.py"
+  },
+  "event.eventList": {
+    "action": "eventList",
+    "fields": {
+      "server_timestamp": "int",
+      "target_list": "list[EventTargetList]"
+    },
+    "module": "event",
+    "return_type": "EventListResponse",
+    "source_file": "npps4/game/event.py"
+  },
+  "eventscenario.status": {
+    "action": "status",
+    "fields": {
+      "event_scenario_list": "list[EventScenarioInfo]"
+    },
+    "module": "eventscenario",
+    "return_type": "EventScenarioStatusResponse",
+    "source_file": "npps4/game/eventscenario.py"
+  },
+  "exchange.itemInfo": {
+    "action": "itemInfo",
+    "fields": {
+      "exchange_item_info": "list[pydantic.SerializeAsAny[exchange.ExchangeItemBase]]",
+      "exchange_point_list": "list[exchange.ExchangePointInfo]"
+    },
+    "module": "exchange",
+    "return_type": "ExchangeItemInfoResponse",
+    "source_file": "npps4/game/exchange.py"
+  },
+  "exchange.owningPoint": {
+    "action": "owningPoint",
+    "fields": {
+      "exchange_point_list": "list[exchange.ExchangePointInfo]"
+    },
+    "module": "exchange",
+    "return_type": "ExchangePointResponse",
+    "source_file": "npps4/game/exchange.py"
+  },
+  "exchange.usePoint": {
+    "action": "usePoint",
+    "fields": {
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "exchange_reward": "list[pydantic.SerializeAsAny[item_model.Item]]",
+      "present_cnt": "int",
+      "server_timestamp": "int"
+    },
+    "module": "exchange",
+    "return_type": "ExchangeUsePointResponse",
+    "source_file": "npps4/game/exchange.py"
+  },
+  "friend.list": {
+    "action": "list",
+    "fields": {
+      "friend_list": "list[FriendListFriend]",
+      "item_count": "int",
+      "new_friend_list": "list",
+      "server_timestamp": "int"
+    },
+    "module": "friend",
+    "return_type": "FriendListResponse",
+    "source_file": "npps4/game/friend.py"
+  },
+  "friend.search": {
+    "action": "search",
+    "fields": {
+      "center_unit_info": "FriendSearchUnitInfo",
+      "friend_status": "const.FRIEND_STATUS",
+      "is_alliance": "bool",
+      "server_timestamp": "int",
+      "setting_award_id": "int",
+      "user_info": "FriendSearchUserInfo"
+    },
+    "module": "friend",
+    "return_type": "FriendSearchResponse",
+    "source_file": "npps4/game/friend.py"
+  },
+  "gdpr.get": {
+    "action": "get",
+    "fields": {
+      "enable_gdpr": "bool",
+      "is_eea": "bool",
+      "server_timestamp": "int"
+    },
+    "module": "gdpr",
+    "return_type": "GDPRGetResponse",
+    "source_file": "npps4/game/gdpr.py"
+  },
+  "handover.abortTransfer": {
+    "action": "abortTransfer",
+    "fields": {},
+    "module": "handover",
+    "return_type": "None",
+    "source_file": "npps4/game/handover.py"
+  },
+  "handover.exec": {
+    "action": "exec",
+    "fields": {},
+    "module": "handover",
+    "return_type": "None",
+    "source_file": "npps4/game/handover.py"
+  },
+  "handover.kidCheck": {
+    "action": "kidCheck",
+    "fields": {
+      "server_timestamp": "int",
+      "user_info": "KIDCheckUserInfo"
+    },
+    "module": "handover",
+    "return_type": "KIDCheckResponse",
+    "source_file": "npps4/game/handover.py"
+  },
+  "handover.kidHandover": {
+    "action": "kidHandover",
+    "fields": {},
+    "module": "handover",
+    "return_type": "None",
+    "source_file": "npps4/game/handover.py"
+  },
+  "handover.kidInfo": {
+    "action": "kidInfo",
+    "fields": {
+      "auth_url": "str",
+      "server_timestamp": "int"
+    },
+    "module": "handover",
+    "return_type": "KIDInfoResponse",
+    "source_file": "npps4/game/handover.py"
+  },
+  "handover.kidRegister": {
+    "action": "kidRegister",
+    "fields": {},
+    "module": "handover",
+    "return_type": "None",
+    "source_file": "npps4/game/handover.py"
+  },
+  "handover.kidStatus": {
+    "action": "kidStatus",
+    "fields": {
+      "has_klab_id": "bool",
+      "server_timestamp": "int"
+    },
+    "module": "handover",
+    "return_type": "KIDStatusResponse",
+    "source_file": "npps4/game/handover.py"
+  },
+  "handover.reserveTransfer": {
+    "action": "reserveTransfer",
+    "fields": {
+      "code": "str",
+      "insert_date": "str",
+      "invite_code": "str"
+    },
+    "module": "handover",
+    "return_type": "HandoverReserveTransferResponse",
+    "source_file": "npps4/game/handover.py"
+  },
+  "item.list": {
+    "action": "list",
+    "fields": {
+      "buff_item_list": "list[common.ItemCount]",
+      "general_item_list": "list[common.ItemCount]",
+      "reinforce_info": "Annotated[dict[str, ItemListReinforceInfo], pydantic.BeforeValidator(empty_list_is_empty_dict)]",
+      "reinforce_item_list": "list[common.ItemCount]"
+    },
+    "module": "item",
+    "return_type": "ItemListResponse",
+    "source_file": "npps4/game/item.py"
+  },
+  "lbonus.execute": {
+    "action": "execute",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "ad_info": "ad_model.AdInfo",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "user.UserInfoData",
+      "calendar_info": "LoginBonusCalendarInfo",
+      "class_system": "class_system_module.ClassSystemData",
+      "effort_point": "list[effort.EffortPointInfo]",
+      "license_lbonus_list": "list",
+      "limited_effort_box": "list",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "present_cnt": "int",
+      "server_timestamp": "int",
+      "sheets": "list",
+      "start_dash_sheets": "list",
+      "total_login_info": "LoginBonusTotalLogin",
+      "unaccomplished_achievement_cnt": "int"
+    },
+    "module": "lbonus",
+    "return_type": "LoginBonusResponse",
+    "source_file": "npps4/game/lbonus.py"
+  },
+  "live.gameover": {
+    "action": "gameover",
+    "fields": {},
+    "module": "live",
+    "return_type": "None",
+    "source_file": "npps4/game/live.py"
+  },
+  "live.liveStatus": {
+    "action": "liveStatus",
+    "fields": {
+      "can_resume_live": "bool",
+      "free_live_status_list": "list",
+      "marathon_live_status_list": "list",
+      "normal_live_status_list": "list[live_model.LiveStatus]",
+      "special_live_status_list": "list[live_model.LiveStatus]",
+      "training_live_status_list": "list[live_model.LiveStatus]"
+    },
+    "module": "live",
+    "return_type": "LiveStatusResponse",
+    "source_file": "npps4/game/live.py"
+  },
+  "live.partyList": {
+    "action": "partyList",
+    "fields": {
+      "party_list": "list[advanced.PartyInfo]",
+      "server_timestamp": "int",
+      "training_energy": "int",
+      "training_energy_max": "int"
+    },
+    "module": "live",
+    "return_type": "LivePartyListResponse",
+    "source_file": "npps4/game/live.py"
+  },
+  "live.play": {
+    "action": "play",
+    "fields": {
+      "auto_play": "bool",
+      "available_live_resume": "bool",
+      "can_activate_effect": "bool",
+      "energy_full_time": "str",
+      "is_marathon_event": "bool",
+      "live_list": "list[LivePlayList]",
+      "marathon_event_id": "int | None",
+      "no_skill": "bool",
+      "over_max_energy": "int",
+      "rank_info": "list[LivePlayRankInfo]",
+      "server_timestamp": "int"
+    },
+    "module": "live",
+    "return_type": "LivePlayResponse",
+    "source_file": "npps4/game/live.py"
+  },
+  "live.preciseScore": {
+    "action": "preciseScore",
+    "fields": {
+      "can_activate_effect": "bool",
+      "off": "dict[str, Any]",
+      "on": "dict[str, Any]",
+      "rank_info": "list[LivePlayRankInfo]",
+      "server_timestamp": "int"
+    },
+    "module": "live",
+    "return_type": "LivePreciseScoreResponse",
+    "source_file": "npps4/game/live.py"
+  },
+  "live.reward": {
+    "action": "reward",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "UserInfoData",
+      "base_reward_info": "LiveRewardBaseInfo",
+      "before_user_info": "UserInfoData",
+      "can_send_friend_request": "bool",
+      "class_system": "class_system_module.ClassSystemData",
+      "combo_rank": "int",
+      "daily_reward_info": "list[pydantic.SerializeAsAny[common.AnyItem]]",
+      "effort_point": "list[effort.EffortPointInfo]",
+      "event_info": "list",
+      "goal_accomp_info": "LiveRewardGoalAccomplishedInfo",
+      "hi_score": "int",
+      "is_effort_point_visible": "bool",
+      "is_high_score": "bool",
+      "limited_effort_box": "list",
+      "live_info": "list[live_model.LiveInfo]",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "next_level_info": "list[user.NextLevelInfo]",
+      "present_cnt": "int",
+      "rank": "int",
+      "reward_unit_list": "LiveRewardUnitList",
+      "server_timestamp": "int",
+      "special_reward_info": "list[pydantic.SerializeAsAny[common.AnyItem]]",
+      "total_love": "int",
+      "unaccomplished_achievement_cnt": "int",
+      "unit_list": "list[LiveRewardResponseUnitList]",
+      "unlocked_multi_unit_scenario_ids": "list[int]",
+      "unlocked_subscenario_ids": "list[int]",
+      "using_buff_info": "list"
+    },
+    "module": "live",
+    "return_type": "LiveRewardResponse",
+    "source_file": "npps4/game/live.py"
+  },
+  "live.schedule": {
+    "action": "schedule",
+    "fields": {
+      "event_list": "list[EventInfo]",
+      "free_live_list": "list",
+      "limited_bonus_common_list": "list[LimitedLiveBonus]",
+      "limited_bonus_list": "list",
+      "live_list": "list[LimitedLive]",
+      "random_live_list": "list[RandomLive]",
+      "training_live_list": "list[TrainingLive]"
+    },
+    "module": "live",
+    "return_type": "LiveScheduleResponse",
+    "source_file": "npps4/game/live.py"
+  },
+  "liveicon.liveiconInfo": {
+    "action": "liveiconInfo",
+    "fields": {
+      "live_notes_icon_list": "list[int]"
+    },
+    "module": "liveicon",
+    "return_type": "LiveIconInfoResponse",
+    "source_file": "npps4/game/liveicon.py"
+  },
+  "livese.liveseInfo": {
+    "action": "liveseInfo",
+    "fields": {
+      "live_se_list": "list[int]"
+    },
+    "module": "livese",
+    "return_type": "LiveSEInfoResponse",
+    "source_file": "npps4/game/livese.py"
+  },
+  "login.authkey": {
+    "action": "authkey",
+    "fields": {
+      "authorize_token": "str",
+      "dummy_token": "str"
+    },
+    "module": "login",
+    "return_type": "AuthkeyResponse",
+    "source_file": "npps4/game/login.py"
+  },
+  "login.login": {
+    "action": "login",
+    "fields": {
+      "authorize_token": "str",
+      "idfa_enabled": "bool",
+      "review_version": "str",
+      "server_timestamp": "int",
+      "skip_login_news": "bool",
+      "user_id": "int"
+    },
+    "module": "login",
+    "return_type": "LoginResponse",
+    "source_file": "npps4/game/login.py"
+  },
+  "login.startUp": {
+    "action": "startUp",
+    "fields": {
+      "user_id": "str"
+    },
+    "module": "login",
+    "return_type": "StartupResponse",
+    "source_file": "npps4/game/login.py"
+  },
+  "login.topInfo": {
+    "action": "topInfo",
+    "fields": {
+      "ad_flag": "bool",
+      "exchange_badge_cnt": "list[int]",
+      "friend_action_cnt": "int",
+      "friend_greet_cnt": "int",
+      "friend_new_cnt": "int",
+      "friend_variety_cnt": "int",
+      "friends_approval_wait_cnt": "int",
+      "friends_request_cnt": "int",
+      "has_ad_reward": "bool",
+      "has_unread_announce": "bool",
+      "is_klab_id_task_flag": "bool",
+      "is_today_birthday": "bool",
+      "klab_id_task_can_sync": "bool",
+      "license_info": "LicenseInfo",
+      "notice_friend_datetime": "str",
+      "notice_mail_datetime": "str",
+      "present_cnt": "int",
+      "secret_box_badge_flag": "bool",
+      "server_datetime": "str",
+      "server_timestamp": "int",
+      "using_buff_info": "list"
+    },
+    "module": "login",
+    "return_type": "TopInfoResponse",
+    "source_file": "npps4/game/login.py"
+  },
+  "login.topInfoOnce": {
+    "action": "topInfoOnce",
+    "fields": {
+      "arena_si_skill_unique_check": "bool",
+      "costume_status": "bool",
+      "live_daily_reward_exist": "bool",
+      "new_achievement_cnt": "int",
+      "notification": "NotificationStatus",
+      "open_accessory": "bool",
+      "open_arena": "bool",
+      "open_v98": "bool",
+      "training_energy": "int",
+      "training_energy_max": "int",
+      "unaccomplished_achievement_cnt": "int"
+    },
+    "module": "login",
+    "return_type": "TopInfoOnceResponse",
+    "source_file": "npps4/game/login.py"
+  },
+  "login.unitList": {
+    "action": "unitList",
+    "fields": {
+      "member_category_list": "list[StarterMemberCategory]"
+    },
+    "module": "login",
+    "return_type": "StarterUnitListResponse",
+    "source_file": "npps4/game/login.py"
+  },
+  "login.unitSelect": {
+    "action": "unitSelect",
+    "fields": {
+      "unit_id": "list[int]"
+    },
+    "module": "login",
+    "return_type": "StarterUnitSelectResponse",
+    "source_file": "npps4/game/login.py"
+  },
+  "marathon.marathonInfo": {
+    "action": "marathonInfo",
+    "fields": {
+      "root": "list[MarathonInfoData]"
+    },
+    "module": "marathon",
+    "return_type": "MarathonInfoResponse",
+    "source_file": "npps4/game/marathon.py"
+  },
+  "multiunit.multiunitscenarioStatus": {
+    "action": "multiunitscenarioStatus",
+    "fields": {
+      "multi_unit_scenario_status_list": "list[MultiUnitSccenarioInfo]"
+    },
+    "module": "multiunit",
+    "return_type": "MultiUnitScenarioResponse",
+    "source_file": "npps4/game/multiunit.py"
+  },
+  "museum.info": {
+    "action": "info",
+    "fields": {
+      "museum_info": "museum.MuseumInfoData"
+    },
+    "module": "museum",
+    "return_type": "MuseumInfoResponse",
+    "source_file": "npps4/game/museum.py"
+  },
+  "navigation.specialCutin": {
+    "action": "specialCutin",
+    "fields": {
+      "special_cutin_list": "list"
+    },
+    "module": "navigation",
+    "return_type": "NavigationSpecialCutInResponse",
+    "source_file": "npps4/game/navigation.py"
+  },
+  "notice.noticeFriendVariety": {
+    "action": "noticeFriendVariety",
+    "fields": {
+      "item_count": "int",
+      "notice_list": "list[NoticeFriendVariety]",
+      "server_timestamp": "int"
+    },
+    "module": "notice",
+    "return_type": "NoticeFriendVarietyResponse",
+    "source_file": "npps4/game/notice.py"
+  },
+  "notice.noticeMarquee": {
+    "action": "noticeMarquee",
+    "fields": {
+      "item_count": "int",
+      "marquee_list": "list[NoticeMarquee]"
+    },
+    "module": "notice",
+    "return_type": "NoticeMarqueeResponse",
+    "source_file": "npps4/game/notice.py"
+  },
+  "payment.productList": {
+    "action": "productList",
+    "fields": {
+      "product_list": "list[PaymentProductList]",
+      "restriction_info": "PaymentRestrictionInfo",
+      "show_point_shop": "bool",
+      "sns_product_list": "list[PaymentProductListSNS]",
+      "subscription_list": "list[PaymentProductListSubscription]",
+      "under_age_info": "PaymentUnderAgeInfo"
+    },
+    "module": "payment",
+    "return_type": "PaymentProductListResponse",
+    "source_file": "npps4/game/payment.py"
+  },
+  "payment.receipt": {
+    "action": "receipt",
+    "fields": {
+      "product": "PaymentReceiptProduct",
+      "server_timestamp": "int",
+      "status": "bool"
+    },
+    "module": "payment",
+    "return_type": "PaymentReceiptResponse",
+    "source_file": "npps4/game/payment.py"
+  },
+  "personalnotice.get": {
+    "action": "get",
+    "fields": {
+      "contents": "str",
+      "has_notice": "bool",
+      "notice_id": "int",
+      "title": "str",
+      "type": "int"
+    },
+    "module": "personalnotice",
+    "return_type": "PersonalNoticeGetResponse",
+    "source_file": "npps4/game/personalnotice.py"
+  },
+  "profile.cardRanking": {
+    "action": "cardRanking",
+    "fields": {
+      "__root__": "list[ProfileCardRanking]",
+      "__root_item__.rank": "int",
+      "__root_item__.sign_flag": "bool",
+      "__root_item__.total_love": "int",
+      "__root_item__.unit_id": "int"
+    },
+    "module": "profile",
+    "return_type": "ProfileCardRankingResponse",
+    "source_file": "npps4/game/profile.py"
+  },
+  "profile.liveCnt": {
+    "action": "liveCnt",
+    "fields": {
+      "__root__": "list[ProfileLiveCount]",
+      "__root_item__.clear_cnt": "int",
+      "__root_item__.difficulty": "int"
+    },
+    "module": "profile",
+    "return_type": "ProfileLiveCountResponse",
+    "source_file": "npps4/game/profile.py"
+  },
+  "profile.profileInfo": {
+    "action": "profileInfo",
+    "fields": {
+      "center_unit_info": "profile.ProfileUnitInfo",
+      "friend_status": "int",
+      "is_alliance": "bool",
+      "navi_unit_info": "profile.ProfileUnitInfo",
+      "setting_award_id": "int",
+      "setting_background_id": "int",
+      "user_info": "ProfileUserInfo"
+    },
+    "module": "profile",
+    "return_type": "ProfileInfoResponse",
+    "source_file": "npps4/game/profile.py"
+  },
+  "profile.profileRegister": {
+    "action": "profileRegister",
+    "fields": {},
+    "module": "profile",
+    "return_type": "None",
+    "source_file": "npps4/game/profile.py"
+  },
+  "ranking.live": {
+    "action": "live",
+    "fields": {
+      "items": "list[RankingData]",
+      "page": "int",
+      "present_cnt": "int",
+      "rank": "int | None",
+      "server_timestamp": "int",
+      "total_cnt": "int"
+    },
+    "module": "ranking",
+    "return_type": "RankingResponse",
+    "source_file": "npps4/game/ranking.py"
+  },
+  "ranking.player": {
+    "action": "player",
+    "fields": {
+      "items": "list[RankingData]",
+      "page": "int",
+      "present_cnt": "int",
+      "rank": "int | None",
+      "server_timestamp": "int",
+      "total_cnt": "int"
+    },
+    "module": "ranking",
+    "return_type": "RankingResponse",
+    "source_file": "npps4/game/ranking.py"
+  },
+  "reward.open": {
+    "action": "open",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "class_system": "class_system_module.ClassSystemData",
+      "new_achievement_cnt": "int",
+      "opened_num": "int",
+      "present_cnt": "int",
+      "success": "list[pydantic.SerializeAsAny[RewardIncentiveItem]]",
+      "unaccomplished_achievement_cnt": "int",
+      "unit_support_list": "list[SupporterInfoResponse]"
+    },
+    "module": "reward",
+    "return_type": "RewardOpenResponse",
+    "source_file": "npps4/game/reward.py"
+  },
+  "reward.openAll": {
+    "action": "openAll",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "class_system": "class_system_module.ClassSystemData",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "opened_num": "int",
+      "order": "int",
+      "present_cnt": "int",
+      "reward_item_list": "list[pydantic.SerializeAsAny[RewardIncentiveItem]]",
+      "reward_num": "int",
+      "server_timestamp": "int",
+      "total_num": "int",
+      "unaccomplished_achievement_cnt": "int",
+      "upper_limit": "bool"
+    },
+    "module": "reward",
+    "return_type": "RewardOpenAllResponse",
+    "source_file": "npps4/game/reward.py"
+  },
+  "reward.rewardHistory": {
+    "action": "rewardHistory",
+    "fields": {
+      "ad_info": "ad_model.AdInfo",
+      "history": "list[IncentiveItem]",
+      "item_count": "int",
+      "limit": "int"
+    },
+    "module": "reward",
+    "return_type": "RewardHistoryResponse",
+    "source_file": "npps4/game/reward.py"
+  },
+  "reward.rewardList": {
+    "action": "rewardList",
+    "fields": {
+      "ad_info": "ad_model.AdInfo",
+      "item_count": "int",
+      "items": "list[pydantic.SerializeAsAny[IncentiveItem]]",
+      "limit": "int",
+      "order": "RewardOrder"
+    },
+    "module": "reward",
+    "return_type": "RewardListResponse",
+    "source_file": "npps4/game/reward.py"
+  },
+  "scenario.reward": {
+    "action": "reward",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "class_system": "class_system_module.ClassSystemData",
+      "clear_scenario": "ScenarioStartupRequest",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "next_level_info": "list[user.NextLevelInfo]",
+      "present_cnt": "int",
+      "server_timestamp": "int",
+      "unaccomplished_achievement_cnt": "int",
+      "unlock_random_live": "bool"
+    },
+    "module": "scenario",
+    "return_type": "ScenarioRewardResponse",
+    "source_file": "npps4/game/scenario.py"
+  },
+  "scenario.scenarioStatus": {
+    "action": "scenarioStatus",
+    "fields": {
+      "scenario_status_list": "list[ScenarioStatus]"
+    },
+    "module": "scenario",
+    "return_type": "ScenarioStatusResponse",
+    "source_file": "npps4/game/scenario.py"
+  },
+  "scenario.startup": {
+    "action": "startup",
+    "fields": {
+      "scenario_adjustment": "int",
+      "scenario_id": "int"
+    },
+    "module": "scenario",
+    "return_type": "ScenarioStartupResponse",
+    "source_file": "npps4/game/scenario.py"
+  },
+  "secretbox.all": {
+    "action": "all",
+    "fields": {
+      "gauge_info": "secretbox_model.SecretboxGaugeInfo",
+      "is_unit_max": "bool",
+      "item_list": "list[common.ItemCount]",
+      "member_category_list": "list[dict[str, Any]]",
+      "use_cache": "int"
+    },
+    "module": "secretbox",
+    "return_type": "CustomSecretBoxResponse",
+    "source_file": "npps4/game/secretbox.py"
+  },
+  "secretbox.pon": {
+    "action": "pon",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "button_list": "list[secretbox_model.AnySecretboxButton]",
+      "gauge_info": "SecretboxAddedGaugeInfo",
+      "is_unit_max": "bool",
+      "item_list": "list[common.ItemCount]",
+      "lowest_rarity": "int",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "present_cnt": "int",
+      "promotion_performance_rate": "int",
+      "secret_box_badge_flag": "bool",
+      "secret_box_info": "secretbox_model.AnySecretboxInfo",
+      "secret_box_items": "SecretboxItems",
+      "secret_box_parcel_type": "int",
+      "server_timestamp": "int",
+      "unaccomplished_achievement_cnt": "int"
+    },
+    "module": "secretbox",
+    "return_type": "SecretboxPonResponse",
+    "source_file": "npps4/game/secretbox.py"
+  },
+  "secretbox.showDetail": {
+    "action": "showDetail",
+    "fields": {
+      "rule_url": "str",
+      "unit_line_up": "list[Any]",
+      "url": "str"
+    },
+    "module": "secretbox",
+    "return_type": "SecretboxShowDetailResponse",
+    "source_file": "npps4/game/secretbox.py"
+  },
+  "stamp.stampInfo": {
+    "action": "stampInfo",
+    "fields": {
+      "owning_stamp_ids": "list[int]",
+      "stamp_setting": "list[StampSettingInfo]"
+    },
+    "module": "stamp",
+    "return_type": "StampInfoResponse",
+    "source_file": "npps4/game/stamp.py"
+  },
+  "subscenario.reward": {
+    "action": "reward",
+    "fields": {
+      "after_user_info": "user.UserInfoData",
+      "base_reward_info": "common.BaseRewardInfo",
+      "before_user_info": "user.UserInfoData",
+      "class_system": "class_system_module.ClassSystemData",
+      "clear_subscenario": "SubScenarioStartupRequest",
+      "item_reward_info": "list[common.AnyItem]",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "next_level_info": "list[user.NextLevelInfo]",
+      "present_cnt": "int",
+      "server_timestamp": "int"
+    },
+    "module": "subscenario",
+    "return_type": "SubScenarioRewardResponse",
+    "source_file": "npps4/game/subscenario.py"
+  },
+  "subscenario.startup": {
+    "action": "startup",
+    "fields": {
+      "scenario_adjustment": "int",
+      "subscenario_id": "int"
+    },
+    "module": "subscenario",
+    "return_type": "SubScenarioStartupResponse",
+    "source_file": "npps4/game/subscenario.py"
+  },
+  "subscenario.subscenarioStatus": {
+    "action": "subscenarioStatus",
+    "fields": {
+      "subscenario_status_list": "list[SubScenarioStatus]",
+      "unlocked_subscenario_ids": "list[int]"
+    },
+    "module": "subscenario",
+    "return_type": "SubScenarioStatusResponse",
+    "source_file": "npps4/game/subscenario.py"
+  },
+  "tos.tosAgree": {
+    "action": "tosAgree",
+    "fields": {},
+    "module": "tos",
+    "return_type": "None",
+    "source_file": "npps4/game/tos.py"
+  },
+  "tos.tosCheck": {
+    "action": "tosCheck",
+    "fields": {
+      "is_agreed": "bool",
+      "server_timestamp": "int",
+      "tos_id": "int",
+      "tos_type": "int"
+    },
+    "module": "tos",
+    "return_type": "TOSCheckResponse",
+    "source_file": "npps4/game/tos.py"
+  },
+  "tutorial.progress": {
+    "action": "progress",
+    "fields": {},
+    "module": "tutorial",
+    "return_type": "None",
+    "source_file": "npps4/game/tutorial.py"
+  },
+  "tutorial.skip": {
+    "action": "skip",
+    "fields": {},
+    "module": "tutorial",
+    "return_type": "None",
+    "source_file": "npps4/game/tutorial.py"
+  },
+  "unit.accessoryAll": {
+    "action": "accessoryAll",
+    "fields": {
+      "accessory_list": "list",
+      "especial_create_flag": "bool",
+      "wearing_info": "list"
+    },
+    "module": "unit",
+    "return_type": "UnitAccessoryInfoResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.activate": {
+    "action": "activate",
+    "fields": {},
+    "module": "unit",
+    "return_type": "None",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.deck": {
+    "action": "deck",
+    "fields": {},
+    "module": "unit",
+    "return_type": "None",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.deckInfo": {
+    "action": "deckInfo",
+    "fields": {
+      "__root__": "list[UnitDeckInfo]",
+      "__root_item__.deck_name": "str",
+      "__root_item__.main_flag": "bool",
+      "__root_item__.unit_deck_id": "int",
+      "__root_item__.unit_owning_user_ids": "list[UnitDeckPositionInfoResponse]"
+    },
+    "module": "unit",
+    "return_type": "UnitDeckInfoResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.deckName": {
+    "action": "deckName",
+    "fields": {},
+    "module": "unit",
+    "return_type": "None",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.exchangePointRankUp": {
+    "action": "exchangePointRankUp",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after": "unit_model.UnitInfoData",
+      "after_exchange_point": "int",
+      "after_user_info": "UserInfoData",
+      "before": "unit_model.UnitInfoData",
+      "before_user_info": "UserInfoData",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "present_cnt": "int",
+      "server_timestamp": "int",
+      "unaccomplished_achievement_cnt": "int"
+    },
+    "module": "unit",
+    "return_type": "UnitExchangeRankUpResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.favorite": {
+    "action": "favorite",
+    "fields": {},
+    "module": "unit",
+    "return_type": "None",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.merge": {
+    "action": "merge",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after": "unit_model.UnitInfoData",
+      "after_user_info": "UserInfoData",
+      "before": "unit_model.UnitInfoData",
+      "before_user_info": "UserInfoData",
+      "bonus_value": "float",
+      "evolution_bonus_type": "const.EVOLUTION_BONUS_TYPE",
+      "get_exchange_point_list": "list[exchange.ExchangePointInfo]",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "present_cnt": "int",
+      "server_timestamp": "int",
+      "unaccomplished_achievement_cnt": "int",
+      "unit_removable_skill": "unit_model.RemovableSkillOwningInfo",
+      "unlocked_multi_unit_scenario_ids": "list[int]",
+      "unlocked_subscenario_ids": "list[int]",
+      "use_game_coin": "int"
+    },
+    "module": "unit",
+    "return_type": "UnitMergeResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.rankUp": {
+    "action": "rankUp",
+    "fields": {
+      "accomplished_achievement_list": "list[AchievementData]",
+      "added_achievement_list": "list[AchievementData]",
+      "after": "unit_model.UnitInfoData",
+      "after_user_info": "UserInfoData",
+      "before": "unit_model.UnitInfoData",
+      "before_user_info": "UserInfoData",
+      "get_exchange_point_list": "list[exchange.ExchangePointInfo]",
+      "museum_info": "museum.MuseumInfoData",
+      "new_achievement_cnt": "int",
+      "present_cnt": "int",
+      "server_timestamp": "int",
+      "unaccomplished_achievement_cnt": "int",
+      "unit_removable_skill": "unit_model.RemovableSkillOwningInfo",
+      "unlocked_subscenario_ids": "list[int]",
+      "use_game_coin": "int"
+    },
+    "module": "unit",
+    "return_type": "UnitRankUpResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.removableSkillEquipment": {
+    "action": "removableSkillEquipment",
+    "fields": {},
+    "module": "unit",
+    "return_type": "None",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.removableSkillInfo": {
+    "action": "removableSkillInfo",
+    "fields": {
+      "equipment_info": "dict[str, EquipRemovableSkillInfo]",
+      "owning_info": "list[OwningRemovableSkillInfo]"
+    },
+    "module": "unit",
+    "return_type": "unit_model.RemovableSkillInfoResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.removableSkillSell": {
+    "action": "removableSkillSell",
+    "fields": {
+      "after_user_info": "user.UserInfoData",
+      "reward_box_flag": "bool",
+      "total": "int"
+    },
+    "module": "unit",
+    "return_type": "UnitRemovableSkillSellResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.sale": {
+    "action": "sale",
+    "fields": {
+      "after_user_info": "UserInfoData",
+      "before_user_info": "UserInfoData",
+      "detail": "list[UnitSaleDetail]",
+      "get_exchange_point_list": "list[exchange.ExchangePointInfo]",
+      "reward_box_flag": "bool",
+      "server_timestamp": "int",
+      "total": "int",
+      "unit_removable_skill": "unit_model.RemovableSkillOwningInfo"
+    },
+    "module": "unit",
+    "return_type": "UnitSaleResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.setDisplayRank": {
+    "action": "setDisplayRank",
+    "fields": {},
+    "module": "unit",
+    "return_type": "None",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.supporterAll": {
+    "action": "supporterAll",
+    "fields": {
+      "unit_support_list": "list[SupporterInfoResponse]"
+    },
+    "module": "unit",
+    "return_type": "unit_model.SupporterListInfoResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.unitAll": {
+    "action": "unitAll",
+    "fields": {
+      "active": "list[unit_model.UnitInfoData]",
+      "waiting": "list[unit_model.UnitInfoData]"
+    },
+    "module": "unit",
+    "return_type": "UnitAllInfoResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "unit.wait": {
+    "action": "wait",
+    "fields": {
+      "unit_removable_skill": "unit_model.RemovableSkillOwningInfo"
+    },
+    "module": "unit",
+    "return_type": "UnitWaitResponse",
+    "source_file": "npps4/game/unit.py"
+  },
+  "user.addUnitMax": {
+    "action": "addUnitMax",
+    "fields": {
+      "after_unit_max": "int",
+      "used_loveca": "int"
+    },
+    "module": "user",
+    "return_type": "UserAddUnitResponse",
+    "source_file": "npps4/game/user.py"
+  },
+  "user.changeName": {
+    "action": "changeName",
+    "fields": {
+      "after_name": "str",
+      "before_name": "str"
+    },
+    "module": "user",
+    "return_type": "ChangeNameResponse",
+    "source_file": "npps4/game/user.py"
+  },
+  "user.changeNavi": {
+    "action": "changeNavi",
+    "fields": {},
+    "module": "user",
+    "return_type": "None",
+    "source_file": "npps4/game/user.py"
+  },
+  "user.getNavi": {
+    "action": "getNavi",
+    "fields": {
+      "server_timestamp": "int",
+      "user": "UserNavi"
+    },
+    "module": "user",
+    "return_type": "UserGetNaviResponse",
+    "source_file": "npps4/game/user.py"
+  },
+  "user.setNotificationToken": {
+    "action": "setNotificationToken",
+    "fields": {},
+    "module": "user",
+    "return_type": "None",
+    "source_file": "npps4/game/user.py"
+  },
+  "user.userInfo": {
+    "action": "userInfo",
+    "fields": {
+      "ad_status": "bool | None",
+      "birth": "BirthdayUserInfoResponse | None",
+      "server_timestamp": "int",
+      "user": "user.UserInfoData"
+    },
+    "module": "user",
+    "return_type": "UserInfoResponse",
+    "source_file": "npps4/game/user.py"
+  }
+}

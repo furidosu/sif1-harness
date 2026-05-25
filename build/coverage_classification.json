@@ -1,0 +1,3305 @@
+{
+  "total": 358,
+  "by_bucket": {
+    "envelope-only": 20,
+    "harness-covered": 305,
+    "needs-Frida": 5,
+    "ui-only": 28
+  },
+  "endpoints": {
+    "achievement.initialAccomplishedList": {
+      "endpoint": "achievement.initialAccomplishedList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "achievementInitialAccomplishedList",
+      "ui_handler_files": []
+    },
+    "achievement.pagingAccomplishedList": {
+      "endpoint": "achievement.pagingAccomplishedList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "achievementPagingAccomplishedList",
+      "ui_handler_files": []
+    },
+    "achievement.pagingUnaccomplishList": {
+      "endpoint": "achievement.pagingUnaccomplishList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "achievementPagingUnaccomplishList",
+      "ui_handler_files": []
+    },
+    "achievement.rewardOpen": {
+      "endpoint": "achievement.rewardOpen",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 10,
+      "discovered_field_count": 8,
+      "fn_name": "achievementRewardOpen",
+      "ui_handler_files": []
+    },
+    "achievement.rewardOpenAll": {
+      "endpoint": "achievement.rewardOpenAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 7,
+      "fn_name": "achievementRewardOpenAll",
+      "ui_handler_files": []
+    },
+    "achievement.unaccomplishList": {
+      "endpoint": "achievement.unaccomplishList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 5,
+      "fn_name": "achievementUnaccomplishList",
+      "ui_handler_files": []
+    },
+    "ad.changeAd": {
+      "endpoint": "ad.changeAd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "adChangeAd",
+      "ui_handler_files": []
+    },
+    "album.albumAll": {
+      "endpoint": "album.albumAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 10 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 10,
+      "fn_name": "albumAll",
+      "ui_handler_files": []
+    },
+    "album.seriesAll": {
+      "endpoint": "album.seriesAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "albumSeriesAll",
+      "ui_handler_files": []
+    },
+    "announce.checkState": {
+      "endpoint": "announce.checkState",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "announceCheckState",
+      "ui_handler_files": []
+    },
+    "area.addReward": {
+      "endpoint": "area.addReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "areaAddReward",
+      "ui_handler_files": []
+    },
+    "area.list": {
+      "endpoint": "area.list",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "areaList",
+      "ui_handler_files": []
+    },
+    "arena.cancelDreamSession": {
+      "endpoint": "arena.cancelDreamSession",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "arenaCancelDreamSession",
+      "ui_handler_files": []
+    },
+    "arena.cheerUnitDeck": {
+      "endpoint": "arena.cheerUnitDeck",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 2,
+      "fn_name": "arenaCheerUnitDeck",
+      "ui_handler_files": []
+    },
+    "arena.dailyRanking": {
+      "endpoint": "arena.dailyRanking",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "arenaDailyRanking",
+      "ui_handler_files": []
+    },
+    "arena.dreamLiveEnd": {
+      "endpoint": "arena.dreamLiveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 11 field path(s) beyond declared schema",
+      "accessed_keys_count": 14,
+      "discovered_field_count": 11,
+      "fn_name": "arenaDreamLiveEnd",
+      "ui_handler_files": []
+    },
+    "arena.dreamLiveGameOver": {
+      "endpoint": "arena.dreamLiveGameOver",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "arenaDreamLiveGameOver",
+      "ui_handler_files": [
+        "m_arena/model/dream_live.lua",
+        "common/svext/arena.lua"
+      ]
+    },
+    "arena.dreamLiveStart": {
+      "endpoint": "arena.dreamLiveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 1,
+      "fn_name": "arenaDreamLiveStart",
+      "ui_handler_files": []
+    },
+    "arena.matchLiveAutoPlay": {
+      "endpoint": "arena.matchLiveAutoPlay",
+      "bucket": "needs-Frida",
+      "rationale": "2 keys via listener; no UI file references the fn_name or cache_key. Likely state-dependent (matching, polling, login) or response shape only visible via wire capture.",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "arenaMatchLiveAutoPlay",
+      "ui_handler_files": []
+    },
+    "arena.matchLiveContinue": {
+      "endpoint": "arena.matchLiveContinue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "arenaMatchLiveContinue",
+      "ui_handler_files": []
+    },
+    "arena.matchLiveEnd": {
+      "endpoint": "arena.matchLiveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 11,
+      "discovered_field_count": 8,
+      "fn_name": "arenaMatchLiveEnd",
+      "ui_handler_files": []
+    },
+    "arena.matchLiveGameOver": {
+      "endpoint": "arena.matchLiveGameOver",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "arenaMatchLiveGameOver",
+      "ui_handler_files": []
+    },
+    "arena.matchLiveStart": {
+      "endpoint": "arena.matchLiveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 1,
+      "fn_name": "arenaMatchLiveStart",
+      "ui_handler_files": []
+    },
+    "arena.matching": {
+      "endpoint": "arena.matching",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "arenaMatching",
+      "ui_handler_files": []
+    },
+    "arena.moveUpStage": {
+      "endpoint": "arena.moveUpStage",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "arenaMoveUpStage",
+      "ui_handler_files": [
+        "m_arena/model/result.lua"
+      ]
+    },
+    "arena.privateMatchLiveEnd": {
+      "endpoint": "arena.privateMatchLiveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "arenaPrivateMatchLiveEnd",
+      "ui_handler_files": []
+    },
+    "arena.privateMatchLiveGameOver": {
+      "endpoint": "arena.privateMatchLiveGameOver",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "arenaPrivateMatchLiveGameOver",
+      "ui_handler_files": []
+    },
+    "arena.privateMatchLiveStart": {
+      "endpoint": "arena.privateMatchLiveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 1,
+      "fn_name": "arenaPrivateMatchLiveStart",
+      "ui_handler_files": []
+    },
+    "arena.privateMatching": {
+      "endpoint": "arena.privateMatching",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "arenaPrivateMatching",
+      "ui_handler_files": []
+    },
+    "arena.read": {
+      "endpoint": "arena.read",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "arenaRead",
+      "ui_handler_files": []
+    },
+    "arena.recoveryAutoPlayableCount": {
+      "endpoint": "arena.recoveryAutoPlayableCount",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "arenaRecoveryAutoPlayableCount",
+      "ui_handler_files": []
+    },
+    "arena.rivalLiveContinue": {
+      "endpoint": "arena.rivalLiveContinue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "arenaRivalLiveContinue",
+      "ui_handler_files": []
+    },
+    "arena.rivalLiveEnd": {
+      "endpoint": "arena.rivalLiveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 11 field path(s) beyond declared schema",
+      "accessed_keys_count": 14,
+      "discovered_field_count": 11,
+      "fn_name": "arenaRivalLiveEnd",
+      "ui_handler_files": []
+    },
+    "arena.rivalLiveGameOver": {
+      "endpoint": "arena.rivalLiveGameOver",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "arenaRivalLiveGameOver",
+      "ui_handler_files": []
+    },
+    "arena.rivalLiveStart": {
+      "endpoint": "arena.rivalLiveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 1,
+      "fn_name": "arenaRivalLiveStart",
+      "ui_handler_files": []
+    },
+    "arena.sessionRanking": {
+      "endpoint": "arena.sessionRanking",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "arenaSessionRanking",
+      "ui_handler_files": []
+    },
+    "arena.tierRanking": {
+      "endpoint": "arena.tierRanking",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "arenaTierRanking",
+      "ui_handler_files": []
+    },
+    "arena.top": {
+      "endpoint": "arena.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 27 field path(s) beyond declared schema",
+      "accessed_keys_count": 31,
+      "discovered_field_count": 27,
+      "fn_name": "arenaTop",
+      "ui_handler_files": []
+    },
+    "award.awardInfo": {
+      "endpoint": "award.awardInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "awardInfo",
+      "ui_handler_files": []
+    },
+    "award.set": {
+      "endpoint": "award.set",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "awardSet",
+      "ui_handler_files": []
+    },
+    "background.backgroundInfo": {
+      "endpoint": "background.backgroundInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 4,
+      "fn_name": "backgroundInfo",
+      "ui_handler_files": []
+    },
+    "background.set": {
+      "endpoint": "background.set",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "backgroundSet",
+      "ui_handler_files": []
+    },
+    "banner.bannerList": {
+      "endpoint": "banner.bannerList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "bannerList",
+      "ui_handler_files": []
+    },
+    "battle.battleInfo": {
+      "endpoint": "battle.battleInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "battleInfo",
+      "ui_handler_files": []
+    },
+    "battle.endRoom": {
+      "endpoint": "battle.endRoom",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 16 field path(s) beyond declared schema",
+      "accessed_keys_count": 23,
+      "discovered_field_count": 16,
+      "fn_name": "battleEndRoom",
+      "ui_handler_files": []
+    },
+    "battle.endWait": {
+      "endpoint": "battle.endWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "battleEndWait",
+      "ui_handler_files": []
+    },
+    "battle.gameover": {
+      "endpoint": "battle.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 13 field path(s) beyond declared schema",
+      "accessed_keys_count": 17,
+      "discovered_field_count": 13,
+      "fn_name": "battleGameover",
+      "ui_handler_files": []
+    },
+    "battle.liveEnd": {
+      "endpoint": "battle.liveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 4,
+      "fn_name": "battleLiveEnd",
+      "ui_handler_files": []
+    },
+    "battle.liveStart": {
+      "endpoint": "battle.liveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "battleLiveStart",
+      "ui_handler_files": []
+    },
+    "battle.matching": {
+      "endpoint": "battle.matching",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "battleMatching",
+      "ui_handler_files": []
+    },
+    "battle.startWait": {
+      "endpoint": "battle.startWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "battleStartWait",
+      "ui_handler_files": []
+    },
+    "battle.top": {
+      "endpoint": "battle.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "battleTop",
+      "ui_handler_files": []
+    },
+    "challenge.challengeInfo": {
+      "endpoint": "challenge.challengeInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 2,
+      "fn_name": "challengeInfo",
+      "ui_handler_files": []
+    },
+    "challenge.checkpoint": {
+      "endpoint": "challenge.checkpoint",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 11 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 11,
+      "fn_name": "challengeCheckpoint",
+      "ui_handler_files": []
+    },
+    "challenge.continue": {
+      "endpoint": "challenge.continue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 11,
+      "discovered_field_count": 7,
+      "fn_name": "challengeContinue",
+      "ui_handler_files": []
+    },
+    "challenge.finalize": {
+      "endpoint": "challenge.finalize",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 11,
+      "discovered_field_count": 8,
+      "fn_name": "challengeFinalize",
+      "ui_handler_files": []
+    },
+    "challenge.gameover": {
+      "endpoint": "challenge.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 11,
+      "discovered_field_count": 8,
+      "fn_name": "challengeGameover",
+      "ui_handler_files": []
+    },
+    "challenge.init": {
+      "endpoint": "challenge.init",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "challengeInit",
+      "ui_handler_files": []
+    },
+    "challenge.proceed": {
+      "endpoint": "challenge.proceed",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 4,
+      "fn_name": "challengeProceed",
+      "ui_handler_files": []
+    },
+    "challenge.retire": {
+      "endpoint": "challenge.retire",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 11,
+      "discovered_field_count": 8,
+      "fn_name": "challengeRetire",
+      "ui_handler_files": []
+    },
+    "challenge.status": {
+      "endpoint": "challenge.status",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "challengeStatus",
+      "ui_handler_files": []
+    },
+    "challenge.top": {
+      "endpoint": "challenge.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "challengeTop",
+      "ui_handler_files": []
+    },
+    "class.commitChallengeMission": {
+      "endpoint": "class.commitChallengeMission",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 4,
+      "fn_name": "classCommitChallengeMission",
+      "ui_handler_files": []
+    },
+    "class.competitionFinalLiveEnd": {
+      "endpoint": "class.competitionFinalLiveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "classCompetitionFinalLiveEnd",
+      "ui_handler_files": []
+    },
+    "class.competitionFinalLivePlay": {
+      "endpoint": "class.competitionFinalLivePlay",
+      "bucket": "harness-covered",
+      "rationale": "5 accessed keys via listener (no synth-grounded schema to compare against, but listener clearly read response)",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 0,
+      "fn_name": "classCompetitionFinalLivePlay",
+      "ui_handler_files": []
+    },
+    "class.competitionGameover": {
+      "endpoint": "class.competitionGameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "classCompetitionGameover",
+      "ui_handler_files": []
+    },
+    "class.competitionGeneralRanking": {
+      "endpoint": "class.competitionGeneralRanking",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "classCompetitionGeneralRanking",
+      "ui_handler_files": []
+    },
+    "class.competitionHallOfFame": {
+      "endpoint": "class.competitionHallOfFame",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classCompetitionHallOfFame",
+      "ui_handler_files": []
+    },
+    "class.competitionLiveEnd": {
+      "endpoint": "class.competitionLiveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 5,
+      "fn_name": "classCompetitionLiveEnd",
+      "ui_handler_files": []
+    },
+    "class.competitionLivePlay": {
+      "endpoint": "class.competitionLivePlay",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classCompetitionLivePlay",
+      "ui_handler_files": []
+    },
+    "class.competitionOwnDeckRanking": {
+      "endpoint": "class.competitionOwnDeckRanking",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "classCompetitionOwnDeckRanking",
+      "ui_handler_files": [
+        "m_ranking/ranking_competition.lua"
+      ]
+    },
+    "class.competitionReady": {
+      "endpoint": "class.competitionReady",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classCompetitionReady",
+      "ui_handler_files": []
+    },
+    "class.competitionResult": {
+      "endpoint": "class.competitionResult",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classCompetitionResult",
+      "ui_handler_files": []
+    },
+    "class.competitionSpectateLive": {
+      "endpoint": "class.competitionSpectateLive",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "classCompetitionSpectateLive",
+      "ui_handler_files": []
+    },
+    "class.competitionStartWait": {
+      "endpoint": "class.competitionStartWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "classCompetitionStartWait",
+      "ui_handler_files": []
+    },
+    "class.entryFinal": {
+      "endpoint": "class.entryFinal",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classEntryFinal",
+      "ui_handler_files": []
+    },
+    "class.entrySemifinal": {
+      "endpoint": "class.entrySemifinal",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "classEntrySemifinal",
+      "ui_handler_files": [
+        "m_class/model/competition_final.lua"
+      ]
+    },
+    "class.gameover": {
+      "endpoint": "class.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 4,
+      "fn_name": "classGameover",
+      "ui_handler_files": []
+    },
+    "class.livePlay": {
+      "endpoint": "class.livePlay",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "classLivePlay",
+      "ui_handler_files": []
+    },
+    "class.liveResult": {
+      "endpoint": "class.liveResult",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 11,
+      "discovered_field_count": 8,
+      "fn_name": "classLiveResult",
+      "ui_handler_files": []
+    },
+    "class.selectCompetitionArea": {
+      "endpoint": "class.selectCompetitionArea",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classSelectCompetitionArea",
+      "ui_handler_files": []
+    },
+    "class.selectCompetitionPromise": {
+      "endpoint": "class.selectCompetitionPromise",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classSelectCompetitionPromise",
+      "ui_handler_files": []
+    },
+    "class.skipChallengeMission": {
+      "endpoint": "class.skipChallengeMission",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 4,
+      "fn_name": "classSkipChallengeMission",
+      "ui_handler_files": []
+    },
+    "class.top": {
+      "endpoint": "class.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 12,
+      "discovered_field_count": 8,
+      "fn_name": "classTop",
+      "ui_handler_files": []
+    },
+    "class.voteFinal": {
+      "endpoint": "class.voteFinal",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classVoteFinal",
+      "ui_handler_files": []
+    },
+    "class.voteSemifinal": {
+      "endpoint": "class.voteSemifinal",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "classVoteSemifinal",
+      "ui_handler_files": []
+    },
+    "comeback.achieveInfo": {
+      "endpoint": "comeback.achieveInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "comebackAchieveInfo",
+      "ui_handler_files": []
+    },
+    "common.checkNgword": {
+      "endpoint": "common.checkNgword",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "commonCheckNgword",
+      "ui_handler_files": []
+    },
+    "common.liveResume": {
+      "endpoint": "common.liveResume",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "commonLiveResume",
+      "ui_handler_files": [
+        "common/live_stub.lua"
+      ]
+    },
+    "common.logger": {
+      "endpoint": "common.logger",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "commonLogger",
+      "ui_handler_files": [
+        "common/svext/common.lua"
+      ]
+    },
+    "common.recoveryEnergy": {
+      "endpoint": "common.recoveryEnergy",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 7,
+      "fn_name": "commonRecoveryEnergy",
+      "ui_handler_files": []
+    },
+    "concert.liveContinue": {
+      "endpoint": "concert.liveContinue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "concertLiveContinue",
+      "ui_handler_files": []
+    },
+    "concert.liveEnd": {
+      "endpoint": "concert.liveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 16 field path(s) beyond declared schema",
+      "accessed_keys_count": 23,
+      "discovered_field_count": 16,
+      "fn_name": "concertLiveEnd",
+      "ui_handler_files": []
+    },
+    "concert.liveGameOver": {
+      "endpoint": "concert.liveGameOver",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "concertLiveGameOver",
+      "ui_handler_files": []
+    },
+    "concert.liveInit": {
+      "endpoint": "concert.liveInit",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "concertLiveInit",
+      "ui_handler_files": []
+    },
+    "concert.livePartyList": {
+      "endpoint": "concert.livePartyList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "concertLivePartyList",
+      "ui_handler_files": []
+    },
+    "concert.liveStart": {
+      "endpoint": "concert.liveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "concertLiveStart",
+      "ui_handler_files": []
+    },
+    "concert.lootBoxPick": {
+      "endpoint": "concert.lootBoxPick",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "concertLootBoxPick",
+      "ui_handler_files": []
+    },
+    "concert.lootBoxReset": {
+      "endpoint": "concert.lootBoxReset",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "concertLootBoxReset",
+      "ui_handler_files": []
+    },
+    "concert.lootBoxTop": {
+      "endpoint": "concert.lootBoxTop",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "concertLootBoxTop",
+      "ui_handler_files": []
+    },
+    "concert.top": {
+      "endpoint": "concert.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "concertTop",
+      "ui_handler_files": []
+    },
+    "costume.costumeList": {
+      "endpoint": "costume.costumeList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "costumeCostumeList",
+      "ui_handler_files": []
+    },
+    "costume.costumeStatus": {
+      "endpoint": "costume.costumeStatus",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "costumeCostumeStatus",
+      "ui_handler_files": []
+    },
+    "costume.dressUp": {
+      "endpoint": "costume.dressUp",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "costumeDressUp",
+      "ui_handler_files": []
+    },
+    "costume.makeCostume": {
+      "endpoint": "costume.makeCostume",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "costumeMakeCostume",
+      "ui_handler_files": []
+    },
+    "download.additional": {
+      "endpoint": "download.additional",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "downloadAdditional",
+      "ui_handler_files": []
+    },
+    "download.batch": {
+      "endpoint": "download.batch",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 4,
+      "fn_name": "downloadBatch",
+      "ui_handler_files": []
+    },
+    "download.event": {
+      "endpoint": "download.event",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "downloadEvent",
+      "ui_handler_files": []
+    },
+    "download.getUrl": {
+      "endpoint": "download.getUrl",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "downloadGetUrl",
+      "ui_handler_files": []
+    },
+    "download.luaDownload": {
+      "endpoint": "download.luaDownload",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "luadownload",
+      "ui_handler_files": []
+    },
+    "download.update": {
+      "endpoint": "download.update",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 2,
+      "fn_name": "downloadUpdate",
+      "ui_handler_files": []
+    },
+    "duel.assistLog": {
+      "endpoint": "duel.assistLog",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 3,
+      "fn_name": "duelAssistLog",
+      "ui_handler_files": []
+    },
+    "duel.duelSubDeck": {
+      "endpoint": "duel.duelSubDeck",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "duelDuelSubDeck",
+      "ui_handler_files": [
+        "m_duel/model/assist_deck.lua"
+      ]
+    },
+    "duel.endRoom": {
+      "endpoint": "duel.endRoom",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 16 field path(s) beyond declared schema",
+      "accessed_keys_count": 23,
+      "discovered_field_count": 16,
+      "fn_name": "duelEndRoom",
+      "ui_handler_files": []
+    },
+    "duel.endWait": {
+      "endpoint": "duel.endWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "duelEndWait",
+      "ui_handler_files": []
+    },
+    "duel.fixTime": {
+      "endpoint": "duel.fixTime",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "duelFixTime",
+      "ui_handler_files": []
+    },
+    "duel.gpsMatch": {
+      "endpoint": "duel.gpsMatch",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "duelGpsMatch",
+      "ui_handler_files": []
+    },
+    "duel.leave": {
+      "endpoint": "duel.leave",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "duelLeave",
+      "ui_handler_files": []
+    },
+    "duel.liveEnd": {
+      "endpoint": "duel.liveEnd",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 3 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "duelLiveEnd",
+      "ui_handler_files": [
+        "m_duel/model/duel.lua",
+        "m_duel/model/crowd.lua",
+        "common/svext/duel.lua"
+      ]
+    },
+    "duel.liveLog": {
+      "endpoint": "duel.liveLog",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "duelLiveLog",
+      "ui_handler_files": []
+    },
+    "duel.livePolling": {
+      "endpoint": "duel.livePolling",
+      "bucket": "needs-Frida",
+      "rationale": "2 keys via listener; no UI file references the fn_name or cache_key. Likely state-dependent (matching, polling, login) or response shape only visible via wire capture.",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "duelLivePolling",
+      "ui_handler_files": []
+    },
+    "duel.liveStart": {
+      "endpoint": "duel.liveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "duelLiveStart",
+      "ui_handler_files": []
+    },
+    "duel.matching": {
+      "endpoint": "duel.matching",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "duelMatching",
+      "ui_handler_files": []
+    },
+    "duel.privateClose": {
+      "endpoint": "duel.privateClose",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "duelPrivateClose",
+      "ui_handler_files": [
+        "m_duel/model/crowd_private.lua",
+        "m_duel/model/private.lua"
+      ]
+    },
+    "duel.privateCreate": {
+      "endpoint": "duel.privateCreate",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 12,
+      "discovered_field_count": 1,
+      "fn_name": "duelPrivateCreate",
+      "ui_handler_files": []
+    },
+    "duel.privateJoin": {
+      "endpoint": "duel.privateJoin",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 2,
+      "fn_name": "duelPrivateJoin",
+      "ui_handler_files": []
+    },
+    "duel.privateLeave": {
+      "endpoint": "duel.privateLeave",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "duelPrivateLeave",
+      "ui_handler_files": []
+    },
+    "duel.privateMakeMatch": {
+      "endpoint": "duel.privateMakeMatch",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "duelPrivateMakeMatch",
+      "ui_handler_files": []
+    },
+    "duel.privateOpenMatch": {
+      "endpoint": "duel.privateOpenMatch",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "duelPrivateOpenMatch",
+      "ui_handler_files": []
+    },
+    "duel.privateStartWait": {
+      "endpoint": "duel.privateStartWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "duelPrivateStartWait",
+      "ui_handler_files": []
+    },
+    "duel.startWait": {
+      "endpoint": "duel.startWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "duelStartWait",
+      "ui_handler_files": []
+    },
+    "duel.top": {
+      "endpoint": "duel.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 11 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 11,
+      "fn_name": "duelTop",
+      "ui_handler_files": []
+    },
+    "duty.allUserMission": {
+      "endpoint": "duty.allUserMission",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 4,
+      "fn_name": "dutyAllUserMission",
+      "ui_handler_files": []
+    },
+    "duty.dutyInfo": {
+      "endpoint": "duty.dutyInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "dutyDutyInfo",
+      "ui_handler_files": []
+    },
+    "duty.endRoom": {
+      "endpoint": "duty.endRoom",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "dutyEndRoom",
+      "ui_handler_files": []
+    },
+    "duty.endWait": {
+      "endpoint": "duty.endWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "dutyEndWait",
+      "ui_handler_files": []
+    },
+    "duty.gameover": {
+      "endpoint": "duty.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 15 field path(s) beyond declared schema",
+      "accessed_keys_count": 17,
+      "discovered_field_count": 15,
+      "fn_name": "dutyGameover",
+      "ui_handler_files": []
+    },
+    "duty.history": {
+      "endpoint": "duty.history",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "dutyHistory",
+      "ui_handler_files": []
+    },
+    "duty.historyDetail": {
+      "endpoint": "duty.historyDetail",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "dutyHistoryDetail",
+      "ui_handler_files": []
+    },
+    "duty.liveEnd": {
+      "endpoint": "duty.liveEnd",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 4,
+      "fn_name": "dutyLiveEnd",
+      "ui_handler_files": []
+    },
+    "duty.liveStart": {
+      "endpoint": "duty.liveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 2,
+      "fn_name": "dutyLiveStart",
+      "ui_handler_files": []
+    },
+    "duty.matching": {
+      "endpoint": "duty.matching",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "dutyMatching",
+      "ui_handler_files": []
+    },
+    "duty.privateClose": {
+      "endpoint": "duty.privateClose",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "dutyPrivateClose",
+      "ui_handler_files": [
+        "m_team/model/private.lua"
+      ]
+    },
+    "duty.privateCreate": {
+      "endpoint": "duty.privateCreate",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "dutyPrivateCreate",
+      "ui_handler_files": []
+    },
+    "duty.privateJoin": {
+      "endpoint": "duty.privateJoin",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "dutyPrivateJoin",
+      "ui_handler_files": []
+    },
+    "duty.privateJoinMatch": {
+      "endpoint": "duty.privateJoinMatch",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "dutyPrivateJoinMatch",
+      "ui_handler_files": []
+    },
+    "duty.privateLeave": {
+      "endpoint": "duty.privateLeave",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "dutyPrivateLeave",
+      "ui_handler_files": []
+    },
+    "duty.privateMakeMatch": {
+      "endpoint": "duty.privateMakeMatch",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "dutyPrivateMakeMatch",
+      "ui_handler_files": []
+    },
+    "duty.privateStartWait": {
+      "endpoint": "duty.privateStartWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "dutyPrivateStartWait",
+      "ui_handler_files": []
+    },
+    "duty.startWait": {
+      "endpoint": "duty.startWait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "dutyStartWait",
+      "ui_handler_files": []
+    },
+    "duty.top": {
+      "endpoint": "duty.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 6 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 6,
+      "fn_name": "dutyTop",
+      "ui_handler_files": []
+    },
+    "effortPoint.selectLimitedBox": {
+      "endpoint": "effortPoint.selectLimitedBox",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "effortPointSelectLimitedBox",
+      "ui_handler_files": []
+    },
+    "event.eventList": {
+      "endpoint": "event.eventList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "eventEventList",
+      "ui_handler_files": []
+    },
+    "event.eventYellDeck": {
+      "endpoint": "event.eventYellDeck",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "eventEventYellDeck",
+      "ui_handler_files": []
+    },
+    "eventscenario.open": {
+      "endpoint": "eventscenario.open",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "eventscenarioOpen",
+      "ui_handler_files": [
+        "m_scenario_menu/dialog.lua",
+        "common/model/badge_model.lua"
+      ]
+    },
+    "eventscenario.reward": {
+      "endpoint": "eventscenario.reward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 10,
+      "discovered_field_count": 7,
+      "fn_name": "eventscenarioReward",
+      "ui_handler_files": []
+    },
+    "eventscenario.startup": {
+      "endpoint": "eventscenario.startup",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 5,
+      "fn_name": "eventscenarioStartup",
+      "ui_handler_files": []
+    },
+    "eventscenario.status": {
+      "endpoint": "eventscenario.status",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "eventscenarioStatus",
+      "ui_handler_files": []
+    },
+    "exchange.itemInfo": {
+      "endpoint": "exchange.itemInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "exchangeItemInfo",
+      "ui_handler_files": []
+    },
+    "exchange.owningPoint": {
+      "endpoint": "exchange.owningPoint",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "exchangeOwningPoint",
+      "ui_handler_files": []
+    },
+    "exchange.usePoint": {
+      "endpoint": "exchange.usePoint",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 10,
+      "discovered_field_count": 7,
+      "fn_name": "exchangeUsePoint",
+      "ui_handler_files": []
+    },
+    "festival.continue": {
+      "endpoint": "festival.continue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "festivalContinue",
+      "ui_handler_files": []
+    },
+    "festival.deckList": {
+      "endpoint": "festival.deckList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 4,
+      "fn_name": "festivalDeckList",
+      "ui_handler_files": []
+    },
+    "festival.festivalInfo": {
+      "endpoint": "festival.festivalInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "festivalInfo",
+      "ui_handler_files": []
+    },
+    "festival.gameover": {
+      "endpoint": "festival.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 10 field path(s) beyond declared schema",
+      "accessed_keys_count": 12,
+      "discovered_field_count": 10,
+      "fn_name": "festivalGameover",
+      "ui_handler_files": []
+    },
+    "festival.liveReward": {
+      "endpoint": "festival.liveReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 16 field path(s) beyond declared schema",
+      "accessed_keys_count": 23,
+      "discovered_field_count": 16,
+      "fn_name": "festivalLiveReward",
+      "ui_handler_files": []
+    },
+    "festival.liveSetList": {
+      "endpoint": "festival.liveSetList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "festivalLiveSetList",
+      "ui_handler_files": []
+    },
+    "festival.liveStart": {
+      "endpoint": "festival.liveStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "festivalLiveStart",
+      "ui_handler_files": []
+    },
+    "festival.missionStatus": {
+      "endpoint": "festival.missionStatus",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "festivalMissionStatus",
+      "ui_handler_files": []
+    },
+    "festival.top": {
+      "endpoint": "festival.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 5,
+      "fn_name": "festivalTop",
+      "ui_handler_files": []
+    },
+    "festival.updateLiveList": {
+      "endpoint": "festival.updateLiveList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 6 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 6,
+      "fn_name": "festivalUpdateLiveList",
+      "ui_handler_files": []
+    },
+    "freeLive.play": {
+      "endpoint": "freeLive.play",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "freeLivePlay",
+      "ui_handler_files": []
+    },
+    "friend.expel": {
+      "endpoint": "friend.expel",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "friendExpel",
+      "ui_handler_files": []
+    },
+    "friend.list": {
+      "endpoint": "friend.list",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "friendList",
+      "ui_handler_files": []
+    },
+    "friend.request": {
+      "endpoint": "friend.request",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "friendRequest",
+      "ui_handler_files": []
+    },
+    "friend.requestCancel": {
+      "endpoint": "friend.requestCancel",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "friendRequestCancel",
+      "ui_handler_files": []
+    },
+    "friend.response": {
+      "endpoint": "friend.response",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "friendResponse",
+      "ui_handler_files": []
+    },
+    "friend.search": {
+      "endpoint": "friend.search",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 5,
+      "fn_name": "friendSearch",
+      "ui_handler_files": []
+    },
+    "gdpr.detail": {
+      "endpoint": "gdpr.detail",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "gdprDetail",
+      "ui_handler_files": []
+    },
+    "gdpr.get": {
+      "endpoint": "gdpr.get",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 4,
+      "fn_name": "gdprGet",
+      "ui_handler_files": []
+    },
+    "gdpr.update": {
+      "endpoint": "gdpr.update",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "gdprUpdate",
+      "ui_handler_files": []
+    },
+    "greet.delete": {
+      "endpoint": "greet.delete",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "greetDelete",
+      "ui_handler_files": []
+    },
+    "greet.user": {
+      "endpoint": "greet.user",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "greetUser",
+      "ui_handler_files": []
+    },
+    "handover.abortTransfer": {
+      "endpoint": "handover.abortTransfer",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "handoverAbortTransfer",
+      "ui_handler_files": []
+    },
+    "handover.create": {
+      "endpoint": "handover.create",
+      "bucket": "needs-Frida",
+      "rationale": "2 keys via listener; no UI file references the fn_name or cache_key. Likely state-dependent (matching, polling, login) or response shape only visible via wire capture.",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "handoverCreate",
+      "ui_handler_files": []
+    },
+    "handover.exec": {
+      "endpoint": "handover.exec",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "handoverExec",
+      "ui_handler_files": []
+    },
+    "handover.kidCheck": {
+      "endpoint": "handover.kidCheck",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "handoverKidCheck",
+      "ui_handler_files": []
+    },
+    "handover.kidDelete": {
+      "endpoint": "handover.kidDelete",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "handoverKidDelete",
+      "ui_handler_files": []
+    },
+    "handover.kidHandover": {
+      "endpoint": "handover.kidHandover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "handoverKidHandover",
+      "ui_handler_files": []
+    },
+    "handover.kidInfo": {
+      "endpoint": "handover.kidInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "handoverKidInfo",
+      "ui_handler_files": []
+    },
+    "handover.kidRegister": {
+      "endpoint": "handover.kidRegister",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "handoverKidRegister",
+      "ui_handler_files": []
+    },
+    "handover.kidStatus": {
+      "endpoint": "handover.kidStatus",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "handoverKidStatus",
+      "ui_handler_files": []
+    },
+    "handover.reserveTransfer": {
+      "endpoint": "handover.reserveTransfer",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "handoverReserveTransfer",
+      "ui_handler_files": []
+    },
+    "handover.start": {
+      "endpoint": "handover.start",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "handoverStart",
+      "ui_handler_files": []
+    },
+    "item.exchange": {
+      "endpoint": "item.exchange",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 5,
+      "fn_name": "itemExchange",
+      "ui_handler_files": []
+    },
+    "item.list": {
+      "endpoint": "item.list",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 4,
+      "fn_name": "itemList",
+      "ui_handler_files": []
+    },
+    "item.useBuff": {
+      "endpoint": "item.useBuff",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "itemUseBuff",
+      "ui_handler_files": []
+    },
+    "item.useLotteryTicket": {
+      "endpoint": "item.useLotteryTicket",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "itemUseLotteryTicket",
+      "ui_handler_files": []
+    },
+    "item.useReinforceItem": {
+      "endpoint": "item.useReinforceItem",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 1,
+      "fn_name": "itemUseReinforceItem",
+      "ui_handler_files": []
+    },
+    "item.userRankUp": {
+      "endpoint": "item.userRankUp",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 7,
+      "fn_name": "itemUserRankUp",
+      "ui_handler_files": []
+    },
+    "klab_id.kidInitialAccomplishedList": {
+      "endpoint": "klab_id.kidInitialAccomplishedList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "klab_idKidInitialAccomplishedList",
+      "ui_handler_files": []
+    },
+    "klab_id.kidPagingAccomplishedList": {
+      "endpoint": "klab_id.kidPagingAccomplishedList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "klab_idKidPagingAccomplishedList",
+      "ui_handler_files": []
+    },
+    "klab_id.kidPagingUnaccomplishList": {
+      "endpoint": "klab_id.kidPagingUnaccomplishList",
+      "bucket": "needs-Frida",
+      "rationale": "2 keys via listener; no UI file references the fn_name or cache_key. Likely state-dependent (matching, polling, login) or response shape only visible via wire capture.",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "klab_idKidPagingUnaccomplishList",
+      "ui_handler_files": []
+    },
+    "klab_id.kidRewardOpen": {
+      "endpoint": "klab_id.kidRewardOpen",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "klab_idKidRewardOpen",
+      "ui_handler_files": []
+    },
+    "klab_id.kidRewardOpenAll": {
+      "endpoint": "klab_id.kidRewardOpenAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "klab_idKidRewardOpenAll",
+      "ui_handler_files": []
+    },
+    "klab_id.kidUnaccomplishList": {
+      "endpoint": "klab_id.kidUnaccomplishList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "klab_idKidUnaccomplishList",
+      "ui_handler_files": []
+    },
+    "klab_id.sync": {
+      "endpoint": "klab_id.sync",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "klab_idSync",
+      "ui_handler_files": []
+    },
+    "klab_id.syncActivate": {
+      "endpoint": "klab_id.syncActivate",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "klab_idSyncActivate",
+      "ui_handler_files": []
+    },
+    "klab_id.syncDeactivate": {
+      "endpoint": "klab_id.syncDeactivate",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "klab_idSyncDeactivate",
+      "ui_handler_files": []
+    },
+    "lbonus.adReward": {
+      "endpoint": "lbonus.adReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "lBonusAdReward",
+      "ui_handler_files": []
+    },
+    "lbonus.execute": {
+      "endpoint": "lbonus.execute",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 17 field path(s) beyond declared schema",
+      "accessed_keys_count": 26,
+      "discovered_field_count": 17,
+      "fn_name": "lBonusExecute",
+      "ui_handler_files": []
+    },
+    "live.continue": {
+      "endpoint": "live.continue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "liveContinue",
+      "ui_handler_files": []
+    },
+    "live.gameover": {
+      "endpoint": "live.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "liveGameover",
+      "ui_handler_files": []
+    },
+    "live.liveStatus": {
+      "endpoint": "live.liveStatus",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 6 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 6,
+      "fn_name": "liveStatus",
+      "ui_handler_files": []
+    },
+    "live.partyList": {
+      "endpoint": "live.partyList",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 4 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "livePartyList",
+      "ui_handler_files": [
+        "m_live_menu/select_deck_menu.lua",
+        "m_live_menu/model/guest.lua",
+        "m_live_menu/select_friend_menu.lua",
+        "common/model/live_party_list.lua"
+      ]
+    },
+    "live.play": {
+      "endpoint": "live.play",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 10 field path(s) beyond declared schema",
+      "accessed_keys_count": 14,
+      "discovered_field_count": 10,
+      "fn_name": "livePlay",
+      "ui_handler_files": []
+    },
+    "live.preciseScore": {
+      "endpoint": "live.preciseScore",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 4,
+      "fn_name": "livePreciseScore",
+      "ui_handler_files": []
+    },
+    "live.publishPreciseScoreId": {
+      "endpoint": "live.publishPreciseScoreId",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "livePublishPreciseScoreId",
+      "ui_handler_files": []
+    },
+    "live.reward": {
+      "endpoint": "live.reward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 35 field path(s) beyond declared schema",
+      "accessed_keys_count": 51,
+      "discovered_field_count": 35,
+      "fn_name": "liveReward",
+      "ui_handler_files": []
+    },
+    "live.schedule": {
+      "endpoint": "live.schedule",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 9 field path(s) beyond declared schema",
+      "accessed_keys_count": 18,
+      "discovered_field_count": 9,
+      "fn_name": "liveSchedule",
+      "ui_handler_files": []
+    },
+    "liveicon.liveiconInfo": {
+      "endpoint": "liveicon.liveiconInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 1,
+      "fn_name": "liveiconInfo",
+      "ui_handler_files": []
+    },
+    "livese.liveseInfo": {
+      "endpoint": "livese.liveseInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "liveseInfo",
+      "ui_handler_files": []
+    },
+    "login.login": {
+      "endpoint": "login.login",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 5,
+      "fn_name": "loginLogin",
+      "ui_handler_files": []
+    },
+    "login.topInfo": {
+      "endpoint": "login.topInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 19 field path(s) beyond declared schema",
+      "accessed_keys_count": 23,
+      "discovered_field_count": 19,
+      "fn_name": "topInfo",
+      "ui_handler_files": []
+    },
+    "login.topInfoOnce": {
+      "endpoint": "login.topInfoOnce",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 11 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 11,
+      "fn_name": "topInfoOnce",
+      "ui_handler_files": []
+    },
+    "login.unitList": {
+      "endpoint": "login.unitList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "loginUnitList",
+      "ui_handler_files": []
+    },
+    "login.unitSelect": {
+      "endpoint": "login.unitSelect",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "loginUnitSelect",
+      "ui_handler_files": [
+        "m_login/model/partner.lua",
+        "m_login/action.lua"
+      ]
+    },
+    "marathon.marathonInfo": {
+      "endpoint": "marathon.marathonInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "marathonInfo",
+      "ui_handler_files": []
+    },
+    "marathon.top": {
+      "endpoint": "marathon.top",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "marathonTop",
+      "ui_handler_files": []
+    },
+    "multiunit.multiunitscenarioStatus": {
+      "endpoint": "multiunit.multiunitscenarioStatus",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "multiunitScenarioStatus",
+      "ui_handler_files": []
+    },
+    "multiunit.scenarioReward": {
+      "endpoint": "multiunit.scenarioReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 9 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 9,
+      "fn_name": "multiunitScenarioReward",
+      "ui_handler_files": []
+    },
+    "multiunit.scenarioStartup": {
+      "endpoint": "multiunit.scenarioStartup",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "multiunitScenarioStartup",
+      "ui_handler_files": []
+    },
+    "museum.info": {
+      "endpoint": "museum.info",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "museumInfo",
+      "ui_handler_files": []
+    },
+    "navigation.specialCutin": {
+      "endpoint": "navigation.specialCutin",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "navigationSpecialCutin",
+      "ui_handler_files": []
+    },
+    "notice.noticeFriendGreeting": {
+      "endpoint": "notice.noticeFriendGreeting",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "noticeFriendGreeting",
+      "ui_handler_files": []
+    },
+    "notice.noticeFriendVariety": {
+      "endpoint": "notice.noticeFriendVariety",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "noticeFriendVariety",
+      "ui_handler_files": []
+    },
+    "notice.noticeMarquee": {
+      "endpoint": "notice.noticeMarquee",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "noticeMarquee",
+      "ui_handler_files": []
+    },
+    "notice.noticeUserGreetingHistory": {
+      "endpoint": "notice.noticeUserGreetingHistory",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "noticeUserGreetingHistory",
+      "ui_handler_files": []
+    },
+    "online.deck": {
+      "endpoint": "online.deck",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "onlineDeck",
+      "ui_handler_files": [
+        "m_online/online.lua"
+      ]
+    },
+    "online.exhibitionResult": {
+      "endpoint": "online.exhibitionResult",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "onlineExhibitionResult",
+      "ui_handler_files": []
+    },
+    "online.info": {
+      "endpoint": "online.info",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "onlineInfo",
+      "ui_handler_files": []
+    },
+    "online.play": {
+      "endpoint": "online.play",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "onlinePlay",
+      "ui_handler_files": []
+    },
+    "online.playExhibition": {
+      "endpoint": "online.playExhibition",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "onlinePlayExhibition",
+      "ui_handler_files": []
+    },
+    "online.result": {
+      "endpoint": "online.result",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 4,
+      "fn_name": "onlineResult",
+      "ui_handler_files": []
+    },
+    "payment.history": {
+      "endpoint": "payment.history",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "paymentHistory",
+      "ui_handler_files": []
+    },
+    "payment.month": {
+      "endpoint": "payment.month",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "paymentMonth",
+      "ui_handler_files": []
+    },
+    "payment.processLog": {
+      "endpoint": "payment.processLog",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "paymentProcessLog",
+      "ui_handler_files": [
+        "common/svext/payment.lua"
+      ]
+    },
+    "payment.productList": {
+      "endpoint": "payment.productList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 7,
+      "fn_name": "paymentProductList",
+      "ui_handler_files": []
+    },
+    "payment.receipt": {
+      "endpoint": "payment.receipt",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "paymentReceipt",
+      "ui_handler_files": []
+    },
+    "payment.setBirth": {
+      "endpoint": "payment.setBirth",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "paymentSetBirth",
+      "ui_handler_files": []
+    },
+    "payment.subscriptionRead": {
+      "endpoint": "payment.subscriptionRead",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "paymentSubscriptionRead",
+      "ui_handler_files": []
+    },
+    "personalnotice.agree": {
+      "endpoint": "personalnotice.agree",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "personalnoticeAgree",
+      "ui_handler_files": []
+    },
+    "personalnotice.clearCache": {
+      "endpoint": "personalnotice.clearCache",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "personalnoticeClearCache",
+      "ui_handler_files": []
+    },
+    "personalnotice.get": {
+      "endpoint": "personalnotice.get",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "personalnoticeGet",
+      "ui_handler_files": []
+    },
+    "platformAccount.connectAccounts": {
+      "endpoint": "platformAccount.connectAccounts",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "platformAccountConnectAccounts",
+      "ui_handler_files": []
+    },
+    "platformAccount.disconnectAccounts": {
+      "endpoint": "platformAccount.disconnectAccounts",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "platformAccountDisconnectAccounts",
+      "ui_handler_files": []
+    },
+    "platformAccount.handover": {
+      "endpoint": "platformAccount.handover",
+      "bucket": "needs-Frida",
+      "rationale": "2 keys via listener; no UI file references the fn_name or cache_key. Likely state-dependent (matching, polling, login) or response shape only visible via wire capture.",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "platformAccountHandover",
+      "ui_handler_files": []
+    },
+    "platformAccount.isConnectedLlAccount": {
+      "endpoint": "platformAccount.isConnectedLlAccount",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "platformAccountIsConnectedLlAccount",
+      "ui_handler_files": []
+    },
+    "platformAccount.isConnectedPfAccount": {
+      "endpoint": "platformAccount.isConnectedPfAccount",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "platformAccountIsConnectedPfAccount",
+      "ui_handler_files": []
+    },
+    "preciseScore.manualUpdate": {
+      "endpoint": "preciseScore.manualUpdate",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "preciseScoreManualUpdate",
+      "ui_handler_files": []
+    },
+    "profile.cardRanking": {
+      "endpoint": "profile.cardRanking",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 5,
+      "fn_name": "profileCardRank",
+      "ui_handler_files": []
+    },
+    "profile.liveCnt": {
+      "endpoint": "profile.liveCnt",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "profileLiveCnt",
+      "ui_handler_files": []
+    },
+    "profile.profileInfo": {
+      "endpoint": "profile.profileInfo",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "profileUser",
+      "ui_handler_files": [
+        "m_player_profile/view_tab.lua",
+        "m_player_profile/user.lua"
+      ]
+    },
+    "profile.profileRegister": {
+      "endpoint": "profile.profileRegister",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "profileRegister",
+      "ui_handler_files": []
+    },
+    "quest.continue": {
+      "endpoint": "quest.continue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 5,
+      "fn_name": "questContinue",
+      "ui_handler_files": []
+    },
+    "quest.gameover": {
+      "endpoint": "quest.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "questGameover",
+      "ui_handler_files": []
+    },
+    "quest.itemInfo": {
+      "endpoint": "quest.itemInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "questItemInfo",
+      "ui_handler_files": []
+    },
+    "quest.owningSeal": {
+      "endpoint": "quest.owningSeal",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "questOwningSeal",
+      "ui_handler_files": []
+    },
+    "quest.partyList": {
+      "endpoint": "quest.partyList",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "questPartyList",
+      "ui_handler_files": [
+        "m_quest/model/quest.lua",
+        "common/model/live_party_list.lua"
+      ]
+    },
+    "quest.questInfo": {
+      "endpoint": "quest.questInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "questInfo",
+      "ui_handler_files": []
+    },
+    "quest.questList": {
+      "endpoint": "quest.questList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "questList",
+      "ui_handler_files": []
+    },
+    "quest.questReward": {
+      "endpoint": "quest.questReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 17 field path(s) beyond declared schema",
+      "accessed_keys_count": 23,
+      "discovered_field_count": 17,
+      "fn_name": "questReward",
+      "ui_handler_files": []
+    },
+    "quest.questStart": {
+      "endpoint": "quest.questStart",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "questStart",
+      "ui_handler_files": []
+    },
+    "quest.useSeal": {
+      "endpoint": "quest.useSeal",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "questUseSeal",
+      "ui_handler_files": []
+    },
+    "ranking.eventFriendLive": {
+      "endpoint": "ranking.eventFriendLive",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "rankingEventFriendLive",
+      "ui_handler_files": [
+        "m_ranking/ranking_event.lua",
+        "m_ranking/ranking_event_personal.lua"
+      ]
+    },
+    "ranking.eventFriendPlayer": {
+      "endpoint": "ranking.eventFriendPlayer",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "rankingEventFriendPlayer",
+      "ui_handler_files": []
+    },
+    "ranking.eventLive": {
+      "endpoint": "ranking.eventLive",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "rankingEventLive",
+      "ui_handler_files": []
+    },
+    "ranking.eventLiveDetail": {
+      "endpoint": "ranking.eventLiveDetail",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "rankingEventLiveDetail",
+      "ui_handler_files": []
+    },
+    "ranking.eventPlayer": {
+      "endpoint": "ranking.eventPlayer",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "rankingEventPlayer",
+      "ui_handler_files": []
+    },
+    "ranking.live": {
+      "endpoint": "ranking.live",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 4,
+      "fn_name": "rankingLive",
+      "ui_handler_files": []
+    },
+    "ranking.player": {
+      "endpoint": "ranking.player",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "rankingPlayer",
+      "ui_handler_files": [
+        "m_ranking/ranking_personal.lua"
+      ]
+    },
+    "reward.adReward": {
+      "endpoint": "reward.adReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "rewardAdReward",
+      "ui_handler_files": []
+    },
+    "reward.exchange": {
+      "endpoint": "reward.exchange",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "rewardExchange",
+      "ui_handler_files": []
+    },
+    "reward.exchangeList": {
+      "endpoint": "reward.exchangeList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 2,
+      "fn_name": "rewardExchangeList",
+      "ui_handler_files": []
+    },
+    "reward.open": {
+      "endpoint": "reward.open",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 16 field path(s) beyond declared schema",
+      "accessed_keys_count": 22,
+      "discovered_field_count": 16,
+      "fn_name": "rewardOpen",
+      "ui_handler_files": []
+    },
+    "reward.openAll": {
+      "endpoint": "reward.openAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 10,
+      "discovered_field_count": 8,
+      "fn_name": "rewardOpenAll",
+      "ui_handler_files": []
+    },
+    "reward.rewardHistory": {
+      "endpoint": "reward.rewardHistory",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "rewardHistory",
+      "ui_handler_files": [
+        "m_reward/reward_history.lua"
+      ]
+    },
+    "reward.rewardList": {
+      "endpoint": "reward.rewardList",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 3,
+      "fn_name": "rewardList",
+      "ui_handler_files": []
+    },
+    "reward.sellUnit": {
+      "endpoint": "reward.sellUnit",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 10,
+      "discovered_field_count": 8,
+      "fn_name": "rewardSellUnit",
+      "ui_handler_files": []
+    },
+    "reward.useLotteryTicket": {
+      "endpoint": "reward.useLotteryTicket",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "rewardUseLotteryTicket",
+      "ui_handler_files": []
+    },
+    "rlive.continue": {
+      "endpoint": "rlive.continue",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "rliveContinue",
+      "ui_handler_files": []
+    },
+    "rlive.gameover": {
+      "endpoint": "rlive.gameover",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "rliveGameover",
+      "ui_handler_files": []
+    },
+    "rlive.lot": {
+      "endpoint": "rlive.lot",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "rliveLot",
+      "ui_handler_files": []
+    },
+    "rlive.play": {
+      "endpoint": "rlive.play",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 3,
+      "fn_name": "rlivePlay",
+      "ui_handler_files": []
+    },
+    "rlive.reward": {
+      "endpoint": "rlive.reward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 16 field path(s) beyond declared schema",
+      "accessed_keys_count": 23,
+      "discovered_field_count": 16,
+      "fn_name": "rliveReward",
+      "ui_handler_files": []
+    },
+    "scenario.reward": {
+      "endpoint": "scenario.reward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 14 field path(s) beyond declared schema",
+      "accessed_keys_count": 19,
+      "discovered_field_count": 14,
+      "fn_name": "scenarioReward",
+      "ui_handler_files": []
+    },
+    "scenario.scenarioStatus": {
+      "endpoint": "scenario.scenarioStatus",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "scenarioStatus",
+      "ui_handler_files": []
+    },
+    "scenario.startup": {
+      "endpoint": "scenario.startup",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "scenarioStartup",
+      "ui_handler_files": []
+    },
+    "secretbox.all": {
+      "endpoint": "secretbox.all",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 5,
+      "fn_name": "secretboxAll",
+      "ui_handler_files": []
+    },
+    "secretbox.knapsackReset": {
+      "endpoint": "secretbox.knapsackReset",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "secretboxKnapsackReset",
+      "ui_handler_files": []
+    },
+    "secretbox.knapsackSelect": {
+      "endpoint": "secretbox.knapsackSelect",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "secretboxKnapsackSelect",
+      "ui_handler_files": [
+        "m_secretbox/model/box.lua"
+      ]
+    },
+    "secretbox.multi": {
+      "endpoint": "secretbox.multi",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 9 field path(s) beyond declared schema",
+      "accessed_keys_count": 15,
+      "discovered_field_count": 9,
+      "fn_name": "secretboxMulti",
+      "ui_handler_files": []
+    },
+    "secretbox.pon": {
+      "endpoint": "secretbox.pon",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 21 field path(s) beyond declared schema",
+      "accessed_keys_count": 29,
+      "discovered_field_count": 21,
+      "fn_name": "secretboxPon",
+      "ui_handler_files": []
+    },
+    "secretbox.selectPickUp": {
+      "endpoint": "secretbox.selectPickUp",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "secretboxSelectPickUp",
+      "ui_handler_files": []
+    },
+    "secretbox.selectUnit": {
+      "endpoint": "secretbox.selectUnit",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "secretboxSelectUnit",
+      "ui_handler_files": [
+        "m_secretbox/model/box.lua"
+      ]
+    },
+    "secretbox.showDetail": {
+      "endpoint": "secretbox.showDetail",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "secretboxShowDetail",
+      "ui_handler_files": []
+    },
+    "secretbox.stampDetail": {
+      "endpoint": "secretbox.stampDetail",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "secretboxStampDetail",
+      "ui_handler_files": []
+    },
+    "skit.skitInfo": {
+      "endpoint": "skit.skitInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "skitInfo",
+      "ui_handler_files": []
+    },
+    "sns.addReward": {
+      "endpoint": "sns.addReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "snsAddReward",
+      "ui_handler_files": []
+    },
+    "sns.getReward": {
+      "endpoint": "sns.getReward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "snsGetReward",
+      "ui_handler_files": []
+    },
+    "stamp.set": {
+      "endpoint": "stamp.set",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "stampSet",
+      "ui_handler_files": []
+    },
+    "stamp.stampInfo": {
+      "endpoint": "stamp.stampInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 3,
+      "fn_name": "stampInfo",
+      "ui_handler_files": []
+    },
+    "subscenario.reward": {
+      "endpoint": "subscenario.reward",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 12 field path(s) beyond declared schema",
+      "accessed_keys_count": 16,
+      "discovered_field_count": 12,
+      "fn_name": "subscenarioReward",
+      "ui_handler_files": []
+    },
+    "subscenario.startup": {
+      "endpoint": "subscenario.startup",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "subscenarioStartup",
+      "ui_handler_files": []
+    },
+    "subscenario.subscenarioStatus": {
+      "endpoint": "subscenario.subscenarioStatus",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 4,
+      "fn_name": "subscenarioStatus",
+      "ui_handler_files": []
+    },
+    "tos.tosAgree": {
+      "endpoint": "tos.tosAgree",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "tosAgree",
+      "ui_handler_files": [
+        "m_login/register.lua",
+        "m_login/confirm_useragreement.lua"
+      ]
+    },
+    "tos.tosCheck": {
+      "endpoint": "tos.tosCheck",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "tosCheck",
+      "ui_handler_files": []
+    },
+    "tutorial.progress": {
+      "endpoint": "tutorial.progress",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 3 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "tutorialProgress",
+      "ui_handler_files": [
+        "m_boot/initialize.lua",
+        "m_tutorial/tutorial.lua",
+        "m_tutorial/include.lua"
+      ]
+    },
+    "tutorial.skip": {
+      "endpoint": "tutorial.skip",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "tutorialSkip",
+      "ui_handler_files": []
+    },
+    "unit.accessoryAll": {
+      "endpoint": "unit.accessoryAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 7,
+      "discovered_field_count": 3,
+      "fn_name": "unitAccessoryAll",
+      "ui_handler_files": []
+    },
+    "unit.accessoryMaterialAll": {
+      "endpoint": "unit.accessoryMaterialAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "unitAccessoryMaterialAll",
+      "ui_handler_files": []
+    },
+    "unit.accessoryTab": {
+      "endpoint": "unit.accessoryTab",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "unitAccessoryTab",
+      "ui_handler_files": []
+    },
+    "unit.activate": {
+      "endpoint": "unit.activate",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 2 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "unitActivate",
+      "ui_handler_files": [
+        "m_unit/unit_room_stage.lua",
+        "common/unit/unit_deck_cache.lua"
+      ]
+    },
+    "unit.changeDelegate": {
+      "endpoint": "unit.changeDelegate",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 8 field path(s) beyond declared schema",
+      "accessed_keys_count": 10,
+      "discovered_field_count": 8,
+      "fn_name": "unitChangeDelegate",
+      "ui_handler_files": []
+    },
+    "unit.createAccessory": {
+      "endpoint": "unit.createAccessory",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 6 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 6,
+      "fn_name": "unitCreateAccessory",
+      "ui_handler_files": []
+    },
+    "unit.deck": {
+      "endpoint": "unit.deck",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "unitDeck",
+      "ui_handler_files": []
+    },
+    "unit.deckInfo": {
+      "endpoint": "unit.deckInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 5,
+      "discovered_field_count": 2,
+      "fn_name": "unitDeckInfo",
+      "ui_handler_files": []
+    },
+    "unit.deckName": {
+      "endpoint": "unit.deckName",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "unitDeckName",
+      "ui_handler_files": [
+        "m_unit/deck/name_form.lua"
+      ]
+    },
+    "unit.exchangePointRankUp": {
+      "endpoint": "unit.exchangePointRankUp",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 9 field path(s) beyond declared schema",
+      "accessed_keys_count": 13,
+      "discovered_field_count": 9,
+      "fn_name": "unitExchangePointRankUp",
+      "ui_handler_files": []
+    },
+    "unit.favorite": {
+      "endpoint": "unit.favorite",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "unitFavorite",
+      "ui_handler_files": [
+        "common/unit/unit_deck_cache.lua"
+      ]
+    },
+    "unit.favoriteAccessory": {
+      "endpoint": "unit.favoriteAccessory",
+      "bucket": "ui-only",
+      "rationale": "2 keys via listener; 1 UI file(s) reference fn_name \u2014 response likely unpacked in UI handler, not Cachable listener",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "unitFavoriteAccessory",
+      "ui_handler_files": [
+        "common/model/accessory.lua"
+      ]
+    },
+    "unit.maxLevelUp": {
+      "endpoint": "unit.maxLevelUp",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "unitMaxLevelUp",
+      "ui_handler_files": []
+    },
+    "unit.merge": {
+      "endpoint": "unit.merge",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 9 field path(s) beyond declared schema",
+      "accessed_keys_count": 11,
+      "discovered_field_count": 9,
+      "fn_name": "unitMerge",
+      "ui_handler_files": []
+    },
+    "unit.mergeAccessory": {
+      "endpoint": "unit.mergeAccessory",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 4 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 4,
+      "fn_name": "unitMergeAccessory",
+      "ui_handler_files": []
+    },
+    "unit.rankUp": {
+      "endpoint": "unit.rankUp",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 7 field path(s) beyond declared schema",
+      "accessed_keys_count": 9,
+      "discovered_field_count": 7,
+      "fn_name": "unitRankUp",
+      "ui_handler_files": []
+    },
+    "unit.removableSkillEquipment": {
+      "endpoint": "unit.removableSkillEquipment",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "unitRemovableSkillEquipment",
+      "ui_handler_files": []
+    },
+    "unit.removableSkillInfo": {
+      "endpoint": "unit.removableSkillInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 3 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 3,
+      "fn_name": "unitRemovableSkillInfo",
+      "ui_handler_files": []
+    },
+    "unit.removableSkillRankUp": {
+      "endpoint": "unit.removableSkillRankUp",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 6 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 6,
+      "fn_name": "unitRemovableSkillRankUp",
+      "ui_handler_files": []
+    },
+    "unit.removableSkillSell": {
+      "endpoint": "unit.removableSkillSell",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "unitRemovableSkillSell",
+      "ui_handler_files": []
+    },
+    "unit.sale": {
+      "endpoint": "unit.sale",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 6 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 6,
+      "fn_name": "unitSale",
+      "ui_handler_files": []
+    },
+    "unit.saleAccessory": {
+      "endpoint": "unit.saleAccessory",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "unitSaleAccessory",
+      "ui_handler_files": []
+    },
+    "unit.setDisplayRank": {
+      "endpoint": "unit.setDisplayRank",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "unitSetDisplayRank",
+      "ui_handler_files": []
+    },
+    "unit.supporterAll": {
+      "endpoint": "unit.supporterAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "unitSupporterAll",
+      "ui_handler_files": []
+    },
+    "unit.unitAll": {
+      "endpoint": "unit.unitAll",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 6,
+      "discovered_field_count": 2,
+      "fn_name": "unitAll",
+      "ui_handler_files": []
+    },
+    "unit.wait": {
+      "endpoint": "unit.wait",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "unitWait",
+      "ui_handler_files": []
+    },
+    "unit.wearAccessory": {
+      "endpoint": "unit.wearAccessory",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "unitWearAccessory",
+      "ui_handler_files": []
+    },
+    "user.abortDelete": {
+      "endpoint": "user.abortDelete",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "userAbortDelete",
+      "ui_handler_files": []
+    },
+    "user.addFriendMax": {
+      "endpoint": "user.addFriendMax",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "userAddFriendMax",
+      "ui_handler_files": []
+    },
+    "user.addUnitMax": {
+      "endpoint": "user.addUnitMax",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "userAddUnitMax",
+      "ui_handler_files": []
+    },
+    "user.changeName": {
+      "endpoint": "user.changeName",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 2 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 2,
+      "fn_name": "userChangeName",
+      "ui_handler_files": []
+    },
+    "user.changeNavi": {
+      "endpoint": "user.changeNavi",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "userChangeNavi",
+      "ui_handler_files": []
+    },
+    "user.getNavi": {
+      "endpoint": "user.getNavi",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "userGetNavi",
+      "ui_handler_files": []
+    },
+    "user.reserveDelete": {
+      "endpoint": "user.reserveDelete",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "userReserveDelete",
+      "ui_handler_files": []
+    },
+    "user.setBirth": {
+      "endpoint": "user.setBirth",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "userSetBirth",
+      "ui_handler_files": []
+    },
+    "user.setNotification": {
+      "endpoint": "user.setNotification",
+      "bucket": "envelope-only",
+      "rationale": "action name matches ack pattern; 2 keys (envelope only, no body of interest)",
+      "accessed_keys_count": 2,
+      "discovered_field_count": 0,
+      "fn_name": "userSetNotification",
+      "ui_handler_files": []
+    },
+    "user.setNotificationToken": {
+      "endpoint": "user.setNotificationToken",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 3,
+      "discovered_field_count": 1,
+      "fn_name": "userSetNotificationToken",
+      "ui_handler_files": []
+    },
+    "user.showAllItem": {
+      "endpoint": "user.showAllItem",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 1 field path(s) beyond declared schema",
+      "accessed_keys_count": 4,
+      "discovered_field_count": 1,
+      "fn_name": "userShowAllItem",
+      "ui_handler_files": []
+    },
+    "user.userInfo": {
+      "endpoint": "user.userInfo",
+      "bucket": "harness-covered",
+      "rationale": "listener discovered 5 field path(s) beyond declared schema",
+      "accessed_keys_count": 8,
+      "discovered_field_count": 5,
+      "fn_name": "userInfo",
+      "ui_handler_files": []
+    }
+  }
+}

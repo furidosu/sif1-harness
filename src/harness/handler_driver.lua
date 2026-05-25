@@ -1,0 +1,90 @@
+-- handler_driver.lua  (SKELETON — Session 9, Tier 2 prep)
+--
+-- Goal: invoke client-side response handlers directly (not just the cache
+-- listener) so that field-reads inside per-caller success callbacks also
+-- surface in V5's accessed-keys log.
+--
+-- WHY THE CURRENT HARNESS MISSES THESE
+-- ------------------------------------
+-- The vanilla harness fires Cachable.notifyUpdate(cache_key) which runs every
+-- listener REGISTERED at preload time. That's ~119 listeners for ~28
+-- preloaded model files. But many endpoints' responses are also consumed by:
+--
+--   1. Per-call success closures defined inside game-flow functions
+--      (e.g. m_live/model/normal_live.lua:233 defines `function L1_3() ... end`
+--      and passes it as the success_cb to `svapi.live.extended.liveReward`).
+--      These closures only exist when the outer function runs, so they're
+--      never registered at preload time.
+--
+--   2. bulkSend pattern — `svapi.bulkSend(batch, function() ... end)`. The
+--      callback reads multiple cached responses via Cachable.get("$key").
+--      ~20 files use this pattern (see grep `bulkSend` source/all/).
+--
+--   3. Result/dialog handler functions in m_*/view/*, m_*/dialog/*,
+--      common/*_dialog.lua. These mutate response payloads (e.g.
+--      result_reward.lua iterates reward_item_list); the harness preloads
+--      the model files but rarely the view files.
+--
+-- DESIGN
+-- ------
+-- Two approaches, both viable:
+--
+--   APPROACH A: Eager preload expansion
+--     Find every Lua file that registers a listener OR calls Cachable.update
+--     OR matches a `function(<resp>) ... end` callback to svapi/bulkSend.
+--     Add them to preload's MODEL_FILES. Cost: minor preload time, possibly
+--     more boot errors. Benefit: closures defined at module-body level
+--     register; closures inside functions still won't run.
+--
+--   APPROACH B: Explicit handler invocation
+--     Build a static inventory of handler functions per endpoint (see
+--     scripts/find_handler_callsites.py). For each one, locate the function
+--     by file+line, dynamically load it, and invoke with a sentinel-backed
+--     envelope. Cost: lots of edge cases (closure captures, upvalues,
+--     destructuring). Benefit: precise control.
+--
+-- RECOMMENDED PATH FOR SESSION 9:
+-- ------------------------------------------------------------------
+-- Start with APPROACH A (eager preload of view/dialog/result files). The 6
+-- non-preloaded `addListener` files plus the 20 bulkSend files cover most of
+-- the closure-bearing scope. Measure delta in `listeners_registered` after
+-- preload and in accessed-keys per endpoint.
+--
+-- If A's yield is < 30 new paths total, escalate to APPROACH B for the 13
+-- cross-confirmed 0%-overlap priority endpoints (login.topInfo, lbonus.execute,
+-- live.play, reward.open, unit.exchangePointRankUp, live.liveStatus, etc.).
+--
+-- INVOCATION (planned)
+-- --------------------
+-- The harness gains a new job kind:
+--   { "kind": "handler_invoke",
+--     "module": "live", "action": "reward",
+--     "handler_file": "m_live/model/normal_live.lua",
+--     "handler_line": 233,
+--     "envelope": <crafted sentinel envelope> }
+--
+-- The driver:
+--   1. loadfile(handler_file) — may fail; pcall
+--   2. Locate the function at the line. Decompiled Lua doesn't preserve
+--      function names, but the file structure is deterministic. Use a
+--      pre-built locator: scan_for_function_at(file, line) returns an entry
+--      point.
+--   3. Construct a sentinel envelope with the response_data shape and pass
+--      it to the function. Catch any error.
+--   4. Return accessed_keys.
+--
+-- IMPLEMENTATION ORDER
+-- --------------------
+-- 1. Refine scripts/find_handler_callsites.py to ALSO catch bulkSend pattern
+--    (it currently only catches direct `svapi.<mod>.<action>(cb,...)`).
+--    Add: `svapi.<mod>.<action>Stub() + svapi.bulkSend(batch, cb)` pairs.
+-- 2. Extend preload.lua MODEL_FILES with the missing 6 addListener files
+--    AND the 20 bulkSend files. Measure new listener count.
+-- 3. If yield is low, implement APPROACH B for priority endpoints.
+
+local M = {}
+
+-- TODO: Approach A implementation lives entirely in preload.lua. This file
+-- becomes meaningful only if we pursue Approach B.
+
+return M

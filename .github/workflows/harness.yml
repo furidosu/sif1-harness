@@ -1,0 +1,74 @@
+# Run the listener harness against the committed observations snapshot.
+# Fail the workflow if endpoint discovery regresses below the floor.
+#
+# NOTE: the decompiled client tree is NOT committed (KLab proprietary). CI
+# can only run end-to-end on a runner that has access to a pre-decompiled
+# tree, mounted as $DECOMPILED_TREE. The default workflow below validates
+# the static parts (priors extraction, classification self-consistency)
+# that don't need the client tree.
+
+name: harness
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install uv
+        run: pip install uv
+      - name: Verify committed observations file is well-formed
+        run: |
+          uv run --no-project python -c "
+          import json
+          d = json.load(open('build/runtime_listener_observations.json'))
+          n_discovered = sum(1 for v in d.values() if v.get('runtime_discovered_field_names'))
+          print(f'committed snapshot: {len(d)} endpoints, {n_discovered} with discoveries')
+          # v0.2.0 baseline: 304 endpoints with discoveries after invoke_classes
+          # merge. Floor of 250 guards against accidental aggregation regressions
+          # while still tolerating natural fluctuation when the snapshot is
+          # regenerated after a client update.
+          assert n_discovered >= 250, f'committed snapshot regressed below floor: {n_discovered}'
+          "
+      - name: Verify NPPS4 priors extraction works against a fresh clone
+        run: |
+          git clone --depth 1 https://github.com/DarkEnergyProcessor/NPPS4 /tmp/npps4_main
+          NPPS4_SRC=/tmp/npps4_main uv run --no-project python priors/extract_npps4_priors.py
+          uv run --no-project python -c "
+          import json
+          d = json.load(open('build/npps4_priors.json'))
+          n_with_fields = sum(1 for v in d.values() if v.get('fields'))
+          print(f'extracted {len(d)} NPPS4 endpoints ({n_with_fields} with fields)')
+          assert n_with_fields >= 80, f'extractor regressed: only {n_with_fields} parseable'
+          "
+      - name: Run static-diff against NPPS4
+        run: |
+          uv run --no-project python integration/npps4/wire_compare.py \
+            --mode static-diff --out /tmp/findings.md
+          head -20 /tmp/findings.md
+      - name: Upload findings artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wire-compare-findings
+          path: /tmp/findings.md
+
+  # Optional: a self-hosted runner with the decompiled tree symlinked into
+  # $DECOMPILED_TREE can run the full pipeline. Disabled by default.
+  full-harness:
+    if: false
+    runs-on: self-hosted
+    env:
+      DECOMPILED_TREE: /opt/sif1/decompiled/all
+    steps:
+      - uses: actions/checkout@v4
+      - run: ln -sfn $DECOMPILED_TREE assets/decompiled/all
+      - run: brew install luajit || sudo apt-get install -y luajit
+      - run: make test

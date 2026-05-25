@@ -1,0 +1,6928 @@
+{
+  "achievement.pagingUnaccomplishList": {
+    "module": "achievement",
+    "action": "pagingUnaccomplishList",
+    "fn_name": "achievementPagingUnaccomplishList",
+    "cache_key": "$achievementPagingUnaccomplishList",
+    "request": {
+      "ours": [
+        "filter_category_id",
+        "from_count"
+      ],
+      "theirs": []
+    },
+    "url": "/achievement/pagingUnaccomplishList",
+    "svapi_file": "achievement",
+    "alt_fn_names": [
+      "pagingUnaccomplishList"
+    ]
+  },
+  "achievement.rewardOpen": {
+    "module": "achievement",
+    "action": "rewardOpen",
+    "fn_name": "achievementRewardOpen",
+    "cache_key": "$achievementRewardOpen",
+    "request": {
+      "ours": [
+        "accomplish_id"
+      ],
+      "theirs": []
+    },
+    "url": "/achievement/rewardOpen",
+    "svapi_file": "achievement",
+    "alt_fn_names": [
+      "rewardOpen"
+    ]
+  },
+  "achievement.rewardOpenAll": {
+    "module": "achievement",
+    "action": "rewardOpenAll",
+    "fn_name": "achievementRewardOpenAll",
+    "cache_key": "$achievementRewardOpenAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/achievement/rewardOpenAll",
+    "svapi_file": "achievement",
+    "alt_fn_names": [
+      "rewardOpenAll"
+    ]
+  },
+  "achievement.initialAccomplishedList": {
+    "module": "achievement",
+    "action": "initialAccomplishedList",
+    "fn_name": "achievementInitialAccomplishedList",
+    "cache_key": "$achievementInitialAccomplishedList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/achievement/initialAccomplishedList",
+    "svapi_file": "achievement",
+    "alt_fn_names": [
+      "initialAccomplishedList"
+    ]
+  },
+  "achievement.pagingAccomplishedList": {
+    "module": "achievement",
+    "action": "pagingAccomplishedList",
+    "fn_name": "achievementPagingAccomplishedList",
+    "cache_key": "$achievementPagingAccomplishedList",
+    "request": {
+      "ours": [
+        "filter_category_id",
+        "from_count"
+      ],
+      "theirs": []
+    },
+    "url": "/achievement/pagingAccomplishedList",
+    "svapi_file": "achievement",
+    "alt_fn_names": [
+      "pagingAccomplishedList"
+    ]
+  },
+  "achievement.unaccomplishList": {
+    "module": "achievement",
+    "action": "unaccomplishList",
+    "fn_name": "achievementUnaccomplishList",
+    "cache_key": "$achievementUnaccomplishList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/achievement/unaccomplishList",
+    "svapi_file": "achievement",
+    "alt_fn_names": [
+      "unaccomplishList"
+    ]
+  },
+  "ad.changeAd": {
+    "module": "ad",
+    "action": "changeAd",
+    "fn_name": "adChangeAd",
+    "cache_key": "$adChangeAd",
+    "request": {
+      "ours": [
+        "status"
+      ],
+      "theirs": []
+    },
+    "url": "/ad/changeAd",
+    "svapi_file": "ad",
+    "alt_fn_names": [
+      "changeAd"
+    ]
+  },
+  "album.albumAll": {
+    "module": "album",
+    "action": "albumAll",
+    "fn_name": "albumAll",
+    "cache_key": "$albumAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/album/albumAll",
+    "svapi_file": "album",
+    "alt_fn_names": [
+      "albumAlbumAll"
+    ]
+  },
+  "album.seriesAll": {
+    "module": "album",
+    "action": "seriesAll",
+    "fn_name": "albumSeriesAll",
+    "cache_key": "$albumSeriesAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/album/seriesAll",
+    "svapi_file": "album",
+    "alt_fn_names": [
+      "seriesAll"
+    ]
+  },
+  "announce.checkState": {
+    "module": "announce",
+    "action": "checkState",
+    "fn_name": "announceCheckState",
+    "cache_key": "$announceCheckState",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/announce/checkState",
+    "svapi_file": "announce",
+    "alt_fn_names": [
+      "checkState"
+    ]
+  },
+  "area.addReward": {
+    "module": "area",
+    "action": "addReward",
+    "fn_name": "areaAddReward",
+    "cache_key": "$areaAddReward",
+    "request": {
+      "ours": [
+        "location_list"
+      ],
+      "theirs": []
+    },
+    "url": "/area/addReward",
+    "svapi_file": "area",
+    "alt_fn_names": [
+      "addReward"
+    ]
+  },
+  "area.list": {
+    "module": "area",
+    "action": "list",
+    "fn_name": "areaList",
+    "cache_key": "$areaList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/area/list",
+    "svapi_file": "area",
+    "alt_fn_names": [
+      "list"
+    ]
+  },
+  "arena.matchLiveAutoPlay": {
+    "module": "arena",
+    "action": "matchLiveAutoPlay",
+    "fn_name": "arenaMatchLiveAutoPlay",
+    "cache_key": "$arenaMatchLiveAutoPlay",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/arena/matchLiveAutoPlay",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "matchLiveAutoPlay"
+    ]
+  },
+  "arena.cancelDreamSession": {
+    "module": "arena",
+    "action": "cancelDreamSession",
+    "fn_name": "arenaCancelDreamSession",
+    "cache_key": "$arenaCancelDreamSession",
+    "request": {
+      "ours": [
+        "arena_id"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/cancelDreamSession",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "cancelDreamSession"
+    ]
+  },
+  "arena.cheerUnitDeck": {
+    "module": "arena",
+    "action": "cheerUnitDeck",
+    "fn_name": "arenaCheerUnitDeck",
+    "cache_key": "$arenaCheerUnitDeck",
+    "request": {
+      "ours": [
+        "arena_id",
+        "unit_deck_detail"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/cheerUnitDeck",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "cheerUnitDeck"
+    ]
+  },
+  "arena.dailyRanking": {
+    "module": "arena",
+    "action": "dailyRanking",
+    "fn_name": "arenaDailyRanking",
+    "cache_key": "$arenaDailyRanking",
+    "request": {
+      "ours": [
+        "domain",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/dailyRanking",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "dailyRanking"
+    ]
+  },
+  "arena.dreamLiveEnd": {
+    "module": "arena",
+    "action": "dreamLiveEnd",
+    "fn_name": "arenaDreamLiveEnd",
+    "cache_key": "$arenaDreamLiveEnd",
+    "request": {
+      "ours": [
+        "arena_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remain_hp",
+        "heart"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/dreamLiveEnd",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "dreamLiveEnd"
+    ]
+  },
+  "arena.dreamLiveGameOver": {
+    "module": "arena",
+    "action": "dreamLiveGameOver",
+    "fn_name": "arenaDreamLiveGameOver",
+    "cache_key": "$arenaDreamLiveGameOver",
+    "request": {
+      "ours": [
+        "arena_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "reason",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/dreamLiveGameOver",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "dreamLiveGameOver"
+    ]
+  },
+  "arena.dreamLiveStart": {
+    "module": "arena",
+    "action": "dreamLiveStart",
+    "fn_name": "arenaDreamLiveStart",
+    "cache_key": "$arenaDreamLiveStart",
+    "request": {
+      "ours": [
+        "arena_id",
+        "unit_deck_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/dreamLiveStart",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "dreamLiveStart"
+    ]
+  },
+  "arena.matchLiveContinue": {
+    "module": "arena",
+    "action": "matchLiveContinue",
+    "fn_name": "arenaMatchLiveContinue",
+    "cache_key": "$arenaMatchLiveContinue",
+    "request": {
+      "ours": [
+        "arena_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map",
+        "match_user"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/matchLiveContinue",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "matchLiveContinue"
+    ]
+  },
+  "arena.matchLiveEnd": {
+    "module": "arena",
+    "action": "matchLiveEnd",
+    "fn_name": "arenaMatchLiveEnd",
+    "cache_key": "$arenaMatchLiveEnd",
+    "request": {
+      "ours": [
+        "arena_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "auto_play",
+        "heart",
+        "match_user",
+        "precise_score_log"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/matchLiveEnd",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "matchLiveEnd"
+    ]
+  },
+  "arena.matchLiveGameOver": {
+    "module": "arena",
+    "action": "matchLiveGameOver",
+    "fn_name": "arenaMatchLiveGameOver",
+    "cache_key": "$arenaMatchLiveGameOver",
+    "request": {
+      "ours": [
+        "arena_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "reason",
+        "auto_play",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map",
+        "match_user"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/matchLiveGameOver",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "matchLiveGameOver"
+    ]
+  },
+  "arena.matchLiveStart": {
+    "module": "arena",
+    "action": "matchLiveStart",
+    "fn_name": "arenaMatchLiveStart",
+    "cache_key": "$arenaMatchLiveStart",
+    "request": {
+      "ours": [
+        "arena_id",
+        "live_difficulty_id",
+        "unit_deck_id",
+        "lp_factor",
+        "auto_play",
+        "match_user"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/matchLiveStart",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "matchLiveStart"
+    ]
+  },
+  "arena.matching": {
+    "module": "arena",
+    "action": "matching",
+    "fn_name": "arenaMatching",
+    "cache_key": "$arenaMatching",
+    "request": {
+      "ours": [
+        "arena_id",
+        "live_difficulty_id"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/matching",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "matching"
+    ]
+  },
+  "arena.moveUpStage": {
+    "module": "arena",
+    "action": "moveUpStage",
+    "fn_name": "arenaMoveUpStage",
+    "cache_key": "$arenaMoveUpStage",
+    "request": {
+      "ours": [
+        "arena_id",
+        "stage_id",
+        "move_up"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/moveUpStage",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "moveUpStage"
+    ]
+  },
+  "arena.privateMatchLiveEnd": {
+    "module": "arena",
+    "action": "privateMatchLiveEnd",
+    "fn_name": "arenaPrivateMatchLiveEnd",
+    "cache_key": "$arenaPrivateMatchLiveEnd",
+    "request": {
+      "ours": [
+        "precise_score_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "heart",
+        "match_user"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/privateMatchLiveEnd",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "privateMatchLiveEnd"
+    ]
+  },
+  "arena.privateMatchLiveGameOver": {
+    "module": "arena",
+    "action": "privateMatchLiveGameOver",
+    "fn_name": "arenaPrivateMatchLiveGameOver",
+    "cache_key": "$arenaPrivateMatchLiveGameOver",
+    "request": {
+      "ours": [
+        "precise_score_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "reason",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map",
+        "match_user"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/privateMatchLiveGameOver",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "privateMatchLiveGameOver"
+    ]
+  },
+  "arena.privateMatchLiveStart": {
+    "module": "arena",
+    "action": "privateMatchLiveStart",
+    "fn_name": "arenaPrivateMatchLiveStart",
+    "cache_key": "$arenaPrivateMatchLiveStart",
+    "request": {
+      "ours": [
+        "unit_deck_id",
+        "precise_score_id",
+        "live_precise_score_update_date"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/privateMatchLiveStart",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "privateMatchLiveStart"
+    ]
+  },
+  "arena.privateMatching": {
+    "module": "arena",
+    "action": "privateMatching",
+    "fn_name": "arenaPrivateMatching",
+    "cache_key": "$arenaPrivateMatching",
+    "request": {
+      "ours": [
+        "private_match_id"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/privateMatching",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "privateMatching"
+    ]
+  },
+  "arena.read": {
+    "module": "arena",
+    "action": "read",
+    "fn_name": "arenaRead",
+    "cache_key": "$arenaRead",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/arena/read",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "read"
+    ]
+  },
+  "arena.recoveryAutoPlayableCount": {
+    "module": "arena",
+    "action": "recoveryAutoPlayableCount",
+    "fn_name": "arenaRecoveryAutoPlayableCount",
+    "cache_key": "$arenaRecoveryAutoPlayableCount",
+    "request": {
+      "ours": [
+        "arena_id"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/recoveryAutoPlayableCount",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "recoveryAutoPlayableCount"
+    ]
+  },
+  "arena.rivalLiveContinue": {
+    "module": "arena",
+    "action": "rivalLiveContinue",
+    "fn_name": "arenaRivalLiveContinue",
+    "cache_key": "$arenaRivalLiveContinue",
+    "request": {
+      "ours": [
+        "arena_id",
+        "stage_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/rivalLiveContinue",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "rivalLiveContinue"
+    ]
+  },
+  "arena.rivalLiveEnd": {
+    "module": "arena",
+    "action": "rivalLiveEnd",
+    "fn_name": "arenaRivalLiveEnd",
+    "cache_key": "$arenaRivalLiveEnd",
+    "request": {
+      "ours": [
+        "arena_id",
+        "stage_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remain_hp",
+        "heart"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/rivalLiveEnd",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "rivalLiveEnd"
+    ]
+  },
+  "arena.rivalLiveGameOver": {
+    "module": "arena",
+    "action": "rivalLiveGameOver",
+    "fn_name": "arenaRivalLiveGameOver",
+    "cache_key": "$arenaRivalLiveGameOver",
+    "request": {
+      "ours": [
+        "arena_id",
+        "stage_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "reason",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/rivalLiveGameOver",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "rivalLiveGameOver"
+    ]
+  },
+  "arena.rivalLiveStart": {
+    "module": "arena",
+    "action": "rivalLiveStart",
+    "fn_name": "arenaRivalLiveStart",
+    "cache_key": "$arenaRivalLiveStart",
+    "request": {
+      "ours": [
+        "arena_id",
+        "stage_id",
+        "live_difficulty_id",
+        "unit_deck_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/rivalLiveStart",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "rivalLiveStart"
+    ]
+  },
+  "arena.sessionRanking": {
+    "module": "arena",
+    "action": "sessionRanking",
+    "fn_name": "arenaSessionRanking",
+    "cache_key": "$arenaSessionRanking",
+    "request": {
+      "ours": [
+        "zone_id",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/sessionRanking",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "sessionRanking"
+    ]
+  },
+  "arena.tierRanking": {
+    "module": "arena",
+    "action": "tierRanking",
+    "fn_name": "arenaTierRanking",
+    "cache_key": "$arenaTierRanking",
+    "request": {
+      "ours": [
+        "tier_id",
+        "is_especial",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/arena/tierRanking",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "tierRanking"
+    ]
+  },
+  "arena.top": {
+    "module": "arena",
+    "action": "top",
+    "fn_name": "arenaTop",
+    "cache_key": "$arenaTop",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/arena/top",
+    "svapi_file": "arena",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "award.set": {
+    "module": "award",
+    "action": "set",
+    "fn_name": "awardSet",
+    "cache_key": "$awardSet",
+    "request": {
+      "ours": [
+        "award_id"
+      ],
+      "theirs": []
+    },
+    "url": "/award/set",
+    "svapi_file": "award",
+    "alt_fn_names": [
+      "set"
+    ]
+  },
+  "award.awardInfo": {
+    "module": "award",
+    "action": "awardInfo",
+    "fn_name": "awardInfo",
+    "cache_key": "$awardInfo",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/award/awardInfo",
+    "svapi_file": "award",
+    "alt_fn_names": [
+      "awardAwardInfo"
+    ]
+  },
+  "background.set": {
+    "module": "background",
+    "action": "set",
+    "fn_name": "backgroundSet",
+    "cache_key": "$backgroundSet",
+    "request": {
+      "ours": [
+        "background_id"
+      ],
+      "theirs": []
+    },
+    "url": "/background/set",
+    "svapi_file": "background",
+    "alt_fn_names": [
+      "set"
+    ]
+  },
+  "background.backgroundInfo": {
+    "module": "background",
+    "action": "backgroundInfo",
+    "fn_name": "backgroundInfo",
+    "cache_key": "$backgroundInfo",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/background/backgroundInfo",
+    "svapi_file": "background",
+    "alt_fn_names": [
+      "backgroundBackgroundInfo"
+    ]
+  },
+  "banner.bannerList": {
+    "module": "banner",
+    "action": "bannerList",
+    "fn_name": "bannerList",
+    "cache_key": "$bannerList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/banner/bannerList",
+    "svapi_file": "banner",
+    "alt_fn_names": [
+      "bannerBannerList"
+    ]
+  },
+  "battle.endRoom": {
+    "module": "battle",
+    "action": "endRoom",
+    "fn_name": "battleEndRoom",
+    "cache_key": "$battleEndRoom",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_battle_room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/endRoom",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "endRoom"
+    ]
+  },
+  "battle.gameover": {
+    "module": "battle",
+    "action": "gameover",
+    "fn_name": "battleGameover",
+    "cache_key": "$battleGameover",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_battle_room_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "past_time",
+        "remaining_time",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/gameover",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "battle.liveEnd": {
+    "module": "battle",
+    "action": "liveEnd",
+    "fn_name": "battleLiveEnd",
+    "cache_key": "$battleLiveEnd",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_battle_room_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "seed",
+        "remain_hp",
+        "key"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/liveEnd",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "liveEnd"
+    ]
+  },
+  "battle.liveStart": {
+    "module": "battle",
+    "action": "liveStart",
+    "fn_name": "battleLiveStart",
+    "cache_key": "$battleLiveStart",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_battle_room_id",
+        "unit_deck_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/liveStart",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "liveStart"
+    ]
+  },
+  "battle.matching": {
+    "module": "battle",
+    "action": "matching",
+    "fn_name": "battleMatching",
+    "cache_key": "$battleMatching",
+    "request": {
+      "ours": [
+        "event_id",
+        "difficulty",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/matching",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "matching"
+    ]
+  },
+  "battle.startWait": {
+    "module": "battle",
+    "action": "startWait",
+    "fn_name": "battleStartWait",
+    "cache_key": "$battleStartWait",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_battle_room_id",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/startWait",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "startWait"
+    ]
+  },
+  "battle.top": {
+    "module": "battle",
+    "action": "top",
+    "fn_name": "battleTop",
+    "cache_key": "$battleTop",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/top",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "battle.endWait": {
+    "module": "battle",
+    "action": "endWait",
+    "fn_name": "battleEndWait",
+    "cache_key": "$battleEndWait",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_battle_room_id",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/battle/endWait",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "endWait"
+    ]
+  },
+  "battle.battleInfo": {
+    "module": "battle",
+    "action": "battleInfo",
+    "fn_name": "battleInfo",
+    "cache_key": "$battleInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/battle/battleInfo",
+    "svapi_file": "battle",
+    "alt_fn_names": [
+      "battleBattleInfo"
+    ]
+  },
+  "challenge.checkpoint": {
+    "module": "challenge",
+    "action": "checkpoint",
+    "fn_name": "challengeCheckpoint",
+    "cache_key": "$challengeCheckpoint",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "last_hp",
+        "skill_count"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/checkpoint",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "checkpoint"
+    ]
+  },
+  "challenge.continue": {
+    "module": "challenge",
+    "action": "continue",
+    "fn_name": "challengeContinue",
+    "cache_key": "$challengeContinue",
+    "request": {
+      "ours": [
+        "event_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/continue",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "continue"
+    ]
+  },
+  "challenge.finalize": {
+    "module": "challenge",
+    "action": "finalize",
+    "fn_name": "challengeFinalize",
+    "cache_key": "$challengeFinalize",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/finalize",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "finalize"
+    ]
+  },
+  "challenge.gameover": {
+    "module": "challenge",
+    "action": "gameover",
+    "fn_name": "challengeGameover",
+    "cache_key": "$challengeGameover",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "reason",
+        "past_time",
+        "remaining_time",
+        "remain_hp",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/gameover",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "challenge.init": {
+    "module": "challenge",
+    "action": "init",
+    "fn_name": "challengeInit",
+    "cache_key": "$challengeInit",
+    "request": {
+      "ours": [
+        "event_id",
+        "course_id"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/init",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "init"
+    ]
+  },
+  "challenge.proceed": {
+    "module": "challenge",
+    "action": "proceed",
+    "fn_name": "challengeProceed",
+    "cache_key": "$challengeProceed",
+    "request": {
+      "ours": [
+        "event_id",
+        "unit_deck_id",
+        "event_challenge_item_ids",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/proceed",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "proceed"
+    ]
+  },
+  "challenge.retire": {
+    "module": "challenge",
+    "action": "retire",
+    "fn_name": "challengeRetire",
+    "cache_key": "$challengeRetire",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/retire",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "retire"
+    ]
+  },
+  "challenge.status": {
+    "module": "challenge",
+    "action": "status",
+    "fn_name": "challengeStatus",
+    "cache_key": "$challengeStatus",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/status",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "status"
+    ]
+  },
+  "challenge.top": {
+    "module": "challenge",
+    "action": "top",
+    "fn_name": "challengeTop",
+    "cache_key": "$challengeTop",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/challenge/top",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "challenge.challengeInfo": {
+    "module": "challenge",
+    "action": "challengeInfo",
+    "fn_name": "challengeInfo",
+    "cache_key": "$challengeInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/challenge/challengeInfo",
+    "svapi_file": "challenge",
+    "alt_fn_names": [
+      "challengeChallengeInfo"
+    ]
+  },
+  "class.commitChallengeMission": {
+    "module": "class",
+    "action": "commitChallengeMission",
+    "fn_name": "classCommitChallengeMission",
+    "cache_key": "$classCommitChallengeMission",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/class/commitChallengeMission",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "commitChallengeMission"
+    ]
+  },
+  "class.competitionFinalLiveEnd": {
+    "module": "class",
+    "action": "competitionFinalLiveEnd",
+    "fn_name": "classCompetitionFinalLiveEnd",
+    "cache_key": "$classCompetitionFinalLiveEnd",
+    "request": {
+      "ours": [
+        "competition_id",
+        "play_kind",
+        "is_semifinal",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "score_by_song",
+        "precise_score_list"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionFinalLiveEnd",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionFinalLiveEnd"
+    ]
+  },
+  "class.competitionFinalLivePlay": {
+    "module": "class",
+    "action": "competitionFinalLivePlay",
+    "fn_name": "classCompetitionFinalLivePlay",
+    "cache_key": "$classCompetitionFinalLivePlay",
+    "request": {
+      "ours": [
+        "competition_id",
+        "play_kind",
+        "is_semifinal"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionFinalLivePlay",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionFinalLivePlay"
+    ]
+  },
+  "class.competitionGameover": {
+    "module": "class",
+    "action": "competitionGameover",
+    "fn_name": "classCompetitionGameover",
+    "cache_key": "$classCompetitionGameover",
+    "request": {
+      "ours": [
+        "competition_id",
+        "term_type",
+        "play_kind",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "past_time",
+        "remaining_time",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "reason",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionGameover",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionGameover"
+    ]
+  },
+  "class.competitionGeneralRanking": {
+    "module": "class",
+    "action": "competitionGeneralRanking",
+    "fn_name": "classCompetitionGeneralRanking",
+    "cache_key": "$classCompetitionGeneralRanking",
+    "request": {
+      "ours": [
+        "area_id",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionGeneralRanking",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionGeneralRanking"
+    ]
+  },
+  "class.competitionHallOfFame": {
+    "module": "class",
+    "action": "competitionHallOfFame",
+    "fn_name": "classCompetitionHallOfFame",
+    "cache_key": "$classCompetitionHallOfFame",
+    "request": {
+      "ours": [
+        "competition_id"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionHallOfFame",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionHallOfFame"
+    ]
+  },
+  "class.competitionLiveEnd": {
+    "module": "class",
+    "action": "competitionLiveEnd",
+    "fn_name": "classCompetitionLiveEnd",
+    "cache_key": "$classCompetitionLiveEnd",
+    "request": {
+      "ours": [
+        "competition_id",
+        "term_type",
+        "play_kind",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "event_point",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionLiveEnd",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionLiveEnd"
+    ]
+  },
+  "class.competitionLivePlay": {
+    "module": "class",
+    "action": "competitionLivePlay",
+    "fn_name": "classCompetitionLivePlay",
+    "cache_key": "$classCompetitionLivePlay",
+    "request": {
+      "ours": [
+        "competition_id",
+        "term_type",
+        "play_kind",
+        "unit_deck_id",
+        "unit_list"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionLivePlay",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionLivePlay"
+    ]
+  },
+  "class.competitionOwnDeckRanking": {
+    "module": "class",
+    "action": "competitionOwnDeckRanking",
+    "fn_name": "classCompetitionOwnDeckRanking",
+    "cache_key": "$classCompetitionOwnDeckRanking",
+    "request": {
+      "ours": [
+        "area_id",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionOwnDeckRanking",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionOwnDeckRanking"
+    ]
+  },
+  "class.competitionReady": {
+    "module": "class",
+    "action": "competitionReady",
+    "fn_name": "classCompetitionReady",
+    "cache_key": "$classCompetitionReady",
+    "request": {
+      "ours": [
+        "competition_id",
+        "play_kind",
+        "is_semifinal",
+        "unit_deck_id",
+        "unit_list"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionReady",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionReady"
+    ]
+  },
+  "class.competitionResult": {
+    "module": "class",
+    "action": "competitionResult",
+    "fn_name": "classCompetitionResult",
+    "cache_key": "$classCompetitionResult",
+    "request": {
+      "ours": [
+        "competition_id"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionResult",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionResult"
+    ]
+  },
+  "class.competitionSpectateLive": {
+    "module": "class",
+    "action": "competitionSpectateLive",
+    "fn_name": "classCompetitionSpectateLive",
+    "cache_key": "$classCompetitionSpectateLive",
+    "request": {
+      "ours": [
+        "competition_id",
+        "play_kind",
+        "group_id",
+        "is_semifinal",
+        "unit_deck_id",
+        "unit_list"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionSpectateLive",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionSpectateLive"
+    ]
+  },
+  "class.competitionStartWait": {
+    "module": "class",
+    "action": "competitionStartWait",
+    "fn_name": "classCompetitionStartWait",
+    "cache_key": "$classCompetitionStartWait",
+    "request": {
+      "ours": [
+        "competition_id",
+        "play_kind",
+        "is_semifinal",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/class/competitionStartWait",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "competitionStartWait"
+    ]
+  },
+  "class.entryFinal": {
+    "module": "class",
+    "action": "entryFinal",
+    "fn_name": "classEntryFinal",
+    "cache_key": "$classEntryFinal",
+    "request": {
+      "ours": [
+        "play_kind"
+      ],
+      "theirs": []
+    },
+    "url": "/class/entryFinal",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "entryFinal"
+    ]
+  },
+  "class.entrySemifinal": {
+    "module": "class",
+    "action": "entrySemifinal",
+    "fn_name": "classEntrySemifinal",
+    "cache_key": "$classEntrySemifinal",
+    "request": {
+      "ours": [
+        "play_kind"
+      ],
+      "theirs": []
+    },
+    "url": "/class/entrySemifinal",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "entrySemifinal"
+    ]
+  },
+  "class.gameover": {
+    "module": "class",
+    "action": "gameover",
+    "fn_name": "classGameover",
+    "cache_key": "$classGameover",
+    "request": {
+      "ours": [
+        "class_mission_id",
+        "type",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "past_time",
+        "remaining_time",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "reason",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/class/gameover",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "class.livePlay": {
+    "module": "class",
+    "action": "livePlay",
+    "fn_name": "classLivePlay",
+    "cache_key": "$classLivePlay",
+    "request": {
+      "ours": [
+        "class_mission_id",
+        "type",
+        "live_setting",
+        "unit_deck_id"
+      ],
+      "theirs": []
+    },
+    "url": "/class/livePlay",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "livePlay"
+    ]
+  },
+  "class.liveResult": {
+    "module": "class",
+    "action": "liveResult",
+    "fn_name": "classLiveResult",
+    "cache_key": "$classLiveResult",
+    "request": {
+      "ours": [
+        "class_mission_id",
+        "type",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "event_point",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp"
+      ],
+      "theirs": []
+    },
+    "url": "/class/liveResult",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "liveResult"
+    ]
+  },
+  "class.selectCompetitionArea": {
+    "module": "class",
+    "action": "selectCompetitionArea",
+    "fn_name": "classSelectCompetitionArea",
+    "cache_key": "$classSelectCompetitionArea",
+    "request": {
+      "ours": [
+        "area_id"
+      ],
+      "theirs": []
+    },
+    "url": "/class/selectCompetitionArea",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "selectCompetitionArea"
+    ]
+  },
+  "class.selectCompetitionPromise": {
+    "module": "class",
+    "action": "selectCompetitionPromise",
+    "fn_name": "classSelectCompetitionPromise",
+    "cache_key": "$classSelectCompetitionPromise",
+    "request": {
+      "ours": [
+        "general",
+        "own_deck"
+      ],
+      "theirs": []
+    },
+    "url": "/class/selectCompetitionPromise",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "selectCompetitionPromise"
+    ]
+  },
+  "class.skipChallengeMission": {
+    "module": "class",
+    "action": "skipChallengeMission",
+    "fn_name": "classSkipChallengeMission",
+    "cache_key": "$classSkipChallengeMission",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/class/skipChallengeMission",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "skipChallengeMission"
+    ]
+  },
+  "class.voteFinal": {
+    "module": "class",
+    "action": "voteFinal",
+    "fn_name": "classVoteFinal",
+    "cache_key": "$classVoteFinal",
+    "request": {
+      "ours": [
+        "play_kind",
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/class/voteFinal",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "voteFinal"
+    ]
+  },
+  "class.voteSemifinal": {
+    "module": "class",
+    "action": "voteSemifinal",
+    "fn_name": "classVoteSemifinal",
+    "cache_key": "$classVoteSemifinal",
+    "request": {
+      "ours": [
+        "play_kind",
+        "group_a_user_id",
+        "group_b_user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/class/voteSemifinal",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "voteSemifinal"
+    ]
+  },
+  "class.top": {
+    "module": "class",
+    "action": "top",
+    "fn_name": "classTop",
+    "cache_key": "$classTop",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/class/top",
+    "svapi_file": "class",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "comeback.achieveInfo": {
+    "module": "comeback",
+    "action": "achieveInfo",
+    "fn_name": "comebackAchieveInfo",
+    "cache_key": "$comebackAchieveInfo",
+    "request": {
+      "ours": [
+        "comeback_campaign_id"
+      ],
+      "theirs": []
+    },
+    "url": "/comeback/achieveInfo",
+    "svapi_file": "comeback",
+    "alt_fn_names": [
+      "achieveInfo"
+    ]
+  },
+  "common.checkNgword": {
+    "module": "common",
+    "action": "checkNgword",
+    "fn_name": "commonCheckNgword",
+    "cache_key": "$commonCheckNgword",
+    "request": {
+      "ours": [
+        "word"
+      ],
+      "theirs": []
+    },
+    "url": "/common/checkNgword",
+    "svapi_file": "common",
+    "alt_fn_names": [
+      "checkNgword"
+    ]
+  },
+  "common.liveResume": {
+    "module": "common",
+    "action": "liveResume",
+    "fn_name": "commonLiveResume",
+    "cache_key": "$commonLiveResume",
+    "request": {
+      "ours": [
+        "cancel"
+      ],
+      "theirs": []
+    },
+    "url": "/common/liveResume",
+    "svapi_file": "common",
+    "alt_fn_names": [
+      "liveResume"
+    ]
+  },
+  "common.recoveryEnergy": {
+    "module": "common",
+    "action": "recoveryEnergy",
+    "fn_name": "commonRecoveryEnergy",
+    "cache_key": "$commonRecoveryEnergy",
+    "request": {
+      "ours": [
+        "energy_type",
+        "item_id",
+        "amount",
+        "energy_option"
+      ],
+      "theirs": []
+    },
+    "url": "/common/recoveryEnergy",
+    "svapi_file": "common",
+    "alt_fn_names": [
+      "recoveryEnergy"
+    ]
+  },
+  "common.logger": {
+    "module": "common",
+    "action": "logger",
+    "fn_name": "commonLogger",
+    "cache_key": "$commonLogger",
+    "request": {
+      "ours": [
+        "error_type",
+        "messages"
+      ],
+      "theirs": []
+    },
+    "url": "/common/logger",
+    "svapi_file": "common",
+    "alt_fn_names": [
+      "logger"
+    ]
+  },
+  "concert.liveContinue": {
+    "module": "concert",
+    "action": "liveContinue",
+    "fn_name": "concertLiveContinue",
+    "cache_key": "$concertLiveContinue",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id",
+        "live_difficulty_id",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/liveContinue",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "liveContinue"
+    ]
+  },
+  "concert.liveEnd": {
+    "module": "concert",
+    "action": "liveEnd",
+    "fn_name": "concertLiveEnd",
+    "cache_key": "$concertLiveEnd",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id",
+        "live_difficulty_id",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "event_point",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/liveEnd",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "liveEnd"
+    ]
+  },
+  "concert.liveGameOver": {
+    "module": "concert",
+    "action": "liveGameOver",
+    "fn_name": "concertLiveGameOver",
+    "cache_key": "$concertLiveGameOver",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id",
+        "live_difficulty_id",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "past_time",
+        "remaining_time",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "reason",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/liveGameOver",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "liveGameOver"
+    ]
+  },
+  "concert.liveInit": {
+    "module": "concert",
+    "action": "liveInit",
+    "fn_name": "concertLiveInit",
+    "cache_key": "$concertLiveInit",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id",
+        "difficulty"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/liveInit",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "liveInit"
+    ]
+  },
+  "concert.livePartyList": {
+    "module": "concert",
+    "action": "livePartyList",
+    "fn_name": "concertLivePartyList",
+    "cache_key": "$concertLivePartyList",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/livePartyList",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "livePartyList"
+    ]
+  },
+  "concert.liveStart": {
+    "module": "concert",
+    "action": "liveStart",
+    "fn_name": "concertLiveStart",
+    "cache_key": "$concertLiveStart",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id",
+        "party_user_id",
+        "unit_deck_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/liveStart",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "liveStart"
+    ]
+  },
+  "concert.lootBoxPick": {
+    "module": "concert",
+    "action": "lootBoxPick",
+    "fn_name": "concertLootBoxPick",
+    "cache_key": "$concertLootBoxPick",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id",
+        "count"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/lootBoxPick",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "lootBoxPick"
+    ]
+  },
+  "concert.lootBoxReset": {
+    "module": "concert",
+    "action": "lootBoxReset",
+    "fn_name": "concertLootBoxReset",
+    "cache_key": "$concertLootBoxReset",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/lootBoxReset",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "lootBoxReset"
+    ]
+  },
+  "concert.lootBoxTop": {
+    "module": "concert",
+    "action": "lootBoxTop",
+    "fn_name": "concertLootBoxTop",
+    "cache_key": "$concertLootBoxTop",
+    "request": {
+      "ours": [
+        "concert_set_list_setting_id"
+      ],
+      "theirs": []
+    },
+    "url": "/concert/lootBoxTop",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "lootBoxTop"
+    ]
+  },
+  "concert.top": {
+    "module": "concert",
+    "action": "top",
+    "fn_name": "concertTop",
+    "cache_key": "$concertTop",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/concert/top",
+    "svapi_file": "concert",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "costume.costumeStatus": {
+    "module": "costume",
+    "action": "costumeStatus",
+    "fn_name": "costumeCostumeStatus",
+    "cache_key": "$costumeCostumeStatus",
+    "request": {
+      "ours": [
+        "status"
+      ],
+      "theirs": []
+    },
+    "url": "/costume/costumeStatus",
+    "svapi_file": "costume",
+    "alt_fn_names": [
+      "costumeStatus"
+    ]
+  },
+  "costume.dressUp": {
+    "module": "costume",
+    "action": "dressUp",
+    "fn_name": "costumeDressUp",
+    "cache_key": "$costumeDressUp",
+    "request": {
+      "ours": [
+        "unit_owning_user_id",
+        "unit_id",
+        "is_rank_max",
+        "is_signed"
+      ],
+      "theirs": []
+    },
+    "url": "/costume/dressUp",
+    "svapi_file": "costume",
+    "alt_fn_names": [
+      "dressUp"
+    ]
+  },
+  "costume.makeCostume": {
+    "module": "costume",
+    "action": "makeCostume",
+    "fn_name": "costumeMakeCostume",
+    "cache_key": "$costumeMakeCostume",
+    "request": {
+      "ours": [
+        "unit_owning_user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/costume/makeCostume",
+    "svapi_file": "costume",
+    "alt_fn_names": [
+      "makeCostume"
+    ]
+  },
+  "costume.costumeList": {
+    "module": "costume",
+    "action": "costumeList",
+    "fn_name": "costumeCostumeList",
+    "cache_key": "$costumeCostumeList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/costume/costumeList",
+    "svapi_file": "costume",
+    "alt_fn_names": [
+      "costumeList"
+    ]
+  },
+  "download.additional": {
+    "module": "download",
+    "action": "additional",
+    "fn_name": "downloadAdditional",
+    "cache_key": "$downloadAdditional",
+    "request": {
+      "ours": [
+        "package_type",
+        "package_id",
+        "target_os"
+      ],
+      "theirs": []
+    },
+    "url": "/download/additional",
+    "svapi_file": "download",
+    "alt_fn_names": [
+      "additional"
+    ]
+  },
+  "download.batch": {
+    "module": "download",
+    "action": "batch",
+    "fn_name": "downloadBatch",
+    "cache_key": "$downloadBatch",
+    "request": {
+      "ours": [
+        "package_type",
+        "excluded_package_ids",
+        "os"
+      ],
+      "theirs": []
+    },
+    "url": "/download/batch",
+    "svapi_file": "download",
+    "alt_fn_names": [
+      "batch"
+    ]
+  },
+  "download.event": {
+    "module": "download",
+    "action": "event",
+    "fn_name": "downloadEvent",
+    "cache_key": "$downloadEvent",
+    "request": {
+      "ours": [
+        "excluded_package_ids",
+        "os"
+      ],
+      "theirs": []
+    },
+    "url": "/download/event",
+    "svapi_file": "download",
+    "alt_fn_names": [
+      "event"
+    ]
+  },
+  "download.getUrl": {
+    "module": "download",
+    "action": "getUrl",
+    "fn_name": "downloadGetUrl",
+    "cache_key": "$downloadGetUrl",
+    "request": {
+      "ours": [
+        "path_list",
+        "os"
+      ],
+      "theirs": []
+    },
+    "url": "/download/getUrl",
+    "svapi_file": "download",
+    "alt_fn_names": [
+      "getUrl"
+    ]
+  },
+  "download.update": {
+    "module": "download",
+    "action": "update",
+    "fn_name": "downloadUpdate",
+    "cache_key": "$downloadUpdate",
+    "request": {
+      "ours": [
+        "package_list",
+        "target_os",
+        "install_version",
+        "external_version"
+      ],
+      "theirs": []
+    },
+    "url": "/download/update",
+    "svapi_file": "download",
+    "alt_fn_names": [
+      "update"
+    ]
+  },
+  "download.luaDownload": {
+    "module": "download",
+    "action": "luaDownload",
+    "fn_name": "luadownload",
+    "cache_key": "$luadownload",
+    "request": {
+      "ours": [
+        "s3_url"
+      ],
+      "theirs": []
+    },
+    "url": "/download/luaDownload",
+    "svapi_file": "luadownload",
+    "alt_fn_names": [
+      "downloadLuaDownload",
+      "luadownloadLuaDownload",
+      "luaDownload"
+    ]
+  },
+  "duel.assistLog": {
+    "module": "duel",
+    "action": "assistLog",
+    "fn_name": "duelAssistLog",
+    "cache_key": "$duelAssistLog",
+    "request": {
+      "ours": [
+        "duel_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/assistLog",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "assistLog"
+    ]
+  },
+  "duel.duelSubDeck": {
+    "module": "duel",
+    "action": "duelSubDeck",
+    "fn_name": "duelDuelSubDeck",
+    "cache_key": "$duelDuelSubDeck",
+    "request": {
+      "ours": [
+        "duel_sub_unit_deck_list"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/duelSubDeck",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "duelSubDeck"
+    ]
+  },
+  "duel.endRoom": {
+    "module": "duel",
+    "action": "endRoom",
+    "fn_name": "duelEndRoom",
+    "cache_key": "$duelEndRoom",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/endRoom",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "endRoom"
+    ]
+  },
+  "duel.endWait": {
+    "module": "duel",
+    "action": "endWait",
+    "fn_name": "duelEndWait",
+    "cache_key": "$duelEndWait",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/endWait",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "endWait"
+    ]
+  },
+  "duel.fixTime": {
+    "module": "duel",
+    "action": "fixTime",
+    "fn_name": "duelFixTime",
+    "cache_key": "$duelFixTime",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/duel/fixTime",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "fixTime"
+    ]
+  },
+  "duel.gpsMatch": {
+    "module": "duel",
+    "action": "gpsMatch",
+    "fn_name": "duelGpsMatch",
+    "cache_key": "$duelGpsMatch",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "difficulty",
+        "lp_factor",
+        "live_difficulty_id",
+        "latitude",
+        "longitude"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/gpsMatch",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "gpsMatch"
+    ]
+  },
+  "duel.leave": {
+    "module": "duel",
+    "action": "leave",
+    "fn_name": "duelLeave",
+    "cache_key": "$duelLeave",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/leave",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "leave"
+    ]
+  },
+  "duel.liveEnd": {
+    "module": "duel",
+    "action": "liveEnd",
+    "fn_name": "duelLiveEnd",
+    "cache_key": "$duelLiveEnd",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "assist_log",
+        "fever_score",
+        "assist_cnt",
+        "receive_cnt",
+        "is_clear"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/liveEnd",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "liveEnd"
+    ]
+  },
+  "duel.liveLog": {
+    "module": "duel",
+    "action": "liveLog",
+    "fn_name": "duelLiveLog",
+    "cache_key": "$duelLiveLog",
+    "request": {
+      "ours": [
+        "duel_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/liveLog",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "liveLog"
+    ]
+  },
+  "duel.livePolling": {
+    "module": "duel",
+    "action": "livePolling",
+    "fn_name": "duelLivePolling",
+    "cache_key": "$duelLivePolling",
+    "request": {
+      "ours": [
+        "did",
+        "tid",
+        "rid",
+        "seed",
+        "mcd",
+        "sd",
+        "fgd",
+        "sc"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/livePolling",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "livePolling"
+    ]
+  },
+  "duel.liveStart": {
+    "module": "duel",
+    "action": "liveStart",
+    "fn_name": "duelLiveStart",
+    "cache_key": "$duelLiveStart",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/liveStart",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "liveStart"
+    ]
+  },
+  "duel.matching": {
+    "module": "duel",
+    "action": "matching",
+    "fn_name": "duelMatching",
+    "cache_key": "$duelMatching",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "is_crowd"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/matching",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "matching"
+    ]
+  },
+  "duel.privateClose": {
+    "module": "duel",
+    "action": "privateClose",
+    "fn_name": "duelPrivateClose",
+    "cache_key": "$duelPrivateClose",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/privateClose",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "privateClose"
+    ]
+  },
+  "duel.privateCreate": {
+    "module": "duel",
+    "action": "privateCreate",
+    "fn_name": "duelPrivateCreate",
+    "cache_key": "$duelPrivateCreate",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "is_crowd",
+        "live_track_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/privateCreate",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "privateCreate"
+    ]
+  },
+  "duel.privateJoin": {
+    "module": "duel",
+    "action": "privateJoin",
+    "fn_name": "duelPrivateJoin",
+    "cache_key": "$duelPrivateJoin",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "is_crowd",
+        "entry_token"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/privateJoin",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "privateJoin"
+    ]
+  },
+  "duel.privateLeave": {
+    "module": "duel",
+    "action": "privateLeave",
+    "fn_name": "duelPrivateLeave",
+    "cache_key": "$duelPrivateLeave",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/privateLeave",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "privateLeave"
+    ]
+  },
+  "duel.privateMakeMatch": {
+    "module": "duel",
+    "action": "privateMakeMatch",
+    "fn_name": "duelPrivateMakeMatch",
+    "cache_key": "$duelPrivateMakeMatch",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/privateMakeMatch",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "privateMakeMatch"
+    ]
+  },
+  "duel.privateOpenMatch": {
+    "module": "duel",
+    "action": "privateOpenMatch",
+    "fn_name": "duelPrivateOpenMatch",
+    "cache_key": "$duelPrivateOpenMatch",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/privateOpenMatch",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "privateOpenMatch"
+    ]
+  },
+  "duel.privateStartWait": {
+    "module": "duel",
+    "action": "privateStartWait",
+    "fn_name": "duelPrivateStartWait",
+    "cache_key": "$duelPrivateStartWait",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id",
+        "difficulty",
+        "deck_id",
+        "duel_fever_skill_id",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/privateStartWait",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "privateStartWait"
+    ]
+  },
+  "duel.startWait": {
+    "module": "duel",
+    "action": "startWait",
+    "fn_name": "duelStartWait",
+    "cache_key": "$duelStartWait",
+    "request": {
+      "ours": [
+        "duel_id",
+        "term_id",
+        "room_id",
+        "difficulty",
+        "deck_id",
+        "duel_fever_skill_id",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/startWait",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "startWait"
+    ]
+  },
+  "duel.top": {
+    "module": "duel",
+    "action": "top",
+    "fn_name": "duelTop",
+    "cache_key": "$duelTop",
+    "request": {
+      "ours": [
+        "duel_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duel/top",
+    "svapi_file": "duel",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "duty.allUserMission": {
+    "module": "duty",
+    "action": "allUserMission",
+    "fn_name": "dutyAllUserMission",
+    "cache_key": "$dutyAllUserMission",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/allUserMission",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "allUserMission"
+    ]
+  },
+  "duty.endRoom": {
+    "module": "duty",
+    "action": "endRoom",
+    "fn_name": "dutyEndRoom",
+    "cache_key": "$dutyEndRoom",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/endRoom",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "endRoom"
+    ]
+  },
+  "duty.gameover": {
+    "module": "duty",
+    "action": "gameover",
+    "fn_name": "dutyGameover",
+    "cache_key": "$dutyGameover",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "reason",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/gameover",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "duty.history": {
+    "module": "duty",
+    "action": "history",
+    "fn_name": "dutyHistory",
+    "cache_key": "$dutyHistory",
+    "request": {
+      "ours": [
+        "event_id",
+        "page"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/history",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "history"
+    ]
+  },
+  "duty.historyDetail": {
+    "module": "duty",
+    "action": "historyDetail",
+    "fn_name": "dutyHistoryDetail",
+    "cache_key": "$dutyHistoryDetail",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/historyDetail",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "historyDetail"
+    ]
+  },
+  "duty.liveEnd": {
+    "module": "duty",
+    "action": "liveEnd",
+    "fn_name": "dutyLiveEnd",
+    "cache_key": "$dutyLiveEnd",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/liveEnd",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "liveEnd"
+    ]
+  },
+  "duty.liveStart": {
+    "module": "duty",
+    "action": "liveStart",
+    "fn_name": "dutyLiveStart",
+    "cache_key": "$dutyLiveStart",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/liveStart",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "liveStart"
+    ]
+  },
+  "duty.matching": {
+    "module": "duty",
+    "action": "matching",
+    "fn_name": "dutyMatching",
+    "cache_key": "$dutyMatching",
+    "request": {
+      "ours": [
+        "event_id",
+        "difficulty",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/matching",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "matching"
+    ]
+  },
+  "duty.privateClose": {
+    "module": "duty",
+    "action": "privateClose",
+    "fn_name": "dutyPrivateClose",
+    "cache_key": "$dutyPrivateClose",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/privateClose",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "privateClose"
+    ]
+  },
+  "duty.privateCreate": {
+    "module": "duty",
+    "action": "privateCreate",
+    "fn_name": "dutyPrivateCreate",
+    "cache_key": "$dutyPrivateCreate",
+    "request": {
+      "ours": [
+        "event_id",
+        "difficulty",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/privateCreate",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "privateCreate"
+    ]
+  },
+  "duty.privateJoin": {
+    "module": "duty",
+    "action": "privateJoin",
+    "fn_name": "dutyPrivateJoin",
+    "cache_key": "$dutyPrivateJoin",
+    "request": {
+      "ours": [
+        "event_id",
+        "entry_token",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/privateJoin",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "privateJoin"
+    ]
+  },
+  "duty.privateJoinMatch": {
+    "module": "duty",
+    "action": "privateJoinMatch",
+    "fn_name": "dutyPrivateJoinMatch",
+    "cache_key": "$dutyPrivateJoinMatch",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/privateJoinMatch",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "privateJoinMatch"
+    ]
+  },
+  "duty.privateLeave": {
+    "module": "duty",
+    "action": "privateLeave",
+    "fn_name": "dutyPrivateLeave",
+    "cache_key": "$dutyPrivateLeave",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/privateLeave",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "privateLeave"
+    ]
+  },
+  "duty.privateMakeMatch": {
+    "module": "duty",
+    "action": "privateMakeMatch",
+    "fn_name": "dutyPrivateMakeMatch",
+    "cache_key": "$dutyPrivateMakeMatch",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/privateMakeMatch",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "privateMakeMatch"
+    ]
+  },
+  "duty.privateStartWait": {
+    "module": "duty",
+    "action": "privateStartWait",
+    "fn_name": "dutyPrivateStartWait",
+    "cache_key": "$dutyPrivateStartWait",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id",
+        "chat_id",
+        "skip_countdown"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/privateStartWait",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "privateStartWait"
+    ]
+  },
+  "duty.startWait": {
+    "module": "duty",
+    "action": "startWait",
+    "fn_name": "dutyStartWait",
+    "cache_key": "$dutyStartWait",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id",
+        "deck_id",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/startWait",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "startWait"
+    ]
+  },
+  "duty.top": {
+    "module": "duty",
+    "action": "top",
+    "fn_name": "dutyTop",
+    "cache_key": "$dutyTop",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/top",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "duty.dutyInfo": {
+    "module": "duty",
+    "action": "dutyInfo",
+    "fn_name": "dutyDutyInfo",
+    "cache_key": "$dutyDutyInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/duty/dutyInfo",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "dutyInfo"
+    ]
+  },
+  "duty.endWait": {
+    "module": "duty",
+    "action": "endWait",
+    "fn_name": "dutyEndWait",
+    "cache_key": "$dutyEndWait",
+    "request": {
+      "ours": [
+        "event_id",
+        "room_id",
+        "chat_id"
+      ],
+      "theirs": []
+    },
+    "url": "/duty/endWait",
+    "svapi_file": "duty",
+    "alt_fn_names": [
+      "endWait"
+    ]
+  },
+  "effortPoint.selectLimitedBox": {
+    "module": "effortPoint",
+    "action": "selectLimitedBox",
+    "fn_name": "effortPointSelectLimitedBox",
+    "cache_key": "$effortPointSelectLimitedBox",
+    "request": {
+      "ours": [
+        "no_agree"
+      ],
+      "theirs": []
+    },
+    "url": "/effortPoint/selectLimitedBox",
+    "svapi_file": "effort",
+    "alt_fn_names": [
+      "effortSelectLimitedBox",
+      "selectLimitedBox"
+    ]
+  },
+  "event.eventList": {
+    "module": "event",
+    "action": "eventList",
+    "fn_name": "eventEventList",
+    "cache_key": "$eventEventList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/event/eventList",
+    "svapi_file": "event",
+    "alt_fn_names": [
+      "eventList"
+    ]
+  },
+  "event.eventYellDeck": {
+    "module": "event",
+    "action": "eventYellDeck",
+    "fn_name": "eventEventYellDeck",
+    "cache_key": "$eventEventYellDeck",
+    "request": {
+      "ours": [
+        "event_id",
+        "unit_deck_detail"
+      ],
+      "theirs": []
+    },
+    "url": "/event/eventYellDeck",
+    "svapi_file": "event",
+    "alt_fn_names": [
+      "eventYellDeck"
+    ]
+  },
+  "eventscenario.open": {
+    "module": "eventscenario",
+    "action": "open",
+    "fn_name": "eventscenarioOpen",
+    "cache_key": "$eventscenarioOpen",
+    "request": {
+      "ours": [
+        "event_scenario_id"
+      ],
+      "theirs": []
+    },
+    "url": "/eventscenario/open",
+    "svapi_file": "eventscenario",
+    "alt_fn_names": [
+      "open"
+    ]
+  },
+  "eventscenario.reward": {
+    "module": "eventscenario",
+    "action": "reward",
+    "fn_name": "eventscenarioReward",
+    "cache_key": "$eventscenarioReward",
+    "request": {
+      "ours": [
+        "event_scenario_id",
+        "is_skipped"
+      ],
+      "theirs": []
+    },
+    "url": "/eventscenario/reward",
+    "svapi_file": "eventscenario",
+    "alt_fn_names": [
+      "reward"
+    ]
+  },
+  "eventscenario.startup": {
+    "module": "eventscenario",
+    "action": "startup",
+    "fn_name": "eventscenarioStartup",
+    "cache_key": "$eventscenarioStartup",
+    "request": {
+      "ours": [
+        "event_scenario_id"
+      ],
+      "theirs": []
+    },
+    "url": "/eventscenario/startup",
+    "svapi_file": "eventscenario",
+    "alt_fn_names": [
+      "startup"
+    ]
+  },
+  "eventscenario.status": {
+    "module": "eventscenario",
+    "action": "status",
+    "fn_name": "eventscenarioStatus",
+    "cache_key": "$eventscenarioStatus",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/eventscenario/status",
+    "svapi_file": "eventscenario",
+    "alt_fn_names": [
+      "status"
+    ]
+  },
+  "exchange.itemInfo": {
+    "module": "exchange",
+    "action": "itemInfo",
+    "fn_name": "exchangeItemInfo",
+    "cache_key": "$exchangeItemInfo",
+    "request": {
+      "ours": [
+        "exchange_shop_id"
+      ],
+      "theirs": []
+    },
+    "url": "/exchange/itemInfo",
+    "svapi_file": "exchange",
+    "alt_fn_names": [
+      "itemInfo"
+    ]
+  },
+  "exchange.usePoint": {
+    "module": "exchange",
+    "action": "usePoint",
+    "fn_name": "exchangeUsePoint",
+    "cache_key": "$exchangeUsePoint",
+    "request": {
+      "ours": [
+        "exchange_item_id",
+        "amount",
+        "rarity",
+        "term_count"
+      ],
+      "theirs": []
+    },
+    "url": "/exchange/usePoint",
+    "svapi_file": "exchange",
+    "alt_fn_names": [
+      "usePoint"
+    ]
+  },
+  "exchange.owningPoint": {
+    "module": "exchange",
+    "action": "owningPoint",
+    "fn_name": "exchangeOwningPoint",
+    "cache_key": "$exchangeOwningPoint",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/exchange/owningPoint",
+    "svapi_file": "exchange",
+    "alt_fn_names": [
+      "owningPoint"
+    ]
+  },
+  "festival.continue": {
+    "module": "festival",
+    "action": "continue",
+    "fn_name": "festivalContinue",
+    "cache_key": "$festivalContinue",
+    "request": {
+      "ours": [
+        "event_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/continue",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "continue"
+    ]
+  },
+  "festival.deckList": {
+    "module": "festival",
+    "action": "deckList",
+    "fn_name": "festivalDeckList",
+    "cache_key": "$festivalDeckList",
+    "request": {
+      "ours": [
+        "event_id",
+        "difficulty_ids",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/deckList",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "deckList"
+    ]
+  },
+  "festival.gameover": {
+    "module": "festival",
+    "action": "gameover",
+    "fn_name": "festivalGameover",
+    "cache_key": "$festivalGameover",
+    "request": {
+      "ours": [
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "reason",
+        "max_combo",
+        "past_time",
+        "remaining_time",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "clear_cnt",
+        "remain_hp",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/gameover",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "festival.liveReward": {
+    "module": "festival",
+    "action": "liveReward",
+    "fn_name": "festivalLiveReward",
+    "cache_key": "$festivalLiveReward",
+    "request": {
+      "ours": [
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "seed",
+        "key",
+        "sub_bonus_flag",
+        "encore_live_result",
+        "precise_score_log"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/liveReward",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "liveReward"
+    ]
+  },
+  "festival.liveSetList": {
+    "module": "festival",
+    "action": "liveSetList",
+    "fn_name": "festivalLiveSetList",
+    "cache_key": "$festivalLiveSetList",
+    "request": {
+      "ours": [
+        "event_id",
+        "live_count"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/liveSetList",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "liveSetList"
+    ]
+  },
+  "festival.liveStart": {
+    "module": "festival",
+    "action": "liveStart",
+    "fn_name": "festivalLiveStart",
+    "cache_key": "$festivalLiveStart",
+    "request": {
+      "ours": [
+        "event_id",
+        "unit_deck_id",
+        "event_festival_item_ids",
+        "pause_assist",
+        "is_skill_on"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/liveStart",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "liveStart"
+    ]
+  },
+  "festival.missionStatus": {
+    "module": "festival",
+    "action": "missionStatus",
+    "fn_name": "festivalMissionStatus",
+    "cache_key": "$festivalMissionStatus",
+    "request": {
+      "ours": [
+        "event_id",
+        "sort_type",
+        "page_id"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/missionStatus",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "missionStatus"
+    ]
+  },
+  "festival.top": {
+    "module": "festival",
+    "action": "top",
+    "fn_name": "festivalTop",
+    "cache_key": "$festivalTop",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/top",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "festival.updateLiveList": {
+    "module": "festival",
+    "action": "updateLiveList",
+    "fn_name": "festivalUpdateLiveList",
+    "cache_key": "$festivalUpdateLiveList",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/festival/updateLiveList",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "updateLiveList"
+    ]
+  },
+  "festival.festivalInfo": {
+    "module": "festival",
+    "action": "festivalInfo",
+    "fn_name": "festivalInfo",
+    "cache_key": "$festivalInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/festival/festivalInfo",
+    "svapi_file": "festival",
+    "alt_fn_names": [
+      "festivalFestivalInfo"
+    ]
+  },
+  "freeLive.play": {
+    "module": "freeLive",
+    "action": "play",
+    "fn_name": "freeLivePlay",
+    "cache_key": "$freeLivePlay",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "unit_deck_id"
+      ],
+      "theirs": []
+    },
+    "url": "/freeLive/play",
+    "svapi_file": "free",
+    "alt_fn_names": [
+      "freePlay",
+      "play"
+    ]
+  },
+  "friend.expel": {
+    "module": "friend",
+    "action": "expel",
+    "fn_name": "friendExpel",
+    "cache_key": "$friendExpel",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/friend/expel",
+    "svapi_file": "friend",
+    "alt_fn_names": [
+      "expel"
+    ]
+  },
+  "friend.list": {
+    "module": "friend",
+    "action": "list",
+    "fn_name": "friendList",
+    "cache_key": "$friendList",
+    "request": {
+      "ours": [
+        "type",
+        "sort",
+        "page"
+      ],
+      "theirs": []
+    },
+    "url": "/friend/list",
+    "svapi_file": "friend",
+    "alt_fn_names": [
+      "list"
+    ]
+  },
+  "friend.request": {
+    "module": "friend",
+    "action": "request",
+    "fn_name": "friendRequest",
+    "cache_key": "$friendRequest",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/friend/request",
+    "svapi_file": "friend",
+    "alt_fn_names": [
+      "request"
+    ]
+  },
+  "friend.requestCancel": {
+    "module": "friend",
+    "action": "requestCancel",
+    "fn_name": "friendRequestCancel",
+    "cache_key": "$friendRequestCancel",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/friend/requestCancel",
+    "svapi_file": "friend",
+    "alt_fn_names": [
+      "requestCancel"
+    ]
+  },
+  "friend.response": {
+    "module": "friend",
+    "action": "response",
+    "fn_name": "friendResponse",
+    "cache_key": "$friendResponse",
+    "request": {
+      "ours": [
+        "user_id",
+        "status"
+      ],
+      "theirs": []
+    },
+    "url": "/friend/response",
+    "svapi_file": "friend",
+    "alt_fn_names": [
+      "response"
+    ]
+  },
+  "friend.search": {
+    "module": "friend",
+    "action": "search",
+    "fn_name": "friendSearch",
+    "cache_key": "$friendSearch",
+    "request": {
+      "ours": [
+        "invite_code"
+      ],
+      "theirs": []
+    },
+    "url": "/friend/search",
+    "svapi_file": "friend",
+    "alt_fn_names": [
+      "search"
+    ]
+  },
+  "gdpr.detail": {
+    "module": "gdpr",
+    "action": "detail",
+    "fn_name": "gdprDetail",
+    "cache_key": "$gdprDetail",
+    "request": {
+      "ours": [
+        "type"
+      ],
+      "theirs": []
+    },
+    "url": "/gdpr/detail",
+    "svapi_file": "gdpr",
+    "alt_fn_names": [
+      "detail"
+    ]
+  },
+  "gdpr.get": {
+    "module": "gdpr",
+    "action": "get",
+    "fn_name": "gdprGet",
+    "cache_key": "$gdprGet",
+    "request": {
+      "ours": [
+        "step"
+      ],
+      "theirs": []
+    },
+    "url": "/gdpr/get",
+    "svapi_file": "gdpr",
+    "alt_fn_names": [
+      "get"
+    ]
+  },
+  "gdpr.update": {
+    "module": "gdpr",
+    "action": "update",
+    "fn_name": "gdprUpdate",
+    "cache_key": "$gdprUpdate",
+    "request": {
+      "ours": [
+        "ex",
+        "permissions"
+      ],
+      "theirs": []
+    },
+    "url": "/gdpr/update",
+    "svapi_file": "gdpr",
+    "alt_fn_names": [
+      "update"
+    ]
+  },
+  "greet.delete": {
+    "module": "greet",
+    "action": "delete",
+    "fn_name": "greetDelete",
+    "cache_key": "$greetDelete",
+    "request": {
+      "ours": [
+        "mail_notice_id",
+        "is_send_mail"
+      ],
+      "theirs": []
+    },
+    "url": "/greet/delete",
+    "svapi_file": "greet",
+    "alt_fn_names": [
+      "delete"
+    ]
+  },
+  "greet.user": {
+    "module": "greet",
+    "action": "user",
+    "fn_name": "greetUser",
+    "cache_key": "$greetUser",
+    "request": {
+      "ours": [
+        "to_user_id",
+        "message",
+        "replied_notice_id"
+      ],
+      "theirs": []
+    },
+    "url": "/greet/user",
+    "svapi_file": "greet",
+    "alt_fn_names": [
+      "user"
+    ]
+  },
+  "handover.abortTransfer": {
+    "module": "handover",
+    "action": "abortTransfer",
+    "fn_name": "handoverAbortTransfer",
+    "cache_key": "$handoverAbortTransfer",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/handover/abortTransfer",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "abortTransfer"
+    ]
+  },
+  "handover.create": {
+    "module": "handover",
+    "action": "create",
+    "fn_name": "handoverCreate",
+    "cache_key": "$handoverCreate",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/handover/create",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "create"
+    ]
+  },
+  "handover.exec": {
+    "module": "handover",
+    "action": "exec",
+    "fn_name": "handoverExec",
+    "cache_key": "$handoverExec",
+    "request": {
+      "ours": [
+        "handover_id",
+        "handover_code"
+      ],
+      "theirs": []
+    },
+    "url": "/handover/exec",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "exec"
+    ]
+  },
+  "handover.kidCheck": {
+    "module": "handover",
+    "action": "kidCheck",
+    "fn_name": "handoverKidCheck",
+    "cache_key": "$handoverKidCheck",
+    "request": {
+      "ours": [
+        "auth_code"
+      ],
+      "theirs": []
+    },
+    "url": "/handover/kidCheck",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "kidCheck"
+    ]
+  },
+  "handover.kidDelete": {
+    "module": "handover",
+    "action": "kidDelete",
+    "fn_name": "handoverKidDelete",
+    "cache_key": "$handoverKidDelete",
+    "request": {
+      "ours": [
+        "auth_code"
+      ],
+      "theirs": []
+    },
+    "url": "/handover/kidDelete",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "kidDelete"
+    ]
+  },
+  "handover.kidHandover": {
+    "module": "handover",
+    "action": "kidHandover",
+    "fn_name": "handoverKidHandover",
+    "cache_key": "$handoverKidHandover",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/handover/kidHandover",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "kidHandover"
+    ]
+  },
+  "handover.kidRegister": {
+    "module": "handover",
+    "action": "kidRegister",
+    "fn_name": "handoverKidRegister",
+    "cache_key": "$handoverKidRegister",
+    "request": {
+      "ours": [
+        "auth_code"
+      ],
+      "theirs": []
+    },
+    "url": "/handover/kidRegister",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "kidRegister"
+    ]
+  },
+  "handover.kidStatus": {
+    "module": "handover",
+    "action": "kidStatus",
+    "fn_name": "handoverKidStatus",
+    "cache_key": "$handoverKidStatus",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/handover/kidStatus",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "kidStatus"
+    ]
+  },
+  "handover.reserveTransfer": {
+    "module": "handover",
+    "action": "reserveTransfer",
+    "fn_name": "handoverReserveTransfer",
+    "cache_key": "$handoverReserveTransfer",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/handover/reserveTransfer",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "reserveTransfer"
+    ]
+  },
+  "handover.start": {
+    "module": "handover",
+    "action": "start",
+    "fn_name": "handoverStart",
+    "cache_key": "$handoverStart",
+    "request": {
+      "ours": [
+        "handover_code"
+      ],
+      "theirs": []
+    },
+    "url": "/handover/start",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "start"
+    ]
+  },
+  "handover.kidInfo": {
+    "module": "handover",
+    "action": "kidInfo",
+    "fn_name": "handoverKidInfo",
+    "cache_key": "$handoverKidInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/handover/kidInfo",
+    "svapi_file": "handover",
+    "alt_fn_names": [
+      "kidInfo"
+    ]
+  },
+  "item.exchange": {
+    "module": "item",
+    "action": "exchange",
+    "fn_name": "itemExchange",
+    "cache_key": "$itemExchange",
+    "request": {
+      "ours": [
+        "before_item_id",
+        "exchange_count"
+      ],
+      "theirs": []
+    },
+    "url": "/item/exchange",
+    "svapi_file": "item",
+    "alt_fn_names": [
+      "exchange"
+    ]
+  },
+  "item.useBuff": {
+    "module": "item",
+    "action": "useBuff",
+    "fn_name": "itemUseBuff",
+    "cache_key": "$itemUseBuff",
+    "request": {
+      "ours": [
+        "item_id",
+        "amount"
+      ],
+      "theirs": []
+    },
+    "url": "/item/useBuff",
+    "svapi_file": "item",
+    "alt_fn_names": [
+      "useBuff"
+    ]
+  },
+  "item.useLotteryTicket": {
+    "module": "item",
+    "action": "useLotteryTicket",
+    "fn_name": "itemUseLotteryTicket",
+    "cache_key": "$itemUseLotteryTicket",
+    "request": {
+      "ours": [
+        "item_id",
+        "amount"
+      ],
+      "theirs": []
+    },
+    "url": "/item/useLotteryTicket",
+    "svapi_file": "item",
+    "alt_fn_names": [
+      "useLotteryTicket"
+    ]
+  },
+  "item.useReinforceItem": {
+    "module": "item",
+    "action": "useReinforceItem",
+    "fn_name": "itemUseReinforceItem",
+    "cache_key": "$itemUseReinforceItem",
+    "request": {
+      "ours": [
+        "unit_owning_user_id",
+        "reinforce_item_list"
+      ],
+      "theirs": []
+    },
+    "url": "/item/useReinforceItem",
+    "svapi_file": "item",
+    "alt_fn_names": [
+      "useReinforceItem"
+    ]
+  },
+  "item.userRankUp": {
+    "module": "item",
+    "action": "userRankUp",
+    "fn_name": "itemUserRankUp",
+    "cache_key": "$itemUserRankUp",
+    "request": {
+      "ours": [
+        "item_id",
+        "amount"
+      ],
+      "theirs": []
+    },
+    "url": "/item/userRankUp",
+    "svapi_file": "item",
+    "alt_fn_names": [
+      "userRankUp"
+    ]
+  },
+  "item.list": {
+    "module": "item",
+    "action": "list",
+    "fn_name": "itemList",
+    "cache_key": "$itemList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/item/list",
+    "svapi_file": "item",
+    "alt_fn_names": [
+      "list"
+    ]
+  },
+  "klab_id.kidPagingUnaccomplishList": {
+    "module": "klab_id",
+    "action": "kidPagingUnaccomplishList",
+    "fn_name": "klab_idKidPagingUnaccomplishList",
+    "cache_key": "$klab_idKidPagingUnaccomplishList",
+    "request": {
+      "ours": [
+        "filter_category_id",
+        "from_count"
+      ],
+      "theirs": []
+    },
+    "url": "/klab_id/kidPagingUnaccomplishList",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabKidPagingUnaccomplishList",
+      "kidPagingUnaccomplishList"
+    ]
+  },
+  "klab_id.kidRewardOpen": {
+    "module": "klab_id",
+    "action": "kidRewardOpen",
+    "fn_name": "klab_idKidRewardOpen",
+    "cache_key": "$klab_idKidRewardOpen",
+    "request": {
+      "ours": [
+        "accomplish_id"
+      ],
+      "theirs": []
+    },
+    "url": "/klab_id/kidRewardOpen",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabKidRewardOpen",
+      "kidRewardOpen"
+    ]
+  },
+  "klab_id.kidRewardOpenAll": {
+    "module": "klab_id",
+    "action": "kidRewardOpenAll",
+    "fn_name": "klab_idKidRewardOpenAll",
+    "cache_key": "$klab_idKidRewardOpenAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/klab_id/kidRewardOpenAll",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabKidRewardOpenAll",
+      "kidRewardOpenAll"
+    ]
+  },
+  "klab_id.sync": {
+    "module": "klab_id",
+    "action": "sync",
+    "fn_name": "klab_idSync",
+    "cache_key": "$klab_idSync",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/klab_id/sync",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabSync",
+      "sync"
+    ]
+  },
+  "klab_id.syncActivate": {
+    "module": "klab_id",
+    "action": "syncActivate",
+    "fn_name": "klab_idSyncActivate",
+    "cache_key": "$klab_idSyncActivate",
+    "request": {
+      "ours": [
+        "auth_code"
+      ],
+      "theirs": []
+    },
+    "url": "/klab_id/syncActivate",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabSyncActivate",
+      "syncActivate"
+    ]
+  },
+  "klab_id.syncDeactivate": {
+    "module": "klab_id",
+    "action": "syncDeactivate",
+    "fn_name": "klab_idSyncDeactivate",
+    "cache_key": "$klab_idSyncDeactivate",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/klab_id/syncDeactivate",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabSyncDeactivate",
+      "syncDeactivate"
+    ]
+  },
+  "klab_id.kidInitialAccomplishedList": {
+    "module": "klab_id",
+    "action": "kidInitialAccomplishedList",
+    "fn_name": "klab_idKidInitialAccomplishedList",
+    "cache_key": "$klab_idKidInitialAccomplishedList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/klab_id/kidInitialAccomplishedList",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabKidInitialAccomplishedList",
+      "kidInitialAccomplishedList"
+    ]
+  },
+  "klab_id.kidPagingAccomplishedList": {
+    "module": "klab_id",
+    "action": "kidPagingAccomplishedList",
+    "fn_name": "klab_idKidPagingAccomplishedList",
+    "cache_key": "$klab_idKidPagingAccomplishedList",
+    "request": {
+      "ours": [
+        "filter_category_id",
+        "from_count"
+      ],
+      "theirs": []
+    },
+    "url": "/klab_id/kidPagingAccomplishedList",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabKidPagingAccomplishedList",
+      "kidPagingAccomplishedList"
+    ]
+  },
+  "klab_id.kidUnaccomplishList": {
+    "module": "klab_id",
+    "action": "kidUnaccomplishList",
+    "fn_name": "klab_idKidUnaccomplishList",
+    "cache_key": "$klab_idKidUnaccomplishList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/klab_id/kidUnaccomplishList",
+    "svapi_file": "klab",
+    "alt_fn_names": [
+      "klabKidUnaccomplishList",
+      "kidUnaccomplishList"
+    ]
+  },
+  "lbonus.adReward": {
+    "module": "lbonus",
+    "action": "adReward",
+    "fn_name": "lBonusAdReward",
+    "cache_key": "$lBonusAdReward",
+    "request": {
+      "ours": [
+        "ad_id",
+        "term_id"
+      ],
+      "theirs": []
+    },
+    "url": "/lbonus/adReward",
+    "svapi_file": "lBonus",
+    "alt_fn_names": [
+      "lbonusAdReward",
+      "adReward"
+    ]
+  },
+  "lbonus.execute": {
+    "module": "lbonus",
+    "action": "execute",
+    "fn_name": "lBonusExecute",
+    "cache_key": "$lBonusExecute",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/lbonus/execute",
+    "svapi_file": "lBonus",
+    "alt_fn_names": [
+      "lbonusExecute",
+      "execute"
+    ]
+  },
+  "live.continue": {
+    "module": "live",
+    "action": "continue",
+    "fn_name": "liveContinue",
+    "cache_key": "$liveContinue",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "is_training",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/live/continue",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "continue"
+    ]
+  },
+  "live.gameover": {
+    "module": "live",
+    "action": "gameover",
+    "fn_name": "liveGameover",
+    "cache_key": "$liveGameover",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "is_training",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "past_time",
+        "remaining_time",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "reason",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/live/gameover",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "live.play": {
+    "module": "live",
+    "action": "play",
+    "fn_name": "livePlay",
+    "cache_key": "$livePlay",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "is_training",
+        "party_user_id",
+        "unit_deck_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/live/play",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "play"
+    ]
+  },
+  "live.preciseScore": {
+    "module": "live",
+    "action": "preciseScore",
+    "fn_name": "livePreciseScore",
+    "cache_key": "$livePreciseScore",
+    "request": {
+      "ours": [
+        "live_difficulty_id"
+      ],
+      "theirs": []
+    },
+    "url": "/live/preciseScore",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "preciseScore"
+    ]
+  },
+  "live.publishPreciseScoreId": {
+    "module": "live",
+    "action": "publishPreciseScoreId",
+    "fn_name": "livePublishPreciseScoreId",
+    "cache_key": "$livePublishPreciseScoreId",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "is_skill_on"
+      ],
+      "theirs": []
+    },
+    "url": "/live/publishPreciseScoreId",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "publishPreciseScoreId"
+    ]
+  },
+  "live.reward": {
+    "module": "live",
+    "action": "reward",
+    "fn_name": "liveReward",
+    "cache_key": "$liveReward",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "is_training",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "event_point",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "precise_score_log"
+      ],
+      "theirs": []
+    },
+    "url": "/live/reward",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "reward"
+    ]
+  },
+  "live.partyList": {
+    "module": "live",
+    "action": "partyList",
+    "fn_name": "livePartyList",
+    "cache_key": "$livePartyList",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "is_training",
+        "live_type",
+        "event_id",
+        "event_quest_pin_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/live/partyList",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "partyList"
+    ]
+  },
+  "live.schedule": {
+    "module": "live",
+    "action": "schedule",
+    "fn_name": "liveSchedule",
+    "cache_key": "$liveSchedule",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/live/schedule",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "schedule"
+    ]
+  },
+  "live.liveStatus": {
+    "module": "live",
+    "action": "liveStatus",
+    "fn_name": "liveStatus",
+    "cache_key": "$liveStatus",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/live/liveStatus",
+    "svapi_file": "live",
+    "alt_fn_names": [
+      "liveLiveStatus"
+    ]
+  },
+  "liveicon.liveiconInfo": {
+    "module": "liveicon",
+    "action": "liveiconInfo",
+    "fn_name": "liveiconInfo",
+    "cache_key": "$liveiconInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/liveicon/liveiconInfo",
+    "svapi_file": "liveicon",
+    "alt_fn_names": [
+      "liveiconLiveiconInfo"
+    ]
+  },
+  "livese.liveseInfo": {
+    "module": "livese",
+    "action": "liveseInfo",
+    "fn_name": "liveseInfo",
+    "cache_key": "$liveseInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/livese/liveseInfo",
+    "svapi_file": "livese",
+    "alt_fn_names": [
+      "liveseLiveseInfo"
+    ]
+  },
+  "login.login": {
+    "module": "login",
+    "action": "login",
+    "fn_name": "loginLogin",
+    "cache_key": "$loginLogin",
+    "request": {
+      "ours": [
+        "login_key",
+        "login_passwd",
+        "devtoken"
+      ],
+      "theirs": []
+    },
+    "url": "/login/login",
+    "svapi_file": "login",
+    "alt_fn_names": [
+      "login"
+    ]
+  },
+  "login.unitList": {
+    "module": "login",
+    "action": "unitList",
+    "fn_name": "loginUnitList",
+    "cache_key": "$loginUnitList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/login/unitList",
+    "svapi_file": "login",
+    "alt_fn_names": [
+      "unitList"
+    ]
+  },
+  "login.unitSelect": {
+    "module": "login",
+    "action": "unitSelect",
+    "fn_name": "loginUnitSelect",
+    "cache_key": "$loginUnitSelect",
+    "request": {
+      "ours": [
+        "unit_initial_set_id"
+      ],
+      "theirs": []
+    },
+    "url": "/login/unitSelect",
+    "svapi_file": "login",
+    "alt_fn_names": [
+      "unitSelect"
+    ]
+  },
+  "login.topInfo": {
+    "module": "login",
+    "action": "topInfo",
+    "fn_name": "topInfo",
+    "cache_key": "$topInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/login/topInfo",
+    "svapi_file": "top",
+    "alt_fn_names": [
+      "loginTopInfo",
+      "topTopInfo"
+    ]
+  },
+  "login.topInfoOnce": {
+    "module": "login",
+    "action": "topInfoOnce",
+    "fn_name": "topInfoOnce",
+    "cache_key": "$topInfoOnce",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/login/topInfoOnce",
+    "svapi_file": "top",
+    "alt_fn_names": [
+      "loginTopInfoOnce",
+      "topTopInfoOnce"
+    ]
+  },
+  "marathon.top": {
+    "module": "marathon",
+    "action": "top",
+    "fn_name": "marathonTop",
+    "cache_key": "$marathonTop",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/marathon/top",
+    "svapi_file": "marathon",
+    "alt_fn_names": [
+      "top"
+    ]
+  },
+  "marathon.marathonInfo": {
+    "module": "marathon",
+    "action": "marathonInfo",
+    "fn_name": "marathonInfo",
+    "cache_key": "$marathonInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/marathon/marathonInfo",
+    "svapi_file": "marathon",
+    "alt_fn_names": [
+      "marathonMarathonInfo"
+    ]
+  },
+  "multiunit.scenarioReward": {
+    "module": "multiunit",
+    "action": "scenarioReward",
+    "fn_name": "multiunitScenarioReward",
+    "cache_key": "$multiunitScenarioReward",
+    "request": {
+      "ours": [
+        "multi_unit_scenario_id",
+        "is_skipped"
+      ],
+      "theirs": []
+    },
+    "url": "/multiunit/scenarioReward",
+    "svapi_file": "multiunit",
+    "alt_fn_names": [
+      "scenarioReward"
+    ]
+  },
+  "multiunit.scenarioStartup": {
+    "module": "multiunit",
+    "action": "scenarioStartup",
+    "fn_name": "multiunitScenarioStartup",
+    "cache_key": "$multiunitScenarioStartup",
+    "request": {
+      "ours": [
+        "multi_unit_scenario_id"
+      ],
+      "theirs": []
+    },
+    "url": "/multiunit/scenarioStartup",
+    "svapi_file": "multiunit",
+    "alt_fn_names": [
+      "scenarioStartup"
+    ]
+  },
+  "multiunit.multiunitscenarioStatus": {
+    "module": "multiunit",
+    "action": "multiunitscenarioStatus",
+    "fn_name": "multiunitScenarioStatus",
+    "cache_key": "$multiunitScenarioStatus",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/multiunit/multiunitscenarioStatus",
+    "svapi_file": "multiunit",
+    "alt_fn_names": [
+      "multiunitMultiunitscenarioStatus",
+      "multiunitscenarioStatus"
+    ]
+  },
+  "museum.info": {
+    "module": "museum",
+    "action": "info",
+    "fn_name": "museumInfo",
+    "cache_key": "$museumInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/museum/info",
+    "svapi_file": "museum",
+    "alt_fn_names": [
+      "info"
+    ]
+  },
+  "navigation.specialCutin": {
+    "module": "navigation",
+    "action": "specialCutin",
+    "fn_name": "navigationSpecialCutin",
+    "cache_key": "$navigationSpecialCutin",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/navigation/specialCutin",
+    "svapi_file": "navigation",
+    "alt_fn_names": [
+      "specialCutin"
+    ]
+  },
+  "notice.noticeFriendGreeting": {
+    "module": "notice",
+    "action": "noticeFriendGreeting",
+    "fn_name": "noticeFriendGreeting",
+    "cache_key": "$noticeFriendGreeting",
+    "request": {
+      "ours": [
+        "next_id"
+      ],
+      "theirs": []
+    },
+    "url": "/notice/noticeFriendGreeting",
+    "svapi_file": "notice",
+    "alt_fn_names": [
+      "noticeNoticeFriendGreeting"
+    ]
+  },
+  "notice.noticeFriendVariety": {
+    "module": "notice",
+    "action": "noticeFriendVariety",
+    "fn_name": "noticeFriendVariety",
+    "cache_key": "$noticeFriendVariety",
+    "request": {
+      "ours": [
+        "readed",
+        "page",
+        "filter_id"
+      ],
+      "theirs": []
+    },
+    "url": "/notice/noticeFriendVariety",
+    "svapi_file": "notice",
+    "alt_fn_names": [
+      "noticeNoticeFriendVariety"
+    ]
+  },
+  "notice.noticeMarquee": {
+    "module": "notice",
+    "action": "noticeMarquee",
+    "fn_name": "noticeMarquee",
+    "cache_key": "$noticeMarquee",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/notice/noticeMarquee",
+    "svapi_file": "notice",
+    "alt_fn_names": [
+      "noticeNoticeMarquee"
+    ]
+  },
+  "notice.noticeUserGreetingHistory": {
+    "module": "notice",
+    "action": "noticeUserGreetingHistory",
+    "fn_name": "noticeUserGreetingHistory",
+    "cache_key": "$noticeUserGreetingHistory",
+    "request": {
+      "ours": [
+        "is_previous",
+        "notice_id"
+      ],
+      "theirs": []
+    },
+    "url": "/notice/noticeUserGreetingHistory",
+    "svapi_file": "notice",
+    "alt_fn_names": [
+      "noticeNoticeUserGreetingHistory"
+    ]
+  },
+  "online.deck": {
+    "module": "online",
+    "action": "deck",
+    "fn_name": "onlineDeck",
+    "cache_key": "$onlineDeck",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/online/deck",
+    "svapi_file": "online",
+    "alt_fn_names": [
+      "deck"
+    ]
+  },
+  "online.exhibitionResult": {
+    "module": "online",
+    "action": "exhibitionResult",
+    "fn_name": "onlineExhibitionResult",
+    "cache_key": "$onlineExhibitionResult",
+    "request": {
+      "ours": [
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt"
+      ],
+      "theirs": []
+    },
+    "url": "/online/exhibitionResult",
+    "svapi_file": "online",
+    "alt_fn_names": [
+      "exhibitionResult"
+    ]
+  },
+  "online.play": {
+    "module": "online",
+    "action": "play",
+    "fn_name": "onlinePlay",
+    "cache_key": "$onlinePlay",
+    "request": {
+      "ours": [
+        "difficulty"
+      ],
+      "theirs": []
+    },
+    "url": "/online/play",
+    "svapi_file": "online",
+    "alt_fn_names": [
+      "play"
+    ]
+  },
+  "online.playExhibition": {
+    "module": "online",
+    "action": "playExhibition",
+    "fn_name": "onlinePlayExhibition",
+    "cache_key": "$onlinePlayExhibition",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/online/playExhibition",
+    "svapi_file": "online",
+    "alt_fn_names": [
+      "playExhibition"
+    ]
+  },
+  "online.result": {
+    "module": "online",
+    "action": "result",
+    "fn_name": "onlineResult",
+    "cache_key": "$onlineResult",
+    "request": {
+      "ours": [
+        "difficulty",
+        "is_clear",
+        "reason",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "live_adjust",
+        "skill_occurred_map",
+        "notes_accuracy_map",
+        "play_time",
+        "pause_count"
+      ],
+      "theirs": []
+    },
+    "url": "/online/result",
+    "svapi_file": "online",
+    "alt_fn_names": [
+      "result"
+    ]
+  },
+  "online.info": {
+    "module": "online",
+    "action": "info",
+    "fn_name": "onlineInfo",
+    "cache_key": "$onlineInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/online/info",
+    "svapi_file": "online",
+    "alt_fn_names": [
+      "info"
+    ]
+  },
+  "payment.history": {
+    "module": "payment",
+    "action": "history",
+    "fn_name": "paymentHistory",
+    "cache_key": "$paymentHistory",
+    "request": {
+      "ours": [
+        "page",
+        "month"
+      ],
+      "theirs": []
+    },
+    "url": "/payment/history",
+    "svapi_file": "payment",
+    "alt_fn_names": [
+      "history"
+    ]
+  },
+  "payment.month": {
+    "module": "payment",
+    "action": "month",
+    "fn_name": "paymentMonth",
+    "cache_key": "$paymentMonth",
+    "request": {
+      "ours": [
+        "page"
+      ],
+      "theirs": []
+    },
+    "url": "/payment/month",
+    "svapi_file": "payment",
+    "alt_fn_names": [
+      "month"
+    ]
+  },
+  "payment.receipt": {
+    "module": "payment",
+    "action": "receipt",
+    "fn_name": "paymentReceipt",
+    "cache_key": "$paymentReceipt",
+    "request": {
+      "ours": [
+        "user_id",
+        "receipt_data",
+        "restore_flag"
+      ],
+      "theirs": []
+    },
+    "url": "/payment/receipt",
+    "svapi_file": "payment",
+    "alt_fn_names": [
+      "receipt"
+    ]
+  },
+  "payment.setBirth": {
+    "module": "payment",
+    "action": "setBirth",
+    "fn_name": "paymentSetBirth",
+    "cache_key": "$paymentSetBirth",
+    "request": {
+      "ours": [
+        "birth_year",
+        "birth_month"
+      ],
+      "theirs": []
+    },
+    "url": "/payment/setBirth",
+    "svapi_file": "payment",
+    "alt_fn_names": [
+      "setBirth"
+    ]
+  },
+  "payment.processLog": {
+    "module": "payment",
+    "action": "processLog",
+    "fn_name": "paymentProcessLog",
+    "cache_key": "$paymentProcessLog",
+    "request": {
+      "ours": [
+        "status",
+        "product_id",
+        "price",
+        "transaction_id",
+        "client_date"
+      ],
+      "theirs": []
+    },
+    "url": "/payment/processLog",
+    "svapi_file": "payment",
+    "alt_fn_names": [
+      "processLog"
+    ]
+  },
+  "payment.productList": {
+    "module": "payment",
+    "action": "productList",
+    "fn_name": "paymentProductList",
+    "cache_key": "$paymentProductList",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/payment/productList",
+    "svapi_file": "payment",
+    "alt_fn_names": [
+      "productList"
+    ]
+  },
+  "payment.subscriptionRead": {
+    "module": "payment",
+    "action": "subscriptionRead",
+    "fn_name": "paymentSubscriptionRead",
+    "cache_key": "$paymentSubscriptionRead",
+    "request": {
+      "ours": [
+        "license_id"
+      ],
+      "theirs": []
+    },
+    "url": "/payment/subscriptionRead",
+    "svapi_file": "payment",
+    "alt_fn_names": [
+      "subscriptionRead"
+    ]
+  },
+  "personalnotice.agree": {
+    "module": "personalnotice",
+    "action": "agree",
+    "fn_name": "personalnoticeAgree",
+    "cache_key": "$personalnoticeAgree",
+    "request": {
+      "ours": [
+        "notice_id"
+      ],
+      "theirs": []
+    },
+    "url": "/personalnotice/agree",
+    "svapi_file": "personalnotice",
+    "alt_fn_names": [
+      "agree"
+    ]
+  },
+  "personalnotice.clearCache": {
+    "module": "personalnotice",
+    "action": "clearCache",
+    "fn_name": "personalnoticeClearCache",
+    "cache_key": "$personalnoticeClearCache",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/personalnotice/clearCache",
+    "svapi_file": "personalnotice",
+    "alt_fn_names": [
+      "clearCache"
+    ]
+  },
+  "personalnotice.get": {
+    "module": "personalnotice",
+    "action": "get",
+    "fn_name": "personalnoticeGet",
+    "cache_key": "$personalnoticeGet",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/personalnotice/get",
+    "svapi_file": "personalnotice",
+    "alt_fn_names": [
+      "get"
+    ]
+  },
+  "platformAccount.handover": {
+    "module": "platformAccount",
+    "action": "handover",
+    "fn_name": "platformAccountHandover",
+    "cache_key": "$platformAccountHandover",
+    "request": {
+      "ours": [
+        "platform_token"
+      ],
+      "theirs": []
+    },
+    "url": "/platformAccount/handover",
+    "svapi_file": "platform",
+    "alt_fn_names": [
+      "platformHandover",
+      "handover"
+    ]
+  },
+  "platformAccount.connectAccounts": {
+    "module": "platformAccount",
+    "action": "connectAccounts",
+    "fn_name": "platformAccountConnectAccounts",
+    "cache_key": "$platformAccountConnectAccounts",
+    "request": {
+      "ours": [
+        "platform_token"
+      ],
+      "theirs": []
+    },
+    "url": "/platformAccount/connectAccounts",
+    "svapi_file": "platform",
+    "alt_fn_names": [
+      "platformConnectAccounts",
+      "connectAccounts"
+    ]
+  },
+  "platformAccount.disconnectAccounts": {
+    "module": "platformAccount",
+    "action": "disconnectAccounts",
+    "fn_name": "platformAccountDisconnectAccounts",
+    "cache_key": "$platformAccountDisconnectAccounts",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/platformAccount/disconnectAccounts",
+    "svapi_file": "platform",
+    "alt_fn_names": [
+      "platformDisconnectAccounts",
+      "disconnectAccounts"
+    ]
+  },
+  "platformAccount.isConnectedLlAccount": {
+    "module": "platformAccount",
+    "action": "isConnectedLlAccount",
+    "fn_name": "platformAccountIsConnectedLlAccount",
+    "cache_key": "$platformAccountIsConnectedLlAccount",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/platformAccount/isConnectedLlAccount",
+    "svapi_file": "platform",
+    "alt_fn_names": [
+      "platformIsConnectedLlAccount",
+      "isConnectedLlAccount"
+    ]
+  },
+  "platformAccount.isConnectedPfAccount": {
+    "module": "platformAccount",
+    "action": "isConnectedPfAccount",
+    "fn_name": "platformAccountIsConnectedPfAccount",
+    "cache_key": "$platformAccountIsConnectedPfAccount",
+    "request": {
+      "ours": [
+        "platform_token"
+      ],
+      "theirs": []
+    },
+    "url": "/platformAccount/isConnectedPfAccount",
+    "svapi_file": "platform",
+    "alt_fn_names": [
+      "platformIsConnectedPfAccount",
+      "isConnectedPfAccount"
+    ]
+  },
+  "preciseScore.manualUpdate": {
+    "module": "preciseScore",
+    "action": "manualUpdate",
+    "fn_name": "preciseScoreManualUpdate",
+    "cache_key": "$preciseScoreManualUpdate",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "remain_hp",
+        "precise_score_log",
+        "deck_id",
+        "party_user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/preciseScore/manualUpdate",
+    "svapi_file": "precise",
+    "alt_fn_names": [
+      "preciseManualUpdate",
+      "manualUpdate"
+    ]
+  },
+  "profile.profileRegister": {
+    "module": "profile",
+    "action": "profileRegister",
+    "fn_name": "profileRegister",
+    "cache_key": "$profileRegister",
+    "request": {
+      "ours": [
+        "user_id",
+        "introduction"
+      ],
+      "theirs": []
+    },
+    "url": "/profile/profileRegister",
+    "svapi_file": "profile",
+    "alt_fn_names": [
+      "profileProfileRegister"
+    ]
+  },
+  "profile.cardRanking": {
+    "module": "profile",
+    "action": "cardRanking",
+    "fn_name": "profileCardRank",
+    "cache_key": "$profileCardRank",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/profile/cardRanking",
+    "svapi_file": "profile",
+    "alt_fn_names": [
+      "profileCardRanking",
+      "cardRanking"
+    ]
+  },
+  "profile.liveCnt": {
+    "module": "profile",
+    "action": "liveCnt",
+    "fn_name": "profileLiveCnt",
+    "cache_key": "$profileLiveCnt",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/profile/liveCnt",
+    "svapi_file": "profile",
+    "alt_fn_names": [
+      "liveCnt"
+    ]
+  },
+  "profile.profileInfo": {
+    "module": "profile",
+    "action": "profileInfo",
+    "fn_name": "profileUser",
+    "cache_key": "$profileUser",
+    "request": {
+      "ours": [
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/profile/profileInfo",
+    "svapi_file": "profile",
+    "alt_fn_names": [
+      "profileProfileInfo",
+      "profileInfo"
+    ]
+  },
+  "quest.continue": {
+    "module": "quest",
+    "action": "continue",
+    "fn_name": "questContinue",
+    "cache_key": "$questContinue",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_quest_pin_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/continue",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "continue"
+    ]
+  },
+  "quest.gameover": {
+    "module": "quest",
+    "action": "gameover",
+    "fn_name": "questGameover",
+    "cache_key": "$questGameover",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_quest_pin_id",
+        "live_difficulty_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "reason",
+        "past_time",
+        "remaining_time",
+        "remain_hp",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/gameover",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "quest.itemInfo": {
+    "module": "quest",
+    "action": "itemInfo",
+    "fn_name": "questItemInfo",
+    "cache_key": "$questItemInfo",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/itemInfo",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "itemInfo"
+    ]
+  },
+  "quest.questList": {
+    "module": "quest",
+    "action": "questList",
+    "fn_name": "questList",
+    "cache_key": "$questList",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/questList",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "questQuestList"
+    ]
+  },
+  "quest.partyList": {
+    "module": "quest",
+    "action": "partyList",
+    "fn_name": "questPartyList",
+    "cache_key": "$questPartyList",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_quest_pin_id",
+        "difficulty",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/partyList",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "partyList"
+    ]
+  },
+  "quest.questReward": {
+    "module": "quest",
+    "action": "questReward",
+    "fn_name": "questReward",
+    "cache_key": "$questReward",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_quest_pin_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "icon_cnt",
+        "last_hp",
+        "skill_count",
+        "seed",
+        "key"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/questReward",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "questQuestReward"
+    ]
+  },
+  "quest.questStart": {
+    "module": "quest",
+    "action": "questStart",
+    "fn_name": "questStart",
+    "cache_key": "$questStart",
+    "request": {
+      "ours": [
+        "event_id",
+        "event_quest_pin_id",
+        "difficulty",
+        "unit_deck_id",
+        "party_user_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/questStart",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "questQuestStart"
+    ]
+  },
+  "quest.useSeal": {
+    "module": "quest",
+    "action": "useSeal",
+    "fn_name": "questUseSeal",
+    "cache_key": "$questUseSeal",
+    "request": {
+      "ours": [
+        "event_id",
+        "exchange_item_id",
+        "amount"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/useSeal",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "useSeal"
+    ]
+  },
+  "quest.questInfo": {
+    "module": "quest",
+    "action": "questInfo",
+    "fn_name": "questInfo",
+    "cache_key": "$questInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/quest/questInfo",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "questQuestInfo"
+    ]
+  },
+  "quest.owningSeal": {
+    "module": "quest",
+    "action": "owningSeal",
+    "fn_name": "questOwningSeal",
+    "cache_key": "$questOwningSeal",
+    "request": {
+      "ours": [
+        "event_id"
+      ],
+      "theirs": []
+    },
+    "url": "/quest/owningSeal",
+    "svapi_file": "quest",
+    "alt_fn_names": [
+      "owningSeal"
+    ]
+  },
+  "ranking.eventFriendLive": {
+    "module": "ranking",
+    "action": "eventFriendLive",
+    "fn_name": "rankingEventFriendLive",
+    "cache_key": "$rankingEventFriendLive",
+    "request": {
+      "ours": [
+        "event_id",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/ranking/eventFriendLive",
+    "svapi_file": "ranking",
+    "alt_fn_names": [
+      "eventFriendLive"
+    ]
+  },
+  "ranking.eventFriendPlayer": {
+    "module": "ranking",
+    "action": "eventFriendPlayer",
+    "fn_name": "rankingEventFriendPlayer",
+    "cache_key": "$rankingEventFriendPlayer",
+    "request": {
+      "ours": [
+        "event_id",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/ranking/eventFriendPlayer",
+    "svapi_file": "ranking",
+    "alt_fn_names": [
+      "eventFriendPlayer"
+    ]
+  },
+  "ranking.eventLive": {
+    "module": "ranking",
+    "action": "eventLive",
+    "fn_name": "rankingEventLive",
+    "cache_key": "$rankingEventLive",
+    "request": {
+      "ours": [
+        "event_id",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/ranking/eventLive",
+    "svapi_file": "ranking",
+    "alt_fn_names": [
+      "eventLive"
+    ]
+  },
+  "ranking.eventLiveDetail": {
+    "module": "ranking",
+    "action": "eventLiveDetail",
+    "fn_name": "rankingEventLiveDetail",
+    "cache_key": "$rankingEventLiveDetail",
+    "request": {
+      "ours": [
+        "event_id",
+        "user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/ranking/eventLiveDetail",
+    "svapi_file": "ranking",
+    "alt_fn_names": [
+      "eventLiveDetail"
+    ]
+  },
+  "ranking.eventPlayer": {
+    "module": "ranking",
+    "action": "eventPlayer",
+    "fn_name": "rankingEventPlayer",
+    "cache_key": "$rankingEventPlayer",
+    "request": {
+      "ours": [
+        "event_id",
+        "page",
+        "id",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/ranking/eventPlayer",
+    "svapi_file": "ranking",
+    "alt_fn_names": [
+      "eventPlayer"
+    ]
+  },
+  "ranking.live": {
+    "module": "ranking",
+    "action": "live",
+    "fn_name": "rankingLive",
+    "cache_key": "$rankingLive",
+    "request": {
+      "ours": [
+        "live_difficulty_id",
+        "page",
+        "rank",
+        "buff"
+      ],
+      "theirs": []
+    },
+    "url": "/ranking/live",
+    "svapi_file": "ranking",
+    "alt_fn_names": [
+      "live"
+    ]
+  },
+  "ranking.player": {
+    "module": "ranking",
+    "action": "player",
+    "fn_name": "rankingPlayer",
+    "cache_key": "$rankingPlayer",
+    "request": {
+      "ours": [
+        "term",
+        "page",
+        "id",
+        "rank",
+        "buff",
+        "daily_index"
+      ],
+      "theirs": []
+    },
+    "url": "/ranking/player",
+    "svapi_file": "ranking",
+    "alt_fn_names": [
+      "player"
+    ]
+  },
+  "reward.adReward": {
+    "module": "reward",
+    "action": "adReward",
+    "fn_name": "rewardAdReward",
+    "cache_key": "$rewardAdReward",
+    "request": {
+      "ours": [
+        "is_cancel",
+        "ad_id",
+        "term_id"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/adReward",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "adReward"
+    ]
+  },
+  "reward.exchange": {
+    "module": "reward",
+    "action": "exchange",
+    "fn_name": "rewardExchange",
+    "cache_key": "$rewardExchange",
+    "request": {
+      "ours": [
+        "incentive_id",
+        "exchange_ticket_reward_id"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/exchange",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "exchange"
+    ]
+  },
+  "reward.exchangeList": {
+    "module": "reward",
+    "action": "exchangeList",
+    "fn_name": "rewardExchangeList",
+    "cache_key": "$rewardExchangeList",
+    "request": {
+      "ours": [
+        "incentive_id",
+        "exchange_ticket_id"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/exchangeList",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "exchangeList"
+    ]
+  },
+  "reward.open": {
+    "module": "reward",
+    "action": "open",
+    "fn_name": "rewardOpen",
+    "cache_key": "$rewardOpen",
+    "request": {
+      "ours": [
+        "incentive_id"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/open",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "open"
+    ]
+  },
+  "reward.openAll": {
+    "module": "reward",
+    "action": "openAll",
+    "fn_name": "rewardOpenAll",
+    "cache_key": "$rewardOpenAll",
+    "request": {
+      "ours": [
+        "category",
+        "filter",
+        "order"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/openAll",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "openAll"
+    ]
+  },
+  "reward.sellUnit": {
+    "module": "reward",
+    "action": "sellUnit",
+    "fn_name": "rewardSellUnit",
+    "cache_key": "$rewardSellUnit",
+    "request": {
+      "ours": [
+        "rarity_list"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/sellUnit",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "sellUnit"
+    ]
+  },
+  "reward.useLotteryTicket": {
+    "module": "reward",
+    "action": "useLotteryTicket",
+    "fn_name": "rewardUseLotteryTicket",
+    "cache_key": "$rewardUseLotteryTicket",
+    "request": {
+      "ours": [
+        "incentive_id"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/useLotteryTicket",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "useLotteryTicket"
+    ]
+  },
+  "reward.rewardHistory": {
+    "module": "reward",
+    "action": "rewardHistory",
+    "fn_name": "rewardHistory",
+    "cache_key": "$rewardHistory",
+    "request": {
+      "ours": [
+        "incentive_history_id",
+        "category",
+        "filter"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/rewardHistory",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "rewardRewardHistory"
+    ]
+  },
+  "reward.rewardList": {
+    "module": "reward",
+    "action": "rewardList",
+    "fn_name": "rewardList",
+    "cache_key": "$rewardList",
+    "request": {
+      "ours": [
+        "incentive_id",
+        "category",
+        "filter",
+        "order",
+        "offset"
+      ],
+      "theirs": []
+    },
+    "url": "/reward/rewardList",
+    "svapi_file": "reward",
+    "alt_fn_names": [
+      "rewardRewardList"
+    ]
+  },
+  "rlive.continue": {
+    "module": "rlive",
+    "action": "continue",
+    "fn_name": "rliveContinue",
+    "cache_key": "$rliveContinue",
+    "request": {
+      "ours": [
+        "token",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "past_time",
+        "remaining_time",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/rlive/continue",
+    "svapi_file": "rlive",
+    "alt_fn_names": [
+      "continue"
+    ]
+  },
+  "rlive.gameover": {
+    "module": "rlive",
+    "action": "gameover",
+    "fn_name": "rliveGameover",
+    "cache_key": "$rliveGameover",
+    "request": {
+      "ours": [
+        "token",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "reason",
+        "past_time",
+        "remaining_time",
+        "max_combo",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "track_length",
+        "damage_occurred_map",
+        "support_occurred_map",
+        "heal_occurred_map"
+      ],
+      "theirs": []
+    },
+    "url": "/rlive/gameover",
+    "svapi_file": "rlive",
+    "alt_fn_names": [
+      "gameover"
+    ]
+  },
+  "rlive.lot": {
+    "module": "rlive",
+    "action": "lot",
+    "fn_name": "rliveLot",
+    "cache_key": "$rliveLot",
+    "request": {
+      "ours": [
+        "difficulty",
+        "attribute",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/rlive/lot",
+    "svapi_file": "rlive",
+    "alt_fn_names": [
+      "lot"
+    ]
+  },
+  "rlive.play": {
+    "module": "rlive",
+    "action": "play",
+    "fn_name": "rlivePlay",
+    "cache_key": "$rlivePlay",
+    "request": {
+      "ours": [
+        "token",
+        "party_user_id",
+        "unit_deck_id",
+        "lp_factor"
+      ],
+      "theirs": []
+    },
+    "url": "/rlive/play",
+    "svapi_file": "rlive",
+    "alt_fn_names": [
+      "play"
+    ]
+  },
+  "rlive.reward": {
+    "module": "rlive",
+    "action": "reward",
+    "fn_name": "rliveReward",
+    "cache_key": "$rliveReward",
+    "request": {
+      "ours": [
+        "token",
+        "event_id",
+        "score_smile",
+        "score_cute",
+        "score_cool",
+        "max_combo",
+        "love_cnt",
+        "perfect_cnt",
+        "great_cnt",
+        "good_cnt",
+        "bad_cnt",
+        "miss_cnt",
+        "event_point",
+        "remain_hp",
+        "precise_score_log"
+      ],
+      "theirs": []
+    },
+    "url": "/rlive/reward",
+    "svapi_file": "rlive",
+    "alt_fn_names": [
+      "reward"
+    ]
+  },
+  "scenario.reward": {
+    "module": "scenario",
+    "action": "reward",
+    "fn_name": "scenarioReward",
+    "cache_key": "$scenarioReward",
+    "request": {
+      "ours": [
+        "scenario_id",
+        "is_skipped"
+      ],
+      "theirs": []
+    },
+    "url": "/scenario/reward",
+    "svapi_file": "scenario",
+    "alt_fn_names": [
+      "reward"
+    ]
+  },
+  "scenario.startup": {
+    "module": "scenario",
+    "action": "startup",
+    "fn_name": "scenarioStartup",
+    "cache_key": "$scenarioStartup",
+    "request": {
+      "ours": [
+        "scenario_id"
+      ],
+      "theirs": []
+    },
+    "url": "/scenario/startup",
+    "svapi_file": "scenario",
+    "alt_fn_names": [
+      "startup"
+    ]
+  },
+  "scenario.scenarioStatus": {
+    "module": "scenario",
+    "action": "scenarioStatus",
+    "fn_name": "scenarioStatus",
+    "cache_key": "$scenarioStatus",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/scenario/scenarioStatus",
+    "svapi_file": "scenario",
+    "alt_fn_names": [
+      "scenarioScenarioStatus"
+    ]
+  },
+  "secretbox.knapsackReset": {
+    "module": "secretbox",
+    "action": "knapsackReset",
+    "fn_name": "secretboxKnapsackReset",
+    "cache_key": "$secretboxKnapsackReset",
+    "request": {
+      "ours": [
+        "secret_box_id"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/knapsackReset",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "knapsackReset"
+    ]
+  },
+  "secretbox.knapsackSelect": {
+    "module": "secretbox",
+    "action": "knapsackSelect",
+    "fn_name": "secretboxKnapsackSelect",
+    "cache_key": "$secretboxKnapsackSelect",
+    "request": {
+      "ours": [
+        "secret_box_id",
+        "unit_ids",
+        "unit_type_ids"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/knapsackSelect",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "knapsackSelect"
+    ]
+  },
+  "secretbox.multi": {
+    "module": "secretbox",
+    "action": "multi",
+    "fn_name": "secretboxMulti",
+    "cache_key": "$secretboxMulti",
+    "request": {
+      "ours": [
+        "secret_box_id",
+        "id",
+        "count",
+        "unit_type_ids",
+        "secret_box_stamp_id"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/multi",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "multi"
+    ]
+  },
+  "secretbox.pon": {
+    "module": "secretbox",
+    "action": "pon",
+    "fn_name": "secretboxPon",
+    "cache_key": "$secretboxPon",
+    "request": {
+      "ours": [
+        "secret_box_id",
+        "id",
+        "unit_type_ids"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/pon",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "pon"
+    ]
+  },
+  "secretbox.selectPickUp": {
+    "module": "secretbox",
+    "action": "selectPickUp",
+    "fn_name": "secretboxSelectPickUp",
+    "cache_key": "$secretboxSelectPickUp",
+    "request": {
+      "ours": [
+        "secret_box_id",
+        "unit_id"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/selectPickUp",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "selectPickUp"
+    ]
+  },
+  "secretbox.selectUnit": {
+    "module": "secretbox",
+    "action": "selectUnit",
+    "fn_name": "secretboxSelectUnit",
+    "cache_key": "$secretboxSelectUnit",
+    "request": {
+      "ours": [
+        "secret_box_id",
+        "unit_id"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/selectUnit",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "selectUnit"
+    ]
+  },
+  "secretbox.showDetail": {
+    "module": "secretbox",
+    "action": "showDetail",
+    "fn_name": "secretboxShowDetail",
+    "cache_key": "$secretboxShowDetail",
+    "request": {
+      "ours": [
+        "secret_box_id",
+        "unit_type_id"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/showDetail",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "showDetail"
+    ]
+  },
+  "secretbox.all": {
+    "module": "secretbox",
+    "action": "all",
+    "fn_name": "secretboxAll",
+    "cache_key": "$secretboxAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/secretbox/all",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "all"
+    ]
+  },
+  "secretbox.stampDetail": {
+    "module": "secretbox",
+    "action": "stampDetail",
+    "fn_name": "secretboxStampDetail",
+    "cache_key": "$secretboxStampDetail",
+    "request": {
+      "ours": [
+        "secret_box_id",
+        "secret_box_stamp_item_id"
+      ],
+      "theirs": []
+    },
+    "url": "/secretbox/stampDetail",
+    "svapi_file": "secretbox",
+    "alt_fn_names": [
+      "stampDetail"
+    ]
+  },
+  "skit.skitInfo": {
+    "module": "skit",
+    "action": "skitInfo",
+    "fn_name": "skitInfo",
+    "cache_key": "$skitInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/skit/skitInfo",
+    "svapi_file": "skit",
+    "alt_fn_names": [
+      "skitSkitInfo"
+    ]
+  },
+  "sns.addReward": {
+    "module": "sns",
+    "action": "addReward",
+    "fn_name": "snsAddReward",
+    "cache_key": "$snsAddReward",
+    "request": {
+      "ours": [
+        "sns_id"
+      ],
+      "theirs": []
+    },
+    "url": "/sns/addReward",
+    "svapi_file": "sns",
+    "alt_fn_names": [
+      "addReward"
+    ]
+  },
+  "sns.getReward": {
+    "module": "sns",
+    "action": "getReward",
+    "fn_name": "snsGetReward",
+    "cache_key": "$snsGetReward",
+    "request": {
+      "ours": [
+        "sns_id"
+      ],
+      "theirs": []
+    },
+    "url": "/sns/getReward",
+    "svapi_file": "sns",
+    "alt_fn_names": [
+      "getReward"
+    ]
+  },
+  "stamp.set": {
+    "module": "stamp",
+    "action": "set",
+    "fn_name": "stampSet",
+    "cache_key": "$stampSet",
+    "request": {
+      "ours": [
+        "stamp_type",
+        "stamp_setting_id",
+        "main_flag",
+        "stamp_list"
+      ],
+      "theirs": []
+    },
+    "url": "/stamp/set",
+    "svapi_file": "stamp",
+    "alt_fn_names": [
+      "set"
+    ]
+  },
+  "stamp.stampInfo": {
+    "module": "stamp",
+    "action": "stampInfo",
+    "fn_name": "stampInfo",
+    "cache_key": "$stampInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/stamp/stampInfo",
+    "svapi_file": "stamp",
+    "alt_fn_names": [
+      "stampStampInfo"
+    ]
+  },
+  "subscenario.reward": {
+    "module": "subscenario",
+    "action": "reward",
+    "fn_name": "subscenarioReward",
+    "cache_key": "$subscenarioReward",
+    "request": {
+      "ours": [
+        "subscenario_id",
+        "is_skipped"
+      ],
+      "theirs": []
+    },
+    "url": "/subscenario/reward",
+    "svapi_file": "subscenario",
+    "alt_fn_names": [
+      "reward"
+    ]
+  },
+  "subscenario.startup": {
+    "module": "subscenario",
+    "action": "startup",
+    "fn_name": "subscenarioStartup",
+    "cache_key": "$subscenarioStartup",
+    "request": {
+      "ours": [
+        "subscenario_id"
+      ],
+      "theirs": []
+    },
+    "url": "/subscenario/startup",
+    "svapi_file": "subscenario",
+    "alt_fn_names": [
+      "startup"
+    ]
+  },
+  "subscenario.subscenarioStatus": {
+    "module": "subscenario",
+    "action": "subscenarioStatus",
+    "fn_name": "subscenarioStatus",
+    "cache_key": "$subscenarioStatus",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/subscenario/subscenarioStatus",
+    "svapi_file": "subscenario",
+    "alt_fn_names": [
+      "subscenarioSubscenarioStatus"
+    ]
+  },
+  "tos.tosAgree": {
+    "module": "tos",
+    "action": "tosAgree",
+    "fn_name": "tosAgree",
+    "cache_key": "$tosAgree",
+    "request": {
+      "ours": [
+        "tos_id"
+      ],
+      "theirs": []
+    },
+    "url": "/tos/tosAgree",
+    "svapi_file": "tos",
+    "alt_fn_names": [
+      "tosTosAgree"
+    ]
+  },
+  "tos.tosCheck": {
+    "module": "tos",
+    "action": "tosCheck",
+    "fn_name": "tosCheck",
+    "cache_key": "$tosCheck",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/tos/tosCheck",
+    "svapi_file": "tos",
+    "alt_fn_names": [
+      "tosTosCheck"
+    ]
+  },
+  "tutorial.progress": {
+    "module": "tutorial",
+    "action": "progress",
+    "fn_name": "tutorialProgress",
+    "cache_key": "$tutorialProgress",
+    "request": {
+      "ours": [
+        "tutorial_state"
+      ],
+      "theirs": []
+    },
+    "url": "/tutorial/progress",
+    "svapi_file": "tutorial",
+    "alt_fn_names": [
+      "progress"
+    ]
+  },
+  "tutorial.skip": {
+    "module": "tutorial",
+    "action": "skip",
+    "fn_name": "tutorialSkip",
+    "cache_key": "$tutorialSkip",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/tutorial/skip",
+    "svapi_file": "tutorial",
+    "alt_fn_names": [
+      "skip"
+    ]
+  },
+  "unit.activate": {
+    "module": "unit",
+    "action": "activate",
+    "fn_name": "unitActivate",
+    "cache_key": "$unitActivate",
+    "request": {
+      "ours": [
+        "unit_owning_user_ids"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/activate",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "activate"
+    ]
+  },
+  "unit.changeDelegate": {
+    "module": "unit",
+    "action": "changeDelegate",
+    "fn_name": "unitChangeDelegate",
+    "cache_key": "$unitChangeDelegate",
+    "request": {
+      "ours": [
+        "unit_owning_user_id",
+        "unit_id",
+        "item_id"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/changeDelegate",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "changeDelegate"
+    ]
+  },
+  "unit.createAccessory": {
+    "module": "unit",
+    "action": "createAccessory",
+    "fn_name": "unitCreateAccessory",
+    "cache_key": "$unitCreateAccessory",
+    "request": {
+      "ours": [
+        "unit_owning_user_ids",
+        "client_timestamp"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/createAccessory",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "createAccessory"
+    ]
+  },
+  "unit.deck": {
+    "module": "unit",
+    "action": "deck",
+    "fn_name": "unitDeck",
+    "cache_key": "$unitDeck",
+    "request": {
+      "ours": [
+        "unit_deck_list"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/deck",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "deck"
+    ]
+  },
+  "unit.deckName": {
+    "module": "unit",
+    "action": "deckName",
+    "fn_name": "unitDeckName",
+    "cache_key": "$unitDeckName",
+    "request": {
+      "ours": [
+        "unit_deck_id",
+        "deck_name"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/deckName",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "deckName"
+    ]
+  },
+  "unit.exchangePointRankUp": {
+    "module": "unit",
+    "action": "exchangePointRankUp",
+    "fn_name": "unitExchangePointRankUp",
+    "cache_key": "$unitExchangePointRankUp",
+    "request": {
+      "ours": [
+        "base_owning_unit_user_id",
+        "exchange_point_id"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/exchangePointRankUp",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "exchangePointRankUp"
+    ]
+  },
+  "unit.favorite": {
+    "module": "unit",
+    "action": "favorite",
+    "fn_name": "unitFavorite",
+    "cache_key": "$unitFavorite",
+    "request": {
+      "ours": [
+        "unit_owning_user_id",
+        "favorite_flag"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/favorite",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "favorite"
+    ]
+  },
+  "unit.favoriteAccessory": {
+    "module": "unit",
+    "action": "favoriteAccessory",
+    "fn_name": "unitFavoriteAccessory",
+    "cache_key": "$unitFavoriteAccessory",
+    "request": {
+      "ours": [
+        "accessory_owning_user_id",
+        "favorite_flag"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/favoriteAccessory",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "favoriteAccessory"
+    ]
+  },
+  "unit.maxLevelUp": {
+    "module": "unit",
+    "action": "maxLevelUp",
+    "fn_name": "unitMaxLevelUp",
+    "cache_key": "$unitMaxLevelUp",
+    "request": {
+      "ours": [
+        "unit_owning_user_id",
+        "item_id",
+        "count"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/maxLevelUp",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "maxLevelUp"
+    ]
+  },
+  "unit.merge": {
+    "module": "unit",
+    "action": "merge",
+    "fn_name": "unitMerge",
+    "cache_key": "$unitMerge",
+    "request": {
+      "ours": [
+        "base_owning_unit_user_id",
+        "unit_owning_user_ids",
+        "unit_support_list"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/merge",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "merge"
+    ]
+  },
+  "unit.mergeAccessory": {
+    "module": "unit",
+    "action": "mergeAccessory",
+    "fn_name": "unitMergeAccessory",
+    "cache_key": "$unitMergeAccessory",
+    "request": {
+      "ours": [
+        "base_accessory_owning_user_id",
+        "accessory_owning_user_ids",
+        "material_list",
+        "merge_type"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/mergeAccessory",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "mergeAccessory"
+    ]
+  },
+  "unit.rankUp": {
+    "module": "unit",
+    "action": "rankUp",
+    "fn_name": "unitRankUp",
+    "cache_key": "$unitRankUp",
+    "request": {
+      "ours": [
+        "base_owning_unit_user_id",
+        "unit_owning_user_ids"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/rankUp",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "rankUp"
+    ]
+  },
+  "unit.removableSkillEquipment": {
+    "module": "unit",
+    "action": "removableSkillEquipment",
+    "fn_name": "unitRemovableSkillEquipment",
+    "cache_key": "$unitRemovableSkillEquipment",
+    "request": {
+      "ours": [
+        "equip",
+        "remove"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/removableSkillEquipment",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "removableSkillEquipment"
+    ]
+  },
+  "unit.removableSkillRankUp": {
+    "module": "unit",
+    "action": "removableSkillRankUp",
+    "fn_name": "unitRemovableSkillRankUp",
+    "cache_key": "$unitRemovableSkillRankUp",
+    "request": {
+      "ours": [
+        "before_unit_removable_skill_id",
+        "exchange_count"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/removableSkillRankUp",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "removableSkillRankUp"
+    ]
+  },
+  "unit.removableSkillSell": {
+    "module": "unit",
+    "action": "removableSkillSell",
+    "fn_name": "unitRemovableSkillSell",
+    "cache_key": "$unitRemovableSkillSell",
+    "request": {
+      "ours": [
+        "selling_list"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/removableSkillSell",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "removableSkillSell"
+    ]
+  },
+  "unit.sale": {
+    "module": "unit",
+    "action": "sale",
+    "fn_name": "unitSale",
+    "cache_key": "$unitSale",
+    "request": {
+      "ours": [
+        "unit_owning_user_id",
+        "unit_support_list"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/sale",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "sale"
+    ]
+  },
+  "unit.saleAccessory": {
+    "module": "unit",
+    "action": "saleAccessory",
+    "fn_name": "unitSaleAccessory",
+    "cache_key": "$unitSaleAccessory",
+    "request": {
+      "ours": [
+        "accessory_owning_user_ids",
+        "material_list"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/saleAccessory",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "saleAccessory"
+    ]
+  },
+  "unit.setDisplayRank": {
+    "module": "unit",
+    "action": "setDisplayRank",
+    "fn_name": "unitSetDisplayRank",
+    "cache_key": "$unitSetDisplayRank",
+    "request": {
+      "ours": [
+        "unit_owning_user_id",
+        "display_rank"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/setDisplayRank",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "setDisplayRank"
+    ]
+  },
+  "unit.wait": {
+    "module": "unit",
+    "action": "wait",
+    "fn_name": "unitWait",
+    "cache_key": "$unitWait",
+    "request": {
+      "ours": [
+        "unit_owning_user_ids"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/wait",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "wait"
+    ]
+  },
+  "unit.wearAccessory": {
+    "module": "unit",
+    "action": "wearAccessory",
+    "fn_name": "unitWearAccessory",
+    "cache_key": "$unitWearAccessory",
+    "request": {
+      "ours": [
+        "wear",
+        "remove"
+      ],
+      "theirs": []
+    },
+    "url": "/unit/wearAccessory",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "wearAccessory"
+    ]
+  },
+  "unit.accessoryAll": {
+    "module": "unit",
+    "action": "accessoryAll",
+    "fn_name": "unitAccessoryAll",
+    "cache_key": "$unitAccessoryAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/unit/accessoryAll",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "accessoryAll"
+    ]
+  },
+  "unit.accessoryMaterialAll": {
+    "module": "unit",
+    "action": "accessoryMaterialAll",
+    "fn_name": "unitAccessoryMaterialAll",
+    "cache_key": "$unitAccessoryMaterialAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/unit/accessoryMaterialAll",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "accessoryMaterialAll"
+    ]
+  },
+  "unit.accessoryTab": {
+    "module": "unit",
+    "action": "accessoryTab",
+    "fn_name": "unitAccessoryTab",
+    "cache_key": "$unitAccessoryTab",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/unit/accessoryTab",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "accessoryTab"
+    ]
+  },
+  "unit.unitAll": {
+    "module": "unit",
+    "action": "unitAll",
+    "fn_name": "unitAll",
+    "cache_key": "$unitAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/unit/unitAll",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "unitUnitAll"
+    ]
+  },
+  "unit.deckInfo": {
+    "module": "unit",
+    "action": "deckInfo",
+    "fn_name": "unitDeckInfo",
+    "cache_key": "$unitDeckInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/unit/deckInfo",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "deckInfo"
+    ]
+  },
+  "unit.removableSkillInfo": {
+    "module": "unit",
+    "action": "removableSkillInfo",
+    "fn_name": "unitRemovableSkillInfo",
+    "cache_key": "$unitRemovableSkillInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/unit/removableSkillInfo",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "removableSkillInfo"
+    ]
+  },
+  "unit.supporterAll": {
+    "module": "unit",
+    "action": "supporterAll",
+    "fn_name": "unitSupporterAll",
+    "cache_key": "$unitSupporterAll",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/unit/supporterAll",
+    "svapi_file": "unit",
+    "alt_fn_names": [
+      "supporterAll"
+    ]
+  },
+  "user.abortDelete": {
+    "module": "user",
+    "action": "abortDelete",
+    "fn_name": "userAbortDelete",
+    "cache_key": "$userAbortDelete",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/user/abortDelete",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "abortDelete"
+    ]
+  },
+  "user.addFriendMax": {
+    "module": "user",
+    "action": "addFriendMax",
+    "fn_name": "userAddFriendMax",
+    "cache_key": "$userAddFriendMax",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/user/addFriendMax",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "addFriendMax"
+    ]
+  },
+  "user.addUnitMax": {
+    "module": "user",
+    "action": "addUnitMax",
+    "fn_name": "userAddUnitMax",
+    "cache_key": "$userAddUnitMax",
+    "request": {
+      "ours": [
+        "amount"
+      ],
+      "theirs": []
+    },
+    "url": "/user/addUnitMax",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "addUnitMax"
+    ]
+  },
+  "user.changeName": {
+    "module": "user",
+    "action": "changeName",
+    "fn_name": "userChangeName",
+    "cache_key": "$userChangeName",
+    "request": {
+      "ours": [
+        "name"
+      ],
+      "theirs": []
+    },
+    "url": "/user/changeName",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "changeName"
+    ]
+  },
+  "user.changeNavi": {
+    "module": "user",
+    "action": "changeNavi",
+    "fn_name": "userChangeNavi",
+    "cache_key": "$userChangeNavi",
+    "request": {
+      "ours": [
+        "unit_owning_user_id"
+      ],
+      "theirs": []
+    },
+    "url": "/user/changeNavi",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "changeNavi"
+    ]
+  },
+  "user.reserveDelete": {
+    "module": "user",
+    "action": "reserveDelete",
+    "fn_name": "userReserveDelete",
+    "cache_key": "$userReserveDelete",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/user/reserveDelete",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "reserveDelete"
+    ]
+  },
+  "user.setBirth": {
+    "module": "user",
+    "action": "setBirth",
+    "fn_name": "userSetBirth",
+    "cache_key": "$userSetBirth",
+    "request": {
+      "ours": [
+        "birth_month",
+        "birth_day"
+      ],
+      "theirs": []
+    },
+    "url": "/user/setBirth",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "setBirth"
+    ]
+  },
+  "user.setNotification": {
+    "module": "user",
+    "action": "setNotification",
+    "fn_name": "userSetNotification",
+    "cache_key": "$userSetNotification",
+    "request": {
+      "ours": [
+        "notification"
+      ],
+      "theirs": []
+    },
+    "url": "/user/setNotification",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "setNotification"
+    ]
+  },
+  "user.setNotificationToken": {
+    "module": "user",
+    "action": "setNotificationToken",
+    "fn_name": "userSetNotificationToken",
+    "cache_key": "$userSetNotificationToken",
+    "request": {
+      "ours": [
+        "notification_token"
+      ],
+      "theirs": []
+    },
+    "url": "/user/setNotificationToken",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "setNotificationToken"
+    ]
+  },
+  "user.getNavi": {
+    "module": "user",
+    "action": "getNavi",
+    "fn_name": "userGetNavi",
+    "cache_key": "$userGetNavi",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/user/getNavi",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "getNavi"
+    ]
+  },
+  "user.userInfo": {
+    "module": "user",
+    "action": "userInfo",
+    "fn_name": "userInfo",
+    "cache_key": "$userInfo",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/user/userInfo",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "userUserInfo"
+    ]
+  },
+  "user.showAllItem": {
+    "module": "user",
+    "action": "showAllItem",
+    "fn_name": "userShowAllItem",
+    "cache_key": "$userShowAllItem",
+    "request": {
+      "ours": [],
+      "theirs": []
+    },
+    "url": "/user/showAllItem",
+    "svapi_file": "user",
+    "alt_fn_names": [
+      "showAllItem"
+    ]
+  }
+}
