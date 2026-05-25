@@ -2,8 +2,8 @@
 
 Compares NPPS4 Pydantic response model fields (at full path depth, with nested model references recursively expanded) against fields the SIF1 client listener layer reads. **Listener evidence is empirical**; NPPS4 type declarations are informative-only per PLAN Prior 10 (9 of 11 RootModel[list[X]] cases contradict listener evidence).
 
-- Endpoints compared (in both NPPS4 + harness): **86**
-- Endpoints where client reads field NPPS4 doesn't emit: **35** (server bug candidates)
+- Endpoints compared (in both NPPS4 + harness): **91**
+- Endpoints where client reads field NPPS4 doesn't emit: **46** (server bug candidates)
 - Endpoints where NPPS4 emits field with no observed client read: **75** (no harness evidence of a client read — may still be read in UI-handler closures the harness didn't exercise)
 
 ## Per-endpoint findings
@@ -153,6 +153,70 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `server_timestamp`
 - Agreement on 17 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `button_list`, `gauge_info`...
 
+### `marathon.marathonInfo`
+- NPPS4 source: `npps4/game/marathon.py` (return type: `MarathonInfoResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `event_id`
+  - `event_status`
+  - `marathon_info_list`
+  - `start`
+- **NPPS4 emits, no client read observed by harness:**
+  - `root`
+  - `root.event_id`
+  - `root.event_point`
+  - `root.event_scenario`
+  - `root.event_scenario.event_scenario_status`
+  - `root.event_scenario.event_scenario_status.asset_bgm_id`
+  - `root.event_scenario.event_scenario_status.chapter`
+  - `root.event_scenario.event_scenario_status.event_scenario_id`
+  - `root.event_scenario.event_scenario_status.is_reward`
+  - `root.event_scenario.event_scenario_status.open_date`
+  - `root.event_scenario.event_scenario_status.open_total_event_point`
+  - `root.event_scenario.event_scenario_status.status_origin`
+  - `root.event_scenario.event_scenario_status.title`
+  - `root.event_scenario.event_scenario_status.title_call_asset`
+  - `root.event_scenario.event_scenario_status.title_font`
+  - `root.event_scenario.progress`
+  - `root.point_icon_asset`
+  - `root.point_name`
+  - `root.total_event_point`
+
+### `unit.supporterAll`
+- NPPS4 source: `npps4/game/unit.py` (return type: `unit_model.SupporterListInfoResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `active`
+  - `after`
+  - `display_rank`
+  - `waiting`
+- **NPPS4 emits, no client read observed by harness:**
+  - `unit_support_list.amount`
+  - `unit_support_list.unit_id`
+- Agreement on 1 field(s): `unit_support_list`
+
+### `handover.kidHandover`
+- NPPS4 source: `npps4/game/handover.py` (return type: `None`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `level`
+  - `name`
+  - `result`
+  - `user_info`
+
+### `unit.activate`
+- NPPS4 source: `npps4/game/unit.py` (return type: `None`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `active`
+  - `after`
+  - `display_rank`
+  - `waiting`
+
+### `unit.favorite`
+- NPPS4 source: `npps4/game/unit.py` (return type: `None`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `active`
+  - `after`
+  - `display_rank`
+  - `waiting`
+
 ### `live.reward`
 - NPPS4 source: `npps4/game/live.py` (return type: `LiveRewardResponse`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -284,6 +348,70 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `unit_list.unit_skill_level`
 - Agreement on 32 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `base_reward_info`, `before_user_info`, `can_send_friend_request`...
 
+### `live.partyList`
+- NPPS4 source: `npps4/game/live.py` (return type: `LivePartyListResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `energy_full_time`
+  - `license_recover_end_time`
+  - `over_max_energy`
+- **NPPS4 emits, no client read observed by harness:**
+  - `party_list`
+  - `party_list.available_social_point`
+  - `party_list.center_unit_info`
+  - `party_list.center_unit_info.attribute`
+  - `party_list.center_unit_info.cool`
+  - `party_list.center_unit_info.cute`
+  - `party_list.center_unit_info.display_rank`
+  - `party_list.center_unit_info.exp`
+  - `party_list.center_unit_info.favorite_flag`
+  - `party_list.center_unit_info.is_level_max`
+  - `party_list.center_unit_info.is_love_max`
+  - `party_list.center_unit_info.is_rank_max`
+  - `party_list.center_unit_info.is_signed`
+  - `party_list.center_unit_info.is_skill_level_max`
+  - `party_list.center_unit_info.level`
+  - `party_list.center_unit_info.level_limit_id`
+  - `party_list.center_unit_info.love`
+  - `party_list.center_unit_info.max_hp`
+  - `party_list.center_unit_info.max_level`
+  - `party_list.center_unit_info.max_love`
+  - `party_list.center_unit_info.max_rank`
+  - `party_list.center_unit_info.next_exp`
+  - `party_list.center_unit_info.rank`
+  - `party_list.center_unit_info.removable_skill_ids`
+  - `party_list.center_unit_info.setting_award_id`
+  - `party_list.center_unit_info.smile`
+  - `party_list.center_unit_info.unit_id`
+  - `party_list.center_unit_info.unit_owning_user_id`
+  - `party_list.center_unit_info.unit_removable_skill_capacity`
+  - `party_list.center_unit_info.unit_skill_exp`
+  - `party_list.center_unit_info.unit_skill_level`
+  - `party_list.friend_status`
+  - `party_list.setting_award_id`
+  - `party_list.user_info`
+  - `party_list.user_info.level`
+  - `party_list.user_info.name`
+  - `party_list.user_info.user_id`
+  - `server_timestamp`
+  - `training_energy`
+  - `training_energy_max`
+
+### `login.unitList`
+- NPPS4 source: `npps4/game/login.py` (return type: `StarterUnitListResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `review_version`
+  - `skip_login_news`
+  - `user_id`
+- **NPPS4 emits, no client read observed by harness:**
+  - `member_category_list.member_category`
+  - `member_category_list.unit_initial_set`
+  - `member_category_list.unit_initial_set.center_unit_id`
+  - `member_category_list.unit_initial_set.unit_initial_set_id`
+  - `member_category_list.unit_initial_set.unit_list`
+  - `member_category_list.unit_initial_set.unit_list.is_rank_max`
+  - `member_category_list.unit_initial_set.unit_list.unit_id`
+- Agreement on 1 field(s): `member_category_list`
+
 ### `download.batch`
 - NPPS4 source: `npps4/game/download.py` (return type: `DownloadCommonResponse`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -303,6 +431,15 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
 - **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
 - Agreement on 2 field(s): `enable_gdpr`, `is_eea`
+
+### `login.unitSelect`
+- NPPS4 source: `npps4/game/login.py` (return type: `StarterUnitSelectResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `review_version`
+  - `skip_login_news`
+  - `user_id`
+- **NPPS4 emits, no client read observed by harness:**
+  - `unit_id`
 
 ### `reward.open`
 - NPPS4 source: `npps4/game/reward.py` (return type: `RewardOpenResponse`)
@@ -395,6 +532,28 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `unit_support_list.unit_id`
 - Agreement on 14 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `class_system`, `class_system.is_opened`...
 
+### `reward.rewardHistory`
+- NPPS4 source: `npps4/game/reward.py` (return type: `RewardHistoryResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `end`
+  - `kill`
+- **NPPS4 emits, no client read observed by harness:**
+  - `ad_info`
+  - `ad_info.ad_id`
+  - `ad_info.reward_list`
+  - `ad_info.term_id`
+  - `history.add_type`
+  - `history.amount`
+  - `history.incentive_id`
+  - `history.incentive_item_id`
+  - `history.incentive_message`
+  - `history.insert_date`
+  - `history.item_category_id`
+  - `history.item_option`
+  - `history.remaining_time`
+  - `limit`
+- Agreement on 2 field(s): `history`, `item_count`
+
 ### `unit.deckInfo`
 - NPPS4 source: `npps4/game/unit.py` (return type: `UnitDeckInfoResponse`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -427,6 +586,12 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `clear_cnt`
   - `difficulty`
 
+### `ad.changeAd`
+- NPPS4 source: `npps4/game/ad.py` (return type: `None`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `ad_status`
+  - `reward_list`
+
 ### `costume.costumeList`
 - NPPS4 source: `npps4/game/costume.py` (return type: `CustomeListResponse`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -439,6 +604,12 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
 - **Client reads, NPPS4 doesn't emit:**
   - `session_key`
   - `user_id`
+
+### `tos.tosAgree`
+- NPPS4 source: `npps4/game/tos.py` (return type: `None`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `is_agreed`
+  - `tos_id`
 
 ### `unit.setDisplayRank`
 - NPPS4 source: `npps4/game/unit.py` (return type: `None`)
@@ -814,6 +985,91 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `unit_support_list.unit_id`
 - Agreement on 6 field(s): `after_user_info`, `after_user_info.energy_full_time`, `after_user_info.level`, `after_user_info.over_max_energy`, `is_last`, `reward_item_list`
 
+### `payment.receipt`
+- NPPS4 source: `npps4/game/payment.py` (return type: `PaymentReceiptResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `pending`
+- **NPPS4 emits, no client read observed by harness:**
+  - `product.after_user_info`
+  - `product.after_user_info.current_energy`
+  - `product.after_user_info.energy_full_need_time`
+  - `product.after_user_info.energy_full_time`
+  - `product.after_user_info.energy_max`
+  - `product.after_user_info.exp`
+  - `product.after_user_info.free_sns_coin`
+  - `product.after_user_info.friend_max`
+  - `product.after_user_info.game_coin`
+  - `product.after_user_info.insert_date`
+  - `product.after_user_info.invite_code`
+  - `product.after_user_info.level`
+  - `product.after_user_info.license_live_energy_recoverly_time`
+  - `product.after_user_info.lp_recovery_item`
+  - `product.after_user_info.lp_recovery_item.amount`
+  - `product.after_user_info.lp_recovery_item.item_id`
+  - `product.after_user_info.name`
+  - `product.after_user_info.next_exp`
+  - `product.after_user_info.over_max_energy`
+  - `product.after_user_info.paid_sns_coin`
+  - `product.after_user_info.previous_exp`
+  - `product.after_user_info.sns_coin`
+  - `product.after_user_info.social_point`
+  - `product.after_user_info.training_energy`
+  - `product.after_user_info.training_energy_max`
+  - `product.after_user_info.tutorial_state`
+  - `product.after_user_info.unit_max`
+  - `product.after_user_info.unlock_random_live_aqours`
+  - `product.after_user_info.unlock_random_live_muse`
+  - `product.after_user_info.update_date`
+  - `product.after_user_info.user_id`
+  - `product.after_user_info.waiting_unit_max`
+  - `product.before_user_info`
+  - `product.before_user_info.current_energy`
+  - `product.before_user_info.energy_full_need_time`
+  - `product.before_user_info.energy_full_time`
+  - `product.before_user_info.energy_max`
+  - `product.before_user_info.exp`
+  - `product.before_user_info.free_sns_coin`
+  - `product.before_user_info.friend_max`
+  - `product.before_user_info.game_coin`
+  - `product.before_user_info.insert_date`
+  - `product.before_user_info.invite_code`
+  - `product.before_user_info.level`
+  - `product.before_user_info.license_live_energy_recoverly_time`
+  - `product.before_user_info.lp_recovery_item`
+  - `product.before_user_info.lp_recovery_item.amount`
+  - `product.before_user_info.lp_recovery_item.item_id`
+  - `product.before_user_info.name`
+  - `product.before_user_info.next_exp`
+  - `product.before_user_info.over_max_energy`
+  - `product.before_user_info.paid_sns_coin`
+  - `product.before_user_info.previous_exp`
+  - `product.before_user_info.sns_coin`
+  - `product.before_user_info.social_point`
+  - `product.before_user_info.training_energy`
+  - `product.before_user_info.training_energy_max`
+  - `product.before_user_info.tutorial_state`
+  - `product.before_user_info.unit_max`
+  - `product.before_user_info.unlock_random_live_aqours`
+  - `product.before_user_info.unlock_random_live_muse`
+  - `product.before_user_info.update_date`
+  - `product.before_user_info.user_id`
+  - `product.before_user_info.waiting_unit_max`
+  - `product.description`
+  - `product.is_in_app_billing`
+  - `product.item_list`
+  - `product.item_list.add_type`
+  - `product.item_list.amount`
+  - `product.item_list.comment`
+  - `product.item_list.item_category_id`
+  - `product.item_list.item_id`
+  - `product.item_list.reward_box_flag`
+  - `product.name`
+  - `product.price`
+  - `product.product_id`
+  - `product.product_type`
+  - `server_timestamp`
+- Agreement on 2 field(s): `product`, `status`
+
 ### `achievement.rewardOpen`
 - NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementRewardOpenResponse`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -1038,31 +1294,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `training_live_list.start_date`
 - Agreement on 8 field(s): `event_list`, `free_live_list`, `limited_bonus_common_list`, `limited_bonus_common_list.live_type`, `limited_bonus_list`, `live_list`...
 
-### `marathon.marathonInfo`
-- NPPS4 source: `npps4/game/marathon.py` (return type: `MarathonInfoResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `marathon_info_list`
-- **NPPS4 emits, no client read observed by harness:**
-  - `root`
-  - `root.event_id`
-  - `root.event_point`
-  - `root.event_scenario`
-  - `root.event_scenario.event_scenario_status`
-  - `root.event_scenario.event_scenario_status.asset_bgm_id`
-  - `root.event_scenario.event_scenario_status.chapter`
-  - `root.event_scenario.event_scenario_status.event_scenario_id`
-  - `root.event_scenario.event_scenario_status.is_reward`
-  - `root.event_scenario.event_scenario_status.open_date`
-  - `root.event_scenario.event_scenario_status.open_total_event_point`
-  - `root.event_scenario.event_scenario_status.status_origin`
-  - `root.event_scenario.event_scenario_status.title`
-  - `root.event_scenario.event_scenario_status.title_call_asset`
-  - `root.event_scenario.event_scenario_status.title_font`
-  - `root.event_scenario.progress`
-  - `root.point_icon_asset`
-  - `root.point_name`
-  - `root.total_event_point`
-
 ### `album.seriesAll`
 - NPPS4 source: `npps4/game/album.py` (return type: `AlbumSeriesAllResponse`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -1111,16 +1342,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `url`
 - Agreement on 1 field(s): `size`
 
-### `ad.changeAd`
-- NPPS4 source: `npps4/game/ad.py` (return type: `None`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `ad_status`
-
-### `handover.kidHandover`
-- NPPS4 source: `npps4/game/handover.py` (return type: `None`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `result`
-
 ### `live.gameover`
 - NPPS4 source: `npps4/game/live.py` (return type: `None`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -1140,6 +1361,18 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
 - NPPS4 source: `npps4/game/unit.py` (return type: `None`)
 - **Client reads, NPPS4 doesn't emit:**
   - `after_user_info`
+
+### `user.addUnitMax`
+- NPPS4 source: `npps4/game/user.py` (return type: `UserAddUnitResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `after_friend_max`
+- Agreement on 2 field(s): `after_unit_max`, `used_loveca`
+
+### `user.changeName`
+- NPPS4 source: `npps4/game/user.py` (return type: `ChangeNameResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `tos_id`
+- Agreement on 2 field(s): `after_name`, `before_name`
 
 ### `user.changeNavi`
 - NPPS4 source: `npps4/game/user.py` (return type: `None`)
@@ -1676,89 +1909,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `total_login_info.reward`
 - Agreement on 17 field(s): `accomplished_achievement_list`, `ad_info`, `added_achievement_list`, `after_user_info`, `calendar_info`, `class_system`...
 
-### `payment.receipt`
-- NPPS4 source: `npps4/game/payment.py` (return type: `PaymentReceiptResponse`)
-- **NPPS4 emits, no client read observed by harness:**
-  - `product.after_user_info`
-  - `product.after_user_info.current_energy`
-  - `product.after_user_info.energy_full_need_time`
-  - `product.after_user_info.energy_full_time`
-  - `product.after_user_info.energy_max`
-  - `product.after_user_info.exp`
-  - `product.after_user_info.free_sns_coin`
-  - `product.after_user_info.friend_max`
-  - `product.after_user_info.game_coin`
-  - `product.after_user_info.insert_date`
-  - `product.after_user_info.invite_code`
-  - `product.after_user_info.level`
-  - `product.after_user_info.license_live_energy_recoverly_time`
-  - `product.after_user_info.lp_recovery_item`
-  - `product.after_user_info.lp_recovery_item.amount`
-  - `product.after_user_info.lp_recovery_item.item_id`
-  - `product.after_user_info.name`
-  - `product.after_user_info.next_exp`
-  - `product.after_user_info.over_max_energy`
-  - `product.after_user_info.paid_sns_coin`
-  - `product.after_user_info.previous_exp`
-  - `product.after_user_info.sns_coin`
-  - `product.after_user_info.social_point`
-  - `product.after_user_info.training_energy`
-  - `product.after_user_info.training_energy_max`
-  - `product.after_user_info.tutorial_state`
-  - `product.after_user_info.unit_max`
-  - `product.after_user_info.unlock_random_live_aqours`
-  - `product.after_user_info.unlock_random_live_muse`
-  - `product.after_user_info.update_date`
-  - `product.after_user_info.user_id`
-  - `product.after_user_info.waiting_unit_max`
-  - `product.before_user_info`
-  - `product.before_user_info.current_energy`
-  - `product.before_user_info.energy_full_need_time`
-  - `product.before_user_info.energy_full_time`
-  - `product.before_user_info.energy_max`
-  - `product.before_user_info.exp`
-  - `product.before_user_info.free_sns_coin`
-  - `product.before_user_info.friend_max`
-  - `product.before_user_info.game_coin`
-  - `product.before_user_info.insert_date`
-  - `product.before_user_info.invite_code`
-  - `product.before_user_info.level`
-  - `product.before_user_info.license_live_energy_recoverly_time`
-  - `product.before_user_info.lp_recovery_item`
-  - `product.before_user_info.lp_recovery_item.amount`
-  - `product.before_user_info.lp_recovery_item.item_id`
-  - `product.before_user_info.name`
-  - `product.before_user_info.next_exp`
-  - `product.before_user_info.over_max_energy`
-  - `product.before_user_info.paid_sns_coin`
-  - `product.before_user_info.previous_exp`
-  - `product.before_user_info.sns_coin`
-  - `product.before_user_info.social_point`
-  - `product.before_user_info.training_energy`
-  - `product.before_user_info.training_energy_max`
-  - `product.before_user_info.tutorial_state`
-  - `product.before_user_info.unit_max`
-  - `product.before_user_info.unlock_random_live_aqours`
-  - `product.before_user_info.unlock_random_live_muse`
-  - `product.before_user_info.update_date`
-  - `product.before_user_info.user_id`
-  - `product.before_user_info.waiting_unit_max`
-  - `product.description`
-  - `product.is_in_app_billing`
-  - `product.item_list`
-  - `product.item_list.add_type`
-  - `product.item_list.amount`
-  - `product.item_list.comment`
-  - `product.item_list.item_category_id`
-  - `product.item_list.item_id`
-  - `product.item_list.reward_box_flag`
-  - `product.name`
-  - `product.price`
-  - `product.product_id`
-  - `product.product_type`
-  - `server_timestamp`
-- Agreement on 2 field(s): `product`, `status`
-
 ### `profile.profileInfo`
 - NPPS4 source: `npps4/game/profile.py` (return type: `ProfileInfoResponse`)
 - **NPPS4 emits, no client read observed by harness:**
@@ -2149,50 +2299,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `user_info.user_id`
 - Agreement on 5 field(s): `center_unit_info`, `friend_status`, `is_alliance`, `setting_award_id`, `user_info`
 
-### `live.partyList`
-- NPPS4 source: `npps4/game/live.py` (return type: `LivePartyListResponse`)
-- **NPPS4 emits, no client read observed by harness:**
-  - `party_list`
-  - `party_list.available_social_point`
-  - `party_list.center_unit_info`
-  - `party_list.center_unit_info.attribute`
-  - `party_list.center_unit_info.cool`
-  - `party_list.center_unit_info.cute`
-  - `party_list.center_unit_info.display_rank`
-  - `party_list.center_unit_info.exp`
-  - `party_list.center_unit_info.favorite_flag`
-  - `party_list.center_unit_info.is_level_max`
-  - `party_list.center_unit_info.is_love_max`
-  - `party_list.center_unit_info.is_rank_max`
-  - `party_list.center_unit_info.is_signed`
-  - `party_list.center_unit_info.is_skill_level_max`
-  - `party_list.center_unit_info.level`
-  - `party_list.center_unit_info.level_limit_id`
-  - `party_list.center_unit_info.love`
-  - `party_list.center_unit_info.max_hp`
-  - `party_list.center_unit_info.max_level`
-  - `party_list.center_unit_info.max_love`
-  - `party_list.center_unit_info.max_rank`
-  - `party_list.center_unit_info.next_exp`
-  - `party_list.center_unit_info.rank`
-  - `party_list.center_unit_info.removable_skill_ids`
-  - `party_list.center_unit_info.setting_award_id`
-  - `party_list.center_unit_info.smile`
-  - `party_list.center_unit_info.unit_id`
-  - `party_list.center_unit_info.unit_owning_user_id`
-  - `party_list.center_unit_info.unit_removable_skill_capacity`
-  - `party_list.center_unit_info.unit_skill_exp`
-  - `party_list.center_unit_info.unit_skill_level`
-  - `party_list.friend_status`
-  - `party_list.setting_award_id`
-  - `party_list.user_info`
-  - `party_list.user_info.level`
-  - `party_list.user_info.name`
-  - `party_list.user_info.user_id`
-  - `server_timestamp`
-  - `training_energy`
-  - `training_energy_max`
-
 ### `unit.removableSkillSell`
 - NPPS4 source: `npps4/game/unit.py` (return type: `UnitRemovableSkillSellResponse`)
 - **NPPS4 emits, no client read observed by harness:**
@@ -2231,38 +2337,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `total`
 - Agreement on 1 field(s): `after_user_info`
 
-### `ranking.player`
-- NPPS4 source: `npps4/game/ranking.py` (return type: `RankingResponse`)
-- **NPPS4 emits, no client read observed by harness:**
-  - `items`
-  - `items.center_unit_info`
-  - `items.center_unit_info.cool`
-  - `items.center_unit_info.cute`
-  - `items.center_unit_info.display_rank`
-  - `items.center_unit_info.is_level_max`
-  - `items.center_unit_info.is_love_max`
-  - `items.center_unit_info.is_rank_max`
-  - `items.center_unit_info.level`
-  - `items.center_unit_info.love`
-  - `items.center_unit_info.rank`
-  - `items.center_unit_info.removable_skill_ids`
-  - `items.center_unit_info.smile`
-  - `items.center_unit_info.unit_id`
-  - `items.center_unit_info.unit_removable_skill_capacity`
-  - `items.center_unit_info.unit_skill_exp`
-  - `items.rank`
-  - `items.score`
-  - `items.setting_award_id`
-  - `items.user_data`
-  - `items.user_data.level`
-  - `items.user_data.name`
-  - `items.user_data.user_id`
-  - `page`
-  - `present_cnt`
-  - `rank`
-  - `server_timestamp`
-  - `total_cnt`
-
 ### `friend.list`
 - NPPS4 source: `npps4/game/friend.py` (return type: `FriendListResponse`)
 - **NPPS4 emits, no client read observed by harness:**
@@ -2292,6 +2366,36 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `friend_list.user_data.user_id`
   - `server_timestamp`
 - Agreement on 3 field(s): `friend_list`, `item_count`, `new_friend_list`
+
+### `ranking.player`
+- NPPS4 source: `npps4/game/ranking.py` (return type: `RankingResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `items.center_unit_info`
+  - `items.center_unit_info.cool`
+  - `items.center_unit_info.cute`
+  - `items.center_unit_info.display_rank`
+  - `items.center_unit_info.is_level_max`
+  - `items.center_unit_info.is_love_max`
+  - `items.center_unit_info.is_rank_max`
+  - `items.center_unit_info.level`
+  - `items.center_unit_info.love`
+  - `items.center_unit_info.rank`
+  - `items.center_unit_info.removable_skill_ids`
+  - `items.center_unit_info.smile`
+  - `items.center_unit_info.unit_id`
+  - `items.center_unit_info.unit_removable_skill_capacity`
+  - `items.center_unit_info.unit_skill_exp`
+  - `items.rank`
+  - `items.score`
+  - `items.setting_award_id`
+  - `items.user_data`
+  - `items.user_data.level`
+  - `items.user_data.name`
+  - `items.user_data.user_id`
+  - `present_cnt`
+  - `rank`
+  - `server_timestamp`
+- Agreement on 3 field(s): `items`, `page`, `total_cnt`
 
 ### `ranking.live`
 - NPPS4 source: `npps4/game/ranking.py` (return type: `RankingResponse`)
@@ -2366,26 +2470,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `exchange_point_list.exchange_point`
   - `exchange_point_list.rarity`
 - Agreement on 2 field(s): `exchange_item_info`, `exchange_point_list`
-
-### `reward.rewardHistory`
-- NPPS4 source: `npps4/game/reward.py` (return type: `RewardHistoryResponse`)
-- **NPPS4 emits, no client read observed by harness:**
-  - `ad_info`
-  - `ad_info.ad_id`
-  - `ad_info.reward_list`
-  - `ad_info.term_id`
-  - `history`
-  - `history.add_type`
-  - `history.amount`
-  - `history.incentive_id`
-  - `history.incentive_item_id`
-  - `history.incentive_message`
-  - `history.insert_date`
-  - `history.item_category_id`
-  - `history.item_option`
-  - `history.remaining_time`
-  - `item_count`
-  - `limit`
 
 ### `reward.rewardList`
 - NPPS4 source: `npps4/game/reward.py` (return type: `RewardListResponse`)
@@ -2497,18 +2581,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `multi_unit_scenario_status_list.open_date`
   - `multi_unit_scenario_status_list.status`
 - Agreement on 2 field(s): `multi_unit_scenario_status_list`, `multi_unit_scenario_status_list.chapter_list`
-
-### `login.unitList`
-- NPPS4 source: `npps4/game/login.py` (return type: `StarterUnitListResponse`)
-- **NPPS4 emits, no client read observed by harness:**
-  - `member_category_list.member_category`
-  - `member_category_list.unit_initial_set`
-  - `member_category_list.unit_initial_set.center_unit_id`
-  - `member_category_list.unit_initial_set.unit_initial_set_id`
-  - `member_category_list.unit_initial_set.unit_list`
-  - `member_category_list.unit_initial_set.unit_list.is_rank_max`
-  - `member_category_list.unit_initial_set.unit_list.unit_id`
-- Agreement on 1 field(s): `member_category_list`
 
 ### `item.list`
 - NPPS4 source: `npps4/game/item.py` (return type: `ItemListResponse`)
@@ -2670,13 +2742,6 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
   - `tos_type`
 - Agreement on 2 field(s): `is_agreed`, `tos_id`
 
-### `unit.supporterAll`
-- NPPS4 source: `npps4/game/unit.py` (return type: `unit_model.SupporterListInfoResponse`)
-- **NPPS4 emits, no client read observed by harness:**
-  - `unit_support_list.amount`
-  - `unit_support_list.unit_id`
-- Agreement on 1 field(s): `unit_support_list`
-
 ### `award.awardInfo`
 - NPPS4 source: `npps4/game/award.py` (return type: `AwardInfoResponse`)
 - **NPPS4 emits, no client read observed by harness:**
@@ -2700,9 +2765,4 @@ Compares NPPS4 Pydantic response model fields (at full path depth, with nested m
 - **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
 - Agreement on 5 field(s): `authorize_token`, `idfa_enabled`, `review_version`, `skip_login_news`, `user_id`
-
-### `login.unitSelect`
-- NPPS4 source: `npps4/game/login.py` (return type: `StarterUnitSelectResponse`)
-- **NPPS4 emits, no client read observed by harness:**
-  - `unit_id`
 

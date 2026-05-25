@@ -15,6 +15,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 TRACES_DIR = ROOT / "build" / "runtime" / "traces"
 CLASSES_DIR = ROOT / "build" / "runtime" / "traces_classes"
+# Static-extraction traces from extract_ui_field_reads.py. We union only
+# the listener-verified subset (verified_by_listener) into accessed_keys
+# so the wire-compare findings stay grounded in actual runtime evidence.
+# The static_only fields stay in the traces_static/<ep>.json files for
+# manual review but don't ship as wire-compare findings.
+STATIC_DIR = ROOT / "build" / "runtime" / "traces_static"
 PROMOTED_PATH = ROOT / "build" / "response_types_promoted.json"
 SYNTHESIZED_PATH = ROOT / "build" / "synthesized_types.json"
 OBS_PATH = ROOT / "build" / "runtime_listener_observations.json"
@@ -113,6 +119,26 @@ def main() -> int:
             keys = trace.get("accessed_keys") or []
             accessed_by_ep.setdefault(ep, set()).update(keys)
 
+    # Static-extraction: union the full corpus-filtered extracted set.
+    # Without this the static pass can't move endpoints out of ui-only
+    # because the listener-verified subset is usually already in the
+    # declared schema. The verification metadata stays on the per-trace
+    # JSON for downstream confidence labelling (wire-compare can later
+    # mark `verified_by_listener=False` findings as lower-confidence),
+    # but bucket classification uses the full set.
+    static_verified_by_ep: dict[str, set[str]] = {}
+    static_unverified_by_ep: dict[str, set[str]] = {}
+    if STATIC_DIR.exists():
+        for fp in sorted(STATIC_DIR.glob("*.json")):
+            ep = fp.stem
+            with fp.open() as f:
+                trace = json.load(f)
+            extracted = set(trace.get("accessed_keys") or [])
+            verified = set(trace.get("verified_by_listener") or [])
+            accessed_by_ep.setdefault(ep, set()).update(extracted)
+            static_verified_by_ep[ep] = verified
+            static_unverified_by_ep[ep] = extracted - verified
+
     # Recompute discovered fields per endpoint.
     out: dict[str, dict] = {}
     n_with_discoveries = 0
@@ -157,6 +183,18 @@ def main() -> int:
         rec["runtime_accessed_keys"] = sorted(accessed)
         rec["runtime_discovered_field_names"] = discovered
         rec["declared_field_names"] = sorted(declared)
+        # Confidence labels for downstream wire-compare. A discovered
+        # path may be (a) only seen via static extraction (lower
+        # confidence), or (b) seen via runtime listener AND/OR
+        # listener-verified after static extraction (higher confidence).
+        static_v = static_verified_by_ep.get(ep, set())
+        static_u = static_unverified_by_ep.get(ep, set())
+        rec["static_extracted_unverified"] = sorted(
+            {normalize_path(k) for k in static_u} & set(discovered)
+        )
+        rec["static_extracted_verified"] = sorted(
+            {normalize_path(k) for k in static_v} & set(discovered)
+        )
         if discovered:
             n_with_discoveries += 1
         out[ep] = rec

@@ -1,17 +1,20 @@
-# sif1-harness — two-pass client-exercise pipeline.
+# sif1-harness — multi-pass client-exercise pipeline.
 #
-# End-to-end runs in ~12 seconds on a laptop. Steps:
+# End-to-end runs in ~20 seconds on a laptop. Steps:
 #   1. harness        -- notifyUpdate pass: fire 358 endpoints under luajit
 #   2. aggregate      -- post-process traces -> observations.json
 #   3. ui-handlers    -- initial classify + build ui_handler_map.json
 #   4. ui-classes     -- invoke_classes pass against the ui-only bucket
-#   5. merge          -- union pass-1 + pass-2 traces -> observations.json
-#   6. classify       -- final bucket assignment (4 categories)
-#   7. priors         -- extract NPPS4 Pydantic schemas (needs NPPS4 src)
-#   8. compare        -- diff client reads vs NPPS4 emits
+#   5. ui-static      -- static field-extraction over UI source, with
+#                        listener verification (catches success-cb closure
+#                        destructures that runtime passes can't reach)
+#   6. merge          -- union pass-1 + pass-2 + pass-3 -> observations.json
+#   7. classify       -- final bucket assignment (4 categories)
+#   8. priors         -- extract NPPS4 Pydantic schemas (needs NPPS4 src)
+#   9. compare        -- diff client reads vs NPPS4 emits
 #
-# `make test` runs steps 1-6 and verifies invariants.
-# `make compare-npps4` runs the full pipeline (1-8).
+# `make test` runs steps 1-7 and verifies invariants.
+# `make compare-npps4` runs the full pipeline (1-9).
 
 PY := uv run --no-project python
 ROOT := $(shell pwd)
@@ -24,14 +27,15 @@ TRACES := $(BUILD)/runtime/traces
 NPPS4_SRC ?= ./npps4
 DLAPI_SRC ?= ./npps4-dlapi
 
-.PHONY: help harness aggregate ui-classes merge classify priors compare test compare-npps4 clean
+.PHONY: help harness aggregate ui-classes ui-static merge classify priors compare test compare-npps4 clean
 
 help:
 	@echo "Targets:"
 	@echo "  harness         Run lua harness against all 358 endpoints"
 	@echo "  aggregate       Aggregate notifyUpdate traces into observations.json"
 	@echo "  ui-classes      Run invoke_classes for ui-only bucket (Approach B)"
-	@echo "  merge           Merge ui-classes traces into observations.json"
+	@echo "  ui-static       Static field-extraction over UI source (Approach D)"
+	@echo "  merge           Merge ui-classes + ui-static traces into observations.json"
 	@echo "  classify        Bucket each endpoint (harness-covered/ui-only/etc)"
 	@echo "  priors          Extract NPPS4 priors (requires NPPS4_SRC=$(NPPS4_SRC))"
 	@echo "  compare         Run wire-compare static-diff vs NPPS4"
@@ -59,7 +63,20 @@ ui-classes: ui-handlers
 	$(PY) src/tools/run_invoke_classes.py --bucket ui-only \
 	  --out $(BUILD)/runtime/traces_classes
 
-merge: ui-classes
+# Approach D: static field-extraction over UI source. Anchors on
+# `function(arg) ... arg.response_data` inside per-call success closures,
+# harvests `.<field>` reads on locals tainted from response_data,
+# corpus-filters UI-wide tokens, then re-fires the listener pass with
+# the harvested fields populated to mark which are listener-verified.
+# The full corpus-filtered set gets unioned into observations; the
+# per-field verification status (verified_by_listener vs static-only)
+# rides on the merged observations record for downstream confidence
+# labelling in wire-compare.
+ui-static: ui-classes
+	$(PY) src/tools/extract_ui_field_reads.py \
+	  --out $(BUILD)/runtime/traces_static
+
+merge: ui-static
 	$(PY) src/tools/merge_observations.py
 
 classify: merge
@@ -98,10 +115,14 @@ test: classify
 compare-npps4: compare
 
 clean:
-	rm -rf $(BUILD)/runtime/
-	rm -f $(BUILD)/runtime_listener_observations.json \
-	      $(BUILD)/runtime_listener_summary.md \
-	      $(BUILD)/coverage_classification.json \
-	      $(BUILD)/coverage_classification.md \
-	      $(BUILD)/ui_handler_map.json \
-	      $(BUILD)/wire_compare_static.md
+	@if [ -d "$(BUILD)/runtime" ]; then \
+	  mv "$(BUILD)/runtime" "$$HOME/.Trash/sif1-runtime-$$(date +%s)"; \
+	fi
+	@for f in $(BUILD)/runtime_listener_observations.json \
+	         $(BUILD)/runtime_listener_summary.md \
+	         $(BUILD)/coverage_classification.json \
+	         $(BUILD)/coverage_classification.md \
+	         $(BUILD)/ui_handler_map.json \
+	         $(BUILD)/wire_compare_static.md; do \
+	  if [ -f "$$f" ]; then mv "$$f" "$$HOME/.Trash/$$(basename $$f).$$(date +%s)"; fi; \
+	done

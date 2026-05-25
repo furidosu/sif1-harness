@@ -36,7 +36,9 @@
       "response_data.achievement_list.[1]",
       "response_data.count",
       "response_data.is_last"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "achievement.pagingAccomplishedList": {
     "module": "achievement",
@@ -75,7 +77,9 @@
       "response_data.achievement_list.[1]",
       "response_data.count",
       "response_data.is_last"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "achievement.pagingUnaccomplishList": {
     "module": "achievement",
@@ -108,7 +112,9 @@
       "response_data.achievement_list",
       "response_data.count",
       "response_data.is_last"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "achievement.rewardOpen": {
     "module": "achievement",
@@ -162,7 +168,9 @@
       "response_data.after_user_info.license_recover_end_time",
       "response_data.after_user_info.over_max_energy",
       "response_data.reward_item_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "achievement.rewardOpenAll": {
     "module": "achievement",
@@ -210,7 +218,9 @@
       "response_data.after_user_info.over_max_energy",
       "response_data.is_last",
       "response_data.reward_item_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "achievement.unaccomplishList": {
     "module": "achievement",
@@ -257,7 +267,9 @@
       "response_data.__root__.[1].count",
       "response_data.__root__.[1].filter_category_id",
       "response_data.__root__.[1].is_last"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "ad.changeAd": {
     "module": "ad",
@@ -275,7 +287,9 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.reward_list"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -285,8 +299,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.ad_status"
-    ]
+      "response_data.ad_status",
+      "response_data.reward_list"
+    ],
+    "static_extracted_unverified": [
+      "response_data.reward_list"
+    ],
+    "static_extracted_verified": []
   },
   "album.albumAll": {
     "module": "album",
@@ -339,7 +358,9 @@
       "response_data.album_list.[1].sign_flag",
       "response_data.album_list.[1].total_love",
       "response_data.album_list.[1].unit_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "album.seriesAll": {
     "module": "album",
@@ -374,7 +395,9 @@
     "runtime_accessed_keys": [
       "response_data.album_series_list",
       "response_data.album_series_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "announce.checkState": {
     "module": "announce",
@@ -403,7 +426,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.has_unread_announce"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "area.addReward": {
     "module": "area",
@@ -440,7 +465,9 @@
       "response_data.after_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "area.list": {
     "module": "area",
@@ -477,7 +504,9 @@
       "response_data.area_list",
       "response_data.area_list.[1]",
       "response_data.secret_banner_flag"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.cancelDreamSession": {
     "module": "arena",
@@ -503,7 +532,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.cheerUnitDeck": {
     "module": "arena",
@@ -544,7 +575,9 @@
       "response_data.cheer_unit_deck_detail.[1]",
       "response_data.cheer_unit_list",
       "response_data.cheer_unit_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.dailyRanking": {
     "module": "arena",
@@ -581,7 +614,9 @@
       "response_data.my_info",
       "response_data.ranking_list",
       "response_data.ranking_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.dreamLiveEnd": {
     "module": "arena",
@@ -636,7 +671,9 @@
       "response_data.live_info.[1].live_difficulty_id",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.dreamLiveGameOver": {
     "module": "arena",
@@ -653,7 +690,13 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.arena_match_result",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.session_success",
+      "response_data.store"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -662,7 +705,21 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.arena_match_result",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.session_success",
+      "response_data.store"
+    ],
+    "static_extracted_unverified": [
+      "response_data.arena_match_result",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.session_success",
+      "response_data.store"
+    ],
+    "static_extracted_verified": []
   },
   "arena.dreamLiveStart": {
     "module": "arena",
@@ -694,7 +751,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.available_live_resume"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.matchLiveAutoPlay": {
     "module": "arena",
@@ -720,7 +779,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.matchLiveContinue": {
     "module": "arena",
@@ -759,7 +820,9 @@
       "response_data.after_user_info",
       "response_data.live_info",
       "response_data.live_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.matchLiveEnd": {
     "module": "arena",
@@ -817,7 +880,9 @@
       "response_data.live_info",
       "response_data.live_info.[1]",
       "response_data.live_info.[1].live_difficulty_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.matchLiveGameOver": {
     "module": "arena",
@@ -835,7 +900,12 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.arena_challengeable_point",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.store"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -845,8 +915,19 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.result"
-    ]
+      "response_data.arena_challengeable_point",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.result",
+      "response_data.store"
+    ],
+    "static_extracted_unverified": [
+      "response_data.arena_challengeable_point",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.store"
+    ],
+    "static_extracted_verified": []
   },
   "arena.matchLiveStart": {
     "module": "arena",
@@ -878,7 +959,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.available_live_resume"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.matching": {
     "module": "arena",
@@ -913,7 +996,9 @@
     "runtime_accessed_keys": [
       "response_data.matching_user",
       "response_data.matching_user.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.moveUpStage": {
     "module": "arena",
@@ -939,7 +1024,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.privateMatchLiveEnd": {
     "module": "arena",
@@ -976,7 +1063,9 @@
       "response_data.live_info",
       "response_data.live_info.[1]",
       "response_data.live_info.[1].live_difficulty_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.privateMatchLiveGameOver": {
     "module": "arena",
@@ -1013,7 +1102,9 @@
       "response_data.after_user_info",
       "response_data.live_info",
       "response_data.live_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.privateMatchLiveStart": {
     "module": "arena",
@@ -1045,7 +1136,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.available_live_resume"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.privateMatching": {
     "module": "arena",
@@ -1082,7 +1175,9 @@
       "response_data.matching_user",
       "response_data.matching_user.[1]",
       "response_data.start_flag"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.read": {
     "module": "arena",
@@ -1108,7 +1203,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.recoveryAutoPlayableCount": {
     "module": "arena",
@@ -1142,7 +1239,9 @@
     "runtime_accessed_keys": [
       "response_data.after_sns_coin",
       "response_data.auto_playable_count"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.rivalLiveContinue": {
     "module": "arena",
@@ -1181,7 +1280,9 @@
       "response_data.after_user_info",
       "response_data.live_info",
       "response_data.live_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.rivalLiveEnd": {
     "module": "arena",
@@ -1236,7 +1337,9 @@
       "response_data.live_info.[1].live_difficulty_id",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.rivalLiveGameOver": {
     "module": "arena",
@@ -1254,7 +1357,13 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.arena_match_result",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.session_success",
+      "response_data.store"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -1264,8 +1373,21 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.result"
-    ]
+      "response_data.arena_match_result",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.result",
+      "response_data.session_success",
+      "response_data.store"
+    ],
+    "static_extracted_unverified": [
+      "response_data.arena_match_result",
+      "response_data.live_difficulty_id",
+      "response_data.live_info",
+      "response_data.session_success",
+      "response_data.store"
+    ],
+    "static_extracted_verified": []
   },
   "arena.rivalLiveStart": {
     "module": "arena",
@@ -1297,7 +1419,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.available_live_resume"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.sessionRanking": {
     "module": "arena",
@@ -1334,7 +1458,9 @@
       "response_data.is_last",
       "response_data.ranking_list",
       "response_data.ranking_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.tierRanking": {
     "module": "arena",
@@ -1371,7 +1497,9 @@
       "response_data.is_last",
       "response_data.ranking_list",
       "response_data.ranking_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "arena.top": {
     "module": "arena",
@@ -1454,7 +1582,9 @@
       "response_data.rival_info.[1].deck_info.unit_list.[<permissive>]",
       "response_data.rival_info.[1].deck_info.unit_list.[<permissive>].total_status",
       "response_data.rival_info.[1].deck_info.unit_list.[<permissive>].unit_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "award.awardInfo": {
     "module": "award",
@@ -1498,7 +1628,9 @@
       "response_data.award_info.[1]",
       "response_data.award_info.[1].award_id",
       "response_data.award_info.[1].is_set"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "award.set": {
     "module": "award",
@@ -1524,7 +1656,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "background.backgroundInfo": {
     "module": "background",
@@ -1572,7 +1706,9 @@
       "response_data.background_info.[1].background_id",
       "response_data.background_info.[1].insert_date",
       "response_data.background_info.[1].is_set"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "background.set": {
     "module": "background",
@@ -1598,7 +1734,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "banner.bannerList": {
     "module": "banner",
@@ -1635,7 +1773,9 @@
       "response_data.banner_list",
       "response_data.banner_list.[1]",
       "response_data.time_limit"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "battle.battleInfo": {
     "module": "battle",
@@ -1654,7 +1794,10 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.event_id",
+      "response_data.start"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -1665,8 +1808,15 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.battle_info",
-      "response_data.event_status"
-    ]
+      "response_data.event_id",
+      "response_data.event_status",
+      "response_data.start"
+    ],
+    "static_extracted_unverified": [
+      "response_data.event_id",
+      "response_data.start"
+    ],
+    "static_extracted_verified": []
   },
   "battle.endRoom": {
     "module": "battle",
@@ -1752,7 +1902,9 @@
       "response_data.unlocked_multi_unit_scenario_ids.[1]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "battle.endWait": {
     "module": "battle",
@@ -1771,7 +1923,10 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.battle_player_num",
+      "response_data.capacity"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -1781,9 +1936,16 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.battle_player_num",
+      "response_data.capacity",
       "response_data.end_wait_time",
       "response_data.ended_flag"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.battle_player_num",
+      "response_data.capacity"
+    ],
+    "static_extracted_verified": []
   },
   "battle.gameover": {
     "module": "battle",
@@ -1852,7 +2014,9 @@
       "response_data.live_info.[1]",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "battle.liveEnd": {
     "module": "battle",
@@ -1893,7 +2057,9 @@
       "response_data.event_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "battle.liveStart": {
     "module": "battle",
@@ -1930,7 +2096,9 @@
       "response_data.event_battle_room",
       "response_data.live_list",
       "response_data.live_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "battle.matching": {
     "module": "battle",
@@ -1949,7 +2117,12 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.battle_player_num",
+      "response_data.capacity",
+      "response_data.end_wait_time",
+      "response_data.ended_flag"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -1959,9 +2132,20 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.battle_player_num",
+      "response_data.capacity",
+      "response_data.end_wait_time",
+      "response_data.ended_flag",
       "response_data.matched",
       "response_data.matching_user"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.battle_player_num",
+      "response_data.capacity",
+      "response_data.end_wait_time",
+      "response_data.ended_flag"
+    ],
+    "static_extracted_verified": []
   },
   "battle.startWait": {
     "module": "battle",
@@ -1980,7 +2164,10 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.end_wait_time",
+      "response_data.ended_flag"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -1991,8 +2178,15 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.battle_player_num",
-      "response_data.capacity"
-    ]
+      "response_data.capacity",
+      "response_data.end_wait_time",
+      "response_data.ended_flag"
+    ],
+    "static_extracted_unverified": [
+      "response_data.end_wait_time",
+      "response_data.ended_flag"
+    ],
+    "static_extracted_verified": []
   },
   "battle.top": {
     "module": "battle",
@@ -2026,7 +2220,9 @@
     "runtime_accessed_keys": [
       "response_data.event_reward_info",
       "response_data.event_status"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.challengeInfo": {
     "module": "challenge",
@@ -2066,7 +2262,9 @@
       "response_data.challenge_info",
       "response_data.challenge_status",
       "response_data.challenge_status.should_proceed"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.checkpoint": {
     "module": "challenge",
@@ -2115,7 +2313,9 @@
       "response_data.effort_point.[0]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.continue": {
     "module": "challenge",
@@ -2168,7 +2368,9 @@
       "response_data.effort_point.[1]",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.finalize": {
     "module": "challenge",
@@ -2223,7 +2425,9 @@
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_item_list.[1].accessory_owning_user_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.gameover": {
     "module": "challenge",
@@ -2278,7 +2482,9 @@
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_item_list.[1].accessory_owning_user_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.init": {
     "module": "challenge",
@@ -2307,7 +2513,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.challenge_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.proceed": {
     "module": "challenge",
@@ -2345,7 +2553,9 @@
       "response_data.after_user_info.game_coin",
       "response_data.can_proceed",
       "response_data.challenge_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.retire": {
     "module": "challenge",
@@ -2400,7 +2610,9 @@
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_item_list.[1].accessory_owning_user_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "challenge.status": {
     "module": "challenge",
@@ -2418,7 +2630,12 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.can_proceed",
+      "response_data.middle",
+      "response_data.ok",
+      "response_data.on"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -2428,8 +2645,19 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.challenge_info"
-    ]
+      "response_data.can_proceed",
+      "response_data.challenge_info",
+      "response_data.middle",
+      "response_data.ok",
+      "response_data.on"
+    ],
+    "static_extracted_unverified": [
+      "response_data.can_proceed",
+      "response_data.middle",
+      "response_data.ok",
+      "response_data.on"
+    ],
+    "static_extracted_verified": []
   },
   "challenge.top": {
     "module": "challenge",
@@ -2463,7 +2691,9 @@
     "runtime_accessed_keys": [
       "response_data.event_reward_info",
       "response_data.event_status"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.commitChallengeMission": {
     "module": "class",
@@ -2498,7 +2728,9 @@
       "response_data.challenge_mission_list",
       "response_data.challenge_rank_id",
       "response_data.challenge_reset_date"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionFinalLiveEnd": {
     "module": "class",
@@ -2537,7 +2769,9 @@
       "response_data.live_info",
       "response_data.live_info.[1]",
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionFinalLivePlay": {
     "module": "class",
@@ -2566,7 +2800,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionGameover": {
     "module": "class",
@@ -2599,7 +2835,9 @@
       "response_data.after_user_info",
       "response_data.class_system",
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionGeneralRanking": {
     "module": "class",
@@ -2636,7 +2874,9 @@
       "response_data.ranking_info",
       "response_data.ranking_list",
       "response_data.ranking_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionHallOfFame": {
     "module": "class",
@@ -2665,7 +2905,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionLiveEnd": {
     "module": "class",
@@ -2712,7 +2954,9 @@
       "response_data.live_info.[1]",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionLivePlay": {
     "module": "class",
@@ -2730,7 +2974,9 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.store"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -2740,8 +2986,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.available_live_resume"
-    ]
+      "response_data.available_live_resume",
+      "response_data.store"
+    ],
+    "static_extracted_unverified": [
+      "response_data.store"
+    ],
+    "static_extracted_verified": []
   },
   "class.competitionOwnDeckRanking": {
     "module": "class",
@@ -2758,7 +3009,11 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.items",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -2767,7 +3022,17 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.items",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
+    "static_extracted_unverified": [
+      "response_data.items",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
+    "static_extracted_verified": []
   },
   "class.competitionReady": {
     "module": "class",
@@ -2796,7 +3061,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionResult": {
     "module": "class",
@@ -2825,7 +3092,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.competitionSpectateLive": {
     "module": "class",
@@ -2844,7 +3113,9 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.store"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -2855,8 +3126,13 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.live_info",
-      "response_data.result"
-    ]
+      "response_data.result",
+      "response_data.store"
+    ],
+    "static_extracted_unverified": [
+      "response_data.store"
+    ],
+    "static_extracted_verified": []
   },
   "class.competitionStartWait": {
     "module": "class",
@@ -2887,7 +3163,9 @@
     "runtime_accessed_keys": [
       "response_data.is_matched",
       "response_data.matching_user"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.entryFinal": {
     "module": "class",
@@ -2916,7 +3194,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.entrySemifinal": {
     "module": "class",
@@ -2942,7 +3222,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.gameover": {
     "module": "class",
@@ -2987,7 +3269,9 @@
       "response_data.note_log.[1]",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.livePlay": {
     "module": "class",
@@ -3024,7 +3308,9 @@
       "response_data.available_live_resume",
       "response_data.challenge_mission_list",
       "response_data.challenge_mission_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.liveResult": {
     "module": "class",
@@ -3078,7 +3364,9 @@
       "response_data.event_point",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.selectCompetitionArea": {
     "module": "class",
@@ -3096,7 +3384,11 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.ranking_info.general",
+      "response_data.ranking_info.own_deck",
+      "response_data.ranking_info.ranking_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -3106,8 +3398,17 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.ranking_info"
-    ]
+      "response_data.ranking_info",
+      "response_data.ranking_info.general",
+      "response_data.ranking_info.own_deck",
+      "response_data.ranking_info.ranking_info"
+    ],
+    "static_extracted_unverified": [
+      "response_data.ranking_info.general",
+      "response_data.ranking_info.own_deck",
+      "response_data.ranking_info.ranking_info"
+    ],
+    "static_extracted_verified": []
   },
   "class.selectCompetitionPromise": {
     "module": "class",
@@ -3136,7 +3437,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.skipChallengeMission": {
     "module": "class",
@@ -3171,7 +3474,9 @@
       "response_data.challenge_mission_list",
       "response_data.challenge_rank_id",
       "response_data.challenge_reset_date"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.top": {
     "module": "class",
@@ -3224,7 +3529,9 @@
       "response_data.challenge_rewards.[1]",
       "response_data.competition_info",
       "response_data.reset_challenge"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.voteFinal": {
     "module": "class",
@@ -3253,7 +3560,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "class.voteSemifinal": {
     "module": "class",
@@ -3282,7 +3591,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "comeback.achieveInfo": {
     "module": "comeback",
@@ -3319,7 +3630,9 @@
       "response_data.achievement_list",
       "response_data.achievement_list.[1]",
       "response_data.comeback_campaign_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "common.checkNgword": {
     "module": "common",
@@ -3348,7 +3661,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.is_ng"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "common.liveResume": {
     "module": "common",
@@ -3374,7 +3689,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "common.logger": {
     "module": "common",
@@ -3400,7 +3717,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "common.recoveryEnergy": {
     "module": "common",
@@ -3448,7 +3767,9 @@
       "response_data.license_recover_end_time",
       "response_data.over_max_energy",
       "response_data.training_energy"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "concert.liveContinue": {
     "module": "concert",
@@ -3485,7 +3806,9 @@
       "response_data.after_sns_coin",
       "response_data.live_info",
       "response_data.live_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "concert.liveEnd": {
     "module": "concert",
@@ -3571,7 +3894,9 @@
       "response_data.unlocked_multi_unit_scenario_ids.[1]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "concert.liveGameOver": {
     "module": "concert",
@@ -3589,7 +3914,11 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -3599,8 +3928,17 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.result"
-    ]
+      "response_data.on",
+      "response_data.result",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
+    "static_extracted_unverified": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
+    "static_extracted_verified": []
   },
   "concert.liveInit": {
     "module": "concert",
@@ -3626,7 +3964,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "concert.livePartyList": {
     "module": "concert",
@@ -3646,7 +3986,11 @@
     "runtime_discovered": [
       "response_data.party_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.party_list"
     ],
@@ -3659,9 +4003,18 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.on",
       "response_data.party_list",
-      "response_data.party_list.[1]"
-    ]
+      "response_data.party_list.[1]",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
+    "static_extracted_unverified": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
+    "static_extracted_verified": []
   },
   "concert.liveStart": {
     "module": "concert",
@@ -3679,7 +4032,11 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -3689,8 +4046,17 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.available_live_resume"
-    ]
+      "response_data.available_live_resume",
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
+    "static_extracted_unverified": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
+    "static_extracted_verified": []
   },
   "concert.lootBoxPick": {
     "module": "concert",
@@ -3709,7 +4075,11 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -3720,8 +4090,17 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.can_reset",
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info",
       "response_data.voltage_point"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.on",
+      "response_data.user_id",
+      "response_data.user_info"
+    ],
+    "static_extracted_verified": []
   },
   "concert.lootBoxReset": {
     "module": "concert",
@@ -3740,7 +4119,10 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.can_reset",
+      "response_data.voltage_point"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -3751,8 +4133,15 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info",
-      "response_data.concert_set_list_setting"
-    ]
+      "response_data.can_reset",
+      "response_data.concert_set_list_setting",
+      "response_data.voltage_point"
+    ],
+    "static_extracted_unverified": [
+      "response_data.can_reset",
+      "response_data.voltage_point"
+    ],
+    "static_extracted_verified": []
   },
   "concert.lootBoxTop": {
     "module": "concert",
@@ -3791,7 +4180,9 @@
       "response_data.concert_list",
       "response_data.concert_list.[1]",
       "response_data.voltage_point"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "concert.top": {
     "module": "concert",
@@ -3820,7 +4211,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.concert_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "costume.costumeList": {
     "module": "costume",
@@ -3864,7 +4257,9 @@
       "response_data.costume_list.[1]",
       "response_data.costume_list.[1].is_rank_max",
       "response_data.costume_list.[1].unit_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "costume.costumeStatus": {
     "module": "costume",
@@ -3899,7 +4294,9 @@
     "runtime_accessed_keys": [
       "response_data.costume_list",
       "response_data.costume_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "costume.dressUp": {
     "module": "costume",
@@ -3930,7 +4327,9 @@
     "runtime_accessed_keys": [
       "response_data.after_user_info",
       "response_data.unit_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "costume.makeCostume": {
     "module": "costume",
@@ -3959,7 +4358,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.costume_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "download.additional": {
     "module": "download",
@@ -3996,7 +4397,9 @@
       "response_data.size",
       "response_data.url_list",
       "response_data.url_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "download.batch": {
     "module": "download",
@@ -4037,7 +4440,9 @@
       "response_data.url_list.[1]",
       "response_data.url_list.[1].size",
       "response_data.url_list.[1].url"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "download.event": {
     "module": "download",
@@ -4072,7 +4477,9 @@
     "runtime_accessed_keys": [
       "response_data.url_list",
       "response_data.url_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "download.getUrl": {
     "module": "download",
@@ -4107,7 +4514,9 @@
     "runtime_accessed_keys": [
       "response_data.url_list",
       "response_data.url_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "download.luaDownload": {
     "module": "download",
@@ -4136,7 +4545,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.url"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "download.update": {
     "module": "download",
@@ -4177,7 +4588,9 @@
       "response_data.package_list.[1]",
       "response_data.url_list",
       "response_data.url_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.assistLog": {
     "module": "duel",
@@ -4218,7 +4631,9 @@
       "response_data.assist_log.[1]",
       "response_data.restriction_info",
       "response_data.subscription_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.duelSubDeck": {
     "module": "duel",
@@ -4244,7 +4659,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.endRoom": {
     "module": "duel",
@@ -4330,7 +4747,9 @@
       "response_data.unlocked_multi_unit_scenario_ids.[1]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.endWait": {
     "module": "duel",
@@ -4367,7 +4786,9 @@
       "response_data.end_flag",
       "response_data.matching_user",
       "response_data.matching_user.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.fixTime": {
     "module": "duel",
@@ -4396,7 +4817,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.fixed_time"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.gpsMatch": {
     "module": "duel",
@@ -4433,7 +4856,9 @@
       "response_data.duel_user_count",
       "response_data.matching_user_list",
       "response_data.matching_user_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.leave": {
     "module": "duel",
@@ -4459,7 +4884,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.liveEnd": {
     "module": "duel",
@@ -4476,7 +4903,15 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.all_user_goal",
+      "response_data.end_flag",
+      "response_data.goal_type",
+      "response_data.is_open",
+      "response_data.matching_user",
+      "response_data.middle",
+      "response_data.ok"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -4485,7 +4920,25 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.all_user_goal",
+      "response_data.end_flag",
+      "response_data.goal_type",
+      "response_data.is_open",
+      "response_data.matching_user",
+      "response_data.middle",
+      "response_data.ok"
+    ],
+    "static_extracted_unverified": [
+      "response_data.all_user_goal",
+      "response_data.end_flag",
+      "response_data.goal_type",
+      "response_data.is_open",
+      "response_data.matching_user",
+      "response_data.middle",
+      "response_data.ok"
+    ],
+    "static_extracted_verified": []
   },
   "duel.liveLog": {
     "module": "duel",
@@ -4520,7 +4973,9 @@
     "runtime_accessed_keys": [
       "response_data.live_log_list",
       "response_data.live_log_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.livePolling": {
     "module": "duel",
@@ -4546,7 +5001,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.liveStart": {
     "module": "duel",
@@ -4583,7 +5040,9 @@
       "response_data.live_list",
       "response_data.live_list.[1]",
       "response_data.live_list.[1].live_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.matching": {
     "module": "duel",
@@ -4620,7 +5079,9 @@
       "response_data.end_flag",
       "response_data.matching_user",
       "response_data.matching_user.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.privateClose": {
     "module": "duel",
@@ -4637,7 +5098,16 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.exist",
+      "response_data.is_full",
+      "response_data.matching_user",
+      "response_data.player_num",
+      "response_data.room_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -4646,7 +5116,27 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.exist",
+      "response_data.is_full",
+      "response_data.matching_user",
+      "response_data.player_num",
+      "response_data.room_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.exist",
+      "response_data.is_full",
+      "response_data.matching_user",
+      "response_data.player_num",
+      "response_data.room_id"
+    ],
+    "static_extracted_verified": []
   },
   "duel.privateCreate": {
     "module": "duel",
@@ -4689,7 +5179,9 @@
     "runtime_accessed_keys": [
       "response_data.entry_token",
       "response_data.room_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.privateJoin": {
     "module": "duel",
@@ -4734,7 +5226,9 @@
       "response_data.difficulty",
       "response_data.error_code",
       "response_data.room_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.privateLeave": {
     "module": "duel",
@@ -4763,7 +5257,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.success"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.privateMakeMatch": {
     "module": "duel",
@@ -4802,7 +5298,9 @@
       "response_data.live_list.[1]",
       "response_data.room_id",
       "response_data.start_after"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.privateOpenMatch": {
     "module": "duel",
@@ -4821,7 +5319,11 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.matching_user"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -4831,9 +5333,18 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.matching_user",
       "response_data.room_id",
       "response_data.status"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.matching_user"
+    ],
+    "static_extracted_verified": []
   },
   "duel.privateStartWait": {
     "module": "duel",
@@ -4870,7 +5381,9 @@
       "response_data.matching_user",
       "response_data.matching_user.[1]",
       "response_data.start_flag"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duel.startWait": {
     "module": "duel",
@@ -4890,7 +5403,14 @@
     "runtime_discovered": [
       "response_data.matching_user.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.all_user_goal",
+      "response_data.end_flag",
+      "response_data.goal_type",
+      "response_data.is_open",
+      "response_data.middle",
+      "response_data.ok"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.matching_user"
     ],
@@ -4903,9 +5423,24 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.all_user_goal",
+      "response_data.end_flag",
+      "response_data.goal_type",
+      "response_data.is_open",
       "response_data.matching_user",
-      "response_data.matching_user.[1]"
-    ]
+      "response_data.matching_user.[1]",
+      "response_data.middle",
+      "response_data.ok"
+    ],
+    "static_extracted_unverified": [
+      "response_data.all_user_goal",
+      "response_data.end_flag",
+      "response_data.goal_type",
+      "response_data.is_open",
+      "response_data.middle",
+      "response_data.ok"
+    ],
+    "static_extracted_verified": []
   },
   "duel.top": {
     "module": "duel",
@@ -4966,7 +5501,9 @@
       "response_data.latest_difficulty",
       "response_data.live_track_id_list",
       "response_data.term_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.allUserMission": {
     "module": "duty",
@@ -5007,7 +5544,9 @@
       "response_data.all_user_mission_list.[1].goal_list",
       "response_data.all_user_mission_list.[1].has_played",
       "response_data.all_user_mission_total"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.dutyInfo": {
     "module": "duty",
@@ -5026,7 +5565,18 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5036,9 +5586,32 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
       "response_data.duty_info",
-      "response_data.event_team_duty"
-    ]
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
+    "static_extracted_unverified": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
+    "static_extracted_verified": []
   },
   "duty.endRoom": {
     "module": "duty",
@@ -5072,7 +5645,9 @@
     "runtime_accessed_keys": [
       "response_data.event_team_duty",
       "response_data.event_team_duty.mission_reward"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.endWait": {
     "module": "duty",
@@ -5090,7 +5665,18 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5100,8 +5686,31 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.end_flag"
-    ]
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
+    "static_extracted_unverified": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
+    "static_extracted_verified": []
   },
   "duty.gameover": {
     "module": "duty",
@@ -5168,7 +5777,9 @@
       "response_data.event_team_duty.all_user_mission_value.Live",
       "response_data.event_team_duty.all_user_mission_value.Live.getInstance",
       "response_data.event_team_duty.all_user_mission_value.Live.getInstance.onFinishLive"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.history": {
     "module": "duty",
@@ -5197,7 +5808,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.room_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.historyDetail": {
     "module": "duty",
@@ -5226,7 +5839,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.room_detail"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.liveEnd": {
     "module": "duty",
@@ -5271,7 +5886,9 @@
       "response_data.live_info.[1]",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.liveStart": {
     "module": "duty",
@@ -5311,7 +5928,9 @@
       "response_data.event_team_duty",
       "response_data.live_list",
       "response_data.live_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.matching": {
     "module": "duty",
@@ -5331,7 +5950,18 @@
     "runtime_discovered": [
       "response_data.live_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.start"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.live_list"
     ],
@@ -5344,9 +5974,32 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
       "response_data.live_list",
-      "response_data.live_list.[1]"
-    ]
+      "response_data.live_list.[1]",
+      "response_data.start"
+    ],
+    "static_extracted_unverified": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.start"
+    ],
+    "static_extracted_verified": []
   },
   "duty.privateClose": {
     "module": "duty",
@@ -5363,7 +6016,14 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5372,7 +6032,23 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
+    "static_extracted_unverified": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
+    "static_extracted_verified": []
   },
   "duty.privateCreate": {
     "module": "duty",
@@ -5391,7 +6067,12 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.difficulty",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.start_after"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5401,9 +6082,20 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.difficulty",
       "response_data.entry_token",
-      "response_data.room_id"
-    ]
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
+    "static_extracted_unverified": [
+      "response_data.difficulty",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.start_after"
+    ],
+    "static_extracted_verified": []
   },
   "duty.privateJoin": {
     "module": "duty",
@@ -5436,7 +6128,9 @@
       "response_data.difficulty",
       "response_data.error_code",
       "response_data.room_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.privateJoinMatch": {
     "module": "duty",
@@ -5454,7 +6148,13 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5464,8 +6164,21 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
       "response_data.start_after"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id"
+    ],
+    "static_extracted_verified": []
   },
   "duty.privateLeave": {
     "module": "duty",
@@ -5494,7 +6207,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.success"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "duty.privateMakeMatch": {
     "module": "duty",
@@ -5514,7 +6229,14 @@
     "runtime_discovered": [
       "response_data.live_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.live_list"
     ],
@@ -5527,9 +6249,24 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
       "response_data.live_list",
-      "response_data.live_list.[1]"
-    ]
+      "response_data.live_list.[1]",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
+    "static_extracted_unverified": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
+    "static_extracted_verified": []
   },
   "duty.privateStartWait": {
     "module": "duty",
@@ -5547,7 +6284,14 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5557,8 +6301,23 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after",
       "response_data.start_flag"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.difficulty",
+      "response_data.entry_token",
+      "response_data.error_code",
+      "response_data.player_num",
+      "response_data.room_id",
+      "response_data.start_after"
+    ],
+    "static_extracted_verified": []
   },
   "duty.startWait": {
     "module": "duty",
@@ -5577,7 +6336,19 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5587,9 +6358,34 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
       "response_data.matching_user",
+      "response_data.start",
       "response_data.start_flag"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.all_user_mission",
+      "response_data.all_user_mission_total",
+      "response_data.all_user_mission_value",
+      "response_data.current_mission",
+      "response_data.end_flag",
+      "response_data.event_status",
+      "response_data.event_team_duty",
+      "response_data.event_team_duty.item_bonus_list",
+      "response_data.has_history",
+      "response_data.live_list",
+      "response_data.start"
+    ],
+    "static_extracted_verified": []
   },
   "duty.top": {
     "module": "duty",
@@ -5631,7 +6427,9 @@
       "response_data.event_team_duty.all_user_mission_value.Live",
       "response_data.event_team_duty.all_user_mission_value.Live.getInstance",
       "response_data.event_team_duty.all_user_mission_value.Live.getInstance.onFinishLive"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "effortPoint.selectLimitedBox": {
     "module": "effortPoint",
@@ -5668,7 +6466,9 @@
       "response_data.after_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "event.eventList": {
     "module": "event",
@@ -5703,7 +6503,9 @@
     "runtime_accessed_keys": [
       "response_data.target_list",
       "response_data.target_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "event.eventYellDeck": {
     "module": "event",
@@ -5732,7 +6534,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "eventscenario.open": {
     "module": "eventscenario",
@@ -5758,7 +6562,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "eventscenario.reward": {
     "module": "eventscenario",
@@ -5810,7 +6616,9 @@
       "response_data.class_system.rank_info.after_class_rank_id",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "eventscenario.startup": {
     "module": "eventscenario",
@@ -5853,7 +6661,9 @@
       "response_data.event_scenario_list.[1].status",
       "response_data.event_scenario_list.event_scenario_id",
       "response_data.event_scenario_list.status"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "eventscenario.status": {
     "module": "eventscenario",
@@ -5888,7 +6698,9 @@
     "runtime_accessed_keys": [
       "response_data.event_scenario_list",
       "response_data.event_scenario_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "exchange.itemInfo": {
     "module": "exchange",
@@ -5925,7 +6737,9 @@
       "response_data.exchange_item_info",
       "response_data.exchange_item_info.[1]",
       "response_data.exchange_point_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "exchange.owningPoint": {
     "module": "exchange",
@@ -5960,7 +6774,9 @@
     "runtime_accessed_keys": [
       "response_data.exchange_point_list",
       "response_data.exchange_point_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "exchange.usePoint": {
     "module": "exchange",
@@ -6012,7 +6828,9 @@
       "response_data.before_user_info",
       "response_data.exchange_reward",
       "response_data.exchange_reward.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.continue": {
     "module": "festival",
@@ -6053,7 +6871,9 @@
       "response_data.live_info",
       "response_data.rank_info",
       "response_data.rank_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.deckList": {
     "module": "festival",
@@ -6088,7 +6908,9 @@
       "response_data.festival",
       "response_data.festival.event_festival_live_list",
       "response_data.festival_previous_item_ids"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.festivalInfo": {
     "module": "festival",
@@ -6125,7 +6947,9 @@
       "response_data.festival",
       "response_data.festival_previous_item_ids",
       "response_data.festival_previous_item_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.gameover": {
     "module": "festival",
@@ -6179,7 +7003,9 @@
       "response_data.event_info.event_point_info",
       "response_data.event_info.event_point_info.after_event_point",
       "response_data.event_info.event_reward_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.liveReward": {
     "module": "festival",
@@ -6265,7 +7091,9 @@
       "response_data.unlocked_multi_unit_scenario_ids.[1]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.liveSetList": {
     "module": "festival",
@@ -6283,7 +7111,15 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.available_mission_bonus_list",
+      "response_data.difficulty_ids",
+      "response_data.event_festival_live_list",
+      "response_data.festival",
+      "response_data.festival_previous_item_ids",
+      "response_data.live_count",
+      "response_data.live_difficulty_ids"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -6293,8 +7129,25 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.available_mission_bonus_list",
+      "response_data.difficulty_ids",
+      "response_data.event_festival_live_list",
+      "response_data.festival",
+      "response_data.festival_previous_item_ids",
+      "response_data.live_count",
+      "response_data.live_difficulty_ids",
       "response_data.live_track_ids"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.available_mission_bonus_list",
+      "response_data.difficulty_ids",
+      "response_data.event_festival_live_list",
+      "response_data.festival",
+      "response_data.festival_previous_item_ids",
+      "response_data.live_count",
+      "response_data.live_difficulty_ids"
+    ],
+    "static_extracted_verified": []
   },
   "festival.liveStart": {
     "module": "festival",
@@ -6331,7 +7184,9 @@
       "response_data.available_live_resume",
       "response_data.live_list",
       "response_data.live_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.missionStatus": {
     "module": "festival",
@@ -6365,7 +7220,9 @@
       "response_data.mission_status_list",
       "response_data.next_page_id",
       "response_data.now_mission"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.top": {
     "module": "festival",
@@ -6405,7 +7262,9 @@
       "response_data.failed_mission_status",
       "response_data.is_new_mission",
       "response_data.mission_status"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "festival.updateLiveList": {
     "module": "festival",
@@ -6451,7 +7310,9 @@
       "response_data.after_user_info.license_recover_end_time",
       "response_data.after_user_info.over_max_energy",
       "response_data.live_track_ids"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "freeLive.play": {
     "module": "freeLive",
@@ -6482,7 +7343,9 @@
     "runtime_accessed_keys": [
       "response_data.available_live_resume",
       "response_data.live_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "friend.expel": {
     "module": "friend",
@@ -6508,7 +7371,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "friend.list": {
     "module": "friend",
@@ -6541,7 +7406,9 @@
       "response_data.friend_list",
       "response_data.item_count",
       "response_data.new_friend_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "friend.request": {
     "module": "friend",
@@ -6570,7 +7437,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.is_friend"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "friend.requestCancel": {
     "module": "friend",
@@ -6599,7 +7468,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "friend.response": {
     "module": "friend",
@@ -6630,7 +7501,9 @@
     "runtime_accessed_keys": [
       "response_data.after_user_info",
       "response_data.friend_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "friend.search": {
     "module": "friend",
@@ -6667,7 +7540,9 @@
       "response_data.is_alliance",
       "response_data.setting_award_id",
       "response_data.user_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "gdpr.detail": {
     "module": "gdpr",
@@ -6686,7 +7561,10 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.granted",
+      "response_data.view"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -6696,9 +7574,16 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.granted",
       "response_data.permission",
-      "response_data.permission.granted"
-    ]
+      "response_data.permission.granted",
+      "response_data.view"
+    ],
+    "static_extracted_unverified": [
+      "response_data.granted",
+      "response_data.view"
+    ],
+    "static_extracted_verified": []
   },
   "gdpr.get": {
     "module": "gdpr",
@@ -6739,7 +7624,9 @@
       "response_data.is_eea",
       "response_data.resume",
       "response_data.views"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "gdpr.update": {
     "module": "gdpr",
@@ -6758,7 +7645,12 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.enable_gdpr",
+      "response_data.is_eea",
+      "response_data.view",
+      "response_data.views"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -6768,9 +7660,20 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.enable_gdpr",
+      "response_data.is_eea",
       "response_data.permission",
-      "response_data.permission.granted"
-    ]
+      "response_data.permission.granted",
+      "response_data.view",
+      "response_data.views"
+    ],
+    "static_extracted_unverified": [
+      "response_data.enable_gdpr",
+      "response_data.is_eea",
+      "response_data.view",
+      "response_data.views"
+    ],
+    "static_extracted_verified": []
   },
   "greet.delete": {
     "module": "greet",
@@ -6799,7 +7702,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "greet.user": {
     "module": "greet",
@@ -6830,7 +7735,9 @@
     "runtime_accessed_keys": [
       "response_data.after_user_info",
       "response_data.success"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.abortTransfer": {
     "module": "handover",
@@ -6856,7 +7763,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.create": {
     "module": "handover",
@@ -6882,7 +7791,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.exec": {
     "module": "handover",
@@ -6913,7 +7824,9 @@
     "runtime_accessed_keys": [
       "response_data.session_key",
       "response_data.user_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.kidCheck": {
     "module": "handover",
@@ -6946,7 +7859,9 @@
       "response_data.user_info",
       "response_data.user_info.level",
       "response_data.user_info.name"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.kidDelete": {
     "module": "handover",
@@ -6977,7 +7892,9 @@
     "runtime_accessed_keys": [
       "response_data.has_klab_id",
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.kidHandover": {
     "module": "handover",
@@ -6995,7 +7912,11 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.level",
+      "response_data.name",
+      "response_data.user_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -7005,8 +7926,17 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.result"
-    ]
+      "response_data.level",
+      "response_data.name",
+      "response_data.result",
+      "response_data.user_info"
+    ],
+    "static_extracted_unverified": [
+      "response_data.level",
+      "response_data.name",
+      "response_data.user_info"
+    ],
+    "static_extracted_verified": []
   },
   "handover.kidInfo": {
     "module": "handover",
@@ -7035,7 +7965,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.auth_url"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.kidRegister": {
     "module": "handover",
@@ -7061,7 +7993,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.kidStatus": {
     "module": "handover",
@@ -7090,7 +8024,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.has_klab_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.reserveTransfer": {
     "module": "handover",
@@ -7123,7 +8059,9 @@
       "response_data.code",
       "response_data.insert_date",
       "response_data.invite_code"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "handover.start": {
     "module": "handover",
@@ -7154,7 +8092,9 @@
     "runtime_accessed_keys": [
       "response_data.session_id",
       "response_data.user_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "item.exchange": {
     "module": "item",
@@ -7196,7 +8136,9 @@
       "response_data.after_user_info.level",
       "response_data.after_user_info.license_recover_end_time",
       "response_data.after_user_info.over_max_energy"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "item.list": {
     "module": "item",
@@ -7245,7 +8187,9 @@
       "response_data.reinforce_info",
       "response_data.reinforce_item_list",
       "response_data.reinforce_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "item.useBuff": {
     "module": "item",
@@ -7271,7 +8215,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "item.useLotteryTicket": {
     "module": "item",
@@ -7308,7 +8254,9 @@
       "response_data.after_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "item.useReinforceItem": {
     "module": "item",
@@ -7342,7 +8290,9 @@
     "runtime_accessed_keys": [
       "response_data.after",
       "response_data.after.display_rank"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "item.userRankUp": {
     "module": "item",
@@ -7389,7 +8339,9 @@
       "response_data.class_system.is_opened",
       "response_data.class_system.rank_info",
       "response_data.class_system.rank_info.after_class_rank_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.kidInitialAccomplishedList": {
     "module": "klab_id",
@@ -7424,7 +8376,9 @@
     "runtime_accessed_keys": [
       "response_data.accomplished_list",
       "response_data.accomplished_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.kidPagingAccomplishedList": {
     "module": "klab_id",
@@ -7463,7 +8417,9 @@
       "response_data.achievement_list.[1]",
       "response_data.count",
       "response_data.is_last"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.kidPagingUnaccomplishList": {
     "module": "klab_id",
@@ -7489,7 +8445,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.kidRewardOpen": {
     "module": "klab_id",
@@ -7528,7 +8486,9 @@
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_item_list.[1].accessory_owning_user_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.kidRewardOpenAll": {
     "module": "klab_id",
@@ -7567,7 +8527,9 @@
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_item_list.[1].accessory_owning_user_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.kidUnaccomplishList": {
     "module": "klab_id",
@@ -7606,7 +8568,9 @@
       "response_data.is_last",
       "response_data.klab_id_task_list",
       "response_data.klab_id_task_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.sync": {
     "module": "klab_id",
@@ -7635,7 +8599,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.status"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.syncActivate": {
     "module": "klab_id",
@@ -7664,7 +8630,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.auth_url"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "klab_id.syncDeactivate": {
     "module": "klab_id",
@@ -7690,7 +8658,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "lbonus.adReward": {
     "module": "lbonus",
@@ -7708,7 +8678,9 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.ad_status"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.after_user_info",
@@ -7719,8 +8691,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.ad_status",
       "response_data.reward_list"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.ad_status"
+    ],
+    "static_extracted_verified": []
   },
   "lbonus.execute": {
     "module": "lbonus",
@@ -7815,7 +8792,9 @@
       "response_data.start_dash_sheets.[1]",
       "response_data.total_login_info",
       "response_data.unaccomplished_achievement_cnt"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.continue": {
     "module": "live",
@@ -7846,7 +8825,9 @@
     "runtime_accessed_keys": [
       "response_data.after_sns_coin",
       "response_data.after_user_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.gameover": {
     "module": "live",
@@ -7875,7 +8856,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.liveStatus": {
     "module": "live",
@@ -7936,7 +8919,9 @@
       "response_data.special_live_status_list.[1]",
       "response_data.training_live_status_list",
       "response_data.training_live_status_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.partyList": {
     "module": "live",
@@ -7953,7 +8938,11 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.energy_full_time",
+      "response_data.license_recover_end_time",
+      "response_data.over_max_energy"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -7962,7 +8951,17 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.energy_full_time",
+      "response_data.license_recover_end_time",
+      "response_data.over_max_energy"
+    ],
+    "static_extracted_unverified": [
+      "response_data.energy_full_time",
+      "response_data.license_recover_end_time",
+      "response_data.over_max_energy"
+    ],
+    "static_extracted_verified": []
   },
   "live.play": {
     "module": "live",
@@ -8019,7 +9018,9 @@
       "response_data.over_max_energy",
       "response_data.rank_info",
       "response_data.rank_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.preciseScore": {
     "module": "live",
@@ -8060,7 +9061,9 @@
       "response_data.on",
       "response_data.rank_info",
       "response_data.rank_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.publishPreciseScoreId": {
     "module": "live",
@@ -8089,7 +9092,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.precise_score_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.reward": {
     "module": "live",
@@ -8249,7 +9254,9 @@
       "response_data.unlocked_subscenario_ids.[1]",
       "response_data.using_buff_info",
       "response_data.using_buff_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "live.schedule": {
     "module": "live",
@@ -8327,7 +9334,9 @@
       "response_data.random_live_list.[1]",
       "response_data.training_live_list",
       "response_data.training_live_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "liveicon.liveiconInfo": {
     "module": "liveicon",
@@ -8357,7 +9366,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.live_notes_icon_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "livese.liveseInfo": {
     "module": "livese",
@@ -8392,7 +9403,9 @@
     "runtime_accessed_keys": [
       "response_data.live_se_list",
       "response_data.live_se_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "login.login": {
     "module": "login",
@@ -8429,7 +9442,9 @@
       "response_data.review_version",
       "response_data.skip_login_news",
       "response_data.user_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "login.topInfo": {
     "module": "login",
@@ -8504,7 +9519,9 @@
       "response_data.server_datetime",
       "response_data.using_buff_info",
       "response_data.using_buff_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "login.topInfoOnce": {
     "module": "login",
@@ -8553,7 +9570,9 @@
       "response_data.training_energy",
       "response_data.training_energy_max",
       "response_data.unaccomplished_achievement_cnt"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "login.unitList": {
     "module": "login",
@@ -8573,7 +9592,11 @@
     "runtime_discovered": [
       "response_data.member_category_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.review_version",
+      "response_data.skip_login_news",
+      "response_data.user_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.member_category_list"
     ],
@@ -8587,8 +9610,17 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.member_category_list",
-      "response_data.member_category_list.[1]"
-    ]
+      "response_data.member_category_list.[1]",
+      "response_data.review_version",
+      "response_data.skip_login_news",
+      "response_data.user_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.review_version",
+      "response_data.skip_login_news",
+      "response_data.user_id"
+    ],
+    "static_extracted_verified": []
   },
   "login.unitSelect": {
     "module": "login",
@@ -8605,7 +9637,11 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.review_version",
+      "response_data.skip_login_news",
+      "response_data.user_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -8614,7 +9650,17 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.review_version",
+      "response_data.skip_login_news",
+      "response_data.user_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.review_version",
+      "response_data.skip_login_news",
+      "response_data.user_id"
+    ],
+    "static_extracted_verified": []
   },
   "marathon.marathonInfo": {
     "module": "marathon",
@@ -8634,7 +9680,11 @@
     "runtime_discovered": [
       "response_data.marathon_info_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.event_id",
+      "response_data.event_status",
+      "response_data.start"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.marathon_info_list"
     ],
@@ -8647,9 +9697,18 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.event_id",
+      "response_data.event_status",
       "response_data.marathon_info_list",
-      "response_data.marathon_info_list.[1]"
-    ]
+      "response_data.marathon_info_list.[1]",
+      "response_data.start"
+    ],
+    "static_extracted_unverified": [
+      "response_data.event_id",
+      "response_data.event_status",
+      "response_data.start"
+    ],
+    "static_extracted_verified": []
   },
   "marathon.top": {
     "module": "marathon",
@@ -8681,7 +9740,9 @@
     "runtime_accessed_keys": [
       "response_data.event_reward_info",
       "response_data.event_status"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "multiunit.multiunitscenarioStatus": {
     "module": "multiunit",
@@ -8721,7 +9782,9 @@
       "response_data.multi_unit_scenario_status_list",
       "response_data.multi_unit_scenario_status_list.[1]",
       "response_data.multi_unit_scenario_status_list.[1].chapter_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "multiunit.scenarioReward": {
     "module": "multiunit",
@@ -8781,7 +9844,9 @@
       "response_data.item_reward_info.[1]",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "multiunit.scenarioStartup": {
     "module": "multiunit",
@@ -8812,7 +9877,9 @@
     "runtime_accessed_keys": [
       "response_data.multi_unit_scenario_id",
       "response_data.scenario_adjustment"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "museum.info": {
     "module": "museum",
@@ -8847,7 +9914,9 @@
       "response_data.museum_info",
       "response_data.museum_info.contents_id_list",
       "response_data.museum_info.parameter"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "navigation.specialCutin": {
     "module": "navigation",
@@ -8882,7 +9951,9 @@
     "runtime_accessed_keys": [
       "response_data.special_cutin_list",
       "response_data.special_cutin_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "notice.noticeFriendGreeting": {
     "module": "notice",
@@ -8901,7 +9972,15 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.add",
+      "response_data.has_next",
+      "response_data.item_count",
+      "response_data.list",
+      "response_data.max_page",
+      "response_data.maxn",
+      "response_data.notice_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.greeting_list",
@@ -8913,9 +9992,26 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.add",
+      "response_data.has_next",
+      "response_data.item_count",
+      "response_data.list",
+      "response_data.max_page",
+      "response_data.maxn",
       "response_data.next_id",
+      "response_data.notice_id",
       "response_data.notice_list"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.add",
+      "response_data.has_next",
+      "response_data.item_count",
+      "response_data.list",
+      "response_data.max_page",
+      "response_data.maxn",
+      "response_data.notice_id"
+    ],
+    "static_extracted_verified": []
   },
   "notice.noticeFriendVariety": {
     "module": "notice",
@@ -8952,7 +10048,9 @@
       "response_data.item_count",
       "response_data.notice_list",
       "response_data.notice_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "notice.noticeMarquee": {
     "module": "notice",
@@ -8989,7 +10087,9 @@
       "response_data.item_count",
       "response_data.marquee_list",
       "response_data.marquee_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "notice.noticeUserGreetingHistory": {
     "module": "notice",
@@ -9031,7 +10131,9 @@
       "response_data.notice_list",
       "response_data.notice_list.[1]",
       "response_data.notice_list.[1].notice_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "online.deck": {
     "module": "online",
@@ -9057,7 +10159,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "online.exhibitionResult": {
     "module": "online",
@@ -9075,7 +10179,9 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.initialize"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -9085,8 +10191,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.initialize",
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.initialize"
+    ],
+    "static_extracted_verified": []
   },
   "online.info": {
     "module": "online",
@@ -9117,7 +10228,9 @@
     "runtime_accessed_keys": [
       "response_data.is_open",
       "response_data.online_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "online.play": {
     "module": "online",
@@ -9154,7 +10267,9 @@
       "response_data.after_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "online.playExhibition": {
     "module": "online",
@@ -9173,7 +10288,9 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.initialize"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -9184,8 +10301,13 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info",
+      "response_data.initialize",
       "response_data.success"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.initialize"
+    ],
+    "static_extracted_verified": []
   },
   "online.result": {
     "module": "online",
@@ -9226,7 +10348,9 @@
       "response_data.is_high_score",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "payment.history": {
     "module": "payment",
@@ -9264,7 +10388,9 @@
       "response_data.item_count",
       "response_data.payment_history_list",
       "response_data.payment_history_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "payment.month": {
     "module": "payment",
@@ -9302,7 +10428,9 @@
       "response_data.item_count",
       "response_data.payment_month_list",
       "response_data.payment_month_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "payment.processLog": {
     "module": "payment",
@@ -9328,7 +10456,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "payment.productList": {
     "module": "payment",
@@ -9369,7 +10499,9 @@
       "response_data.under_age_info",
       "response_data.under_age_info.birth_set",
       "response_data.under_age_info.has_limit"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "payment.receipt": {
     "module": "payment",
@@ -9388,7 +10520,9 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.pending"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -9398,9 +10532,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.pending",
       "response_data.product",
       "response_data.status"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.pending"
+    ],
+    "static_extracted_verified": []
   },
   "payment.setBirth": {
     "module": "payment",
@@ -9429,7 +10568,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.is_today_birthday"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "payment.subscriptionRead": {
     "module": "payment",
@@ -9455,7 +10596,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "personalnotice.agree": {
     "module": "personalnotice",
@@ -9481,7 +10624,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "personalnotice.clearCache": {
     "module": "personalnotice",
@@ -9507,7 +10652,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "personalnotice.get": {
     "module": "personalnotice",
@@ -9536,7 +10683,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.has_notice"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "platformAccount.connectAccounts": {
     "module": "platformAccount",
@@ -9573,7 +10722,9 @@
       "response_data.connected_account_list",
       "response_data.connected_account_list.[1]",
       "response_data.success"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "platformAccount.disconnectAccounts": {
     "module": "platformAccount",
@@ -9599,7 +10750,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "platformAccount.handover": {
     "module": "platformAccount",
@@ -9625,7 +10778,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "platformAccount.isConnectedLlAccount": {
     "module": "platformAccount",
@@ -9654,7 +10809,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.is_connected"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "platformAccount.isConnectedPfAccount": {
     "module": "platformAccount",
@@ -9683,7 +10840,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.is_connected"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "preciseScore.manualUpdate": {
     "module": "preciseScore",
@@ -9701,7 +10860,9 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.precise_score_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -9711,8 +10872,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.precise_score_id",
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.precise_score_id"
+    ],
+    "static_extracted_verified": []
   },
   "profile.cardRanking": {
     "module": "profile",
@@ -9755,7 +10921,9 @@
       "response_data.card_ranking_list.[1].sign_flag",
       "response_data.card_ranking_list.[1].total_love",
       "response_data.card_ranking_list.[1].unit_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "profile.liveCnt": {
     "module": "profile",
@@ -9792,7 +10960,9 @@
       "response_data.live_cnt",
       "response_data.live_count_list",
       "response_data.live_count_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "profile.profileInfo": {
     "module": "profile",
@@ -9818,7 +10988,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "profile.profileRegister": {
     "module": "profile",
@@ -9847,7 +11019,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "quest.continue": {
     "module": "quest",
@@ -9892,7 +11066,9 @@
       "response_data.class_system",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "quest.gameover": {
     "module": "quest",
@@ -9923,7 +11099,9 @@
     "runtime_accessed_keys": [
       "response_data.after_user_info",
       "response_data.event_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "quest.itemInfo": {
     "module": "quest",
@@ -9943,7 +11121,9 @@
     "runtime_discovered": [
       "response_data.quest_item_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.quest_event_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.quest_item_list"
     ],
@@ -9956,9 +11136,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.quest_event_id",
       "response_data.quest_item_list",
       "response_data.quest_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.quest_event_id"
+    ],
+    "static_extracted_verified": []
   },
   "quest.owningSeal": {
     "module": "quest",
@@ -9978,7 +11163,9 @@
     "runtime_discovered": [
       "response_data.seal_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.quest_event_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.seal_list"
     ],
@@ -9991,9 +11178,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.quest_event_id",
       "response_data.seal_list",
       "response_data.seal_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.quest_event_id"
+    ],
+    "static_extracted_verified": []
   },
   "quest.partyList": {
     "module": "quest",
@@ -10010,7 +11202,9 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.quest_event_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10019,7 +11213,13 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.quest_event_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.quest_event_id"
+    ],
+    "static_extracted_verified": []
   },
   "quest.questInfo": {
     "module": "quest",
@@ -10039,7 +11239,9 @@
     "runtime_discovered": [
       "response_data.quest_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.quest_event_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.quest_list"
     ],
@@ -10052,9 +11254,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.quest_event_id",
       "response_data.quest_list",
       "response_data.quest_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.quest_event_id"
+    ],
+    "static_extracted_verified": []
   },
   "quest.questList": {
     "module": "quest",
@@ -10074,7 +11281,9 @@
     "runtime_discovered": [
       "response_data.quest_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.quest_event_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.quest_list"
     ],
@@ -10087,9 +11296,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.quest_event_id",
       "response_data.quest_list",
       "response_data.quest_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.quest_event_id"
+    ],
+    "static_extracted_verified": []
   },
   "quest.questReward": {
     "module": "quest",
@@ -10173,7 +11387,9 @@
       "response_data.live_result.unlocked_subscenario_ids.[1]",
       "response_data.using_buff_info",
       "response_data.using_buff_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "quest.questStart": {
     "module": "quest",
@@ -10212,7 +11428,9 @@
       "response_data.live_list",
       "response_data.live_list.[1]",
       "response_data.rlive_token"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "quest.useSeal": {
     "module": "quest",
@@ -10251,7 +11469,9 @@
       "response_data.before_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "ranking.eventFriendLive": {
     "module": "ranking",
@@ -10268,7 +11488,12 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.items",
+      "response_data.maxn",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10277,7 +11502,19 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.items",
+      "response_data.maxn",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
+    "static_extracted_unverified": [
+      "response_data.items",
+      "response_data.maxn",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
+    "static_extracted_verified": []
   },
   "ranking.eventFriendPlayer": {
     "module": "ranking",
@@ -10314,7 +11551,9 @@
       "response_data.is_last",
       "response_data.ranking_list",
       "response_data.ranking_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "ranking.eventLive": {
     "module": "ranking",
@@ -10351,7 +11590,9 @@
       "response_data.is_last",
       "response_data.ranking_list",
       "response_data.ranking_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "ranking.eventLiveDetail": {
     "module": "ranking",
@@ -10384,7 +11625,9 @@
       "response_data.live_detail",
       "response_data.rank",
       "response_data.score"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "ranking.eventPlayer": {
     "module": "ranking",
@@ -10421,7 +11664,9 @@
       "response_data.my_info",
       "response_data.ranking_list",
       "response_data.ranking_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "ranking.live": {
     "module": "ranking",
@@ -10462,7 +11707,9 @@
       "response_data.page",
       "response_data.rank",
       "response_data.total_cnt"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "ranking.player": {
     "module": "ranking",
@@ -10479,7 +11726,11 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.items",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10488,7 +11739,17 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.items",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
+    "static_extracted_unverified": [
+      "response_data.items",
+      "response_data.page",
+      "response_data.total_cnt"
+    ],
+    "static_extracted_verified": []
   },
   "reward.adReward": {
     "module": "reward",
@@ -10506,7 +11767,9 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.ad_status"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10516,8 +11779,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.ad_status",
       "response_data.reward_list"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.ad_status"
+    ],
+    "static_extracted_verified": []
   },
   "reward.exchange": {
     "module": "reward",
@@ -10554,7 +11822,9 @@
       "response_data.after_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "reward.exchangeList": {
     "module": "reward",
@@ -10595,7 +11865,9 @@
       "response_data.exchange_list.[1]",
       "response_data.exchange_point_list",
       "response_data.exchange_point_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "reward.open": {
     "module": "reward",
@@ -10681,7 +11953,9 @@
       "response_data.unaccomplished_achievement_cnt",
       "response_data.unit_support_list",
       "response_data.unit_support_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "reward.openAll": {
     "module": "reward",
@@ -10741,7 +12015,9 @@
       "response_data.opened_num",
       "response_data.reward_item_list",
       "response_data.total_num"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "reward.rewardHistory": {
     "module": "reward",
@@ -10758,7 +12034,12 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.end",
+      "response_data.history",
+      "response_data.item_count",
+      "response_data.kill"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10767,7 +12048,19 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.end",
+      "response_data.history",
+      "response_data.item_count",
+      "response_data.kill"
+    ],
+    "static_extracted_unverified": [
+      "response_data.end",
+      "response_data.history",
+      "response_data.item_count",
+      "response_data.kill"
+    ],
+    "static_extracted_verified": []
   },
   "reward.rewardList": {
     "module": "reward",
@@ -10802,7 +12095,9 @@
       "response_data.ad_info",
       "response_data.item_count",
       "response_data.items"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "reward.sellUnit": {
     "module": "reward",
@@ -10852,7 +12147,9 @@
       "response_data.get_exchange_point_list",
       "response_data.reward_box_flag",
       "response_data.total"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "reward.useLotteryTicket": {
     "module": "reward",
@@ -10889,7 +12186,9 @@
       "response_data.after_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "rlive.continue": {
     "module": "rlive",
@@ -10930,7 +12229,9 @@
       "response_data.live_info",
       "response_data.live_info.[1]",
       "response_data.token"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "rlive.gameover": {
     "module": "rlive",
@@ -10959,7 +12260,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "rlive.lot": {
     "module": "rlive",
@@ -10978,7 +12281,11 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.energy_full_time",
+      "response_data.license_recover_end_time",
+      "response_data.over_max_energy"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10988,9 +12295,18 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.energy_full_time",
+      "response_data.license_recover_end_time",
       "response_data.live_info",
-      "response_data.live_info.live_difficulty_id"
-    ]
+      "response_data.live_info.live_difficulty_id",
+      "response_data.over_max_energy"
+    ],
+    "static_extracted_unverified": [
+      "response_data.energy_full_time",
+      "response_data.license_recover_end_time",
+      "response_data.over_max_energy"
+    ],
+    "static_extracted_verified": []
   },
   "rlive.play": {
     "module": "rlive",
@@ -11033,7 +12349,9 @@
       "response_data.live_list.[1]",
       "response_data.rank_info",
       "response_data.rank_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "rlive.reward": {
     "module": "rlive",
@@ -11119,7 +12437,9 @@
       "response_data.unlocked_multi_unit_scenario_ids.[1]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "scenario.reward": {
     "module": "scenario",
@@ -11193,7 +12513,9 @@
       "response_data.next_level_info.[1]",
       "response_data.unaccomplished_achievement_cnt",
       "response_data.unlock_random_live"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "scenario.scenarioStatus": {
     "module": "scenario",
@@ -11228,7 +12550,9 @@
     "runtime_accessed_keys": [
       "response_data.scenario_status_list",
       "response_data.scenario_status_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "scenario.startup": {
     "module": "scenario",
@@ -11259,7 +12583,9 @@
     "runtime_accessed_keys": [
       "response_data.scenario_adjustment",
       "response_data.scenario_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.all": {
     "module": "secretbox",
@@ -11306,7 +12632,9 @@
       "response_data.member_category_list",
       "response_data.member_category_list.[1]",
       "response_data.use_cache"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.knapsackReset": {
     "module": "secretbox",
@@ -11335,7 +12663,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.secret_box_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.knapsackSelect": {
     "module": "secretbox",
@@ -11361,7 +12691,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.multi": {
     "module": "secretbox",
@@ -11427,7 +12759,9 @@
       "response_data.secret_box_items",
       "response_data.secret_box_items.unit",
       "response_data.secret_box_items.unit.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.pon": {
     "module": "secretbox",
@@ -11525,7 +12859,9 @@
       "response_data.secret_box_items.unit.[1]",
       "response_data.secret_box_parcel_type",
       "response_data.unaccomplished_achievement_cnt"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.selectPickUp": {
     "module": "secretbox",
@@ -11554,7 +12890,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.selectUnit": {
     "module": "secretbox",
@@ -11580,7 +12918,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.showDetail": {
     "module": "secretbox",
@@ -11619,7 +12959,9 @@
       "response_data.unit_line_up",
       "response_data.unit_line_up.[1]",
       "response_data.url"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "secretbox.stampDetail": {
     "module": "secretbox",
@@ -11637,7 +12979,16 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.button_type_unit_line_up",
+      "response_data.draw_count",
+      "response_data.draw_count_unit_line_up",
+      "response_data.knapsack_unit_line_up",
+      "response_data.pick_up_boost_unit_line_up",
+      "response_data.rule_url",
+      "response_data.unit_line_up",
+      "response_data.url"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -11647,8 +12998,27 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.stamp_detail"
-    ]
+      "response_data.button_type_unit_line_up",
+      "response_data.draw_count",
+      "response_data.draw_count_unit_line_up",
+      "response_data.knapsack_unit_line_up",
+      "response_data.pick_up_boost_unit_line_up",
+      "response_data.rule_url",
+      "response_data.stamp_detail",
+      "response_data.unit_line_up",
+      "response_data.url"
+    ],
+    "static_extracted_unverified": [
+      "response_data.button_type_unit_line_up",
+      "response_data.draw_count",
+      "response_data.draw_count_unit_line_up",
+      "response_data.knapsack_unit_line_up",
+      "response_data.pick_up_boost_unit_line_up",
+      "response_data.rule_url",
+      "response_data.unit_line_up",
+      "response_data.url"
+    ],
+    "static_extracted_verified": []
   },
   "skit.skitInfo": {
     "module": "skit",
@@ -11683,7 +13053,9 @@
     "runtime_accessed_keys": [
       "response_data.skit_list",
       "response_data.skit_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "sns.addReward": {
     "module": "sns",
@@ -11720,7 +13092,9 @@
       "response_data.after_user_info",
       "response_data.reward_list",
       "response_data.reward_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "sns.getReward": {
     "module": "sns",
@@ -11757,7 +13131,9 @@
       "response_data.after_user_info",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "stamp.set": {
     "module": "stamp",
@@ -11783,7 +13159,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "stamp.stampInfo": {
     "module": "stamp",
@@ -11829,7 +13207,9 @@
       "response_data.stamp_setting",
       "response_data.stamp_setting.[1]",
       "response_data.stamp_setting.[1].setting_list"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "subscenario.reward": {
     "module": "subscenario",
@@ -11895,7 +13275,9 @@
       "response_data.new_achievement_cnt",
       "response_data.next_level_info",
       "response_data.next_level_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "subscenario.startup": {
     "module": "subscenario",
@@ -11926,7 +13308,9 @@
     "runtime_accessed_keys": [
       "response_data.scenario_adjustment",
       "response_data.subscenario_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "subscenario.subscenarioStatus": {
     "module": "subscenario",
@@ -11976,7 +13360,9 @@
       "response_data.subscenario_status_list.[1].subscenario_id",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "tos.tosAgree": {
     "module": "tos",
@@ -11993,7 +13379,10 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.is_agreed",
+      "response_data.tos_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -12002,7 +13391,15 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.is_agreed",
+      "response_data.tos_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.is_agreed",
+      "response_data.tos_id"
+    ],
+    "static_extracted_verified": []
   },
   "tos.tosCheck": {
     "module": "tos",
@@ -12033,7 +13430,9 @@
     "runtime_accessed_keys": [
       "response_data.is_agreed",
       "response_data.tos_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "tutorial.progress": {
     "module": "tutorial",
@@ -12059,7 +13458,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "tutorial.skip": {
     "module": "tutorial",
@@ -12085,7 +13486,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.accessoryAll": {
     "module": "unit",
@@ -12128,7 +13531,9 @@
       "response_data.especial_create_flag",
       "response_data.wearing_info",
       "response_data.wearing_info.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.accessoryMaterialAll": {
     "module": "unit",
@@ -12163,7 +13568,9 @@
     "runtime_accessed_keys": [
       "response_data.accessory_material_list",
       "response_data.accessory_material_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.accessoryTab": {
     "module": "unit",
@@ -12198,7 +13605,9 @@
     "runtime_accessed_keys": [
       "response_data.tab_list",
       "response_data.tab_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.activate": {
     "module": "unit",
@@ -12215,7 +13624,12 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -12224,7 +13638,19 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
+    "static_extracted_unverified": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
+    "static_extracted_verified": []
   },
   "unit.changeDelegate": {
     "module": "unit",
@@ -12275,7 +13701,9 @@
       "response_data.before.unit_owning_user_id",
       "response_data.unit_removable_skill",
       "response_data.unit_removable_skill.owning_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.createAccessory": {
     "module": "unit",
@@ -12318,7 +13746,9 @@
       "response_data.get_exchange_point_list",
       "response_data.unit_removable_skill",
       "response_data.unit_removable_skill.owning_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.deck": {
     "module": "unit",
@@ -12353,7 +13783,9 @@
     "runtime_accessed_keys": [
       "response_data.unit_deck_list",
       "response_data.unit_deck_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.deckInfo": {
     "module": "unit",
@@ -12390,7 +13822,9 @@
       "response_data.active_deck_index",
       "response_data.unit_deck_list",
       "response_data.unit_deck_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.deckName": {
     "module": "unit",
@@ -12416,7 +13850,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.exchangePointRankUp": {
     "module": "unit",
@@ -12471,7 +13907,9 @@
       "response_data.before_user_info",
       "response_data.new_achievement_cnt",
       "response_data.unaccomplished_achievement_cnt"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.favorite": {
     "module": "unit",
@@ -12488,7 +13926,12 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -12497,7 +13940,19 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
+    "static_extracted_unverified": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
+    "static_extracted_verified": []
   },
   "unit.favoriteAccessory": {
     "module": "unit",
@@ -12523,7 +13978,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.maxLevelUp": {
     "module": "unit",
@@ -12542,7 +13999,12 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.active",
+      "response_data.display_rank",
+      "response_data.max_level",
+      "response_data.waiting"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -12552,9 +14014,20 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.active",
       "response_data.after",
-      "response_data.after.max_level"
-    ]
+      "response_data.after.max_level",
+      "response_data.display_rank",
+      "response_data.max_level",
+      "response_data.waiting"
+    ],
+    "static_extracted_unverified": [
+      "response_data.active",
+      "response_data.display_rank",
+      "response_data.max_level",
+      "response_data.waiting"
+    ],
+    "static_extracted_verified": []
   },
   "unit.merge": {
     "module": "unit",
@@ -12624,7 +14097,9 @@
       "response_data.unlocked_multi_unit_scenario_ids.[1]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.mergeAccessory": {
     "module": "unit",
@@ -12662,7 +14137,9 @@
       "response_data.after.accessory_owning_user_id",
       "response_data.after_user_info",
       "response_data.after_user_info.game_coin"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.rankUp": {
     "module": "unit",
@@ -12719,7 +14196,9 @@
       "response_data.get_exchange_point_list",
       "response_data.unit_removable_skill",
       "response_data.unit_removable_skill.owning_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.removableSkillEquipment": {
     "module": "unit",
@@ -12748,7 +14227,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.removableSkillInfo": {
     "module": "unit",
@@ -12790,7 +14271,9 @@
       "response_data.owning_info",
       "response_data.owning_info.[1]",
       "response_data.owning_info.[1].unit_removable_skill_id"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.removableSkillRankUp": {
     "module": "unit",
@@ -12835,7 +14318,9 @@
       "response_data.after_user_info.license_recover_end_time",
       "response_data.after_user_info.over_max_energy",
       "response_data.owning_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.removableSkillSell": {
     "module": "unit",
@@ -12864,7 +14349,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.sale": {
     "module": "unit",
@@ -12912,7 +14399,9 @@
       "response_data.reward_box_flag",
       "response_data.unit_removable_skill",
       "response_data.unit_removable_skill.owning_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.saleAccessory": {
     "module": "unit",
@@ -12946,7 +14435,9 @@
     "runtime_accessed_keys": [
       "response_data.after_user_info",
       "response_data.after_user_info.game_coin"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.setDisplayRank": {
     "module": "unit",
@@ -12977,7 +14468,9 @@
     "runtime_accessed_keys": [
       "response_data.after",
       "response_data.after.display_rank"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.supporterAll": {
     "module": "unit",
@@ -12997,7 +14490,12 @@
     "runtime_discovered": [
       "response_data.unit_support_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.unit_support_list"
     ],
@@ -13010,9 +14508,20 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
       "response_data.unit_support_list",
-      "response_data.unit_support_list.[1]"
-    ]
+      "response_data.unit_support_list.[1]",
+      "response_data.waiting"
+    ],
+    "static_extracted_unverified": [
+      "response_data.active",
+      "response_data.after",
+      "response_data.display_rank",
+      "response_data.waiting"
+    ],
+    "static_extracted_verified": []
   },
   "unit.unitAll": {
     "module": "unit",
@@ -13053,7 +14562,9 @@
       "response_data.active.[1]",
       "response_data.waiting",
       "response_data.waiting.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.wait": {
     "module": "unit",
@@ -13084,7 +14595,9 @@
     "runtime_accessed_keys": [
       "response_data.unit_removable_skill",
       "response_data.unit_removable_skill.owning_info"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "unit.wearAccessory": {
     "module": "unit",
@@ -13113,7 +14626,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.abortDelete": {
     "module": "user",
@@ -13139,7 +14654,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.addFriendMax": {
     "module": "user",
@@ -13158,7 +14675,9 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.after_unit_max"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -13169,8 +14688,13 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_friend_max",
+      "response_data.after_unit_max",
       "response_data.used_loveca"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.after_unit_max"
+    ],
+    "static_extracted_verified": []
   },
   "user.addUnitMax": {
     "module": "user",
@@ -13189,7 +14713,9 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.after_friend_max"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -13199,9 +14725,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.after_friend_max",
       "response_data.after_unit_max",
       "response_data.used_loveca"
-    ]
+    ],
+    "static_extracted_unverified": [
+      "response_data.after_friend_max"
+    ],
+    "static_extracted_verified": []
   },
   "user.changeName": {
     "module": "user",
@@ -13220,7 +14751,9 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.tos_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -13231,8 +14764,13 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_name",
-      "response_data.before_name"
-    ]
+      "response_data.before_name",
+      "response_data.tos_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.tos_id"
+    ],
+    "static_extracted_verified": []
   },
   "user.changeNavi": {
     "module": "user",
@@ -13261,7 +14799,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.getNavi": {
     "module": "user",
@@ -13290,7 +14830,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.user"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.reserveDelete": {
     "module": "user",
@@ -13316,7 +14858,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.setBirth": {
     "module": "user",
@@ -13345,7 +14889,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.is_today_birthday"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.setNotification": {
     "module": "user",
@@ -13371,7 +14917,9 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": []
+    "runtime_accessed_keys": [],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.setNotificationToken": {
     "module": "user",
@@ -13400,7 +14948,9 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.result"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.showAllItem": {
     "module": "user",
@@ -13435,7 +14985,9 @@
     "runtime_accessed_keys": [
       "response_data.item_list",
       "response_data.item_list.[1]"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   },
   "user.userInfo": {
     "module": "user",
@@ -13481,6 +15033,8 @@
       "response_data.user.energy_max",
       "response_data.user.lp_recovery_item",
       "response_data.user.sns_coin"
-    ]
+    ],
+    "static_extracted_unverified": [],
+    "static_extracted_verified": []
   }
 }
