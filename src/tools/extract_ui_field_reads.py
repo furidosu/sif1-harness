@@ -182,23 +182,148 @@ def find_function_bodies(text: str):
         yield name, first_arg, i, end_line, lines[i:end_line + 1]
 
 
-def build_named_function_index(text: str) -> dict[str, tuple[str, list[str]]]:
-    """Identifier -> (first_arg, body_lines) for every function declaration
-    or local-assignment-of-function in the file. Used by helper-following:
-    when a closure passes a tainted local to `<helper>(<L>)`, we look up
-    <helper> in this index to recurse into its body.
+def build_named_function_index(text: str) -> dict[str, list[tuple[str, list[str], int]]]:
+    """Identifier -> list of (first_arg, body_lines, start_line) for every
+    function declaration or local-assignment-of-function in the file.
 
-    Decompiled bytecode tends to reuse the same local names across many
-    function definitions, so later defs OVERWRITE earlier ones. That's
-    fine for our purposes -- we want the most recently defined body for a
-    given identifier in file order, which is usually the right one when
-    the call site appears further down the file.
+    Returns a LIST per name (decompiled bytecode reuses local names
+    heavily; a single name like `L10_1` is often bound to many distinct
+    function bodies throughout a file). `start_line` lets the caller
+    pick the definition that was current at a particular point in source
+    order -- e.g. `M.initialize = L10_1 @ line 284` captured whichever
+    L10_1 body was most-recently defined BEFORE line 284.
     """
-    out: dict[str, tuple[str, list[str]]] = {}
-    for name, first_arg, _start, _end, body in find_function_bodies(text):
+    out: dict[str, list[tuple[str, list[str], int]]] = {}
+    for name, first_arg, start, _end, body in find_function_bodies(text):
         if name:
-            out[name] = (first_arg, body)
+            out.setdefault(name, []).append((first_arg, body, start))
     return out
+
+
+def pick_body_at_line(
+    bodies: list[tuple[str, list[str], int]],
+    binding_line: int,
+) -> tuple[str, list[str]] | None:
+    """From a list of (arg, body, start_line) tuples, return the one
+    whose start_line is the greatest value <= binding_line. That's
+    the definition the name held when `binding_line` was processed.
+    Returns None if no body precedes binding_line.
+    """
+    best: tuple[str, list[str], int] | None = None
+    for entry in bodies:
+        if entry[2] <= binding_line and (best is None or entry[2] > best[2]):
+            best = entry
+    if best is None:
+        return None
+    return (best[0], best[1])
+
+
+# Decompiled-bytecode pattern matchers for cache-listener detection.
+# `<X> = "$cacheKey"` -- captures (local, key).
+CACHE_KEY_ASSIGN_RE = re.compile(r'^\s*(?:local\s+)?(\w+)\s*=\s*"(\$\w+)"\s*$')
+# `<class>.<field> = <ident>` -- tracks `M.initialize = L10_1`-style
+# class-field bindings so we can resolve `M.initialize` to L10_1.
+CLASS_FIELD_BIND_RE = re.compile(r'^\s*(\w+)\.(\w+)\s*=\s*(\w+)\s*$')
+
+
+def find_cache_listener_fn_idents(
+    text: str,
+    cache_key: str,
+    file_fn_index: dict[str, list[tuple[str, list[str], int]]],
+) -> list[tuple[str, list[str]]]:
+    """For `cache_key`, return identifiers in `file_fn_index` that are
+    registered as listeners via `Cachable.addListener(<cache_key>, fn)`.
+
+    Decompiled pattern:
+        L10_1 = L3_1.addListener      -- method-ref into local
+        L11_1 = "$arenaMatching"      -- cache_key literal into local
+        L12_1 = L8_1.initialize       -- fn-ref into local
+        L10_1(L11_1, L12_1)           -- the call
+
+    We resolve by:
+      1. Finding lines that contain the cache_key string literal.
+      2. Looking in a window around each occurrence for an `addListener`
+         token.
+      3. Collecting function-ident candidates from the window: identifiers
+         that appear directly in `file_fn_index`, AND class-field bindings
+         like `M.initialize = LX_Y` where LX_Y is in `file_fn_index`.
+
+    Caller harvests EACH candidate body in subtree mode; the corpus
+    filter catches noise from over-collection.
+    """
+    if not cache_key or not cache_key.startswith("$"):
+        return []
+    lines = text.splitlines()
+    stripped = [strip_noise(line) for line in lines]
+    cache_str_lit = f'"{cache_key}"'
+    results: list[tuple[str, list[str]]] = []
+    seen_starts: set[int] = set()
+
+    # Build a list of `<Class>.<field> = <ident>` bindings WITH their
+    # source line numbers. Decompiled bytecode reuses names, so the same
+    # binding can recur with different idents/lines; keep all.
+    field_bindings: list[tuple[str, str, str, int]] = []  # (cls, field, ident, line)
+    for line_i, s in enumerate(stripped):
+        cb = CLASS_FIELD_BIND_RE.match(s)
+        if cb and cb.group(3) in file_fn_index:
+            field_bindings.append(
+                (cb.group(1), cb.group(2), cb.group(3), line_i)
+            )
+
+    def resolve_body(ident: str, binding_line: int) -> tuple[str, list[str]] | None:
+        bodies = file_fn_index.get(ident)
+        if not bodies:
+            return None
+        return pick_body_at_line(bodies, binding_line)
+
+    # Locate the cache_key string literal on RAW lines (strip_noise blanks
+    # string contents, so the literal wouldn't survive in stripped view).
+    # Use a TIGHT window (the addListener call typically appears within
+    # 2-3 lines of the cache_key string literal in decompiled output).
+    for i, raw in enumerate(lines):
+        if cache_str_lit not in raw:
+            continue
+        lo = max(0, i - 4)
+        hi = min(len(lines), i + 6)
+        window = stripped[lo:hi]
+        window_text = "\n".join(window)
+        if "addListener" not in window_text:
+            continue
+
+        # The addListener call is the anchor for "which definition was
+        # current". Find its line within the window.
+        call_line = i
+        for j in range(lo, hi):
+            if "addListener" in stripped[j]:
+                call_line = j
+                break
+
+        # Candidate idents in the window. Pick the definition that was
+        # most recently defined before `call_line`.
+        cand_idents: set[str] = set()
+        for ident in re.findall(r"\b(\w+)\b", window_text):
+            if ident in file_fn_index:
+                cand_idents.add(ident)
+        for cw in re.finditer(r"\b(\w+)\.(\w+)\b", window_text):
+            # Look up via field_bindings: the field binding's IDENT is
+            # the listener body. Use the binding line to pick the
+            # ident's correct definition.
+            cls, field = cw.group(1), cw.group(2)
+            for bcls, bfield, bident, bline in field_bindings:
+                if (bcls == cls and bfield == field) or bfield == field:
+                    body = resolve_body(bident, bline)
+                    if body is not None and id(body[1]) not in seen_starts:
+                        seen_starts.add(id(body[1]))
+                        results.append(body)
+                    break
+
+        for ident in cand_idents:
+            body = resolve_body(ident, call_line)
+            if body is not None and id(body[1]) not in seen_starts:
+                seen_starts.add(id(body[1]))
+                results.append(body)
+
+    return results
 
 
 # Generic `<callee>(<arg_list>)` matcher used for helper-following. Captures
@@ -331,6 +456,11 @@ def harvest_one_function(
                     (resolved, dict(taint), {"first_arg": first_arg})
                 )
 
+    # Recurse into queued helper calls. Each helper-name in file_fn_index
+    # may bind to MULTIPLE definitions (decompiler reuses names); harvest
+    # the first one (earliest def, typically the one captured by a
+    # class-field assignment right after).
+
         # (5) ASSIGNMENT-BASED TAINT UPDATES. Order matters: check the
         # most specific patterns first.
         #
@@ -408,13 +538,18 @@ def harvest_one_function(
                 alias_map = dict(alias_map)
                 del alias_map[lhs]
 
-    # Recurse into queued helper calls. Outer taint is already finalized;
-    # each helper gets its own subtree-mode harvest.
+    # Recurse into queued helper calls. file_fn_index maps each name to
+    # a LIST of (arg, body, start_line) (decompiler reuses local names);
+    # harvest the FIRST definition -- earliest in file, typically the
+    # one captured by a class-field assignment right after.
     for resolved, taint_snapshot, info in pending_recurse:
         first_arg = info["first_arg"]
         if first_arg not in taint_snapshot:
             continue
-        helper_arg, helper_body = file_fn_index[resolved]
+        bodies = file_fn_index.get(resolved) or []
+        if not bodies:
+            continue
+        helper_arg, helper_body = bodies[0][0], bodies[0][1]
         new_visited = visited | {resolved}
         sub_fields = harvest_one_function(
             helper_arg,
@@ -527,17 +662,33 @@ def extract_for_endpoint(
             text = fp.read_text(errors="replace")
         except OSError:
             continue
-        # File-wide function index for helper-following.
+        # File-wide function index for helper-following + listener detection.
         fn_index = build_named_function_index(text)
         file_fields: set[str] = set()
+
+        # Pass 1: closure-anchored harvest. For each inner
+        # `function(arg) ... arg.response_data` site, harvest fields.
         for _name, arg_name, _start, _end, body in find_function_bodies(text):
-            # Pre-check: skip the body unless it contains the response_data
-            # anchor at all. Faster than running the full harvester.
             if "response_data" not in "".join(body):
                 continue
             file_fields |= harvest_one_function(
                 arg_name, body, file_fn_index=fn_index
             )
+
+        # Pass 2: cache-listener harvest. Functions registered via
+        # `Cachable.addListener("$cacheKey", fn)` receive response_data
+        # DIRECTLY (not the envelope) as their first arg, so they don't
+        # match the closure anchor's `arg.response_data` pattern. The
+        # detector returns concrete (arg, body) tuples already resolved
+        # via line-aware lookup so we pick the right body for names the
+        # decompiler reused across the file.
+        for arg_name, body in find_cache_listener_fn_idents(
+            text, cache_key or "", fn_index
+        ):
+            file_fields |= harvest_one_function(
+                arg_name, body, file_fn_index=fn_index, base_prefix=""
+            )
+
         rel = str(fp.relative_to(SOURCE_ROOT))
         if file_fields:
             per_file[rel] = sorted(file_fields)

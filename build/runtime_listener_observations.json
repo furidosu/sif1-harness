@@ -405,13 +405,13 @@
       "response_data.unit_list.recorded",
       "response_data.unit_list.unit_id"
     ],
-    "static_extracted_unverified": [
+    "static_extracted_unverified": [],
+    "static_extracted_verified": [
       "response_data.series_id",
       "response_data.unit_list",
       "response_data.unit_list.recorded",
       "response_data.unit_list.unit_id"
-    ],
-    "static_extracted_verified": []
+    ]
   },
   "announce.checkState": {
     "module": "announce",
@@ -429,7 +429,13 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.add_unit_start_date",
+      "response_data.back_side",
+      "response_data.banner_id",
+      "response_data.end_date",
+      "response_data.start_date"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -439,9 +445,20 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.has_unread_announce"
+      "response_data.add_unit_start_date",
+      "response_data.back_side",
+      "response_data.banner_id",
+      "response_data.end_date",
+      "response_data.has_unread_announce",
+      "response_data.start_date"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.add_unit_start_date",
+      "response_data.back_side",
+      "response_data.banner_id",
+      "response_data.end_date",
+      "response_data.start_date"
+    ],
     "static_extracted_verified": []
   },
   "area.addReward": {
@@ -989,7 +1006,13 @@
     "runtime_discovered": [
       "response_data.matching_user.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.auto_flag",
+      "response_data.expiration_date",
+      "response_data.expiration_date.position",
+      "response_data.live_difficulty_id",
+      "response_data.matching_user.npc_info"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.matching_user"
     ],
@@ -1002,10 +1025,21 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.auto_flag",
+      "response_data.expiration_date",
+      "response_data.expiration_date.position",
+      "response_data.live_difficulty_id",
       "response_data.matching_user",
-      "response_data.matching_user.[1]"
+      "response_data.matching_user.[1]",
+      "response_data.matching_user.npc_info"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.auto_flag",
+      "response_data.expiration_date",
+      "response_data.expiration_date.position",
+      "response_data.live_difficulty_id",
+      "response_data.matching_user.npc_info"
+    ],
     "static_extracted_verified": []
   },
   "arena.moveUpStage": {
@@ -3024,7 +3058,6 @@
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
       "response_data.items",
-      "response_data.items.page",
       "response_data.page",
       "response_data.total_cnt"
     ],
@@ -3038,13 +3071,11 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.items",
-      "response_data.items.page",
       "response_data.page",
       "response_data.total_cnt"
     ],
     "static_extracted_unverified": [
       "response_data.items",
-      "response_data.items.page",
       "response_data.page",
       "response_data.total_cnt"
     ],
@@ -4114,6 +4145,7 @@
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
+      "response_data.asset_path",
       "response_data.concert_list",
       "response_data.concert_list.concert_set_list_setting_id",
       "response_data.concert_list.live_list",
@@ -4121,7 +4153,8 @@
       "response_data.concert_list.live_list.is_released",
       "response_data.concert_list.live_list.is_unlocked",
       "response_data.concert_list.live_list.play_number",
-      "response_data.concert_list.next_play_number"
+      "response_data.concert_list.next_play_number",
+      "response_data.description_asset"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -4132,6 +4165,7 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.asset_path",
       "response_data.can_reset",
       "response_data.concert_list",
       "response_data.concert_list.concert_set_list_setting_id",
@@ -4141,9 +4175,11 @@
       "response_data.concert_list.live_list.is_unlocked",
       "response_data.concert_list.live_list.play_number",
       "response_data.concert_list.next_play_number",
+      "response_data.description_asset",
       "response_data.voltage_point"
     ],
     "static_extracted_unverified": [
+      "response_data.asset_path",
       "response_data.concert_list",
       "response_data.concert_list.concert_set_list_setting_id",
       "response_data.concert_list.live_list",
@@ -4151,7 +4187,8 @@
       "response_data.concert_list.live_list.is_released",
       "response_data.concert_list.live_list.is_unlocked",
       "response_data.concert_list.live_list.play_number",
-      "response_data.concert_list.next_play_number"
+      "response_data.concert_list.next_play_number",
+      "response_data.description_asset"
     ],
     "static_extracted_verified": []
   },
@@ -5149,8 +5186,6 @@
       "response_data.difficulty",
       "response_data.entry_token",
       "response_data.error_code",
-      "response_data.error_code.condition",
-      "response_data.error_code.status",
       "response_data.exist",
       "response_data.is_full",
       "response_data.matching_user",
@@ -5169,8 +5204,6 @@
       "response_data.difficulty",
       "response_data.entry_token",
       "response_data.error_code",
-      "response_data.error_code.condition",
-      "response_data.error_code.status",
       "response_data.exist",
       "response_data.is_full",
       "response_data.matching_user",
@@ -5181,8 +5214,6 @@
       "response_data.difficulty",
       "response_data.entry_token",
       "response_data.error_code",
-      "response_data.error_code.condition",
-      "response_data.error_code.status",
       "response_data.exist",
       "response_data.is_full",
       "response_data.matching_user",
@@ -5375,8 +5406,6 @@
     "runtime_discovered_field_names": [
       "response_data.entry_token",
       "response_data.error_code",
-      "response_data.error_code.condition",
-      "response_data.error_code.status",
       "response_data.matching_user"
     ],
     "runtime_list_shaped_fields": [],
@@ -5390,8 +5419,6 @@
     "runtime_accessed_keys": [
       "response_data.entry_token",
       "response_data.error_code",
-      "response_data.error_code.condition",
-      "response_data.error_code.status",
       "response_data.matching_user",
       "response_data.room_id",
       "response_data.status"
@@ -5399,8 +5426,6 @@
     "static_extracted_unverified": [
       "response_data.entry_token",
       "response_data.error_code",
-      "response_data.error_code.condition",
-      "response_data.error_code.status",
       "response_data.matching_user"
     ],
     "static_extracted_verified": []
@@ -6603,7 +6628,11 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.add_unit_start_date",
+      "response_data.back_side",
+      "response_data.banner_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -6612,8 +6641,16 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": [],
-    "static_extracted_unverified": [],
+    "runtime_accessed_keys": [
+      "response_data.add_unit_start_date",
+      "response_data.back_side",
+      "response_data.banner_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.add_unit_start_date",
+      "response_data.back_side",
+      "response_data.banner_id"
+    ],
     "static_extracted_verified": []
   },
   "eventscenario.reward": {
@@ -7162,11 +7199,16 @@
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
+      "response_data.after_friend_max",
+      "response_data.after_user_info",
       "response_data.available_mission_bonus_list",
+      "response_data.event_info",
       "response_data.festival",
       "response_data.festival.event_festival_live_list",
       "response_data.festival.event_festival_live_list.live_difficulty_id",
-      "response_data.festival_previous_item_ids"
+      "response_data.festival_previous_item_ids",
+      "response_data.item_id",
+      "response_data.used_loveca"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -7177,19 +7219,29 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.after_friend_max",
+      "response_data.after_user_info",
       "response_data.available_mission_bonus_list",
+      "response_data.event_info",
       "response_data.festival",
       "response_data.festival.event_festival_live_list",
       "response_data.festival.event_festival_live_list.live_difficulty_id",
       "response_data.festival_previous_item_ids",
-      "response_data.live_track_ids"
+      "response_data.item_id",
+      "response_data.live_track_ids",
+      "response_data.used_loveca"
     ],
     "static_extracted_unverified": [
+      "response_data.after_friend_max",
+      "response_data.after_user_info",
       "response_data.available_mission_bonus_list",
+      "response_data.event_info",
       "response_data.festival",
       "response_data.festival.event_festival_live_list",
       "response_data.festival.event_festival_live_list.live_difficulty_id",
-      "response_data.festival_previous_item_ids"
+      "response_data.festival_previous_item_ids",
+      "response_data.item_id",
+      "response_data.used_loveca"
     ],
     "static_extracted_verified": []
   },
@@ -7375,7 +7427,11 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.after_exchange_point",
+      "response_data.after_user_info",
+      "response_data.background_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -7385,10 +7441,17 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.after_exchange_point",
+      "response_data.after_user_info",
       "response_data.available_live_resume",
+      "response_data.background_info",
       "response_data.live_info"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.after_exchange_point",
+      "response_data.after_user_info",
+      "response_data.background_info"
+    ],
     "static_extracted_verified": []
   },
   "friend.expel": {
@@ -7470,7 +7533,12 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -7480,9 +7548,18 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
-      "response_data.is_friend"
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.is_friend",
+      "response_data.item_id",
+      "response_data.item_list"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list"
+    ],
     "static_extracted_verified": []
   },
   "friend.requestCancel": {
@@ -7729,7 +7806,13 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.get_exchange_point_list",
+      "response_data.item_id",
+      "response_data.item_list"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -7739,9 +7822,20 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.get_exchange_point_list",
+      "response_data.item_id",
+      "response_data.item_list",
       "response_data.result"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.get_exchange_point_list",
+      "response_data.item_id",
+      "response_data.item_list"
+    ],
     "static_extracted_verified": []
   },
   "greet.user": {
@@ -8852,7 +8946,10 @@
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
-      "response_data.available_live_resume"
+      "response_data.available_live_resume",
+      "response_data.event_info",
+      "response_data.item_list",
+      "response_data.marathon_event_id"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -8865,10 +8962,16 @@
     "runtime_accessed_keys": [
       "response_data.after_sns_coin",
       "response_data.after_user_info",
-      "response_data.available_live_resume"
+      "response_data.available_live_resume",
+      "response_data.event_info",
+      "response_data.item_list",
+      "response_data.marathon_event_id"
     ],
     "static_extracted_unverified": [
-      "response_data.available_live_resume"
+      "response_data.available_live_resume",
+      "response_data.event_info",
+      "response_data.item_list",
+      "response_data.marathon_event_id"
     ],
     "static_extracted_verified": []
   },
@@ -10026,9 +10129,20 @@
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
+      "response_data.after_user_info",
+      "response_data.energy_full_time",
+      "response_data.energy_full_time.add_type",
+      "response_data.event_info",
+      "response_data.get_exchange_point_list",
       "response_data.has_next",
       "response_data.item_count",
-      "response_data.notice_list.filter_id"
+      "response_data.item_id",
+      "response_data.item_list",
+      "response_data.level",
+      "response_data.level.add_type",
+      "response_data.license_recover_end_time",
+      "response_data.notice_list.filter_id",
+      "response_data.over_max_energy"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -10041,16 +10155,38 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.after_user_info",
+      "response_data.energy_full_time",
+      "response_data.energy_full_time.add_type",
+      "response_data.event_info",
+      "response_data.get_exchange_point_list",
       "response_data.has_next",
       "response_data.item_count",
+      "response_data.item_id",
+      "response_data.item_list",
+      "response_data.level",
+      "response_data.level.add_type",
+      "response_data.license_recover_end_time",
       "response_data.next_id",
       "response_data.notice_list",
-      "response_data.notice_list.filter_id"
+      "response_data.notice_list.filter_id",
+      "response_data.over_max_energy"
     ],
     "static_extracted_unverified": [
+      "response_data.after_user_info",
+      "response_data.energy_full_time",
+      "response_data.energy_full_time.add_type",
+      "response_data.event_info",
+      "response_data.get_exchange_point_list",
       "response_data.has_next",
       "response_data.item_count",
-      "response_data.notice_list.filter_id"
+      "response_data.item_id",
+      "response_data.item_list",
+      "response_data.level",
+      "response_data.level.add_type",
+      "response_data.license_recover_end_time",
+      "response_data.notice_list.filter_id",
+      "response_data.over_max_energy"
     ],
     "static_extracted_verified": []
   },
@@ -10191,7 +10327,31 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.reason",
+      "response_data.unit_deck",
+      "response_data.unit_deck.cool_plus",
+      "response_data.unit_deck.cute_plus",
+      "response_data.unit_deck.deck_info",
+      "response_data.unit_deck.deck_info.total_cool",
+      "response_data.unit_deck.deck_info.total_cute",
+      "response_data.unit_deck.deck_info.total_hp",
+      "response_data.unit_deck.deck_info.total_smile",
+      "response_data.unit_deck.hp_plus",
+      "response_data.unit_deck.main_flag",
+      "response_data.unit_deck.smile_plus",
+      "response_data.unit_deck.subtotal_cool",
+      "response_data.unit_deck.subtotal_cute",
+      "response_data.unit_deck.subtotal_hp",
+      "response_data.unit_deck.subtotal_smile",
+      "response_data.unit_deck.unit_deck_detail",
+      "response_data.unit_deck.unit_list",
+      "response_data.unit_deck.unit_list.owning_unit_ref",
+      "response_data.unit_deck.unit_list.position",
+      "response_data.unit_deck.unit_list.removable_skill_ids",
+      "response_data.unit_deck.unit_list.status",
+      "response_data.unit_deck.unit_list.unit_owning_user_id"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10200,8 +10360,56 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": [],
-    "static_extracted_unverified": [],
+    "runtime_accessed_keys": [
+      "response_data.reason",
+      "response_data.unit_deck",
+      "response_data.unit_deck.cool_plus",
+      "response_data.unit_deck.cute_plus",
+      "response_data.unit_deck.deck_info",
+      "response_data.unit_deck.deck_info.total_cool",
+      "response_data.unit_deck.deck_info.total_cute",
+      "response_data.unit_deck.deck_info.total_hp",
+      "response_data.unit_deck.deck_info.total_smile",
+      "response_data.unit_deck.hp_plus",
+      "response_data.unit_deck.main_flag",
+      "response_data.unit_deck.smile_plus",
+      "response_data.unit_deck.subtotal_cool",
+      "response_data.unit_deck.subtotal_cute",
+      "response_data.unit_deck.subtotal_hp",
+      "response_data.unit_deck.subtotal_smile",
+      "response_data.unit_deck.unit_deck_detail",
+      "response_data.unit_deck.unit_list",
+      "response_data.unit_deck.unit_list.owning_unit_ref",
+      "response_data.unit_deck.unit_list.position",
+      "response_data.unit_deck.unit_list.removable_skill_ids",
+      "response_data.unit_deck.unit_list.status",
+      "response_data.unit_deck.unit_list.unit_owning_user_id"
+    ],
+    "static_extracted_unverified": [
+      "response_data.reason",
+      "response_data.unit_deck",
+      "response_data.unit_deck.cool_plus",
+      "response_data.unit_deck.cute_plus",
+      "response_data.unit_deck.deck_info",
+      "response_data.unit_deck.deck_info.total_cool",
+      "response_data.unit_deck.deck_info.total_cute",
+      "response_data.unit_deck.deck_info.total_hp",
+      "response_data.unit_deck.deck_info.total_smile",
+      "response_data.unit_deck.hp_plus",
+      "response_data.unit_deck.main_flag",
+      "response_data.unit_deck.smile_plus",
+      "response_data.unit_deck.subtotal_cool",
+      "response_data.unit_deck.subtotal_cute",
+      "response_data.unit_deck.subtotal_hp",
+      "response_data.unit_deck.subtotal_smile",
+      "response_data.unit_deck.unit_deck_detail",
+      "response_data.unit_deck.unit_list",
+      "response_data.unit_deck.unit_list.owning_unit_ref",
+      "response_data.unit_deck.unit_list.position",
+      "response_data.unit_deck.unit_list.removable_skill_ids",
+      "response_data.unit_deck.unit_list.status",
+      "response_data.unit_deck.unit_list.unit_owning_user_id"
+    ],
     "static_extracted_verified": []
   },
   "online.exhibitionResult": {
@@ -11799,7 +12007,15 @@
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
-      "response_data.ad_status"
+      "response_data.ad_status",
+      "response_data.after_user_info",
+      "response_data.background_info",
+      "response_data.event_info",
+      "response_data.event_info.event_id",
+      "response_data.event_info.event_point_info",
+      "response_data.event_info.event_reward_info",
+      "response_data.hi_score",
+      "response_data.reward_item_list"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -11811,10 +12027,26 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.ad_status",
+      "response_data.after_user_info",
+      "response_data.background_info",
+      "response_data.event_info",
+      "response_data.event_info.event_id",
+      "response_data.event_info.event_point_info",
+      "response_data.event_info.event_reward_info",
+      "response_data.hi_score",
+      "response_data.reward_item_list",
       "response_data.reward_list"
     ],
     "static_extracted_unverified": [
-      "response_data.ad_status"
+      "response_data.ad_status",
+      "response_data.after_user_info",
+      "response_data.background_info",
+      "response_data.event_info",
+      "response_data.event_info.event_id",
+      "response_data.event_info.event_point_info",
+      "response_data.event_info.event_reward_info",
+      "response_data.hi_score",
+      "response_data.reward_item_list"
     ],
     "static_extracted_verified": []
   },
@@ -13482,7 +13714,9 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.background_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -13491,8 +13725,12 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": [],
-    "static_extracted_unverified": [],
+    "runtime_accessed_keys": [
+      "response_data.background_info"
+    ],
+    "static_extracted_unverified": [
+      "response_data.background_info"
+    ],
     "static_extracted_verified": []
   },
   "tutorial.skip": {
@@ -14069,7 +14307,19 @@
       "response_data.active",
       "response_data.after.display_rank",
       "response_data.after.unit_skill_exp",
+      "response_data.decks",
+      "response_data.decks.deck_name",
+      "response_data.decks.main_flag",
+      "response_data.decks.unit_deck_detail",
+      "response_data.decks.unit_deck_detail.position",
+      "response_data.main_flag",
+      "response_data.owning_units",
+      "response_data.owning_units.deck_refs",
       "response_data.reward_box_flag",
+      "response_data.unit_deck_detail",
+      "response_data.unit_deck_id",
+      "response_data.unit_owning_user_ids",
+      "response_data.unit_owning_user_ids.unit_owning_user_id",
       "response_data.waiting"
     ],
     "runtime_list_shaped_fields": [],
@@ -14086,14 +14336,38 @@
       "response_data.after.display_rank",
       "response_data.after.max_level",
       "response_data.after.unit_skill_exp",
+      "response_data.decks",
+      "response_data.decks.deck_name",
+      "response_data.decks.main_flag",
+      "response_data.decks.unit_deck_detail",
+      "response_data.decks.unit_deck_detail.position",
+      "response_data.main_flag",
+      "response_data.owning_units",
+      "response_data.owning_units.deck_refs",
       "response_data.reward_box_flag",
+      "response_data.unit_deck_detail",
+      "response_data.unit_deck_id",
+      "response_data.unit_owning_user_ids",
+      "response_data.unit_owning_user_ids.unit_owning_user_id",
       "response_data.waiting"
     ],
     "static_extracted_unverified": [
       "response_data.active",
       "response_data.after.display_rank",
       "response_data.after.unit_skill_exp",
+      "response_data.decks",
+      "response_data.decks.deck_name",
+      "response_data.decks.main_flag",
+      "response_data.decks.unit_deck_detail",
+      "response_data.decks.unit_deck_detail.position",
+      "response_data.main_flag",
+      "response_data.owning_units",
+      "response_data.owning_units.deck_refs",
       "response_data.reward_box_flag",
+      "response_data.unit_deck_detail",
+      "response_data.unit_deck_id",
+      "response_data.unit_owning_user_ids",
+      "response_data.unit_owning_user_ids.unit_owning_user_id",
       "response_data.waiting"
     ],
     "static_extracted_verified": []
@@ -14286,9 +14560,16 @@
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
+      "response_data.after_user_info.insert_date",
       "response_data.after_user_info.skill",
       "response_data.after_user_info.skill.id",
-      "response_data.after_user_info.skill.level"
+      "response_data.is_support_member",
+      "response_data.reward_box_flag",
+      "response_data.unit_list",
+      "response_data.unit_list.is_support_member",
+      "response_data.unit_list.reward_box_flag",
+      "response_data.unit_reward_info",
+      "response_data.unit_support_list"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -14300,14 +14581,28 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info",
+      "response_data.after_user_info.insert_date",
       "response_data.after_user_info.skill",
       "response_data.after_user_info.skill.id",
-      "response_data.after_user_info.skill.level"
+      "response_data.is_support_member",
+      "response_data.reward_box_flag",
+      "response_data.unit_list",
+      "response_data.unit_list.is_support_member",
+      "response_data.unit_list.reward_box_flag",
+      "response_data.unit_reward_info",
+      "response_data.unit_support_list"
     ],
     "static_extracted_unverified": [
+      "response_data.after_user_info.insert_date",
       "response_data.after_user_info.skill",
       "response_data.after_user_info.skill.id",
-      "response_data.after_user_info.skill.level"
+      "response_data.is_support_member",
+      "response_data.reward_box_flag",
+      "response_data.unit_list",
+      "response_data.unit_list.is_support_member",
+      "response_data.unit_list.reward_box_flag",
+      "response_data.unit_reward_info",
+      "response_data.unit_support_list"
     ],
     "static_extracted_verified": []
   },
@@ -14419,9 +14714,9 @@
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
+      "response_data.after_user_info.insert_date",
       "response_data.after_user_info.skill",
-      "response_data.after_user_info.skill.id",
-      "response_data.after_user_info.skill.level"
+      "response_data.after_user_info.skill.id"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -14433,14 +14728,14 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info",
+      "response_data.after_user_info.insert_date",
       "response_data.after_user_info.skill",
-      "response_data.after_user_info.skill.id",
-      "response_data.after_user_info.skill.level"
+      "response_data.after_user_info.skill.id"
     ],
     "static_extracted_unverified": [
+      "response_data.after_user_info.insert_date",
       "response_data.after_user_info.skill",
-      "response_data.after_user_info.skill.id",
-      "response_data.after_user_info.skill.level"
+      "response_data.after_user_info.skill.id"
     ],
     "static_extracted_verified": []
   },
@@ -14784,7 +15079,11 @@
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
-      "response_data.after_unit_max"
+      "response_data.after_unit_max",
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -14797,10 +15096,18 @@
     "runtime_accessed_keys": [
       "response_data.after_friend_max",
       "response_data.after_unit_max",
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list",
       "response_data.used_loveca"
     ],
     "static_extracted_unverified": [
-      "response_data.after_unit_max"
+      "response_data.after_unit_max",
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list"
     ],
     "static_extracted_verified": []
   },
@@ -14822,7 +15129,11 @@
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
-      "response_data.after_friend_max"
+      "response_data.after_friend_max",
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -14835,10 +15146,18 @@
     "runtime_accessed_keys": [
       "response_data.after_friend_max",
       "response_data.after_unit_max",
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list",
       "response_data.used_loveca"
     ],
     "static_extracted_unverified": [
-      "response_data.after_friend_max"
+      "response_data.after_friend_max",
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.item_id",
+      "response_data.item_list"
     ],
     "static_extracted_verified": []
   },
@@ -14860,6 +15179,12 @@
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
     "runtime_discovered_field_names": [
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.event_info.event_id",
+      "response_data.event_info.event_point_info",
+      "response_data.event_info.event_reward_info",
+      "response_data.item_list",
       "response_data.tos_id"
     ],
     "runtime_list_shaped_fields": [],
@@ -14872,10 +15197,22 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_name",
+      "response_data.after_user_info",
       "response_data.before_name",
+      "response_data.event_info",
+      "response_data.event_info.event_id",
+      "response_data.event_info.event_point_info",
+      "response_data.event_info.event_reward_info",
+      "response_data.item_list",
       "response_data.tos_id"
     ],
     "static_extracted_unverified": [
+      "response_data.after_user_info",
+      "response_data.event_info",
+      "response_data.event_info.event_id",
+      "response_data.event_info.event_point_info",
+      "response_data.event_info.event_reward_info",
+      "response_data.item_list",
       "response_data.tos_id"
     ],
     "static_extracted_verified": []
@@ -14927,7 +15264,11 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.after_user_info",
+      "response_data.background_info",
+      "response_data.event_info"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -14937,9 +15278,16 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.after_user_info",
+      "response_data.background_info",
+      "response_data.event_info",
       "response_data.user"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.after_user_info",
+      "response_data.background_info",
+      "response_data.event_info"
+    ],
     "static_extracted_verified": []
   },
   "user.reserveDelete": {
