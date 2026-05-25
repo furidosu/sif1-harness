@@ -64,7 +64,7 @@ the field accesses by exercising them.
 ├──────────────────────────────────────────────────────────────────┤
 │ PASS 2 — invoke_classes (ui-only bucket only)                    │
 │ 3a. classify_coverage.py bins endpoints; pick the ui-only bucket │
-│     (initially ~115 endpoints).                                  │
+│     (initially ~133 endpoints).                                  │
 │ 3b. find_ui_handlers.py greps each ui-only endpoint's            │
 │     cache_key/fn_name across m_*/, extracts the ClassName from   │
 │     each candidate file's define(name, M) call, builds           │
@@ -73,10 +73,14 @@ the field accesses by exercising them.
 │      i. Cachable.set(cache_key, spied_candidate)                 │
 │     ii. Fire notifyUpdate once with the populated cache.         │
 │    iii. For each class in the endpoint's candidate_files (capped │
-│         at 30), iterate the class's real-exported methods (next),│
-│         skip likely-loop methods (update/tick/render/poll/loop), │
-│         pcall each with sentinel args. debug.sethook caps each   │
-│         method at 100k Lua instructions so infinite loops die.   │
+│         at 100), iterate up to 16 methods per class (next, 200   │
+│         total per endpoint), skip likely-loop methods            │
+│         (update/tick/render/poll/loop/draw/step/onUpdate/...),   │
+│         pcall each on a per-call instance table (NOT the class   │
+│         table itself, to avoid cross-endpoint contamination via  │
+│         mutated class state) with sentinel args. debug.sethook   │
+│         caps each method at 100k×5000 Lua instructions so        │
+│         runaway loops die in bounded time.                       │
 │     iv. Write build/runtime/traces_classes/<endpoint>.json.      │
 ├──────────────────────────────────────────────────────────────────┤
 │ MERGE & CLASSIFY                                                 │
@@ -158,13 +162,17 @@ the field accesses by exercising them.
 ## What still doesn't get covered
 
 See [`COVERAGE_CEILING.md`](COVERAGE_CEILING.md) for empirical
-analysis of why 5 endpoints remain in the `needs-Frida` bucket: their
-shape only exists in wire capture against a live server with specific
-user state (KLab ID sync / handover / platform-account state probes).
+analysis of why 17 endpoints remain in the `needs-Frida` bucket:
+their shape only exists in wire capture against a live server with
+specific user state (KLab ID sync / handover / platform-account state
+probes, signed-URL DLAPI flows, matching/polling queues).
 
-The residual 28 `ui-only` endpoints didn't lift because their
+The residual 132 `ui-only` endpoints didn't lift because their
 candidate class either didn't register (file crashed even on second
-pass) or the class had no method that reached the populated cache.
-These are tractable with more per-endpoint hand-wiring — open question
-for the NPPS4 collaboration whether that's worth the additional time
+pass), the class had no method that reached the populated cache, or
+the listener body fired but only read fields the schema already
+declared (so no novel discovery — coverage is real, but the bucket
+heuristic sees it as "ui-only"). These are tractable with more
+per-endpoint hand-wiring — open question for the NPPS4 collaboration
+whether that's worth the additional time
 investment.

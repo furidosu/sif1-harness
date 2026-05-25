@@ -1,83 +1,27 @@
 # NPPS4 ↔ SIF1 client wire-compare (static-diff)
 
-Compares NPPS4 Pydantic response model fields (top-level) against fields the SIF1 client listener layer reads. **Listener evidence is empirical**; NPPS4 type declarations are informative-only per PLAN Prior 10 (9 of 11 RootModel[list[X]] cases contradict listener evidence).
+Compares NPPS4 Pydantic response model fields (at full path depth, with nested model references recursively expanded) against fields the SIF1 client listener layer reads. **Listener evidence is empirical**; NPPS4 type declarations are informative-only per PLAN Prior 10 (9 of 11 RootModel[list[X]] cases contradict listener evidence).
 
-- Endpoints compared (in both NPPS4 + harness): **66**
-- Endpoints where client reads field NPPS4 doesn't emit: **30** (server bug candidates)
-- Endpoints where NPPS4 emits field client never reads: **55** (dead field / over-fetch candidates)
+- Endpoints compared (in both NPPS4 + harness): **86**
+- Endpoints where client reads field NPPS4 doesn't emit: **35** (server bug candidates)
+- Endpoints where NPPS4 emits field with no observed client read: **75** (no harness evidence of a client read — may still be read in UI-handler closures the harness didn't exercise)
 
 ## Per-endpoint findings
-
-### `gdpr.get`
-- NPPS4 source: `npps4/game/gdpr.py` (return type: `GDPRGetResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `_fs`
-  - `resume`
-  - `views`
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 2 field(s): `enable_gdpr`, `is_eea`
-
-### `unit.deckInfo`
-- NPPS4 source: `npps4/game/unit.py` (return type: `UnitDeckInfoResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `active_deck_index`
-  - `unit_deck_list`
-- **NPPS4 emits, client never reads:**
-  - `deck_name`
-  - `main_flag`
-  - `unit_deck_id`
-  - `unit_owning_user_ids`
-
-### `download.update`
-- NPPS4 source: `npps4/game/download.py` (return type: `DownloadUpdateResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `package_list`
-  - `url_list`
-- **NPPS4 emits, client never reads:**
-  - `size`
-  - `url`
-  - `version`
-
-### `secretbox.pon`
-- NPPS4 source: `npps4/game/secretbox.py` (return type: `SecretboxPonResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `free_gift_rewards`
-  - `limit_bonus_rewards`
-- **NPPS4 emits, client never reads:**
-  - `museum_info`
-  - `present_cnt`
-  - `server_timestamp`
-- Agreement on 16 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `button_list`, `gauge_info`...
-
-### `profile.liveCnt`
-- NPPS4 source: `npps4/game/profile.py` (return type: `ProfileLiveCountResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `live_cnt`
-  - `live_count_list`
-- **NPPS4 emits, client never reads:**
-  - `clear_cnt`
-  - `difficulty`
-
-### `challenge.challengeInfo`
-- NPPS4 source: `npps4/game/challenge.py` (return type: `ChallengeInfoResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `base_info`
-  - `challenge_info`
-- **NPPS4 emits, client never reads:**
-  - `root`
-
-### `handover.exec`
-- NPPS4 source: `npps4/game/handover.py` (return type: `None`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `session_key`
-  - `user_id`
 
 ### `album.albumAll`
 - NPPS4 source: `npps4/game/album.py` (return type: `AlbumAllResponse`)
 - **Client reads, NPPS4 doesn't emit:**
   - `album_list`
-- **NPPS4 emits, client never reads:**
+  - `album_list.all_max_flag`
+  - `album_list.favorite_point`
+  - `album_list.highest_love_per_unit`
+  - `album_list.love_max_flag`
+  - `album_list.rank_level_max_flag`
+  - `album_list.rank_max_flag`
+  - `album_list.sign_flag`
+  - `album_list.total_love`
+  - `album_list.unit_id`
+- **NPPS4 emits, no client read observed by harness:**
   - `all_max_flag`
   - `favorite_point`
   - `highest_love_per_unit`
@@ -88,72 +32,1074 @@ Compares NPPS4 Pydantic response model fields (top-level) against fields the SIF
   - `total_love`
   - `unit_id`
 
-### `common.recoveryEnergy`
-- NPPS4 source: `npps4/game/common.py` (return type: `CommonRecoveryEnergyResponse`)
+### `challenge.challengeInfo`
+- NPPS4 source: `npps4/game/challenge.py` (return type: `ChallengeInfoResponse`)
 - **Client reads, NPPS4 doesn't emit:**
-  - `license_recover_end_time`
-- **NPPS4 emits, client never reads:**
-  - `before_game_coin`
-  - `before_sns_coin`
-  - `energy_max`
-  - `present_cnt`
-  - `server_timestamp`
-  - `training_energy_max`
-- Agreement on 6 field(s): `after_game_coin`, `after_sns_coin`, `energy_full_time`, `item_list`, `over_max_energy`, `training_energy`
-
-### `achievement.unaccomplishList`
-- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementUnaccomplishedResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `__root__`
-- **NPPS4 emits, client never reads:**
-  - `achievement_list`
-  - `count`
-  - `filter_category_id`
-  - `is_last`
+  - `base_info`
+  - `base_info.asset_bgm_id`
+  - `base_info.event_id`
+  - `challenge_info`
+  - `challenge_status`
+  - `challenge_status.should_proceed`
+- **NPPS4 emits, no client read observed by harness:**
+  - `root`
+  - `root.root`
 
 ### `profile.cardRanking`
 - NPPS4 source: `npps4/game/profile.py` (return type: `ProfileCardRankingResponse`)
 - **Client reads, NPPS4 doesn't emit:**
   - `card_ranking_list`
-- **NPPS4 emits, client never reads:**
+  - `card_ranking_list.rank`
+  - `card_ranking_list.sign_flag`
+  - `card_ranking_list.total_love`
+  - `card_ranking_list.unit_id`
+- **NPPS4 emits, no client read observed by harness:**
   - `rank`
   - `sign_flag`
   - `total_love`
   - `unit_id`
 
+### `secretbox.pon`
+- NPPS4 source: `npps4/game/secretbox.py` (return type: `SecretboxPonResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `free_gift_rewards`
+  - `limit_bonus_rewards`
+  - `limit_bonus_rewards.items`
+  - `limit_bonus_rewards.items.accessory_owning_user_id`
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `gauge_info.added_gauge_point`
+  - `gauge_info.gauge_point`
+  - `gauge_info.max_gauge_point`
+  - `item_list.amount`
+  - `item_list.item_id`
+  - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
+  - `present_cnt`
+  - `secret_box_items.item`
+  - `server_timestamp`
+- Agreement on 17 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `button_list`, `gauge_info`...
+
 ### `live.reward`
 - NPPS4 source: `npps4/game/live.py` (return type: `LiveRewardResponse`)
 - **Client reads, NPPS4 doesn't emit:**
+  - `class_system.competition_info`
+  - `daily_reward_info.accessory_owning_user_id`
   - `reward_item_list`
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `base_reward_info.game_coin`
+  - `base_reward_info.game_coin_reward_box_flag`
+  - `base_reward_info.player_exp`
+  - `base_reward_info.player_exp_friend_max`
+  - `base_reward_info.player_exp_friend_max.after`
+  - `base_reward_info.player_exp_friend_max.before`
+  - `base_reward_info.player_exp_lp_max`
+  - `base_reward_info.player_exp_lp_max.after`
+  - `base_reward_info.player_exp_lp_max.before`
+  - `base_reward_info.player_exp_unit_max`
+  - `base_reward_info.player_exp_unit_max.after`
+  - `base_reward_info.player_exp_unit_max.before`
+  - `base_reward_info.social_point`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `class_system.complete_flag`
+  - `class_system.is_visible`
+  - `class_system.rank_info.before_class_rank_id`
+  - `class_system.rank_info.rank_up_date`
+  - `effort_point.capacity`
+  - `effort_point.live_effort_point_box_spec_id`
+  - `goal_accomp_info.achieved_ids`
+  - `goal_accomp_info.rewards`
+  - `live_info.ac_flag`
+  - `live_info.is_random`
+  - `live_info.live_difficulty_id`
+  - `live_info.swing_flag`
   - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
+  - `next_level_info.from_exp`
+  - `next_level_info.level`
+  - `present_cnt`
+  - `reward_unit_list.live_clear`
+  - `reward_unit_list.live_combo`
+  - `reward_unit_list.live_rank`
+  - `server_timestamp`
+  - `unit_list.before_love`
+  - `unit_list.display_rank`
+  - `unit_list.is_level_max`
+  - `unit_list.is_love_max`
+  - `unit_list.is_rank_max`
+  - `unit_list.is_signed`
+  - `unit_list.level`
+  - `unit_list.level_limit_id`
+  - `unit_list.love`
+  - `unit_list.max_love`
+  - `unit_list.position`
+  - `unit_list.unit_id`
+  - `unit_list.unit_owning_user_id`
+  - `unit_list.unit_skill_level`
+- Agreement on 32 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `base_reward_info`, `before_user_info`, `can_send_friend_request`...
+
+### `download.batch`
+- NPPS4 source: `npps4/game/download.py` (return type: `DownloadCommonResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `url_list`
+  - `url_list.size`
+  - `url_list.url`
+- **NPPS4 emits, no client read observed by harness:**
+  - `url`
+- Agreement on 1 field(s): `size`
+
+### `gdpr.get`
+- NPPS4 source: `npps4/game/gdpr.py` (return type: `GDPRGetResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `_fs`
+  - `resume`
+  - `views`
+- **NPPS4 emits, no client read observed by harness:**
+  - `server_timestamp`
+- Agreement on 2 field(s): `enable_gdpr`, `is_eea`
+
+### `reward.open`
+- NPPS4 source: `npps4/game/reward.py` (return type: `RewardOpenResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `class_system.competition_info`
+  - `success.unit_owning_user_id`
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `class_system.complete_flag`
+  - `class_system.is_visible`
+  - `class_system.rank_info.before_class_rank_id`
+  - `class_system.rank_info.rank_up_date`
+  - `present_cnt`
+  - `success.add_type`
+  - `success.amount`
+  - `success.comment`
+  - `success.incentive_id`
+  - `success.item_category_id`
+  - `success.item_id`
+  - `unit_support_list.amount`
+  - `unit_support_list.unit_id`
+- Agreement on 14 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `class_system`, `class_system.is_opened`...
+
+### `unit.deckInfo`
+- NPPS4 source: `npps4/game/unit.py` (return type: `UnitDeckInfoResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `active_deck_index`
+  - `unit_deck_list`
+- **NPPS4 emits, no client read observed by harness:**
+  - `deck_name`
+  - `main_flag`
+  - `unit_deck_id`
+  - `unit_owning_user_ids`
+  - `unit_owning_user_ids.position`
+  - `unit_owning_user_ids.unit_owning_user_id`
+
+### `download.update`
+- NPPS4 source: `npps4/game/download.py` (return type: `DownloadUpdateResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `package_list`
+  - `url_list`
+- **NPPS4 emits, no client read observed by harness:**
+  - `size`
+  - `url`
+  - `version`
+
+### `profile.liveCnt`
+- NPPS4 source: `npps4/game/profile.py` (return type: `ProfileLiveCountResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `live_cnt`
+  - `live_count_list`
+- **NPPS4 emits, no client read observed by harness:**
+  - `clear_cnt`
+  - `difficulty`
+
+### `costume.costumeList`
+- NPPS4 source: `npps4/game/costume.py` (return type: `CustomeListResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `costume_list.is_rank_max`
+  - `costume_list.unit_id`
+- Agreement on 1 field(s): `costume_list`
+
+### `handover.exec`
+- NPPS4 source: `npps4/game/handover.py` (return type: `None`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `session_key`
+  - `user_id`
+
+### `unit.setDisplayRank`
+- NPPS4 source: `npps4/game/unit.py` (return type: `None`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `after`
+  - `after.display_rank`
+
+### `reward.openAll`
+- NPPS4 source: `npps4/game/reward.py` (return type: `RewardOpenAllResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `class_system.competition_info`
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list`
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before_user_info`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `class_system.complete_flag`
+  - `class_system.is_visible`
+  - `class_system.rank_info.before_class_rank_id`
+  - `class_system.rank_info.rank_up_date`
+  - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
+  - `new_achievement_cnt`
+  - `order`
+  - `present_cnt`
+  - `reward_item_list.add_type`
+  - `reward_item_list.amount`
+  - `reward_item_list.comment`
+  - `reward_item_list.incentive_id`
+  - `reward_item_list.item_category_id`
+  - `reward_item_list.item_id`
+  - `reward_item_list.reward_box_flag`
+  - `reward_num`
+  - `server_timestamp`
+  - `unaccomplished_achievement_cnt`
+  - `upper_limit`
+- Agreement on 7 field(s): `class_system`, `class_system.is_opened`, `class_system.rank_info`, `class_system.rank_info.after_class_rank_id`, `opened_num`, `reward_item_list`...
+
+### `scenario.reward`
+- NPPS4 source: `npps4/game/scenario.py` (return type: `ScenarioRewardResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `class_system.competition_info`
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `class_system.complete_flag`
+  - `class_system.is_visible`
+  - `class_system.rank_info.before_class_rank_id`
+  - `class_system.rank_info.rank_up_date`
+  - `clear_scenario.scenario_id`
+  - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
+  - `next_level_info.from_exp`
+  - `next_level_info.level`
   - `present_cnt`
   - `server_timestamp`
-- Agreement on 28 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `base_reward_info`, `before_user_info`, `can_send_friend_request`...
+- Agreement on 13 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `class_system`, `class_system.is_opened`...
+
+### `subscenario.reward`
+- NPPS4 source: `npps4/game/subscenario.py` (return type: `SubScenarioRewardResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `class_system.competition_info`
+- **NPPS4 emits, no client read observed by harness:**
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `base_reward_info.game_coin`
+  - `base_reward_info.game_coin_reward_box_flag`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `class_system.complete_flag`
+  - `class_system.is_visible`
+  - `class_system.rank_info.before_class_rank_id`
+  - `class_system.rank_info.rank_up_date`
+  - `clear_subscenario.subscenario_id`
+  - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
+  - `next_level_info.from_exp`
+  - `next_level_info.level`
+  - `present_cnt`
+  - `server_timestamp`
+- Agreement on 11 field(s): `after_user_info`, `base_reward_info`, `before_user_info`, `class_system`, `class_system.is_opened`, `class_system.rank_info`...
+
+### `achievement.rewardOpenAll`
+- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementRewardOpenAllResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `after_user_info.license_recover_end_time`
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list`
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before_user_info`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `new_achievement_cnt`
+  - `opened_num`
+  - `present_cnt`
+  - `server_timestamp`
+  - `unaccomplished_achievement_cnt`
+  - `unit_support_list`
+  - `unit_support_list.amount`
+  - `unit_support_list.unit_id`
+- Agreement on 6 field(s): `after_user_info`, `after_user_info.energy_full_time`, `after_user_info.level`, `after_user_info.over_max_energy`, `is_last`, `reward_item_list`
+
+### `achievement.rewardOpen`
+- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementRewardOpenResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `after_user_info.license_recover_end_time`
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before_user_info`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `new_achievement_cnt`
+  - `present_cnt`
+  - `server_timestamp`
+  - `unaccomplished_achievement_cnt`
+  - `unit_support_list`
+  - `unit_support_list.amount`
+  - `unit_support_list.unit_id`
+- Agreement on 7 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `after_user_info.energy_full_time`, `after_user_info.level`, `after_user_info.over_max_energy`...
+
+### `exchange.usePoint`
+- NPPS4 source: `npps4/game/exchange.py` (return type: `ExchangeUsePointResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `after_user_info.license_recover_end_time`
+- **NPPS4 emits, no client read observed by harness:**
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `exchange_reward.add_type`
+  - `exchange_reward.amount`
+  - `exchange_reward.comment`
+  - `exchange_reward.item_category_id`
+  - `exchange_reward.item_id`
+  - `exchange_reward.reward_box_flag`
+  - `present_cnt`
+  - `server_timestamp`
+- Agreement on 6 field(s): `after_user_info`, `after_user_info.energy_full_time`, `after_user_info.level`, `after_user_info.over_max_energy`, `before_user_info`, `exchange_reward`
 
 ### `user.userInfo`
 - NPPS4 source: `npps4/game/user.py` (return type: `UserInfoResponse`)
 - **Client reads, NPPS4 doesn't emit:**
   - `id`
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `ad_status`
   - `birth`
   - `server_timestamp`
-- Agreement on 1 field(s): `user`
+  - `user.current_energy`
+  - `user.energy_full_time`
+  - `user.exp`
+  - `user.free_sns_coin`
+  - `user.friend_max`
+  - `user.game_coin`
+  - `user.insert_date`
+  - `user.invite_code`
+  - `user.level`
+  - `user.license_live_energy_recoverly_time`
+  - `user.lp_recovery_item.amount`
+  - `user.lp_recovery_item.item_id`
+  - `user.name`
+  - `user.next_exp`
+  - `user.over_max_energy`
+  - `user.paid_sns_coin`
+  - `user.previous_exp`
+  - `user.social_point`
+  - `user.training_energy`
+  - `user.training_energy_max`
+  - `user.tutorial_state`
+  - `user.unit_max`
+  - `user.unlock_random_live_aqours`
+  - `user.unlock_random_live_muse`
+  - `user.update_date`
+  - `user.user_id`
+  - `user.waiting_unit_max`
+- Agreement on 5 field(s): `user`, `user.energy_full_need_time`, `user.energy_max`, `user.lp_recovery_item`, `user.sns_coin`
+
+### `live.schedule`
+- NPPS4 source: `npps4/game/live.py` (return type: `LiveScheduleResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `limited_bonus_list.live_difficulty_id`
+- **NPPS4 emits, no client read observed by harness:**
+  - `event_list.banner_asset_name`
+  - `event_list.close_date`
+  - `event_list.description`
+  - `event_list.end_date`
+  - `event_list.event_category_id`
+  - `event_list.event_id`
+  - `event_list.member_category`
+  - `event_list.name`
+  - `event_list.open_date`
+  - `event_list.start_date`
+  - `limited_bonus_common_list.end_date`
+  - `limited_bonus_common_list.limited_bonus_type`
+  - `limited_bonus_common_list.limited_bonus_value`
+  - `limited_bonus_common_list.start_date`
+  - `live_list.end_date`
+  - `live_list.is_random`
+  - `live_list.live_difficulty_id`
+  - `live_list.start_date`
+  - `random_live_list.attribute_id`
+  - `random_live_list.end_date`
+  - `random_live_list.start_date`
+  - `training_live_list.is_random`
+  - `training_live_list.live_difficulty_id`
+  - `training_live_list.start_date`
+- Agreement on 8 field(s): `event_list`, `free_live_list`, `limited_bonus_common_list`, `limited_bonus_common_list.live_type`, `limited_bonus_list`, `live_list`...
+
+### `marathon.marathonInfo`
+- NPPS4 source: `npps4/game/marathon.py` (return type: `MarathonInfoResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `marathon_info_list`
+- **NPPS4 emits, no client read observed by harness:**
+  - `root`
+  - `root.event_id`
+  - `root.event_point`
+  - `root.event_scenario`
+  - `root.event_scenario.event_scenario_status`
+  - `root.event_scenario.event_scenario_status.asset_bgm_id`
+  - `root.event_scenario.event_scenario_status.chapter`
+  - `root.event_scenario.event_scenario_status.event_scenario_id`
+  - `root.event_scenario.event_scenario_status.is_reward`
+  - `root.event_scenario.event_scenario_status.open_date`
+  - `root.event_scenario.event_scenario_status.open_total_event_point`
+  - `root.event_scenario.event_scenario_status.status_origin`
+  - `root.event_scenario.event_scenario_status.title`
+  - `root.event_scenario.event_scenario_status.title_call_asset`
+  - `root.event_scenario.event_scenario_status.title_font`
+  - `root.event_scenario.progress`
+  - `root.point_icon_asset`
+  - `root.point_name`
+  - `root.total_event_point`
 
 ### `album.seriesAll`
 - NPPS4 source: `npps4/game/album.py` (return type: `AlbumSeriesAllResponse`)
 - **Client reads, NPPS4 doesn't emit:**
   - `album_series_list`
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `series_id`
   - `unit_list`
+  - `unit_list.all_max_flag`
+  - `unit_list.favorite_point`
+  - `unit_list.highest_love_per_unit`
+  - `unit_list.love_max_flag`
+  - `unit_list.rank_level_max_flag`
+  - `unit_list.rank_max_flag`
+  - `unit_list.sign_flag`
+  - `unit_list.total_love`
+  - `unit_list.unit_id`
+
+### `common.recoveryEnergy`
+- NPPS4 source: `npps4/game/common.py` (return type: `CommonRecoveryEnergyResponse`)
+- **Client reads, NPPS4 doesn't emit:**
+  - `license_recover_end_time`
+- **NPPS4 emits, no client read observed by harness:**
+  - `before_game_coin`
+  - `before_sns_coin`
+  - `energy_max`
+  - `item_list.amount`
+  - `item_list.item_id`
+  - `present_cnt`
+  - `server_timestamp`
+  - `training_energy_max`
+- Agreement on 6 field(s): `after_game_coin`, `after_sns_coin`, `energy_full_time`, `item_list`, `over_max_energy`, `training_energy`
 
 ### `download.event`
 - NPPS4 source: `npps4/game/download.py` (return type: `DownloadCommonResponse`)
 - **Client reads, NPPS4 doesn't emit:**
   - `url_list`
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `size`
   - `url`
 
@@ -161,40 +1107,9 @@ Compares NPPS4 Pydantic response model fields (top-level) against fields the SIF
 - NPPS4 source: `npps4/game/download.py` (return type: `DownloadCommonResponse`)
 - **Client reads, NPPS4 doesn't emit:**
   - `url_list`
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `url`
 - Agreement on 1 field(s): `size`
-
-### `download.batch`
-- NPPS4 source: `npps4/game/download.py` (return type: `DownloadCommonResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `url_list`
-- **NPPS4 emits, client never reads:**
-  - `url`
-- Agreement on 1 field(s): `size`
-
-### `handover.kidCheck`
-- NPPS4 source: `npps4/game/handover.py` (return type: `KIDCheckResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `status_code`
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 1 field(s): `user_info`
-
-### `handover.kidInfo`
-- NPPS4 source: `npps4/game/handover.py` (return type: `KIDInfoResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `status_code`
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 1 field(s): `auth_url`
-
-### `marathon.marathonInfo`
-- NPPS4 source: `npps4/game/marathon.py` (return type: `MarathonInfoResponse`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `marathon_info_list`
-- **NPPS4 emits, client never reads:**
-  - `root`
 
 ### `ad.changeAd`
 - NPPS4 source: `npps4/game/ad.py` (return type: `None`)
@@ -205,11 +1120,6 @@ Compares NPPS4 Pydantic response model fields (top-level) against fields the SIF
 - NPPS4 source: `npps4/game/handover.py` (return type: `None`)
 - **Client reads, NPPS4 doesn't emit:**
   - `result`
-
-### `handover.kidRegister`
-- NPPS4 source: `npps4/game/handover.py` (return type: `None`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `status_code`
 
 ### `live.gameover`
 - NPPS4 source: `npps4/game/live.py` (return type: `None`)
@@ -231,11 +1141,6 @@ Compares NPPS4 Pydantic response model fields (top-level) against fields the SIF
 - **Client reads, NPPS4 doesn't emit:**
   - `after_user_info`
 
-### `unit.setDisplayRank`
-- NPPS4 source: `npps4/game/unit.py` (return type: `None`)
-- **Client reads, NPPS4 doesn't emit:**
-  - `after`
-
 ### `user.changeNavi`
 - NPPS4 source: `npps4/game/user.py` (return type: `None`)
 - **Client reads, NPPS4 doesn't emit:**
@@ -246,297 +1151,1558 @@ Compares NPPS4 Pydantic response model fields (top-level) against fields the SIF
 - **Client reads, NPPS4 doesn't emit:**
   - `result`
 
-### `reward.openAll`
-- NPPS4 source: `npps4/game/reward.py` (return type: `RewardOpenAllResponse`)
-- **NPPS4 emits, client never reads:**
-  - `accomplished_achievement_list`
-  - `added_achievement_list`
-  - `after_user_info`
-  - `before_user_info`
-  - `museum_info`
-  - `new_achievement_cnt`
-  - `order`
-  - `present_cnt`
-  - `reward_num`
-  - `server_timestamp`
-  - `unaccomplished_achievement_cnt`
-  - `upper_limit`
-- Agreement on 4 field(s): `class_system`, `opened_num`, `reward_item_list`, `total_num`
-
 ### `unit.merge`
 - NPPS4 source: `npps4/game/unit.py` (return type: `UnitMergeResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `accomplished_achievement_list`
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
   - `added_achievement_list`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after.display_rank`
+  - `after.exp`
+  - `after.favorite_flag`
+  - `after.insert_date`
+  - `after.is_level_max`
+  - `after.is_love_max`
+  - `after.is_rank_max`
+  - `after.is_removable_skill_capacity_max`
+  - `after.is_signed`
+  - `after.is_skill_level_max`
+  - `after.level`
+  - `after.level_limit_id`
+  - `after.love`
+  - `after.max_hp`
+  - `after.max_level`
+  - `after.max_love`
+  - `after.max_rank`
+  - `after.next_exp`
+  - `after.rank`
+  - `after.unit_id`
+  - `after.unit_owning_user_id`
+  - `after.unit_rarity_id`
+  - `after.unit_removable_skill_capacity`
+  - `after.unit_skill_level`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
   - `before`
+  - `before.display_rank`
+  - `before.exp`
+  - `before.favorite_flag`
+  - `before.insert_date`
+  - `before.is_level_max`
+  - `before.is_love_max`
+  - `before.is_rank_max`
+  - `before.is_removable_skill_capacity_max`
+  - `before.is_signed`
+  - `before.is_skill_level_max`
+  - `before.level`
+  - `before.level_limit_id`
+  - `before.love`
+  - `before.max_hp`
+  - `before.max_level`
+  - `before.max_love`
+  - `before.max_rank`
+  - `before.next_exp`
+  - `before.rank`
+  - `before.unit_id`
+  - `before.unit_owning_user_id`
+  - `before.unit_rarity_id`
+  - `before.unit_removable_skill_capacity`
+  - `before.unit_skill_exp`
+  - `before.unit_skill_level`
   - `before_user_info`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
   - `bonus_value`
   - `evolution_bonus_type`
+  - `get_exchange_point_list.exchange_point`
+  - `get_exchange_point_list.rarity`
   - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
   - `new_achievement_cnt`
   - `present_cnt`
   - `server_timestamp`
   - `unaccomplished_achievement_cnt`
+  - `unit_removable_skill.owning_info.equipped_amount`
+  - `unit_removable_skill.owning_info.insert_date`
+  - `unit_removable_skill.owning_info.total_amount`
+  - `unit_removable_skill.owning_info.unit_removable_skill_id`
   - `use_game_coin`
-- Agreement on 6 field(s): `after`, `after_user_info`, `get_exchange_point_list`, `unit_removable_skill`, `unlocked_multi_unit_scenario_ids`, `unlocked_subscenario_ids`
+- Agreement on 9 field(s): `after`, `after.unit_skill_exp`, `after_user_info`, `after_user_info.game_coin`, `get_exchange_point_list`, `unit_removable_skill`...
 
 ### `unit.rankUp`
 - NPPS4 source: `npps4/game/unit.py` (return type: `UnitRankUpResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `accomplished_achievement_list`
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
   - `added_achievement_list`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after.exp`
+  - `after.favorite_flag`
+  - `after.insert_date`
+  - `after.is_level_max`
+  - `after.is_love_max`
+  - `after.is_rank_max`
+  - `after.is_removable_skill_capacity_max`
+  - `after.is_signed`
+  - `after.is_skill_level_max`
+  - `after.level`
+  - `after.level_limit_id`
+  - `after.love`
+  - `after.max_hp`
+  - `after.max_level`
+  - `after.max_love`
+  - `after.max_rank`
+  - `after.next_exp`
+  - `after.rank`
+  - `after.unit_id`
+  - `after.unit_owning_user_id`
+  - `after.unit_rarity_id`
+  - `after.unit_removable_skill_capacity`
+  - `after.unit_skill_exp`
+  - `after.unit_skill_level`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
   - `before`
+  - `before.display_rank`
+  - `before.exp`
+  - `before.favorite_flag`
+  - `before.insert_date`
+  - `before.is_level_max`
+  - `before.is_love_max`
+  - `before.is_rank_max`
+  - `before.is_removable_skill_capacity_max`
+  - `before.is_signed`
+  - `before.is_skill_level_max`
+  - `before.level`
+  - `before.level_limit_id`
+  - `before.love`
+  - `before.max_hp`
+  - `before.max_level`
+  - `before.max_love`
+  - `before.max_rank`
+  - `before.next_exp`
+  - `before.rank`
+  - `before.unit_id`
+  - `before.unit_owning_user_id`
+  - `before.unit_rarity_id`
+  - `before.unit_removable_skill_capacity`
+  - `before.unit_skill_exp`
+  - `before.unit_skill_level`
   - `before_user_info`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `get_exchange_point_list.exchange_point`
+  - `get_exchange_point_list.rarity`
   - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
   - `new_achievement_cnt`
   - `present_cnt`
   - `server_timestamp`
   - `unaccomplished_achievement_cnt`
+  - `unit_removable_skill.owning_info.equipped_amount`
+  - `unit_removable_skill.owning_info.insert_date`
+  - `unit_removable_skill.owning_info.total_amount`
+  - `unit_removable_skill.owning_info.unit_removable_skill_id`
   - `unlocked_subscenario_ids`
   - `use_game_coin`
-- Agreement on 4 field(s): `after`, `after_user_info`, `get_exchange_point_list`, `unit_removable_skill`
+- Agreement on 7 field(s): `after`, `after.display_rank`, `after_user_info`, `after_user_info.game_coin`, `get_exchange_point_list`, `unit_removable_skill`...
 
-### `achievement.rewardOpenAll`
-- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementRewardOpenAllResponse`)
-- **NPPS4 emits, client never reads:**
-  - `accomplished_achievement_list`
-  - `added_achievement_list`
-  - `before_user_info`
-  - `new_achievement_cnt`
-  - `opened_num`
+### `unit.exchangePointRankUp`
+- NPPS4 source: `npps4/game/unit.py` (return type: `UnitExchangeRankUpResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after.display_rank`
+  - `after.exp`
+  - `after.favorite_flag`
+  - `after.insert_date`
+  - `after.is_level_max`
+  - `after.is_love_max`
+  - `after.is_rank_max`
+  - `after.is_removable_skill_capacity_max`
+  - `after.is_signed`
+  - `after.is_skill_level_max`
+  - `after.level`
+  - `after.level_limit_id`
+  - `after.love`
+  - `after.max_hp`
+  - `after.max_level`
+  - `after.max_love`
+  - `after.max_rank`
+  - `after.next_exp`
+  - `after.rank`
+  - `after.unit_id`
+  - `after.unit_owning_user_id`
+  - `after.unit_rarity_id`
+  - `after.unit_removable_skill_capacity`
+  - `after.unit_skill_exp`
+  - `after.unit_skill_level`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `before.display_rank`
+  - `before.exp`
+  - `before.favorite_flag`
+  - `before.insert_date`
+  - `before.is_level_max`
+  - `before.is_love_max`
+  - `before.is_rank_max`
+  - `before.is_removable_skill_capacity_max`
+  - `before.is_signed`
+  - `before.is_skill_level_max`
+  - `before.level`
+  - `before.level_limit_id`
+  - `before.love`
+  - `before.max_hp`
+  - `before.max_level`
+  - `before.max_love`
+  - `before.max_rank`
+  - `before.next_exp`
+  - `before.rank`
+  - `before.unit_id`
+  - `before.unit_owning_user_id`
+  - `before.unit_rarity_id`
+  - `before.unit_removable_skill_capacity`
+  - `before.unit_skill_exp`
+  - `before.unit_skill_level`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
   - `present_cnt`
   - `server_timestamp`
-  - `unaccomplished_achievement_cnt`
-  - `unit_support_list`
-- Agreement on 3 field(s): `after_user_info`, `is_last`, `reward_item_list`
+- Agreement on 9 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after`, `after_exchange_point`, `after_user_info`, `before`...
+
+### `lbonus.execute`
+- NPPS4 source: `npps4/game/lbonus.py` (return type: `LoginBonusResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `accomplished_achievement_list.id`
+  - `accomplished_achievement_list.needs`
+  - `accomplished_achievement_list.opens`
+  - `accomplished_achievement_list.params`
+  - `ad_info.ad_id`
+  - `ad_info.reward_list`
+  - `ad_info.term_id`
+  - `added_achievement_list.id`
+  - `added_achievement_list.needs`
+  - `added_achievement_list.opens`
+  - `added_achievement_list.params`
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `calendar_info.current_date`
+  - `calendar_info.current_month`
+  - `calendar_info.current_month.days`
+  - `calendar_info.current_month.days.ad_received`
+  - `calendar_info.current_month.days.day`
+  - `calendar_info.current_month.days.day_of_the_week`
+  - `calendar_info.current_month.days.item`
+  - `calendar_info.current_month.days.item.add_type`
+  - `calendar_info.current_month.days.item.amount`
+  - `calendar_info.current_month.days.item.comment`
+  - `calendar_info.current_month.days.item.item_category_id`
+  - `calendar_info.current_month.days.item.item_id`
+  - `calendar_info.current_month.days.item.reward_box_flag`
+  - `calendar_info.current_month.days.received`
+  - `calendar_info.current_month.days.special_day`
+  - `calendar_info.current_month.days.special_image_asset`
+  - `calendar_info.current_month.month`
+  - `calendar_info.current_month.year`
+  - `calendar_info.get_item`
+  - `calendar_info.next_month`
+  - `calendar_info.next_month.days`
+  - `calendar_info.next_month.days.ad_received`
+  - `calendar_info.next_month.days.day`
+  - `calendar_info.next_month.days.day_of_the_week`
+  - `calendar_info.next_month.days.item`
+  - `calendar_info.next_month.days.item.add_type`
+  - `calendar_info.next_month.days.item.amount`
+  - `calendar_info.next_month.days.item.comment`
+  - `calendar_info.next_month.days.item.item_category_id`
+  - `calendar_info.next_month.days.item.item_id`
+  - `calendar_info.next_month.days.item.reward_box_flag`
+  - `calendar_info.next_month.days.received`
+  - `calendar_info.next_month.days.special_day`
+  - `calendar_info.next_month.days.special_image_asset`
+  - `calendar_info.next_month.month`
+  - `calendar_info.next_month.year`
+  - `class_system.complete_flag`
+  - `class_system.is_visible`
+  - `class_system.rank_info.before_class_rank_id`
+  - `class_system.rank_info.rank_up_date`
+  - `effort_point.capacity`
+  - `effort_point.live_effort_point_box_spec_id`
+  - `effort_point.rewards`
+  - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
+  - `present_cnt`
+  - `server_timestamp`
+  - `total_login_info.login_count`
+  - `total_login_info.remaining_count`
+  - `total_login_info.reward`
+- Agreement on 17 field(s): `accomplished_achievement_list`, `ad_info`, `added_achievement_list`, `after_user_info`, `calendar_info`, `class_system`...
+
+### `payment.receipt`
+- NPPS4 source: `npps4/game/payment.py` (return type: `PaymentReceiptResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `product.after_user_info`
+  - `product.after_user_info.current_energy`
+  - `product.after_user_info.energy_full_need_time`
+  - `product.after_user_info.energy_full_time`
+  - `product.after_user_info.energy_max`
+  - `product.after_user_info.exp`
+  - `product.after_user_info.free_sns_coin`
+  - `product.after_user_info.friend_max`
+  - `product.after_user_info.game_coin`
+  - `product.after_user_info.insert_date`
+  - `product.after_user_info.invite_code`
+  - `product.after_user_info.level`
+  - `product.after_user_info.license_live_energy_recoverly_time`
+  - `product.after_user_info.lp_recovery_item`
+  - `product.after_user_info.lp_recovery_item.amount`
+  - `product.after_user_info.lp_recovery_item.item_id`
+  - `product.after_user_info.name`
+  - `product.after_user_info.next_exp`
+  - `product.after_user_info.over_max_energy`
+  - `product.after_user_info.paid_sns_coin`
+  - `product.after_user_info.previous_exp`
+  - `product.after_user_info.sns_coin`
+  - `product.after_user_info.social_point`
+  - `product.after_user_info.training_energy`
+  - `product.after_user_info.training_energy_max`
+  - `product.after_user_info.tutorial_state`
+  - `product.after_user_info.unit_max`
+  - `product.after_user_info.unlock_random_live_aqours`
+  - `product.after_user_info.unlock_random_live_muse`
+  - `product.after_user_info.update_date`
+  - `product.after_user_info.user_id`
+  - `product.after_user_info.waiting_unit_max`
+  - `product.before_user_info`
+  - `product.before_user_info.current_energy`
+  - `product.before_user_info.energy_full_need_time`
+  - `product.before_user_info.energy_full_time`
+  - `product.before_user_info.energy_max`
+  - `product.before_user_info.exp`
+  - `product.before_user_info.free_sns_coin`
+  - `product.before_user_info.friend_max`
+  - `product.before_user_info.game_coin`
+  - `product.before_user_info.insert_date`
+  - `product.before_user_info.invite_code`
+  - `product.before_user_info.level`
+  - `product.before_user_info.license_live_energy_recoverly_time`
+  - `product.before_user_info.lp_recovery_item`
+  - `product.before_user_info.lp_recovery_item.amount`
+  - `product.before_user_info.lp_recovery_item.item_id`
+  - `product.before_user_info.name`
+  - `product.before_user_info.next_exp`
+  - `product.before_user_info.over_max_energy`
+  - `product.before_user_info.paid_sns_coin`
+  - `product.before_user_info.previous_exp`
+  - `product.before_user_info.sns_coin`
+  - `product.before_user_info.social_point`
+  - `product.before_user_info.training_energy`
+  - `product.before_user_info.training_energy_max`
+  - `product.before_user_info.tutorial_state`
+  - `product.before_user_info.unit_max`
+  - `product.before_user_info.unlock_random_live_aqours`
+  - `product.before_user_info.unlock_random_live_muse`
+  - `product.before_user_info.update_date`
+  - `product.before_user_info.user_id`
+  - `product.before_user_info.waiting_unit_max`
+  - `product.description`
+  - `product.is_in_app_billing`
+  - `product.item_list`
+  - `product.item_list.add_type`
+  - `product.item_list.amount`
+  - `product.item_list.comment`
+  - `product.item_list.item_category_id`
+  - `product.item_list.item_id`
+  - `product.item_list.reward_box_flag`
+  - `product.name`
+  - `product.price`
+  - `product.product_id`
+  - `product.product_type`
+  - `server_timestamp`
+- Agreement on 2 field(s): `product`, `status`
 
 ### `profile.profileInfo`
 - NPPS4 source: `npps4/game/profile.py` (return type: `ProfileInfoResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `center_unit_info`
+  - `center_unit_info.display_rank`
+  - `center_unit_info.exp`
+  - `center_unit_info.favorite_flag`
+  - `center_unit_info.insert_date`
+  - `center_unit_info.is_level_max`
+  - `center_unit_info.is_love_max`
+  - `center_unit_info.is_rank_max`
+  - `center_unit_info.is_removable_skill_capacity_max`
+  - `center_unit_info.is_signed`
+  - `center_unit_info.is_skill_level_max`
+  - `center_unit_info.level`
+  - `center_unit_info.level_limit_id`
+  - `center_unit_info.love`
+  - `center_unit_info.max_hp`
+  - `center_unit_info.max_level`
+  - `center_unit_info.max_love`
+  - `center_unit_info.max_rank`
+  - `center_unit_info.next_exp`
+  - `center_unit_info.rank`
+  - `center_unit_info.removable_skill_ids`
+  - `center_unit_info.total_cool`
+  - `center_unit_info.total_cute`
+  - `center_unit_info.total_hp`
+  - `center_unit_info.total_smile`
+  - `center_unit_info.unit_id`
+  - `center_unit_info.unit_owning_user_id`
+  - `center_unit_info.unit_removable_skill_capacity`
+  - `center_unit_info.unit_skill_exp`
+  - `center_unit_info.unit_skill_level`
   - `friend_status`
   - `is_alliance`
   - `navi_unit_info`
+  - `navi_unit_info.display_rank`
+  - `navi_unit_info.exp`
+  - `navi_unit_info.favorite_flag`
+  - `navi_unit_info.insert_date`
+  - `navi_unit_info.is_level_max`
+  - `navi_unit_info.is_love_max`
+  - `navi_unit_info.is_rank_max`
+  - `navi_unit_info.is_removable_skill_capacity_max`
+  - `navi_unit_info.is_signed`
+  - `navi_unit_info.is_skill_level_max`
+  - `navi_unit_info.level`
+  - `navi_unit_info.level_limit_id`
+  - `navi_unit_info.love`
+  - `navi_unit_info.max_hp`
+  - `navi_unit_info.max_level`
+  - `navi_unit_info.max_love`
+  - `navi_unit_info.max_rank`
+  - `navi_unit_info.next_exp`
+  - `navi_unit_info.rank`
+  - `navi_unit_info.removable_skill_ids`
+  - `navi_unit_info.total_cool`
+  - `navi_unit_info.total_cute`
+  - `navi_unit_info.total_hp`
+  - `navi_unit_info.total_smile`
+  - `navi_unit_info.unit_id`
+  - `navi_unit_info.unit_owning_user_id`
+  - `navi_unit_info.unit_removable_skill_capacity`
+  - `navi_unit_info.unit_skill_exp`
+  - `navi_unit_info.unit_skill_level`
   - `setting_award_id`
   - `setting_background_id`
   - `user_info`
+  - `user_info.cost_max`
+  - `user_info.elapsed_time_from_login`
+  - `user_info.energy_max`
+  - `user_info.friend_max`
+  - `user_info.introduction`
+  - `user_info.invite_code`
+  - `user_info.level`
+  - `user_info.name`
+  - `user_info.unit_cnt`
+  - `user_info.unit_max`
+  - `user_info.user_id`
 
-### `achievement.rewardOpen`
-- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementRewardOpenResponse`)
-- **NPPS4 emits, client never reads:**
+### `unit.sale`
+- NPPS4 source: `npps4/game/unit.py` (return type: `UnitSaleResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
   - `before_user_info`
-  - `new_achievement_cnt`
-  - `present_cnt`
+  - `before_user_info.current_energy`
+  - `before_user_info.energy_full_need_time`
+  - `before_user_info.energy_full_time`
+  - `before_user_info.energy_max`
+  - `before_user_info.exp`
+  - `before_user_info.free_sns_coin`
+  - `before_user_info.friend_max`
+  - `before_user_info.game_coin`
+  - `before_user_info.insert_date`
+  - `before_user_info.invite_code`
+  - `before_user_info.level`
+  - `before_user_info.license_live_energy_recoverly_time`
+  - `before_user_info.lp_recovery_item`
+  - `before_user_info.lp_recovery_item.amount`
+  - `before_user_info.lp_recovery_item.item_id`
+  - `before_user_info.name`
+  - `before_user_info.next_exp`
+  - `before_user_info.over_max_energy`
+  - `before_user_info.paid_sns_coin`
+  - `before_user_info.previous_exp`
+  - `before_user_info.sns_coin`
+  - `before_user_info.social_point`
+  - `before_user_info.training_energy`
+  - `before_user_info.training_energy_max`
+  - `before_user_info.tutorial_state`
+  - `before_user_info.unit_max`
+  - `before_user_info.unlock_random_live_aqours`
+  - `before_user_info.unlock_random_live_muse`
+  - `before_user_info.update_date`
+  - `before_user_info.user_id`
+  - `before_user_info.waiting_unit_max`
+  - `detail`
+  - `detail.amount`
+  - `detail.is_signed`
+  - `detail.price`
+  - `detail.unit_id`
+  - `detail.unit_owning_user_id`
+  - `get_exchange_point_list.exchange_point`
+  - `get_exchange_point_list.rarity`
   - `server_timestamp`
-  - `unaccomplished_achievement_cnt`
-  - `unit_support_list`
-- Agreement on 4 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `reward_item_list`
+  - `total`
+  - `unit_removable_skill.owning_info.equipped_amount`
+  - `unit_removable_skill.owning_info.insert_date`
+  - `unit_removable_skill.owning_info.total_amount`
+  - `unit_removable_skill.owning_info.unit_removable_skill_id`
+- Agreement on 6 field(s): `after_user_info`, `after_user_info.game_coin`, `get_exchange_point_list`, `reward_box_flag`, `unit_removable_skill`, `unit_removable_skill.owning_info`
+
+### `payment.productList`
+- NPPS4 source: `npps4/game/payment.py` (return type: `PaymentProductListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `product_list.announce_url`
+  - `product_list.banner_img_asset`
+  - `product_list.can_buy`
+  - `product_list.confirm_url`
+  - `product_list.item_list`
+  - `product_list.item_list.add_type`
+  - `product_list.item_list.amount`
+  - `product_list.item_list.item_id`
+  - `product_list.limit_status`
+  - `product_list.limit_status.remaining_count`
+  - `product_list.limit_status.remaining_time`
+  - `product_list.limit_status.term_start_date`
+  - `product_list.name`
+  - `product_list.price`
+  - `product_list.product_id`
+  - `product_list.product_type`
+  - `restriction_info.restricted`
+  - `show_point_shop`
+  - `sns_product_list.can_buy`
+  - `sns_product_list.item_list`
+  - `sns_product_list.item_list.add_type`
+  - `sns_product_list.item_list.amount`
+  - `sns_product_list.item_list.item_id`
+  - `sns_product_list.name`
+  - `sns_product_list.price`
+  - `sns_product_list.product_id`
+  - `sns_product_list.product_type`
+  - `subscription_list.banner_img_asset`
+  - `subscription_list.can_buy`
+  - `subscription_list.item_list`
+  - `subscription_list.item_list.add_type`
+  - `subscription_list.item_list.amount`
+  - `subscription_list.item_list.item_id`
+  - `subscription_list.limit_status`
+  - `subscription_list.limit_status.remaining_count`
+  - `subscription_list.limit_status.remaining_time`
+  - `subscription_list.limit_status.term_start_date`
+  - `subscription_list.name`
+  - `subscription_list.price`
+  - `subscription_list.product_id`
+  - `subscription_list.product_type`
+  - `subscription_list.product_url`
+  - `subscription_list.subscription_status`
+  - `subscription_list.subscription_status.license_id`
+  - `subscription_list.subscription_status.license_info`
+  - `subscription_list.subscription_status.license_info.items`
+  - `subscription_list.subscription_status.license_info.items.reward_list`
+  - `subscription_list.subscription_status.license_info.items.reward_list.add_type`
+  - `subscription_list.subscription_status.license_info.items.reward_list.amount`
+  - `subscription_list.subscription_status.license_info.items.reward_list.comment`
+  - `subscription_list.subscription_status.license_info.items.reward_list.item_category_id`
+  - `subscription_list.subscription_status.license_info.items.reward_list.item_id`
+  - `subscription_list.subscription_status.license_info.items.reward_list.reward_box_flag`
+  - `subscription_list.subscription_status.license_info.items.seq`
+  - `subscription_list.subscription_status.license_info.name`
+  - `subscription_list.subscription_status.license_type`
+  - `subscription_list.subscription_status.user_status`
+  - `subscription_list.subscription_status.user_status.is_licensed`
+  - `under_age_info.limit_amount`
+  - `under_age_info.month_used`
+- Agreement on 7 field(s): `product_list`, `restriction_info`, `sns_product_list`, `subscription_list`, `under_age_info`, `under_age_info.birth_set`...
+
+### `live.play`
+- NPPS4 source: `npps4/game/live.py` (return type: `LivePlayResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `live_list.deck_info`
+  - `live_list.deck_info.center_bonus`
+  - `live_list.deck_info.center_bonus.cool`
+  - `live_list.deck_info.center_bonus.cute`
+  - `live_list.deck_info.center_bonus.hp`
+  - `live_list.deck_info.center_bonus.smile`
+  - `live_list.deck_info.prepared_hp_damage`
+  - `live_list.deck_info.si_bonus`
+  - `live_list.deck_info.si_bonus.cool`
+  - `live_list.deck_info.si_bonus.cute`
+  - `live_list.deck_info.si_bonus.hp`
+  - `live_list.deck_info.si_bonus.smile`
+  - `live_list.deck_info.total_cool`
+  - `live_list.deck_info.total_cute`
+  - `live_list.deck_info.total_hp`
+  - `live_list.deck_info.total_smile`
+  - `live_list.deck_info.total_status`
+  - `live_list.deck_info.total_status.cool`
+  - `live_list.deck_info.total_status.cute`
+  - `live_list.deck_info.total_status.hp`
+  - `live_list.deck_info.total_status.smile`
+  - `live_list.deck_info.unit_deck_id`
+  - `live_list.deck_info.unit_list`
+  - `live_list.deck_info.unit_list.cool`
+  - `live_list.deck_info.unit_list.cute`
+  - `live_list.deck_info.unit_list.display_rank`
+  - `live_list.deck_info.unit_list.is_level_max`
+  - `live_list.deck_info.unit_list.is_love_max`
+  - `live_list.deck_info.unit_list.is_rank_max`
+  - `live_list.deck_info.unit_list.level`
+  - `live_list.deck_info.unit_list.love`
+  - `live_list.deck_info.unit_list.position`
+  - `live_list.deck_info.unit_list.rank`
+  - `live_list.deck_info.unit_list.removable_skill_ids`
+  - `live_list.deck_info.unit_list.smile`
+  - `live_list.deck_info.unit_list.unit_id`
+  - `live_list.deck_info.unit_list.unit_removable_skill_capacity`
+  - `live_list.deck_info.unit_list.unit_skill_exp`
+  - `live_list.deck_info.unit_list.unit_skill_level`
+  - `live_list.live_info`
+  - `live_list.live_info.ac_flag`
+  - `live_list.live_info.is_random`
+  - `live_list.live_info.live_difficulty_id`
+  - `live_list.live_info.notes_list`
+  - `live_list.live_info.notes_list.effect`
+  - `live_list.live_info.notes_list.effect_value`
+  - `live_list.live_info.notes_list.notes_attribute`
+  - `live_list.live_info.notes_list.notes_level`
+  - `live_list.live_info.notes_list.position`
+  - `live_list.live_info.notes_list.speed`
+  - `live_list.live_info.notes_list.timing_sec`
+  - `live_list.live_info.notes_list.vanish`
+  - `live_list.live_info.swing_flag`
+  - `rank_info.rank`
+  - `rank_info.rank_max`
+  - `rank_info.rank_min`
+  - `server_timestamp`
+- Agreement on 10 field(s): `auto_play`, `available_live_resume`, `can_activate_effect`, `energy_full_time`, `is_marathon_event`, `live_list`...
+
+### `unit.unitAll`
+- NPPS4 source: `npps4/game/unit.py` (return type: `UnitAllInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `active.display_rank`
+  - `active.exp`
+  - `active.favorite_flag`
+  - `active.insert_date`
+  - `active.is_level_max`
+  - `active.is_love_max`
+  - `active.is_rank_max`
+  - `active.is_removable_skill_capacity_max`
+  - `active.is_signed`
+  - `active.is_skill_level_max`
+  - `active.level`
+  - `active.level_limit_id`
+  - `active.love`
+  - `active.max_hp`
+  - `active.max_level`
+  - `active.max_love`
+  - `active.max_rank`
+  - `active.next_exp`
+  - `active.rank`
+  - `active.unit_id`
+  - `active.unit_owning_user_id`
+  - `active.unit_rarity_id`
+  - `active.unit_removable_skill_capacity`
+  - `active.unit_skill_exp`
+  - `active.unit_skill_level`
+  - `waiting.display_rank`
+  - `waiting.exp`
+  - `waiting.favorite_flag`
+  - `waiting.insert_date`
+  - `waiting.is_level_max`
+  - `waiting.is_love_max`
+  - `waiting.is_rank_max`
+  - `waiting.is_removable_skill_capacity_max`
+  - `waiting.is_signed`
+  - `waiting.is_skill_level_max`
+  - `waiting.level`
+  - `waiting.level_limit_id`
+  - `waiting.love`
+  - `waiting.max_hp`
+  - `waiting.max_level`
+  - `waiting.max_love`
+  - `waiting.max_rank`
+  - `waiting.next_exp`
+  - `waiting.rank`
+  - `waiting.unit_id`
+  - `waiting.unit_owning_user_id`
+  - `waiting.unit_rarity_id`
+  - `waiting.unit_removable_skill_capacity`
+  - `waiting.unit_skill_exp`
+  - `waiting.unit_skill_level`
+- Agreement on 2 field(s): `active`, `waiting`
+
+### `friend.search`
+- NPPS4 source: `npps4/game/friend.py` (return type: `FriendSearchResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `center_unit_info.attribute`
+  - `center_unit_info.cool`
+  - `center_unit_info.cute`
+  - `center_unit_info.display_rank`
+  - `center_unit_info.exp`
+  - `center_unit_info.favorite_flag`
+  - `center_unit_info.insert_date`
+  - `center_unit_info.is_level_max`
+  - `center_unit_info.is_love_max`
+  - `center_unit_info.is_rank_max`
+  - `center_unit_info.is_removable_skill_capacity_max`
+  - `center_unit_info.is_signed`
+  - `center_unit_info.is_skill_level_max`
+  - `center_unit_info.level`
+  - `center_unit_info.level_limit_id`
+  - `center_unit_info.love`
+  - `center_unit_info.max_hp`
+  - `center_unit_info.max_level`
+  - `center_unit_info.max_love`
+  - `center_unit_info.max_rank`
+  - `center_unit_info.next_exp`
+  - `center_unit_info.rank`
+  - `center_unit_info.removable_skill_ids`
+  - `center_unit_info.setting_award_id`
+  - `center_unit_info.smile`
+  - `center_unit_info.unit_id`
+  - `center_unit_info.unit_owning_user_id`
+  - `center_unit_info.unit_rarity_id`
+  - `center_unit_info.unit_removable_skill_capacity`
+  - `center_unit_info.unit_skill_exp`
+  - `center_unit_info.unit_skill_level`
+  - `server_timestamp`
+  - `user_info.comment`
+  - `user_info.cost_max`
+  - `user_info.elapsed_time_from_login`
+  - `user_info.energy_max`
+  - `user_info.friend_max`
+  - `user_info.level`
+  - `user_info.name`
+  - `user_info.unit_cnt`
+  - `user_info.unit_max`
+  - `user_info.user_id`
+- Agreement on 5 field(s): `center_unit_info`, `friend_status`, `is_alliance`, `setting_award_id`, `user_info`
+
+### `live.partyList`
+- NPPS4 source: `npps4/game/live.py` (return type: `LivePartyListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `party_list`
+  - `party_list.available_social_point`
+  - `party_list.center_unit_info`
+  - `party_list.center_unit_info.attribute`
+  - `party_list.center_unit_info.cool`
+  - `party_list.center_unit_info.cute`
+  - `party_list.center_unit_info.display_rank`
+  - `party_list.center_unit_info.exp`
+  - `party_list.center_unit_info.favorite_flag`
+  - `party_list.center_unit_info.is_level_max`
+  - `party_list.center_unit_info.is_love_max`
+  - `party_list.center_unit_info.is_rank_max`
+  - `party_list.center_unit_info.is_signed`
+  - `party_list.center_unit_info.is_skill_level_max`
+  - `party_list.center_unit_info.level`
+  - `party_list.center_unit_info.level_limit_id`
+  - `party_list.center_unit_info.love`
+  - `party_list.center_unit_info.max_hp`
+  - `party_list.center_unit_info.max_level`
+  - `party_list.center_unit_info.max_love`
+  - `party_list.center_unit_info.max_rank`
+  - `party_list.center_unit_info.next_exp`
+  - `party_list.center_unit_info.rank`
+  - `party_list.center_unit_info.removable_skill_ids`
+  - `party_list.center_unit_info.setting_award_id`
+  - `party_list.center_unit_info.smile`
+  - `party_list.center_unit_info.unit_id`
+  - `party_list.center_unit_info.unit_owning_user_id`
+  - `party_list.center_unit_info.unit_removable_skill_capacity`
+  - `party_list.center_unit_info.unit_skill_exp`
+  - `party_list.center_unit_info.unit_skill_level`
+  - `party_list.friend_status`
+  - `party_list.setting_award_id`
+  - `party_list.user_info`
+  - `party_list.user_info.level`
+  - `party_list.user_info.name`
+  - `party_list.user_info.user_id`
+  - `server_timestamp`
+  - `training_energy`
+  - `training_energy_max`
+
+### `unit.removableSkillSell`
+- NPPS4 source: `npps4/game/unit.py` (return type: `UnitRemovableSkillSellResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `after_user_info.current_energy`
+  - `after_user_info.energy_full_need_time`
+  - `after_user_info.energy_full_time`
+  - `after_user_info.energy_max`
+  - `after_user_info.exp`
+  - `after_user_info.free_sns_coin`
+  - `after_user_info.friend_max`
+  - `after_user_info.game_coin`
+  - `after_user_info.insert_date`
+  - `after_user_info.invite_code`
+  - `after_user_info.level`
+  - `after_user_info.license_live_energy_recoverly_time`
+  - `after_user_info.lp_recovery_item`
+  - `after_user_info.lp_recovery_item.amount`
+  - `after_user_info.lp_recovery_item.item_id`
+  - `after_user_info.name`
+  - `after_user_info.next_exp`
+  - `after_user_info.over_max_energy`
+  - `after_user_info.paid_sns_coin`
+  - `after_user_info.previous_exp`
+  - `after_user_info.sns_coin`
+  - `after_user_info.social_point`
+  - `after_user_info.training_energy`
+  - `after_user_info.training_energy_max`
+  - `after_user_info.tutorial_state`
+  - `after_user_info.unit_max`
+  - `after_user_info.unlock_random_live_aqours`
+  - `after_user_info.unlock_random_live_muse`
+  - `after_user_info.update_date`
+  - `after_user_info.user_id`
+  - `after_user_info.waiting_unit_max`
+  - `reward_box_flag`
+  - `total`
+- Agreement on 1 field(s): `after_user_info`
 
 ### `ranking.player`
 - NPPS4 source: `npps4/game/ranking.py` (return type: `RankingResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `items`
+  - `items.center_unit_info`
+  - `items.center_unit_info.cool`
+  - `items.center_unit_info.cute`
+  - `items.center_unit_info.display_rank`
+  - `items.center_unit_info.is_level_max`
+  - `items.center_unit_info.is_love_max`
+  - `items.center_unit_info.is_rank_max`
+  - `items.center_unit_info.level`
+  - `items.center_unit_info.love`
+  - `items.center_unit_info.rank`
+  - `items.center_unit_info.removable_skill_ids`
+  - `items.center_unit_info.smile`
+  - `items.center_unit_info.unit_id`
+  - `items.center_unit_info.unit_removable_skill_capacity`
+  - `items.center_unit_info.unit_skill_exp`
+  - `items.rank`
+  - `items.score`
+  - `items.setting_award_id`
+  - `items.user_data`
+  - `items.user_data.level`
+  - `items.user_data.name`
+  - `items.user_data.user_id`
   - `page`
   - `present_cnt`
   - `rank`
   - `server_timestamp`
   - `total_cnt`
 
-### `live.partyList`
-- NPPS4 source: `npps4/game/live.py` (return type: `LivePartyListResponse`)
-- **NPPS4 emits, client never reads:**
-  - `party_list`
+### `friend.list`
+- NPPS4 source: `npps4/game/friend.py` (return type: `FriendListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `friend_list.center_unit_info`
+  - `friend_list.center_unit_info.cool`
+  - `friend_list.center_unit_info.cute`
+  - `friend_list.center_unit_info.display_rank`
+  - `friend_list.center_unit_info.is_level_max`
+  - `friend_list.center_unit_info.is_love_max`
+  - `friend_list.center_unit_info.is_rank_max`
+  - `friend_list.center_unit_info.level`
+  - `friend_list.center_unit_info.love`
+  - `friend_list.center_unit_info.rank`
+  - `friend_list.center_unit_info.removable_skill_ids`
+  - `friend_list.center_unit_info.smile`
+  - `friend_list.center_unit_info.unit_id`
+  - `friend_list.center_unit_info.unit_removable_skill_capacity`
+  - `friend_list.center_unit_info.unit_skill_exp`
+  - `friend_list.is_new`
+  - `friend_list.setting_award_id`
+  - `friend_list.user_data`
+  - `friend_list.user_data.comment`
+  - `friend_list.user_data.elapsed_time_from_applied`
+  - `friend_list.user_data.elapsed_time_from_login`
+  - `friend_list.user_data.level`
+  - `friend_list.user_data.name`
+  - `friend_list.user_data.user_id`
   - `server_timestamp`
-  - `training_energy`
-  - `training_energy_max`
+- Agreement on 3 field(s): `friend_list`, `item_count`, `new_friend_list`
+
+### `ranking.live`
+- NPPS4 source: `npps4/game/ranking.py` (return type: `RankingResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `items.center_unit_info`
+  - `items.center_unit_info.cool`
+  - `items.center_unit_info.cute`
+  - `items.center_unit_info.display_rank`
+  - `items.center_unit_info.is_level_max`
+  - `items.center_unit_info.is_love_max`
+  - `items.center_unit_info.is_rank_max`
+  - `items.center_unit_info.level`
+  - `items.center_unit_info.love`
+  - `items.center_unit_info.rank`
+  - `items.center_unit_info.removable_skill_ids`
+  - `items.center_unit_info.smile`
+  - `items.center_unit_info.unit_id`
+  - `items.center_unit_info.unit_removable_skill_capacity`
+  - `items.center_unit_info.unit_skill_exp`
+  - `items.rank`
+  - `items.score`
+  - `items.setting_award_id`
+  - `items.user_data`
+  - `items.user_data.level`
+  - `items.user_data.name`
+  - `items.user_data.user_id`
+  - `present_cnt`
+  - `server_timestamp`
+- Agreement on 4 field(s): `items`, `page`, `rank`, `total_cnt`
+
+### `live.liveStatus`
+- NPPS4 source: `npps4/game/live.py` (return type: `LiveStatusResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `normal_live_status_list.achieved_goal_id_list`
+  - `normal_live_status_list.clear_cnt`
+  - `normal_live_status_list.hi_combo_count`
+  - `normal_live_status_list.hi_score`
+  - `normal_live_status_list.live_difficulty_id`
+  - `normal_live_status_list.status`
+  - `special_live_status_list.achieved_goal_id_list`
+  - `special_live_status_list.clear_cnt`
+  - `special_live_status_list.hi_combo_count`
+  - `special_live_status_list.hi_score`
+  - `special_live_status_list.live_difficulty_id`
+  - `special_live_status_list.status`
+  - `training_live_status_list.achieved_goal_id_list`
+  - `training_live_status_list.clear_cnt`
+  - `training_live_status_list.hi_combo_count`
+  - `training_live_status_list.hi_score`
+  - `training_live_status_list.live_difficulty_id`
+  - `training_live_status_list.status`
+- Agreement on 6 field(s): `can_resume_live`, `free_live_status_list`, `marathon_live_status_list`, `normal_live_status_list`, `special_live_status_list`, `training_live_status_list`
+
+### `exchange.itemInfo`
+- NPPS4 source: `npps4/game/exchange.py` (return type: `ExchangeItemInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `exchange_item_info.add_type`
+  - `exchange_item_info.already_obtained`
+  - `exchange_item_info.amount`
+  - `exchange_item_info.cost_list`
+  - `exchange_item_info.cost_list.cost_value`
+  - `exchange_item_info.cost_list.rarity`
+  - `exchange_item_info.exchange_item_id`
+  - `exchange_item_info.got_item_count`
+  - `exchange_item_info.is_new`
+  - `exchange_item_info.is_rank_max`
+  - `exchange_item_info.item_category_id`
+  - `exchange_item_info.item_id`
+  - `exchange_item_info.option`
+  - `exchange_item_info.term_count`
+  - `exchange_item_info.title`
+  - `exchange_point_list.exchange_point`
+  - `exchange_point_list.rarity`
+- Agreement on 2 field(s): `exchange_item_info`, `exchange_point_list`
+
+### `reward.rewardHistory`
+- NPPS4 source: `npps4/game/reward.py` (return type: `RewardHistoryResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `ad_info`
+  - `ad_info.ad_id`
+  - `ad_info.reward_list`
+  - `ad_info.term_id`
+  - `history`
+  - `history.add_type`
+  - `history.amount`
+  - `history.incentive_id`
+  - `history.incentive_item_id`
+  - `history.incentive_message`
+  - `history.insert_date`
+  - `history.item_category_id`
+  - `history.item_option`
+  - `history.remaining_time`
+  - `item_count`
+  - `limit`
+
+### `reward.rewardList`
+- NPPS4 source: `npps4/game/reward.py` (return type: `RewardListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `ad_info.ad_id`
+  - `ad_info.reward_list`
+  - `ad_info.term_id`
+  - `items.add_type`
+  - `items.amount`
+  - `items.incentive_id`
+  - `items.incentive_item_id`
+  - `items.incentive_message`
+  - `items.insert_date`
+  - `items.item_category_id`
+  - `items.item_option`
+  - `items.remaining_time`
+  - `limit`
+  - `order`
+- Agreement on 3 field(s): `ad_info`, `item_count`, `items`
+
+### `eventscenario.status`
+- NPPS4 source: `npps4/game/eventscenario.py` (return type: `EventScenarioStatusResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `event_scenario_list.chapter_list`
+  - `event_scenario_list.chapter_list.amount`
+  - `event_scenario_list.chapter_list.chapter`
+  - `event_scenario_list.chapter_list.cost_type`
+  - `event_scenario_list.chapter_list.event_scenario_id`
+  - `event_scenario_list.chapter_list.is_reward`
+  - `event_scenario_list.chapter_list.item_id`
+  - `event_scenario_list.chapter_list.open_flash_flag`
+  - `event_scenario_list.chapter_list.status`
+  - `event_scenario_list.event_id`
+  - `event_scenario_list.event_scenario_btn_asset`
+  - `event_scenario_list.event_scenario_se_btn_asset`
+  - `event_scenario_list.open_date`
+- Agreement on 1 field(s): `event_scenario_list`
+
+### `event.eventList`
+- NPPS4 source: `npps4/game/event.py` (return type: `EventListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `server_timestamp`
+  - `target_list.event_list`
+  - `target_list.event_list.asset_path`
+  - `target_list.event_list.banner_type`
+  - `target_list.event_list.description`
+  - `target_list.event_list.end_date`
+  - `target_list.event_list.is_locked`
+  - `target_list.event_list.is_new`
+  - `target_list.event_list.start_date`
+  - `target_list.event_list.target_id`
+  - `target_list.is_displayable`
+  - `target_list.position`
+- Agreement on 1 field(s): `target_list`
+
+### `banner.bannerList`
+- NPPS4 source: `npps4/game/banner.py` (return type: `BannerListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `banner_list.asset_path`
+  - `banner_list.back_side`
+  - `banner_list.banner_id`
+  - `banner_list.banner_type`
+  - `banner_list.end_date`
+  - `banner_list.fixed_flag`
+  - `banner_list.is_registered`
+  - `banner_list.start_date`
+  - `banner_list.target_id`
+  - `banner_list.webview_url`
+- Agreement on 2 field(s): `banner_list`, `time_limit`
+
+### `notice.noticeFriendVariety`
+- NPPS4 source: `npps4/game/notice.py` (return type: `NoticeFriendVarietyResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `notice_list.affector`
+  - `notice_list.filter_id`
+  - `notice_list.insert_date`
+  - `notice_list.message`
+  - `notice_list.new_flag`
+  - `notice_list.notice_id`
+  - `notice_list.notice_template_id`
+  - `notice_list.readed`
+  - `notice_list.reference_table`
+  - `server_timestamp`
+- Agreement on 2 field(s): `item_count`, `notice_list`
+
+### `login.topInfoOnce`
+- NPPS4 source: `npps4/game/login.py` (return type: `TopInfoOnceResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `notification.birthday`
+  - `notification.campaign`
+  - `notification.event`
+  - `notification.lbonus`
+  - `notification.live`
+  - `notification.lp`
+  - `notification.push`
+  - `notification.secretbox`
+  - `notification.update_info`
+- Agreement on 11 field(s): `arena_si_skill_unique_check`, `costume_status`, `live_daily_reward_exist`, `new_achievement_cnt`, `notification`, `open_accessory`...
+
+### `multiunit.multiunitscenarioStatus`
+- NPPS4 source: `npps4/game/multiunit.py` (return type: `MultiUnitScenarioResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `multi_unit_scenario_status_list.chapter_list.chapter`
+  - `multi_unit_scenario_status_list.chapter_list.multi_unit_scenario_id`
+  - `multi_unit_scenario_status_list.chapter_list.status`
+  - `multi_unit_scenario_status_list.multi_unit_id`
+  - `multi_unit_scenario_status_list.multi_unit_scenario_btn_asset`
+  - `multi_unit_scenario_status_list.multi_unit_scenario_se_btn_asset`
+  - `multi_unit_scenario_status_list.open_date`
+  - `multi_unit_scenario_status_list.status`
+- Agreement on 2 field(s): `multi_unit_scenario_status_list`, `multi_unit_scenario_status_list.chapter_list`
+
+### `login.unitList`
+- NPPS4 source: `npps4/game/login.py` (return type: `StarterUnitListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `member_category_list.member_category`
+  - `member_category_list.unit_initial_set`
+  - `member_category_list.unit_initial_set.center_unit_id`
+  - `member_category_list.unit_initial_set.unit_initial_set_id`
+  - `member_category_list.unit_initial_set.unit_list`
+  - `member_category_list.unit_initial_set.unit_list.is_rank_max`
+  - `member_category_list.unit_initial_set.unit_list.unit_id`
+- Agreement on 1 field(s): `member_category_list`
+
+### `item.list`
+- NPPS4 source: `npps4/game/item.py` (return type: `ItemListResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `buff_item_list.amount`
+  - `buff_item_list.item_id`
+  - `general_item_list.amount`
+  - `general_item_list.item_id`
+  - `reinforce_item_list.amount`
+  - `reinforce_item_list.item_id`
+- Agreement on 4 field(s): `buff_item_list`, `general_item_list`, `reinforce_info`, `reinforce_item_list`
+
+### `login.topInfo`
+- NPPS4 source: `npps4/game/login.py` (return type: `TopInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `license_info.badge_flag`
+  - `license_info.expired_info`
+  - `license_info.license_list`
+  - `license_info.licensed_info`
+  - `present_cnt`
+  - `server_timestamp`
+- Agreement on 19 field(s): `ad_flag`, `exchange_badge_cnt`, `friend_action_cnt`, `friend_greet_cnt`, `friend_new_cnt`, `friend_variety_cnt`...
+
+### `museum.info`
+- NPPS4 source: `npps4/game/museum.py` (return type: `MuseumInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `museum_info`
+  - `museum_info.contents_id_list`
+  - `museum_info.parameter`
+  - `museum_info.parameter.cool`
+  - `museum_info.parameter.pure`
+  - `museum_info.parameter.smile`
+
+### `notice.noticeMarquee`
+- NPPS4 source: `npps4/game/notice.py` (return type: `NoticeMarqueeResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `marquee_list.display_place`
+  - `marquee_list.end_date`
+  - `marquee_list.marquee_id`
+  - `marquee_list.start_date`
+  - `marquee_list.text`
+  - `marquee_list.text_color`
+- Agreement on 2 field(s): `item_count`, `marquee_list`
+
+### `stamp.stampInfo`
+- NPPS4 source: `npps4/game/stamp.py` (return type: `StampInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `stamp_setting.setting_list.main_flag`
+  - `stamp_setting.setting_list.stamp_list`
+  - `stamp_setting.setting_list.stamp_list.position`
+  - `stamp_setting.setting_list.stamp_list.stamp_id`
+  - `stamp_setting.setting_list.stamp_setting_id`
+  - `stamp_setting.stamp_type`
+- Agreement on 3 field(s): `owning_stamp_ids`, `stamp_setting`, `stamp_setting.setting_list`
+
+### `achievement.initialAccomplishedList`
+- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementUnaccomplishedResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `achievement_list.id`
+  - `achievement_list.needs`
+  - `achievement_list.opens`
+  - `achievement_list.params`
+  - `filter_category_id`
+- Agreement on 3 field(s): `achievement_list`, `count`, `is_last`
+
+### `achievement.unaccomplishList`
+- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementUnaccomplishedResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `achievement_list.id`
+  - `achievement_list.needs`
+  - `achievement_list.opens`
+  - `achievement_list.params`
+- Agreement on 4 field(s): `achievement_list`, `count`, `filter_category_id`, `is_last`
+
+### `live.preciseScore`
+- NPPS4 source: `npps4/game/live.py` (return type: `LivePreciseScoreResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `rank_info.rank`
+  - `rank_info.rank_max`
+  - `rank_info.rank_min`
+  - `server_timestamp`
+- Agreement on 4 field(s): `can_activate_effect`, `off`, `on`, `rank_info`
 
 ### `personalnotice.get`
 - NPPS4 source: `npps4/game/personalnotice.py` (return type: `PersonalNoticeGetResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `contents`
   - `notice_id`
   - `title`
   - `type`
 - Agreement on 1 field(s): `has_notice`
 
-### `reward.rewardHistory`
-- NPPS4 source: `npps4/game/reward.py` (return type: `RewardHistoryResponse`)
-- **NPPS4 emits, client never reads:**
-  - `ad_info`
-  - `history`
-  - `item_count`
-  - `limit`
+### `secretbox.all`
+- NPPS4 source: `npps4/game/secretbox.py` (return type: `CustomSecretBoxResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `gauge_info.gauge_point`
+  - `gauge_info.max_gauge_point`
+  - `item_list.amount`
+  - `item_list.item_id`
+- Agreement on 5 field(s): `gauge_info`, `is_unit_max`, `item_list`, `member_category_list`, `use_cache`
 
-### `unit.sale`
-- NPPS4 source: `npps4/game/unit.py` (return type: `UnitSaleResponse`)
-- **NPPS4 emits, client never reads:**
-  - `before_user_info`
-  - `detail`
-  - `server_timestamp`
-  - `total`
-- Agreement on 4 field(s): `after_user_info`, `get_exchange_point_list`, `reward_box_flag`, `unit_removable_skill`
+### `unit.wait`
+- NPPS4 source: `npps4/game/unit.py` (return type: `UnitWaitResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `unit_removable_skill.owning_info.equipped_amount`
+  - `unit_removable_skill.owning_info.insert_date`
+  - `unit_removable_skill.owning_info.total_amount`
+  - `unit_removable_skill.owning_info.unit_removable_skill_id`
+- Agreement on 2 field(s): `unit_removable_skill`, `unit_removable_skill.owning_info`
 
-### `lbonus.execute`
-- NPPS4 source: `npps4/game/lbonus.py` (return type: `LoginBonusResponse`)
-- **NPPS4 emits, client never reads:**
-  - `museum_info`
-  - `present_cnt`
-  - `server_timestamp`
-- Agreement on 14 field(s): `accomplished_achievement_list`, `ad_info`, `added_achievement_list`, `after_user_info`, `calendar_info`, `class_system`...
+### `unit.removableSkillInfo`
+- NPPS4 source: `npps4/game/unit.py` (return type: `unit_model.RemovableSkillInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `owning_info.equipped_amount`
+  - `owning_info.insert_date`
+  - `owning_info.total_amount`
+- Agreement on 3 field(s): `equipment_info`, `owning_info`, `owning_info.unit_removable_skill_id`
 
-### `scenario.reward`
-- NPPS4 source: `npps4/game/scenario.py` (return type: `ScenarioRewardResponse`)
-- **NPPS4 emits, client never reads:**
-  - `museum_info`
-  - `present_cnt`
+### `user.getNavi`
+- NPPS4 source: `npps4/game/user.py` (return type: `UserGetNaviResponse`)
+- **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
-- Agreement on 10 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `class_system`, `clear_scenario`...
-
-### `subscenario.reward`
-- NPPS4 source: `npps4/game/subscenario.py` (return type: `SubScenarioRewardResponse`)
-- **NPPS4 emits, client never reads:**
-  - `museum_info`
-  - `present_cnt`
-  - `server_timestamp`
-- Agreement on 8 field(s): `after_user_info`, `base_reward_info`, `before_user_info`, `class_system`, `clear_subscenario`, `item_reward_info`...
-
-### `unit.exchangePointRankUp`
-- NPPS4 source: `npps4/game/unit.py` (return type: `UnitExchangeRankUpResponse`)
-- **NPPS4 emits, client never reads:**
-  - `museum_info`
-  - `present_cnt`
-  - `server_timestamp`
-- Agreement on 9 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after`, `after_exchange_point`, `after_user_info`, `before`...
+  - `user.unit_owning_user_id`
+  - `user.user_id`
+- Agreement on 1 field(s): `user`
 
 ### `announce.checkState`
 - NPPS4 source: `npps4/game/announce.py` (return type: `AnnounceStateResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `present_cnt`
   - `server_timestamp`
 - Agreement on 1 field(s): `has_unread_announce`
 
-### `exchange.usePoint`
-- NPPS4 source: `npps4/game/exchange.py` (return type: `ExchangeUsePointResponse`)
-- **NPPS4 emits, client never reads:**
-  - `present_cnt`
-  - `server_timestamp`
-- Agreement on 3 field(s): `after_user_info`, `before_user_info`, `exchange_reward`
+### `exchange.owningPoint`
+- NPPS4 source: `npps4/game/exchange.py` (return type: `ExchangePointResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `exchange_point_list.exchange_point`
+  - `exchange_point_list.rarity`
+- Agreement on 1 field(s): `exchange_point_list`
 
-### `login.topInfo`
-- NPPS4 source: `npps4/game/login.py` (return type: `TopInfoResponse`)
-- **NPPS4 emits, client never reads:**
-  - `present_cnt`
+### `handover.kidCheck`
+- NPPS4 source: `npps4/game/handover.py` (return type: `KIDCheckResponse`)
+- **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
-- Agreement on 19 field(s): `ad_flag`, `exchange_badge_cnt`, `friend_action_cnt`, `friend_greet_cnt`, `friend_new_cnt`, `friend_variety_cnt`...
+  - `user_info.user_id`
+- Agreement on 3 field(s): `user_info`, `user_info.level`, `user_info.name`
 
-### `ranking.live`
-- NPPS4 source: `npps4/game/ranking.py` (return type: `RankingResponse`)
-- **NPPS4 emits, client never reads:**
-  - `present_cnt`
-  - `server_timestamp`
-- Agreement on 4 field(s): `items`, `page`, `rank`, `total_cnt`
-
-### `reward.rewardList`
-- NPPS4 source: `npps4/game/reward.py` (return type: `RewardListResponse`)
-- **NPPS4 emits, client never reads:**
-  - `limit`
-  - `order`
-- Agreement on 3 field(s): `ad_info`, `item_count`, `items`
+### `scenario.scenarioStatus`
+- NPPS4 source: `npps4/game/scenario.py` (return type: `ScenarioStatusResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `scenario_status_list.scenario_id`
+  - `scenario_status_list.status`
+- Agreement on 1 field(s): `scenario_status_list`
 
 ### `tos.tosCheck`
 - NPPS4 source: `npps4/game/tos.py` (return type: `TOSCheckResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
   - `tos_type`
 - Agreement on 2 field(s): `is_agreed`, `tos_id`
 
-### `unit.removableSkillSell`
-- NPPS4 source: `npps4/game/unit.py` (return type: `UnitRemovableSkillSellResponse`)
-- **NPPS4 emits, client never reads:**
-  - `reward_box_flag`
-  - `total`
-- Agreement on 1 field(s): `after_user_info`
+### `unit.supporterAll`
+- NPPS4 source: `npps4/game/unit.py` (return type: `unit_model.SupporterListInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `unit_support_list.amount`
+  - `unit_support_list.unit_id`
+- Agreement on 1 field(s): `unit_support_list`
 
-### `achievement.initialAccomplishedList`
-- NPPS4 source: `npps4/game/achievement.py` (return type: `AchievementUnaccomplishedResponse`)
-- **NPPS4 emits, client never reads:**
-  - `filter_category_id`
-- Agreement on 3 field(s): `achievement_list`, `count`, `is_last`
+### `award.awardInfo`
+- NPPS4 source: `npps4/game/award.py` (return type: `AwardInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
+  - `award_info.insert_date`
+- Agreement on 3 field(s): `award_info`, `award_info.award_id`, `award_info.is_set`
 
-### `event.eventList`
-- NPPS4 source: `npps4/game/event.py` (return type: `EventListResponse`)
-- **NPPS4 emits, client never reads:**
+### `handover.kidInfo`
+- NPPS4 source: `npps4/game/handover.py` (return type: `KIDInfoResponse`)
+- **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
-- Agreement on 1 field(s): `target_list`
-
-### `friend.list`
-- NPPS4 source: `npps4/game/friend.py` (return type: `FriendListResponse`)
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 3 field(s): `friend_list`, `item_count`, `new_friend_list`
-
-### `friend.search`
-- NPPS4 source: `npps4/game/friend.py` (return type: `FriendSearchResponse`)
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 5 field(s): `center_unit_info`, `friend_status`, `is_alliance`, `setting_award_id`, `user_info`
+- Agreement on 1 field(s): `auth_url`
 
 ### `handover.kidStatus`
 - NPPS4 source: `npps4/game/handover.py` (return type: `KIDStatusResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
 - Agreement on 1 field(s): `has_klab_id`
 
-### `live.play`
-- NPPS4 source: `npps4/game/live.py` (return type: `LivePlayResponse`)
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 10 field(s): `auto_play`, `available_live_resume`, `can_activate_effect`, `energy_full_time`, `is_marathon_event`, `live_list`...
-
-### `live.preciseScore`
-- NPPS4 source: `npps4/game/live.py` (return type: `LivePreciseScoreResponse`)
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 4 field(s): `can_activate_effect`, `off`, `on`, `rank_info`
-
 ### `login.login`
 - NPPS4 source: `npps4/game/login.py` (return type: `LoginResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `server_timestamp`
 - Agreement on 5 field(s): `authorize_token`, `idfa_enabled`, `review_version`, `skip_login_news`, `user_id`
 
 ### `login.unitSelect`
 - NPPS4 source: `npps4/game/login.py` (return type: `StarterUnitSelectResponse`)
-- **NPPS4 emits, client never reads:**
+- **NPPS4 emits, no client read observed by harness:**
   - `unit_id`
-
-### `notice.noticeFriendVariety`
-- NPPS4 source: `npps4/game/notice.py` (return type: `NoticeFriendVarietyResponse`)
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 2 field(s): `item_count`, `notice_list`
-
-### `payment.productList`
-- NPPS4 source: `npps4/game/payment.py` (return type: `PaymentProductListResponse`)
-- **NPPS4 emits, client never reads:**
-  - `show_point_shop`
-- Agreement on 5 field(s): `product_list`, `restriction_info`, `sns_product_list`, `subscription_list`, `under_age_info`
-
-### `payment.receipt`
-- NPPS4 source: `npps4/game/payment.py` (return type: `PaymentReceiptResponse`)
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 2 field(s): `product`, `status`
-
-### `reward.open`
-- NPPS4 source: `npps4/game/reward.py` (return type: `RewardOpenResponse`)
-- **NPPS4 emits, client never reads:**
-  - `present_cnt`
-- Agreement on 10 field(s): `accomplished_achievement_list`, `added_achievement_list`, `after_user_info`, `before_user_info`, `class_system`, `new_achievement_cnt`...
-
-### `user.getNavi`
-- NPPS4 source: `npps4/game/user.py` (return type: `UserGetNaviResponse`)
-- **NPPS4 emits, client never reads:**
-  - `server_timestamp`
-- Agreement on 1 field(s): `user`
 

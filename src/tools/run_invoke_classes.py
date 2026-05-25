@@ -16,10 +16,11 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
-import subprocess
 import sys
 import time
 from pathlib import Path
+
+from _lua_worker import LuaWorkerBase
 
 ROOT = Path(__file__).resolve().parents[2]
 HARNESS_DIR = ROOT / "src" / "harness"
@@ -96,76 +97,9 @@ def get_shape_for(ep: str, promoted: dict, synthesized: dict) -> dict | None:
     return p_shape
 
 
-class Worker:
+class Worker(LuaWorkerBase):
     def __init__(self, lua_bin: str, source_root: Path):
-        self.lua_bin = lua_bin
-        self.source_root = source_root
-        self.proc = None
-        self.startup = None
-        self._boot()
-
-    def _boot(self) -> None:
-        cmd = [self.lua_bin, str(HARNESS_DIR / "harness.lua"),
-               str(self.source_root)]
-        self.proc = subprocess.Popen(
-            cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE, cwd=str(HARNESS_DIR),
-            text=True, bufsize=1,
-        )
-        line = self.proc.stdout.readline()
-        if not line:
-            raise RuntimeError(
-                f"worker died at startup: {self.proc.stderr.read()[:400]}")
-        marker = json.loads(line)
-        if not marker.get("__startup"):
-            raise RuntimeError(f"bad startup: {marker}")
-        self.startup = marker
-
-    def run(self, job: dict, timeout_s: float = 8.0) -> dict:
-        try:
-            self.proc.stdin.write(json.dumps(job) + "\n")
-            self.proc.stdin.flush()
-        except (BrokenPipeError, ValueError):
-            self._restart()
-            return {"errors": ["worker restart (broken pipe)"], "accessed_keys": []}
-        import select
-        rdy, _, _ = select.select([self.proc.stdout.fileno()], [], [], timeout_s)
-        if not rdy:
-            self._restart()
-            return {"errors": [f"timeout {timeout_s}s — worker restarted"],
-                    "accessed_keys": []}
-        line = self.proc.stdout.readline()
-        if not line:
-            self._restart()
-            return {"errors": ["worker died (empty output)"],
-                    "accessed_keys": []}
-        try:
-            return json.loads(line)
-        except json.JSONDecodeError:
-            return {"errors": [f"bad JSON: {line[:200]}"],
-                    "accessed_keys": []}
-
-    def _restart(self) -> None:
-        self.kill()
-        try:
-            self._boot()
-        except Exception as e:
-            print(f"worker boot failed: {e}", file=sys.stderr)
-
-    def close(self) -> None:
-        try:
-            if self.proc and self.proc.stdin:
-                self.proc.stdin.close()
-                self.proc.wait(timeout=5)
-        except Exception:
-            self.kill()
-
-    def kill(self) -> None:
-        try:
-            if self.proc:
-                self.proc.kill()
-        except Exception:
-            pass
+        super().__init__(lua_bin, source_root, HARNESS_DIR)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -229,8 +163,20 @@ def main(argv: list[str] | None = None) -> int:
             class_names = sorted({
                 c["class"] for c in classes_info if c.get("class")
             })
-            # Cap to avoid 1000s of method invocations per endpoint
-            class_names = class_names[:30]
+            # Cap to avoid runaway method invocations per endpoint. The Lua
+            # harness applies its own MAX_TOTAL_METHODS=60 cap so total work
+            # is bounded regardless; this guards against degenerate cases
+            # (e.g. shared base class referenced by hundreds of UI files).
+            # Bumped from 30 -> 100 since a sorted-alphabetical cap was
+            # silently dropping later-sorted classes for endpoints with
+            # broad UI coverage; warn when truncating so it's visible.
+            CLASS_CAP = 100
+            if len(class_names) > CLASS_CAP:
+                print(
+                    f"  {ep}: {len(class_names)} candidate classes, capping at {CLASS_CAP}",
+                    file=sys.stderr,
+                )
+                class_names = class_names[:CLASS_CAP]
 
             job = {
                 "kind": "invoke_classes",

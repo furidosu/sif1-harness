@@ -7,20 +7,19 @@ Empirical analysis of the 358 endpoint surface and where the harness
 
 | Bucket | Count | What it means |
 |---|---:|---|
-| `harness-covered` | **305** | Listener fired or UI handler invoked and read ≥1 field of the response. Schema-correctable from harness output. |
-| `envelope-only` | **20** | Fire-and-forget acks (`cancel`, `leave`, `skip`, `set`, etc.). `extra="allow"` empty Pydantic stub is correct. |
-| `ui-only` | **28** | Residual UI-handler endpoints where invoke_classes didn't yet land — methods crashed on missing UI context, or the relevant class failed to register at preload time. |
-| `needs-Frida` | **5** | Neither listener nor UI file references the cache_key/fn_name. State-dependent: matching queues, polling streams, KLab ID sync. |
+| `harness-covered` | **178** | Listener fired or UI handler invoked and read ≥1 field of the response (either a schema-undeclared discovery or ≥5 declared-but-confirmed accesses). Schema-correctable from harness output. |
+| `envelope-only` | **31** | Fire-and-forget acks (`cancel`, `leave`, `skip`, `set`, etc.). `extra="allow"` empty Pydantic stub is correct. |
+| `ui-only` | **132** | Listener body present but reads no fields the schema doesn't already declare; the response is likely unpacked in a UI-handler closure that `invoke_classes` didn't successfully exercise (method bodies crashed on missing UI context, or the relevant `define`'d class registered too late). |
+| `needs-Frida` | **17** | Neither listener nor UI file references the cache_key/fn_name. State-dependent: matching queues, polling streams, handover token flow, KLab ID sync, download URL signing. |
 
-Approach B lift on ui-only bucket: from **115** before to **28** after
-(**87 endpoints reclassified to harness-covered**). The mechanism:
-preload the 355 UI-handler files AFTER `finalize_modules` (so engine
-imports return sentinel-on-miss instead of nil-on-miss), then for each
-ui-only endpoint, pre-populate Cachable with a spied candidate and
-invoke each registered class's exported methods. Methods that read the
-populated cache via `Cachable.get(cache_key)` fire the spy.
+What counts as "discovered": a path the listener read that the schema
+(scraper-derived or LLM-synthesized) did not declare. The aggregator
+strips `.[N]` indices and shares namespace with declared paths, so
+listener reads against already-declared list elements (`events.[1].id`
+against a schema that says `events: list[Event]` with `Event.id`)
+correctly count as confirmation, not novel discovery.
 
-## The 5 `needs-Frida` endpoints — empirical evidence
+## The 17 `needs-Frida` endpoints — empirical evidence
 
 These won't be reached by ANY purely-static client analysis. They
 require either (a) running the client against a server and capturing
@@ -29,43 +28,42 @@ under varying user state.
 
 ```
 arena.matchLiveAutoPlay              — matching/queue state branching
+common.checkNgword                   — ngword filter (server-side dict)
+download.event                       — DLAPI signed-URL endpoints
+download.getUrl
+download.luaDownload
 duel.livePolling                     — long-poll endpoint
 handover.create                      — account-handover token generation
-klab_id.kidPagingUnaccomplishList    — KLab ID achievement paging
+handover.start
+klab_id.kidInitialAccomplishedList   — KLab ID achievement state
+klab_id.kidPagingUnaccomplishList
+klab_id.sync
+klab_id.syncActivate
 platformAccount.handover             — platform-account handover
+platformAccount.isConnectedLlAccount
+platformAccount.isConnectedPfAccount
+unit.deck
+user.showAllItem
 ```
 
-Three of the five are KLab-ID / platform-account / handover endpoints
-whose responses depend on an external KLab identity service that does
-not exist in our test environment. The other two are pure
-state-dependent (matching, polling). All five are reasonable Frida
+The bulk are KLab-ID / platform-account / handover endpoints whose
+responses depend on an external KLab identity service that does not
+exist in our test environment. The rest are pure state-dependent
+(matching, polling, signed-URL flows). All are reasonable Frida
 companion targets.
 
-## The 28 residual `ui-only` endpoints
+## The 132 residual `ui-only` endpoints
 
-These have a registered listener (so they're not envelope-only acks),
-but the `invoke_classes` pass didn't surface field reads — either the
-candidate class failed to register at preload time even on the second
-pass, or the class's exported methods don't reach the populated cache
-when invoked with sentinel args.
+These have a registered listener (so they're not envelope-only acks)
+and the listener body fired against the spied response, but every read
+landed on a field the schema already declared — no novel paths. The
+response is presumably unpacked in a UI-handler closure that
+`invoke_classes` didn't successfully exercise on those endpoints.
 
-```
-arena.dreamLiveGameOver        eventscenario.open       secretbox.knapsackSelect
-arena.moveUpStage              live.partyList           secretbox.selectUnit
-class.competitionOwnDeckRanking login.unitSelect        tos.tosAgree
-class.entrySemifinal           online.deck              tutorial.progress
-common.liveResume              payment.processLog       unit.activate
-common.logger                  profile.profileInfo      unit.deckName
-duel.duelSubDeck               quest.partyList          unit.favorite
-duel.liveEnd                   ranking.eventFriendLive  unit.favoriteAccessory
-duel.privateClose              ranking.player
-duty.privateClose              reward.rewardHistory
-```
-
-Reaching them probably needs per-endpoint hand-wiring: find the outer
-function that defines the per-call success closure, invoke that
-function with whatever sentinel/cached state it expects. Example
-target — `m_reward/reward_list.lua:1228-1376` (`RewardList.callApi`):
+Reaching them needs per-endpoint hand-wiring: find the outer function
+that defines the per-call success closure, invoke that function with
+whatever sentinel/cached state it expects. Example target —
+`m_reward/reward_list.lua:1228-1376` (`RewardList.callApi`):
 
 ```lua
 -- m_reward/reward_list.lua:1289-1334
@@ -85,13 +83,24 @@ end                                       --   this branch.
 Tractable but not done — open question for the NPPS4 collaboration
 whether the additional time investment is worth it.
 
-## The 305 `harness-covered` endpoints — what we ship
+## The 178 `harness-covered` endpoints — what we ship
 
-These have either ≥1 discovered field path or ≥5 distinct accessed
-keys via the listener or UI handler pass. They are the basis for the
-66 wire-compare findings in
-[`FINDINGS_AGAINST_NPPS4.md`](FINDINGS_AGAINST_NPPS4.md), 30 of which
-are server-bug candidates (client reads a field NPPS4 doesn't emit).
+These have either ≥1 discovered field path (a listener read of a field
+the schema didn't declare) or ≥5 distinct accessed keys via the
+listener/UI-handler pass. They are the basis for the wire-compare
+findings in [`FINDINGS_AGAINST_NPPS4.md`](FINDINGS_AGAINST_NPPS4.md):
+
+- **86 endpoints** in both NPPS4 + harness with disagreement
+- **35** client-reads-NPPS4-doesn't-emit (server bug candidates)
+- **75** NPPS4-emits-with-no-observed-client-read (no harness evidence
+  of a client read — may still be read in UI closures the harness
+  didn't exercise; not proof of "dead" fields)
+
+The wire-compare now compares at full path depth (post-Q7 fix):
+`event_list.[1].subtitle` versus a NPPS4 `EventV1` that declares
+`title` but not `subtitle` correctly surfaces as a nested
+disagreement. Previously the comparison collapsed both sides to
+top-level field names and hid these.
 
 ## Numbers, run-by-run
 
@@ -100,39 +109,42 @@ $ make compare-npps4    # runs the full pipeline
 
 # Step 1: notifyUpdate-driven harness
 $ python src/tools/run_lua_harness.py --all --out build/runtime/traces
-done: 358 ok / 0 err / 358 total in 0.1s
+done: 358 ok / 0 err / 358 total in ~2s
 
 # Step 2: aggregate
 $ python src/tools/aggregate_listener_observations.py
-- Endpoints with at least 1 discovered field: 180
+- Endpoints with at least 1 discovered field: ~70
 
 # Step 3: initial classify (before Approach B)
 $ python src/tools/classify_coverage.py
-  envelope-only        31
-  harness-covered      201
-  needs-Frida          12
-  ui-only              114
+  envelope-only        ~31
+  harness-covered      ~177
+  needs-Frida          ~17
+  ui-only              ~133
 
 # Step 4: invoke_classes Approach B against ui-only bucket
 $ python src/tools/run_invoke_classes.py --bucket ui-only
-done: 11 ok / 103 dud in 8.3s
+done: ~12 ok / ~120 dud in ~8s
 
 # Step 5: merge invoke_classes traces into observations
 $ python src/tools/merge_observations.py
-  endpoints with discoveries: 304
-  unique field paths: 452
+  endpoints with discoveries: ~71
+  unique field paths: ~81
 
-# Step 6: re-classify with merged data
+# Step 6: re-classify with merged data (and unioned accessed_keys)
 $ python src/tools/classify_coverage.py
-  envelope-only        20
-  harness-covered      305
-  needs-Frida          5
-  ui-only              28
+  envelope-only        31
+  harness-covered      178
+  needs-Frida          17
+  ui-only              132
 
 # Step 7: wire-compare vs NPPS4
 $ python integration/npps4/wire_compare.py --mode static-diff
-wrote (66 findings — 30 client-reads-NPPS4-missing)
+wrote build/wire_compare_static.md (86 findings — 35 client-reads-NPPS4-missing)
 ```
 
-End-to-end pipeline runs in **~10 seconds** (invoke_classes adds 8s on
-top of the original 2s). Reproducible. Deterministic.
+End-to-end pipeline runs in **~20 seconds** (the notifyUpdate pass is
+~2s, invoke_classes ~8s, the rest of the steps ~10s combined).
+Reproducible. Deterministic except for non-deterministic `next()`
+iteration order in invoke_classes method selection, which can move
+±2 endpoints between buckets between runs.

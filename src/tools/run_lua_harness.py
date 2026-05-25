@@ -38,12 +38,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import shutil
 import subprocess
 import sys
 import time
 from pathlib import Path
+
+from _lua_worker import LuaWorkerBase
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -193,53 +194,27 @@ def infer_request_arity(merged_entry: dict) -> int:
 
 # ---- persistent worker -----------------------------------------------------
 
-class HarnessWorker:
-    """Wraps a long-lived luajit subprocess.
+class HarnessWorker(LuaWorkerBase):
+    """Wraps a long-lived luajit subprocess. One JSON job per stdin line,
+    one JSON trace per stdout line.
 
-    Stdin: one JSON job per line. Stdout: one JSON trace per line.
-    On startup the worker emits a single line marker we consume here
-    before submitting any jobs.
+    Differs from the other workers in its `run()` contract: this one
+    RAISES on timeout / bad JSON / dead subprocess. Callers wrap their
+    own try/except — used here because the main driver treats a
+    harness death as terminal for that batch.
     """
 
     def __init__(self, lua_bin: str, source_root: Path):
-        cmd = [lua_bin, str(HARNESS_DIR / "harness.lua"), str(source_root)]
-        self.proc = subprocess.Popen(
-            cmd,
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            cwd=str(HARNESS_DIR),
-            text=True,
-            bufsize=1,
-        )
-        self._read_startup()
-
-    def _read_startup(self) -> None:
-        line = self.proc.stdout.readline()  # type: ignore[union-attr]
-        if not line:
-            stderr = (self.proc.stderr.read() if self.proc.stderr else "")
-            raise RuntimeError(
-                f"harness died at startup. stderr:\n{stderr}"
-            )
-        try:
-            marker = json.loads(line)
-        except json.JSONDecodeError as e:
-            raise RuntimeError(
-                f"harness startup line was not JSON: {line!r} ({e})"
-            )
-        if not marker.get("__startup"):
-            raise RuntimeError(f"unexpected harness startup line: {marker}")
-        self.startup = marker
-        # Drain a snapshot of stderr that came before the startup line
-        # so we can surface preload warnings to the caller.
-        self.startup_stderr_snippet = ""
-        if self.proc.stderr:
-            os.set_blocking(self.proc.stderr.fileno(), False)
+        super().__init__(lua_bin, source_root, HARNESS_DIR)
+        # Preload warnings that streamed to stderr before the startup
+        # line are captured by the drainer; surface them on demand.
+        self.startup_stderr_snippet = self.stderr_snapshot()
 
     def run(self, job: dict, timeout_s: float = 15.0) -> dict:
-        if self.proc.poll() is not None:
+        if self.proc is None or self.proc.poll() is not None:
+            rc = self.proc.returncode if self.proc else "None"
             raise RuntimeError(
-                f"harness exited unexpectedly (rc={self.proc.returncode})"
+                f"harness exited unexpectedly (rc={rc})"
             )
         assert self.proc.stdin and self.proc.stdout
         self.proc.stdin.write(json.dumps(job) + "\n")
@@ -257,7 +232,7 @@ class HarnessWorker:
 
     def _readline_with_timeout(self, timeout_s: float) -> str:
         import select
-        assert self.proc.stdout
+        assert self.proc and self.proc.stdout
         fd = self.proc.stdout.fileno()
         rdy, _, _ = select.select([fd], [], [], timeout_s)
         if not rdy:
@@ -266,35 +241,6 @@ class HarnessWorker:
                 f"harness timed out after {timeout_s}s waiting for output"
             )
         return self.proc.stdout.readline()
-
-    def drain_stderr(self) -> str:
-        if not self.proc.stderr:
-            return ""
-        buf: list[str] = []
-        while True:
-            try:
-                chunk = self.proc.stderr.read(65536)
-            except BlockingIOError:
-                break
-            if not chunk:
-                break
-            buf.append(chunk)
-        return "".join(buf)
-
-    def close(self) -> None:
-        if self.proc.poll() is None:
-            try:
-                if self.proc.stdin:
-                    self.proc.stdin.close()
-                self.proc.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                self.kill()
-
-    def kill(self) -> None:
-        try:
-            self.proc.kill()
-        except Exception:
-            pass
 
 
 # ---- per-endpoint driver ---------------------------------------------------

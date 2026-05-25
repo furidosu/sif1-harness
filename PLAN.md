@@ -404,7 +404,8 @@ prior harness run), then live-probe LAST (depends on NPPS4 Docker).**
 1. **`--mode static-diff`** ← always ships: compares NPPS4 Pydantic field
    names against our harness-discovered field names. Output:
    per-endpoint markdown "client reads {a, b, c} that NPPS4 doesn't
-   emit / NPPS4 emits {d, e} that client never reads". This is the cheap
+   emit / NPPS4 emits {d, e} with no observed client read in the
+   harness's coverage". This is the cheap
    demo for the GH Discussion. v2 already validated this mode produces
    useful output.
 

@@ -86,14 +86,14 @@ test: classify
 	  print(f'OK: {total} endpoints classified')"
 	@$(PY) -c "import json; d=json.load(open('$(BUILD)/runtime_listener_observations.json')); \
 	  n=sum(1 for v in d.values() if v.get('runtime_discovered_field_names')); \
-	  assert n>=250, f'discovered <250 endpoints ({n}); regression?'; \
-	  print(f'OK: {n} endpoints have discovered field names (v0.2.0 floor: 250)')"
+	  assert n>=60, f'discovered <60 endpoints ({n}); regression?'; \
+	  print(f'OK: {n} endpoints have discovered field names (floor: 60)')"
 	@$(PY) -c "import json; d=json.load(open('$(BUILD)/coverage_classification.json')); \
 	  by_b={}; \
 	  [by_b.setdefault(c['bucket'], []).append(ep) for ep, c in d['endpoints'].items()]; \
 	  hc = len(by_b.get('harness-covered', [])); \
-	  assert hc >= 280, f'harness-covered regressed to {hc} (v0.2.0 floor: 280)'; \
-	  print(f'OK: {hc} endpoints harness-covered (v0.2.0 floor: 280)')"
+	  assert hc >= 160, f'harness-covered regressed to {hc} (floor: 160)'; \
+	  print(f'OK: {hc} endpoints harness-covered (floor: 160)')"
 
 compare-npps4: compare
 

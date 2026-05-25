@@ -23,8 +23,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 TRACES_DIR = ROOT / "build" / "runtime" / "traces"
+CLASSES_DIR = ROOT / "build" / "runtime" / "traces_classes"
 OBS_PATH = ROOT / "build" / "runtime_listener_observations.json"
 MERGED_PATH = ROOT / "build" / "merged_endpoints.json"
+EXTRACTED_PATH = ROOT / "build" / "extracted_apis.json"
 SOURCE_ROOT = ROOT / "assets" / "decompiled" / "all"
 OUT_JSON = ROOT / "build" / "coverage_classification.json"
 OUT_MD = ROOT / "build" / "coverage_classification.md"
@@ -40,18 +42,26 @@ ACK_PREFIXES = re.compile(
 ACK_SUFFIXES = re.compile(r"(Set|Cancel|Skip|Leave|Read|Ack|Init)$")
 
 
-def grep_uihandler_callers(action: str, fn_name: str) -> list[str]:
-    """Return decompiled m_*/ files that mention this fn_name or action.
+def grep_uihandler_callers(
+    action: str, fn_name: str, cache_key: str | None = None
+) -> list[str]:
+    """Return decompiled m_*/ files that mention this endpoint.
 
     Decompiled bytecode strips local var names, so we look for the string
     constant references that survive: cache_key strings like "$rewardList"
     and svapi-table dereferences like `.rewardList` / `.rewardListStub`.
+    The cache_key string and fn_name are usually DIFFERENT (e.g.
+    fn_name="rewardOpen" but cache_key="$rewardList"), so we accept both.
     """
     if not SOURCE_ROOT.exists():
         return []
     candidates: list[str] = []
     # Search via filesystem grep for cache key / stub references.
-    patterns = [f"\\.{fn_name}\\b", f"\\.{fn_name}Stub\\b", f'"\\${fn_name}"']
+    patterns = [f"\\.{fn_name}\\b", f"\\.{fn_name}Stub\\b"]
+    if cache_key and cache_key.startswith("$"):
+        # Escape the $ for the regex engine. rg uses Rust regex which treats
+        # $ as end-of-line; in a quoted literal we want the literal char.
+        patterns.append(f'"\\{cache_key}"')
     import subprocess
 
     pat = "|".join(patterns)
@@ -86,6 +96,7 @@ def classify_one(
     observations: dict,
     merged_entry: dict | None,
     trace: dict,
+    cache_key: str | None = None,
 ) -> dict:
     accessed = trace.get("accessed_keys") or []
     obs = observations.get(ep) or {}
@@ -119,8 +130,10 @@ def classify_one(
             "(envelope only, no body of interest)"
         )
     else:
-        # Borderline. Check if any UI handler file references it.
-        ui_handler_files = grep_uihandler_callers(action, fn_name)
+        # Borderline. Check if any UI handler file references it -- via
+        # svapi-table dereference OR via the cache_key string (the two
+        # are decoupled: fn_name="rewardOpen" / cache_key="$rewardList").
+        ui_handler_files = grep_uihandler_callers(action, fn_name, cache_key)
         if ui_handler_files:
             bucket = "ui-only"
             rationale = (
@@ -150,15 +163,54 @@ def classify_one(
 def main() -> int:
     if not TRACES_DIR.exists():
         raise SystemExit(f"missing traces dir: {TRACES_DIR}")
-    observations = json.load(OBS_PATH.open())
-    merged = json.load(MERGED_PATH.open())
+    with OBS_PATH.open() as f:
+        observations = json.load(f)
+    with MERGED_PATH.open() as f:
+        merged = json.load(f)
 
-    classifications: dict[str, dict] = {}
+    # Build cache_key lookup so the UI-handler grep can search for cache_key
+    # string constants (e.g. `"$rewardList"`), not just fn_name dereferences.
+    cache_keys: dict[str, str] = {}
+    if EXTRACTED_PATH.exists():
+        with EXTRACTED_PATH.open() as f:
+            extracted = json.load(f)
+        for _mod, val in extracted.items():
+            for api in val.get("apis", []):
+                ck = api.get("cache_key")
+                if ck:
+                    cache_keys[f"{api['module']}.{api['action']}"] = ck
+
+    # Build a per-endpoint accessed_keys union across the V5 listener pass
+    # (TRACES_DIR) and the invoke_classes pass (CLASSES_DIR). Without this,
+    # the `len(accessed) >= 5` bucket heuristic only saw V5 reads and
+    # ignored invoke_classes evidence -- so an endpoint whose listener
+    # logged 0 keys but whose UI-handler methods (Approach B) read >=5
+    # response fields fell into ui-only/needs-Frida instead of harness-
+    # covered. CLASSES_DIR is absent on the initial classify call (before
+    # ui-classes runs); we handle that gracefully.
+    accessed_by_ep: dict[str, set[str]] = {}
+    traces_by_ep: dict[str, dict] = {}
     for trace_path in sorted(TRACES_DIR.glob("*.json")):
         ep = trace_path.stem
-        trace = json.load(trace_path.open())
+        with trace_path.open() as f:
+            trace = json.load(f)
+        traces_by_ep[ep] = trace
+        accessed_by_ep.setdefault(ep, set()).update(trace.get("accessed_keys") or [])
+    if CLASSES_DIR.exists():
+        for trace_path in sorted(CLASSES_DIR.glob("*.json")):
+            ep = trace_path.stem
+            with trace_path.open() as f:
+                trace = json.load(f)
+            accessed_by_ep.setdefault(ep, set()).update(
+                trace.get("accessed_keys") or []
+            )
+
+    classifications: dict[str, dict] = {}
+    for ep, trace in traces_by_ep.items():
+        merged_trace = dict(trace)
+        merged_trace["accessed_keys"] = sorted(accessed_by_ep.get(ep, set()))
         classifications[ep] = classify_one(
-            ep, observations, merged.get(ep), trace
+            ep, observations, merged.get(ep), merged_trace, cache_keys.get(ep)
         )
 
     by_bucket: dict[str, list[str]] = {}

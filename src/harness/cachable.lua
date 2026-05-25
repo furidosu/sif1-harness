@@ -41,6 +41,11 @@ function M.set(cache_key, value)
   GLOBAL.CACHE[cache_key] = value
 end
 
+-- addListener / addListenerHead are SET semantics, not append: preload's
+-- setupUpdaters can fire more than once (e.g. invoke_classes re-runs
+-- per-endpoint setup), and a duplicate registration would cause the same
+-- listener body to fire twice per notifyUpdate, doubling field-read
+-- counts. Dedupe by function identity.
 function M.addListener(cache_key, fn)
   ensure_cache()
   assert(type(cache_key) == "string",
@@ -49,6 +54,9 @@ function M.addListener(cache_key, fn)
     "Cachable.addListener: fn must be function, got " .. type(fn))
   local list = GLOBAL.CACHE_OBSERVER[cache_key]
   if not list then list = {}; GLOBAL.CACHE_OBSERVER[cache_key] = list end
+  for _, existing in pairs(list) do
+    if existing == fn then return end
+  end
   table.insert(list, fn)
 end
 
@@ -60,18 +68,25 @@ function M.addListenerHead(cache_key, fn)
     "Cachable.addListenerHead: fn must be function, got " .. type(fn))
   local list = GLOBAL.CACHE_OBSERVER[cache_key]
   if not list then list = {}; GLOBAL.CACHE_OBSERVER[cache_key] = list end
+  for _, existing in pairs(list) do
+    if existing == fn then return end
+  end
   table.insert(list, 1, fn)
 end
 
+-- removeListener: use table.remove (compacting) rather than list[idx]=nil
+-- so the array stays dense. A nil hole breaks `#list` (implementation-
+-- defined on sparse arrays) and corrupts subsequent table.insert positions.
 function M.removeListener(cache_key, fn)
   ensure_cache()
   local list = GLOBAL.CACHE_OBSERVER[cache_key]
   if not list then return end
-  local idx
-  for i, v in pairs(list) do
-    if v == fn then idx = i; break end
+  for i = #list, 1, -1 do
+    if list[i] == fn then
+      table.remove(list, i)
+      return
+    end
   end
-  if idx then list[idx] = nil end
 end
 
 -- notifyUpdate fires every registered listener for cache_key against

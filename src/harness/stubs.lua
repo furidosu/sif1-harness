@@ -51,6 +51,12 @@ _permissive_mt = {
   -- engine helpers very commonly chain like this.
   __call = function() return setmetatable({}, _permissive_mt) end,
   __newindex = function(t, k, v) rawset(t, k, v) end,
+  -- Without __tostring, `tostring(permissive)` produces `table: 0x<addr>`
+  -- which then surfaces in log paths when a listener uses a permissive
+  -- as a table key (e.g. `cached.unit_list[stub] = something`). The
+  -- spy's __index/__pairs format such paths as `[table: 0x...]`,
+  -- polluting wire-compare findings with run-specific heap addresses.
+  __tostring = function() return "<permissive>" end,
 }
 local function permissive() return setmetatable({}, _permissive_mt) end
 M.permissive = permissive
@@ -110,8 +116,19 @@ local function spy(t, log, prefix, variant)
       return v
     end,
     __newindex = function(_, k, _v)
-      error("response should not be mutated: attempted to set key " ..
-        tostring(k) .. " on " .. (prefix == "" and "<root>" or prefix), 2)
+      -- Earlier versions raised here; that killed the listener mid-body
+      -- and lost every field read past the offending assignment. The
+      -- spy is informational, not enforcement -- absorb writes silently
+      -- so the listener's REMAINING reads still log. Record the attempt
+      -- in ctx.spy_writes for diagnostic purposes.
+      if _G._HARNESS_CTX then
+        local ctx = _G._HARNESS_CTX
+        ctx.spy_writes = ctx.spy_writes or {}
+        ctx.spy_writes[#ctx.spy_writes + 1] = {
+          key = tostring(k),
+          prefix = prefix == "" and "<root>" or prefix,
+        }
+      end
     end,
     __pairs = function(_)
       return function(_, last)

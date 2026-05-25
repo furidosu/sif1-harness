@@ -19,10 +19,11 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
-import subprocess
 import sys
 import time
 from pathlib import Path
+
+from _lua_worker import LuaWorkerBase
 
 ROOT = Path(__file__).resolve().parents[2]
 HARNESS_DIR = ROOT / "src" / "harness"
@@ -44,43 +45,13 @@ def load_json(path: Path) -> dict:
     return json.load(path.open())
 
 
-class Worker:
+class Worker(LuaWorkerBase):
+    # Stub invocations can hit slower bootstrapping (per-endpoint
+    # initialize paths inside the Stub builder); allow more headroom.
+    _DEFAULT_RUN_TIMEOUT_S = 15.0
+
     def __init__(self, lua_bin: str, source_root: Path):
-        cmd = [lua_bin, str(HARNESS_DIR / "harness.lua"), str(source_root)]
-        self.proc = subprocess.Popen(
-            cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE, cwd=str(HARNESS_DIR),
-            text=True, bufsize=1,
-        )
-        line = self.proc.stdout.readline()
-        marker = json.loads(line)
-        if not marker.get("__startup"):
-            raise RuntimeError(f"bad startup: {marker}")
-        self.startup = marker
-
-    def run(self, job: dict, timeout_s: float = 15.0) -> dict:
-        self.proc.stdin.write(json.dumps(job) + "\n")
-        self.proc.stdin.flush()
-        import select
-        rdy, _, _ = select.select([self.proc.stdout.fileno()], [], [], timeout_s)
-        if not rdy:
-            self.kill()
-            raise RuntimeError(f"timeout: {job}")
-        line = self.proc.stdout.readline()
-        return json.loads(line)
-
-    def close(self) -> None:
-        try:
-            self.proc.stdin.close()
-            self.proc.wait(timeout=5)
-        except Exception:
-            self.kill()
-
-    def kill(self) -> None:
-        try:
-            self.proc.kill()
-        except Exception:
-            pass
+        super().__init__(lua_bin, source_root, HARNESS_DIR)
 
 
 def main(argv: list[str] | None = None) -> int:

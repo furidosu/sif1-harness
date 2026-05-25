@@ -25,11 +25,17 @@ COVERAGE_PATH = ROOT / "build" / "coverage_classification.json"
 OUT = ROOT / "build" / "ui_handler_map.json"
 
 DEFINE_RE = re.compile(r'define\s*\(\s*"([^"]+)"', re.MULTILINE)
-# Old-style: L40_1 = define; L41_1 = "RewardList"; L42_1 = L34_1; L40_1(L41_1, L42_1)
-# We pick up the constant-string form which works on most decompiled files.
-# Backup: any line that does `L<n> = "ClassName"` directly preceded by
-# `L<n> = define` and followed by an invocation.
-DEFINE_STRING_RE = re.compile(r'L\d+_\d+\s*=\s*"([A-Z][A-Za-z0-9_]+)"')
+
+# Decompiled m_*/ files end with the indirect L-var define call pattern:
+#   L40_1 = define
+#   L41_1 = "RewardList"
+#   L42_1 = L34_1                  -- the class table
+#   L40_1(L41_1, L42_1)
+# Rather than grabbing the first uppercase string literal in the tail
+# (which routinely matches unrelated asset names / dialog labels), we
+# chain: locate the variable bound to `define`, find its invocation,
+# resolve the first-arg variable back to its string-literal assignment.
+DEFINE_BINDING_RE = re.compile(r'(L\d+_\d+)\s*=\s*define\b')
 
 
 def candidate_files_for(action: str, fn_name: str,
@@ -79,18 +85,36 @@ def extract_define_name(file_path: Path) -> str | None:
         src = file_path.read_text(errors="ignore")
     except Exception:
         return None
-    # Look for the "ClassName" string AFTER `<varN> = define`, scanning the
-    # last few hundred lines of the file (decompiled m_*/ files almost
-    # always do define() in the last 5-10 lines).
-    tail = src.split("\n")[-50:]
-    tail_str = "\n".join(tail)
-    # First try: `<L> = define` then `<L> = "Name"` then the call
-    if "= define" in tail_str:
-        names = DEFINE_STRING_RE.findall(tail_str)
-        # Pick a name that looks plausibly like a class (CamelCase, >= 4 chars)
-        for n in names:
-            if len(n) >= 4 and n[0].isupper():
-                return n
+    tail = "\n".join(src.split("\n")[-50:])
+
+    # Direct form: `define("ClassName", ...)` -- a few files keep this.
+    direct = DEFINE_RE.search(tail)
+    if direct:
+        name = direct.group(1)
+        if len(name) >= 4 and name[0].isupper():
+            return name
+
+    # Indirect L-var form. Trace: bound-to-define -> invocation -> first-arg
+    # variable -> string-literal assignment. Without this chain, scanning
+    # for any `L\d+_\d+ = "CamelCase"` returns the first uppercase literal
+    # in the tail, which is often an unrelated asset name or label.
+    m_def = DEFINE_BINDING_RE.search(tail)
+    if not m_def:
+        return None
+    def_var = m_def.group(1)
+    m_call = re.search(
+        rf'\b{re.escape(def_var)}\s*\(\s*(L\d+_\d+)\b', tail
+    )
+    if not m_call:
+        return None
+    name_var = m_call.group(1)
+    m_str = re.search(
+        rf'\b{re.escape(name_var)}\s*=\s*"([A-Z][A-Za-z0-9_]+)"', tail
+    )
+    if m_str:
+        name = m_str.group(1)
+        if len(name) >= 4:
+            return name
     return None
 
 

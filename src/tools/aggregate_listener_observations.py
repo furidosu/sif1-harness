@@ -205,6 +205,13 @@ def main() -> int:
             "action": trace.get("action"),
             "cache_key": cache_keys.get(ep),
             "declared_count": len(declared),
+            # Emit the declared field-name list too -- wire_compare static-diff
+            # consumes this key, and previously only the merge step wrote it,
+            # so a single-pass `make aggregate` run produced an observations
+            # file that wire_compare couldn't compare against. Listing them
+            # here makes the static-diff mode work directly off aggregate
+            # output too.
+            "declared_field_names": sorted(declared),
             "runtime_accessed_count": len(accessed_set),
             "runtime_discovered": discovered,
             "runtime_discovered_field_names": discovered_field_names,

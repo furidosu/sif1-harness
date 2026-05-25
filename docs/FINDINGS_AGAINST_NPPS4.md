@@ -1,18 +1,32 @@
 # Findings against NPPS4 (static-diff, JP v9.11 client)
 
-The harness produced **66 endpoints with NPPS4 disagreement** — **30
+The harness produced **86 endpoints with NPPS4 disagreement** — **35
 of them have at least one field the client reads that NPPS4 doesn't
-emit (server-bug candidates)**. Below are 12 of the highest-signal
-findings, with concrete source citations on both sides. Every "client
-reads" claim cites a `:line` reference in the decompiled client tree;
-every "NPPS4 emits" claim cites the Pydantic class that ships in NPPS4 main.
+emit (server-bug candidates)** and **75** have at least one field
+NPPS4 emits with no observed client read (the harness saw no read of
+the field, but its coverage is bounded — a UI-handler closure the
+harness didn't exercise could still read them; treat as "unconfirmed
+by harness", not "dead"). Below are 12 of the highest-signal findings,
+with concrete source citations on both sides. Every "client reads"
+claim cites a `:line` reference in the decompiled client tree; every
+"NPPS4 emits" claim cites the Pydantic class that ships in NPPS4
+main.
+
+The comparison runs at **full path depth**: the priors extractor
+recursively expands referenced Pydantic models (e.g. a field typed
+`UserInfoData` flattens into the per-field paths
+`after_user_info.energy_full_time`, `after_user_info.level`, ...), so
+nested disagreements surface rather than collapsing into top-level
+agreement.
 
 These numbers reflect both the baseline notifyUpdate-driven discovery
-**and** the Approach B `invoke_classes` pass: for the (originally) 115
-ui-only endpoints, the harness invokes their UI-handler class methods
-after pre-populating the Cachable cache with a spied candidate,
-surfacing field reads inside the UI handler closures. After the pass,
-only 28 ui-only endpoints remain.
+**and** the Approach B `invoke_classes` pass: for the (originally)
+~133 ui-only endpoints, the harness invokes their UI-handler class
+methods after pre-populating the Cachable cache with a spied
+candidate, surfacing field reads inside the UI handler closures.
+After the pass, 132 ui-only endpoints remain — most because the
+listener body reads only declared fields (so the bucket is correct;
+they just don't yield novel discoveries), not because the pass failed.
 
 The full machine-readable diff is in
 [`../build/wire_compare_static.md`](../build/wire_compare_static.md).
@@ -129,11 +143,15 @@ v9.11 client. **They are NOT comprehensive**:
   will only fire the read-path if `some_flag` is truthy in our candidate.
   The variant-aware sentinel covers some of this (`baseline`, `list_one`,
   `true_bool`, `false_bool` variants), but not all.
-- The invoke_classes pass invokes every exported method of every UI
-  class that references each endpoint, with sentinel args. Methods that
-  need real UI state (e.g. a scene with a node tree) crash on the first
-  unstubbed call — pcall absorbs them, but their field reads are lost.
-  The 28 residual `ui-only` endpoints all fell into this gap.
+- The invoke_classes pass invokes up to 16 methods per class (200 per
+  endpoint) of every UI class that references each endpoint, with
+  sentinel args. Methods that need real UI state (e.g. a scene with a
+  node tree) crash on the first unstubbed call — pcall absorbs them,
+  but their field reads are lost. The 132 residual `ui-only` endpoints
+  partly fell into this gap; the rest had listener bodies that
+  successfully fired but only read schema-declared fields, yielding no
+  novel discoveries (so they show up as ui-only-but-confirmed rather
+  than ui-only-blocked).
 - The harness was last run against JP v9.11 client. If your reference
   is a different client version, re-run the harness against your tree
   before trusting any specific field claim.
@@ -149,5 +167,6 @@ git clone --depth 1 https://github.com/DarkEnergyProcessor/NPPS4-DLAPI ./npps4-d
 make compare-npps4
 ```
 
-Whole pipeline: **~12 seconds**. Output: `build/wire_compare_static.md`
-with all 66 findings (30 client-reads-NPPS4-missing).
+Whole pipeline: **~20 seconds**. Output: `build/wire_compare_static.md`
+with all 86 findings (35 client-reads-NPPS4-missing, 75 NPPS4-emits
+with no observed client read).

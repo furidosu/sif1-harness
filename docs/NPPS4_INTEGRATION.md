@@ -18,18 +18,27 @@ git clone --depth 1 https://github.com/DarkEnergyProcessor/NPPS4 ./npps4
 git clone --depth 1 https://github.com/DarkEnergyProcessor/NPPS4-DLAPI ./npps4-dlapi
 
 # Run the full pipeline (notifyUpdate + invoke_classes + aggregate +
-# classify + priors + wire-compare). ~12s end-to-end.
+# classify + priors + wire-compare). ~20s end-to-end.
 make compare-npps4
-# wrote build/wire_compare_static.md (66 findings, 30 client-reads-NPPS4-missing)
+# wrote build/wire_compare_static.md (86 findings, 35 client-reads-NPPS4-missing)
 ```
 
 The output is a per-endpoint markdown report with two sections per
 finding:
 - **Client reads, NPPS4 doesn't emit:** server-bug candidates. Most
-  signal — the client expects this field at runtime. **30 endpoints**
+  signal — the client expects this field at runtime. **35 endpoints**
   in the current report.
-- **NPPS4 emits, client never reads:** dead field / over-fetch
-  candidates. Lower signal but easy follow-on cleanup. **55 endpoints.**
+- **NPPS4 emits, no client read observed by harness:** the harness's
+  listener + invoke_classes coverage saw no read of these fields. NOT
+  proof the client doesn't read them — a UI-handler closure the
+  harness didn't exercise could still read them. Treat as "unconfirmed
+  by harness" rather than "dead". **75 endpoints.**
+
+The comparison runs at **full path depth** (nested-field aware): the
+priors extractor recursively expands referenced Pydantic models, so
+disagreements like `event_list.[1].subtitle` (client reads, NPPS4's
+`EventV1` doesn't declare) surface correctly rather than getting
+hidden behind top-level `event_list` agreement.
 
 The 12 highest-signal findings are summarized in
 [`FINDINGS_AGAINST_NPPS4.md`](FINDINGS_AGAINST_NPPS4.md).

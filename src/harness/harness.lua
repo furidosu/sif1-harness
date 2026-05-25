@@ -354,10 +354,14 @@ local function dispatch_invoke_classes(job)
 
   -- Method names matching these patterns are likely tight loops or
   -- infinite-poll handlers — skip them to keep total runtime bounded.
+  -- `^start$` and `^main$` are typically one-shot setup methods that
+  -- DO read response data; `^start$` was removed from this list since
+  -- it's our common target. `^main$` stays because m_main top files
+  -- frequently have a `main()` that's the actual frame-rate driver.
   local SKIP_PATTERNS = {
     "^update$", "^tick$", "^render$", "^draw$", "^step$",
     "^onUpdate", "^loop", "^poll", "^_update", "^advance",
-    "^play$", "^run$", "^start$", "^main$", "^enterFrame",
+    "^play$", "^run$", "^main$", "^enterFrame",
   }
   local function should_skip(name)
     for _, p in ipairs(SKIP_PATTERNS) do
@@ -366,9 +370,16 @@ local function dispatch_invoke_classes(job)
     return false
   end
 
-  -- Cap per invocation to bound runtime + memory.
-  local MAX_METHODS_PER_CLASS = 8
-  local MAX_TOTAL_METHODS = 60
+  -- Cap per invocation to bound runtime + memory. Each method is
+  -- separately bounded by debug.sethook (100k * 5000 = 5e8 instructions,
+  -- ~few seconds worst case), so these caps mostly bound total endpoint
+  -- runtime, not catastrophic-method runaway. Bumped 8/60 -> 16/200
+  -- because next()-order method iteration was missing relevant methods
+  -- past index 8, and broad-class endpoints (those referencing 10+
+  -- candidate UI files) were hitting the total cap before exploring
+  -- the latter classes' setup methods.
+  local MAX_METHODS_PER_CLASS = 16
+  local MAX_TOTAL_METHODS = 200
 
   local classes = job.classes or {}
   for _, class_name in ipairs(classes) do
@@ -385,7 +396,15 @@ local function dispatch_invoke_classes(job)
             and not should_skip(k) then
           ctx.methods_invoked = ctx.methods_invoked + 1
           per_class = per_class + 1
-          local args = {cls, stubs.permissive(), stubs.permissive(),
+          -- Per-method-invocation instance. Writes to `self.x` need to
+          -- land on a disposable table, NOT the class table itself --
+          -- mutating stubs.modules[class_name] would persist across
+          -- subsequent endpoints' invoke_classes jobs and cross-
+          -- contaminate their accessed_keys logs. The instance's
+          -- __index falls through to the class so method-self method
+          -- lookups (`self:helper()`) still resolve.
+          local instance = setmetatable({}, {__index = cls})
+          local args = {instance, stubs.permissive(), stubs.permissive(),
                         stubs.permissive(), stubs.permissive()}
           local ok, err = timed_pcall(v, unpack(args))
           if ok then

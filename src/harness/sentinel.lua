@@ -64,7 +64,24 @@ _mt = {
     if variant and variant.bool ~= nil and sv.is_bool_like_key(k) then
       return variant.bool
     end
-    return make_sentinel(log, path, variant)
+    -- Memoize child sentinels per key. Without this, every `cached.foo`
+    -- access constructs a fresh sentinel table, and listener guards
+    -- like `if last_seen == cached.foo then return end; last_seen = cached.foo`
+    -- never short-circuit (raw table inequality between two distinct
+    -- sentinels), so the body re-runs and the discovery surface grows
+    -- with every notifyUpdate. Memoization makes table identity stable
+    -- across re-reads, matching real-game semantics where the response
+    -- table doesn't reshape between reads.
+    local children = rawget(self, "__children__")
+    if not children then
+      children = {}
+      rawset(self, "__children__", children)
+    end
+    local existing = children[k]
+    if existing ~= nil then return existing end
+    local child = make_sentinel(log, path, variant)
+    children[k] = child
+    return child
   end,
   __newindex = function() end,
   __call = function(self, ...)
@@ -105,8 +122,31 @@ _mt = {
     return 0
   end,
   __tostring = function() return "" end,
+  -- Yield 1 phantom sentinel by default (more if the variant requests
+  -- a longer list). Without this, listener bodies gated on
+  -- `for k,v in pairs(cached.undeclared_field)` never fire and every
+  -- per-element read inside is lost. The yielded child sentinel
+  -- inherits log/path/variant, so inner reads (`ev.title`,
+  -- `ev.unit_id`) land as `parent.[1].title` etc. -- and
+  -- merge_observations strips `.[N]` segments so these don't inflate
+  -- the final discovered set. Symmetric with __ipairs below, except
+  -- __pairs defaults to 1 (always at least one iteration) while
+  -- __ipairs respects variant.list_len exclusively (0 by default --
+  -- the fuzz tier opts into multi-element iteration explicitly).
   __pairs = function(self)
-    return function() return nil end, self, nil
+    local variant = rawget(self, "__variant__")
+    local n = (variant and variant.list_len and variant.list_len > 0)
+      and variant.list_len or 1
+    local prefix = rawget(self, "__prefix__") or ""
+    local log = rawget(self, "__log__")
+    local i = 0
+    return function()
+      i = i + 1
+      if i > n then return nil end
+      local path = prefix == "" and ("[" .. i .. "]") or (prefix .. ".[" .. i .. "]")
+      if log then log[#log + 1] = path end
+      return i, make_sentinel(log, path, variant)
+    end, self, nil
   end,
   __ipairs = function(self)
     local variant = rawget(self, "__variant__")

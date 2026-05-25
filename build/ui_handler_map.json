@@ -95,16 +95,16 @@
         "class": "Event"
       },
       {
-        "file": "common/event_cache.lua",
-        "class": "EventCache"
-      },
-      {
         "file": "common/model/battle/battle_info.lua",
         "class": "BattleInfo"
       },
       {
         "file": "common/model/battle/battle.lua",
-        "class": "EventScenarioHelper"
+        "class": "BattleModel"
+      },
+      {
+        "file": "common/event_cache.lua",
+        "class": "EventCache"
       }
     ]
   },
@@ -126,8 +126,12 @@
         "class": null
       },
       {
-        "file": "m_event/battle.lua",
-        "class": "Battle"
+        "file": "m_duel/crowd_end.lua",
+        "class": null
+      },
+      {
+        "file": "m_duel/room_end.lua",
+        "class": null
       },
       {
         "file": "m_class/model/matching.lua",
@@ -142,12 +146,8 @@
         "class": null
       },
       {
-        "file": "m_duel/room_end.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/crowd_end.lua",
-        "class": null
+        "file": "m_event/battle.lua",
+        "class": "Battle"
       },
       {
         "file": "common/svext/battle.lua",
@@ -173,28 +173,28 @@
         "class": "Battle"
       },
       {
-        "file": "m_team/view/top.lua",
-        "class": "TeamTopView"
-      },
-      {
-        "file": "m_team/model/team_event.lua",
-        "class": "TeamEventModel"
-      },
-      {
         "file": "m_duel/view/top.lua",
         "class": "DuelTopView"
-      },
-      {
-        "file": "m_duel/model/crowd.lua",
-        "class": null
       },
       {
         "file": "m_duel/model/duel.lua",
         "class": "DuelModel"
       },
       {
+        "file": "m_duel/model/crowd.lua",
+        "class": null
+      },
+      {
         "file": "m_duel/model/gps.lua",
         "class": null
+      },
+      {
+        "file": "m_team/view/top.lua",
+        "class": "TeamTopView"
+      },
+      {
+        "file": "m_team/model/team_event.lua",
+        "class": "TeamEventModel"
       }
     ]
   },
@@ -216,12 +216,8 @@
         "class": "BattleRoomForm"
       },
       {
-        "file": "m_duel/crowd_start.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/room_gps.lua",
-        "class": null
+        "file": "m_event/battle.lua",
+        "class": "Battle"
       },
       {
         "file": "m_class/view/room/room_start.lua",
@@ -236,28 +232,16 @@
         "class": null
       },
       {
-        "file": "m_team/model/matching.lua",
+        "file": "m_duel/crowd_start.lua",
         "class": null
       },
       {
-        "file": "m_team/model/team_event.lua",
-        "class": "TeamEventModel"
-      },
-      {
-        "file": "m_team/deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/room_start.lua",
+        "file": "m_duel/room_gps.lua",
         "class": null
       },
       {
         "file": "m_duel/model/crowd_private.lua",
         "class": null
-      },
-      {
-        "file": "m_event/battle.lua",
-        "class": "Battle"
       },
       {
         "file": "m_duel/model/matching.lua",
@@ -268,6 +252,10 @@
         "class": "DuelModel"
       },
       {
+        "file": "m_duel/model/crowd.lua",
+        "class": null
+      },
+      {
         "file": "m_duel/room_start.lua",
         "class": null
       },
@@ -276,39 +264,24 @@
         "class": "DuelController"
       },
       {
-        "file": "m_duel/model/crowd.lua",
-        "class": null
-      },
-      {
         "file": "common/svext/battle.lua",
         "class": null
-      }
-    ]
-  },
-  "challenge.challengeInfo": {
-    "cache_key": "$challengeInfo",
-    "fn_name": "challengeInfo",
-    "action": "challengeInfo",
-    "candidate_files": [
+      },
       {
-        "file": "m_challenge/start.lua",
+        "file": "m_team/model/matching.lua",
         "class": null
       },
       {
-        "file": "common/polling.lua",
+        "file": "m_team/model/team_event.lua",
+        "class": "TeamEventModel"
+      },
+      {
+        "file": "m_team/room_start.lua",
         "class": null
       },
       {
-        "file": "m_event/challenge.lua",
-        "class": "Controller"
-      },
-      {
-        "file": "m_event/event.lua",
-        "class": "Event"
-      },
-      {
-        "file": "common/model/challenge/challenge.lua",
-        "class": "ChallengeModel"
+        "file": "m_team/deck.lua",
+        "class": null
       }
     ]
   },
@@ -322,11 +295,19 @@
         "class": null
       },
       {
+        "file": "m_live_menu/start.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/view/room/room_player.lua",
+        "class": "ClassRoomPlayerForm"
+      },
+      {
         "file": "m_duel/view/elements/room_player.lua",
         "class": "DuelRoomPlayerForm"
       },
       {
-        "file": "m_live_menu/start.lua",
+        "file": "m_duel/model/crowd_private.lua",
         "class": null
       },
       {
@@ -334,79 +315,7 @@
         "class": "ClassRankItemForm"
       },
       {
-        "file": "m_duel/model/crowd_private.lua",
-        "class": null
-      },
-      {
         "file": "m_duel/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/model/live_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/crowd.lua",
-        "class": null
-      },
-      {
-        "file": "m_album/flick_area_task.lua",
-        "class": "FlickCheck"
-      },
-      {
-        "file": "m_class/view/room/room_player.lua",
-        "class": "ClassRoomPlayerForm"
-      },
-      {
-        "file": "m_scenario_menu/dialog.lua",
-        "class": "ReleaseDialog"
-      },
-      {
-        "file": "m_scenario_menu/model/scenario_menu.lua",
-        "class": "ScenarioMenuModel"
-      },
-      {
-        "file": "m_live_menu/common/idol_skill_form.lua",
-        "class": "IdolSkillForm"
-      },
-      {
-        "file": "m_event/challenge.lua",
-        "class": "Controller"
-      },
-      {
-        "file": "m_live_menu/common/focus_form.lua",
-        "class": "FocusForm"
-      },
-      {
-        "file": "m_live_menu/live_list/live_menu_api.lua",
-        "class": "LiveMenuAPI"
-      },
-      {
-        "file": "m_live_menu/common/deck_detail_form.lua",
-        "class": "DeckDetailForm"
-      },
-      {
-        "file": "m_live_menu/common/icon.lua",
-        "class": "LiveMenuIcon"
-      },
-      {
-        "file": "common/navi.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/class.lua",
-        "class": "ClassModel"
-      },
-      {
-        "file": "common/util_numberchanger.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/qualifying/general.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/matching.lua",
         "class": null
       },
       {
@@ -418,11 +327,79 @@
         "class": null
       },
       {
+        "file": "m_class/model/matching.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/model/live_list.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/live_list/live_menu_api.lua",
+        "class": "LiveMenuAPI"
+      },
+      {
+        "file": "m_duel/model/crowd.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/model/class.lua",
+        "class": "ClassModel"
+      },
+      {
+        "file": "m_scenario_menu/model/scenario_menu.lua",
+        "class": "ScenarioMenuModel"
+      },
+      {
+        "file": "m_class/model/qualifying/general.lua",
+        "class": null
+      },
+      {
+        "file": "m_scenario_menu/dialog.lua",
+        "class": "ReleaseDialog"
+      },
+      {
+        "file": "m_live_menu/common/idol_skill_form.lua",
+        "class": "IdolSkillForm"
+      },
+      {
+        "file": "common/navi.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/common/focus_form.lua",
+        "class": "FocusForm"
+      },
+      {
+        "file": "common/util_numberchanger.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/common/deck_detail_form.lua",
+        "class": "DeckDetailForm"
+      },
+      {
+        "file": "m_live_menu/common/icon.lua",
+        "class": "LiveMenuIcon"
+      },
+      {
+        "file": "m_live/controller/character.lua",
+        "class": null
+      },
+      {
         "file": "common/event_scenario_helper.lua",
         "class": "EventScenarioHelper"
       },
       {
         "file": "m_live/model/note_log.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/ghost.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/multi_ghost.lua",
         "class": null
       },
       {
@@ -434,6 +411,14 @@
         "class": "ScenarioResultDialog"
       },
       {
+        "file": "m_live/model/replay.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/character.lua",
+        "class": "Character"
+      },
+      {
         "file": "m_live/model/resume.lua",
         "class": null
       },
@@ -442,28 +427,24 @@
         "class": null
       },
       {
-        "file": "m_boot/initialize.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/replay.lua",
-        "class": null
-      },
-      {
-        "file": "m_online/online.lua",
-        "class": "Online"
-      },
-      {
-        "file": "m_live/character.lua",
-        "class": "Character"
+        "file": "common/skill_slot_form.lua",
+        "class": "SkillSlotForm"
       },
       {
         "file": "common/unit/unit_detail_content_form.lua",
         "class": "UnitDetailContentForm"
       },
       {
+        "file": "m_accessory/enhance.lua",
+        "class": null
+      },
+      {
         "file": "common/unit/album_status_form.lua",
         "class": "AlbumStatusForm"
+      },
+      {
+        "file": "m_accessory/elements/box.lua",
+        "class": null
       },
       {
         "file": "common/unit/unit_status_form.lua",
@@ -474,27 +455,7 @@
         "class": "LiveStub"
       },
       {
-        "file": "common/live_goal.lua",
-        "class": "LiveGoal"
-      },
-      {
-        "file": "m_login/model/comeback_bonus/comeback_achieve.lua",
-        "class": "ComebackBonusAchieveModel"
-      },
-      {
-        "file": "m_login/model/idfa.lua",
-        "class": null
-      },
-      {
-        "file": "common/skill_slot_form.lua",
-        "class": "SkillSlotForm"
-      },
-      {
-        "file": "m_live/controller/ghost.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/character.lua",
+        "file": "common/store.lua",
         "class": null
       },
       {
@@ -502,27 +463,19 @@
         "class": null
       },
       {
-        "file": "m_live/controller/multi_ghost.lua",
+        "file": "common/dbext/common/live_log.lua",
         "class": null
       },
       {
-        "file": "m_accessory/enhance.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/elements/box.lua",
-        "class": null
-      },
-      {
-        "file": "common/store.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/view/elements/pin.lua",
-        "class": "QuestPinForm"
+        "file": "common/mock.lua",
+        "class": "Mock"
       },
       {
         "file": "common/guideline/button.lua",
+        "class": null
+      },
+      {
+        "file": "common/guideline/balloon.lua",
         "class": null
       },
       {
@@ -530,8 +483,8 @@
         "class": null
       },
       {
-        "file": "common/guideline/balloon.lua",
-        "class": null
+        "file": "common/live_goal.lua",
+        "class": "LiveGoal"
       },
       {
         "file": "common/model/event_reward.lua",
@@ -542,23 +495,63 @@
         "class": "AdRewardModel"
       },
       {
-        "file": "common/mock.lua",
-        "class": "Mock"
+        "file": "common/elements/event/reward_list.lua",
+        "class": null
       },
       {
         "file": "common/model/multi_unit_scenario.lua",
         "class": "MultiUnitScenario"
       },
       {
-        "file": "m_quest/model/pin.lua",
-        "class": "QuestPin"
+        "file": "m_boot/initialize.lua",
+        "class": null
+      },
+      {
+        "file": "m_online/online.lua",
+        "class": "Online"
+      },
+      {
+        "file": "m_team/view/elements/room_player.lua",
+        "class": "TeamRoomPlayerForm"
+      },
+      {
+        "file": "m_quest/view/elements/pin.lua",
+        "class": "QuestPinForm"
+      },
+      {
+        "file": "m_team/model/matching.lua",
+        "class": null
+      },
+      {
+        "file": "m_album/flick_area_task.lua",
+        "class": "FlickAreaTask"
       },
       {
         "file": "m_quest/model/quest.lua",
         "class": "QuestModel"
       },
       {
-        "file": "common/elements/event/reward_list.lua",
+        "file": "common/model/live_status.lua",
+        "class": "LiveStatus"
+      },
+      {
+        "file": "m_quest/model/pin.lua",
+        "class": "QuestPin"
+      },
+      {
+        "file": "common/elements/accessory_equipment.lua",
+        "class": null
+      },
+      {
+        "file": "common/model/scenario.lua",
+        "class": "Scenario"
+      },
+      {
+        "file": "m_event/challenge.lua",
+        "class": "Challenge"
+      },
+      {
+        "file": "m_login/model/idfa.lua",
         "class": null
       },
       {
@@ -566,40 +559,20 @@
         "class": null
       },
       {
-        "file": "common/model/accessory.lua",
-        "class": "AccessoryModel"
-      },
-      {
-        "file": "common/model/scenario.lua",
-        "class": "Scenario"
-      },
-      {
-        "file": "common/model/live_status.lua",
-        "class": "LiveStatus"
-      },
-      {
-        "file": "common/dbext/common/live_log.lua",
-        "class": null
+        "file": "common/model/badge_model.lua",
+        "class": "BadgeModel"
       },
       {
         "file": "common/model/subscenario.lua",
         "class": "Subscenario"
       },
       {
-        "file": "common/model/badge_model.lua",
-        "class": "BadgeModel"
+        "file": "common/model/accessory.lua",
+        "class": "AccessoryModel"
       },
       {
-        "file": "common/elements/accessory_equipment.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/room_player.lua",
-        "class": "TeamRoomPlayerForm"
+        "file": "m_login/model/comeback_bonus/comeback_achieve.lua",
+        "class": "ComebackBonusAchieveModel"
       }
     ]
   },
@@ -742,11 +715,11 @@
     "action": "voteFinal",
     "candidate_files": [
       {
-        "file": "m_class/model/competition_final.lua",
+        "file": "m_class/view/elements/final_battle.lua",
         "class": null
       },
       {
-        "file": "m_class/view/elements/final_battle.lua",
+        "file": "m_class/model/competition_final.lua",
         "class": null
       }
     ]
@@ -780,7 +753,7 @@
     "candidate_files": [
       {
         "file": "common/energy.lua",
-        "class": "LiveBonusModel"
+        "class": null
       },
       {
         "file": "common/header.lua",
@@ -798,12 +771,12 @@
     "action": "liveGameOver",
     "candidate_files": [
       {
-        "file": "common/model/concert/base.lua",
-        "class": "ConcertModel"
-      },
-      {
         "file": "common/svext/concert.lua",
         "class": null
+      },
+      {
+        "file": "common/model/concert/base.lua",
+        "class": "ConcertModel"
       }
     ]
   },
@@ -813,11 +786,11 @@
     "action": "liveStart",
     "candidate_files": [
       {
-        "file": "m_battle_event/deck.lua",
+        "file": "m_festival/arrange.lua",
         "class": null
       },
       {
-        "file": "m_festival/arrange.lua",
+        "file": "m_battle_event/deck.lua",
         "class": null
       },
       {
@@ -829,15 +802,11 @@
         "class": null
       },
       {
-        "file": "m_live_menu/view/deck.lua",
+        "file": "m_class/view/deck_competition_own_deck.lua",
         "class": null
       },
       {
         "file": "m_arena/elements/dream/dream_top.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/deck_competition_own_deck.lua",
         "class": null
       },
       {
@@ -849,28 +818,28 @@
         "class": null
       },
       {
-        "file": "m_class/view/deck.lua",
-        "class": "ClassDeckView"
+        "file": "m_duel/view/deck.lua",
+        "class": "DuelDeckView"
       },
       {
         "file": "m_arena/elements/match/match_top.lua",
         "class": null
       },
       {
+        "file": "m_class/view/deck.lua",
+        "class": "ClassDeckView"
+      },
+      {
         "file": "m_event/challenge/arrange.lua",
         "class": null
       },
       {
-        "file": "m_duel/view/deck.lua",
-        "class": "DuelDeckView"
+        "file": "m_live_menu/view/deck.lua",
+        "class": null
       },
       {
         "file": "m_quest/view/briefing.lua",
         "class": "QuestBriefingView"
-      },
-      {
-        "file": "m_online/deck.lua",
-        "class": null
       },
       {
         "file": "m_team/view/deck.lua",
@@ -879,6 +848,10 @@
       {
         "file": "common/function_voice.lua",
         "class": "FunctionVoice"
+      },
+      {
+        "file": "m_online/deck.lua",
+        "class": null
       },
       {
         "file": "common/model/concert/base.lua",
@@ -915,190 +888,11 @@
     "action": "lootBoxReset",
     "candidate_files": [
       {
-        "file": "m_concert/lootbox/result.lua",
-        "class": null
-      },
-      {
         "file": "common/model/concert/lootbox.lua",
         "class": null
-      }
-    ]
-  },
-  "concert.top": {
-    "cache_key": "$concertTop",
-    "fn_name": "concertTop",
-    "action": "top",
-    "candidate_files": [
-      {
-        "file": "m_location/model/location.lua",
-        "class": null
       },
       {
-        "file": "m_secretbox/view/elements/background.lua",
-        "class": "SecretboxBackgroundForm"
-      },
-      {
-        "file": "m_secretbox/view/priority.lua",
-        "class": "SecretboxViewPriority"
-      },
-      {
-        "file": "m_secretbox/model/cost.lua",
-        "class": null
-      },
-      {
-        "file": "common/polling.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/cost_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/cost_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_top/banner.lua",
-        "class": "TopBanner"
-      },
-      {
-        "file": "m_secretbox/elements/top/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_menu/menu_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/confirm_popup.lua",
-        "class": "TeamConfirmPopup"
-      },
-      {
-        "file": "m_team/view/elements/difficulty.lua",
-        "class": "TeamDifficultyForm"
-      },
-      {
-        "file": "m_team/view/elements/mission_progress_effect.lua",
-        "class": "TeamMissionProgressEffect"
-      },
-      {
-        "file": "m_team/view/top.lua",
-        "class": "TeamTopView"
-      },
-      {
-        "file": "m_team/view/priority.lua",
-        "class": "TeamViewPriority"
-      },
-      {
-        "file": "m_team/view/elements/door_effect.lua",
-        "class": "DoorEffect"
-      },
-      {
-        "file": "m_item/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/achieved_effect.lua",
-        "class": "TeamAchievedEffect"
-      },
-      {
-        "file": "m_item/view/buff_item_dialog.lua",
-        "class": "BuffItemDialog"
-      },
-      {
-        "file": "m_item/model/item_list.lua",
-        "class": "ItemListModel"
-      },
-      {
-        "file": "common/debug_ghost_player.lua",
-        "class": "GhostPlayer"
-      },
-      {
-        "file": "m_duel/view/elements/difficulty.lua",
-        "class": "DuelDifficultyForm"
-      },
-      {
-        "file": "m_duel/view/elements/confirm.lua",
-        "class": "DuelConfirmForm"
-      },
-      {
-        "file": "m_duel/view/elements/private_setting.lua",
-        "class": "DuelPrivateSettingForm"
-      },
-      {
-        "file": "common/klabid/connect.lua",
-        "class": null
-      },
-      {
-        "file": "common/klabid/disconnect.lua",
-        "class": null
-      },
-      {
-        "file": "common/klabid/main.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/view/top.lua",
-        "class": "DuelTopView"
-      },
-      {
-        "file": "common/guideline/button.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/view/priority.lua",
-        "class": "DuelViewPriority"
-      },
-      {
-        "file": "common/guideline/check_box.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/board_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/balloon.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/tab.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/icon_label.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/switch_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/footer.lua",
-        "class": null
-      },
-      {
-        "file": "common/ghost/quest.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/concert/base.lua",
-        "class": "ConcertModel"
-      },
-      {
-        "file": "common/autovdoc.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/event_model.lua",
-        "class": "Event"
-      },
-      {
-        "file": "common/model/subscription.lua",
-        "class": "SubscriptionModel"
-      },
-      {
-        "file": "m_sns/model/sns.lua",
+        "file": "m_concert/lootbox/result.lua",
         "class": null
       }
     ]
@@ -1180,7 +974,15 @@
     "action": "liveStart",
     "candidate_files": [
       {
+        "file": "m_festival/arrange.lua",
+        "class": null
+      },
+      {
         "file": "m_battle_event/deck.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/view/deck.lua",
         "class": null
       },
       {
@@ -1196,19 +998,15 @@
         "class": null
       },
       {
-        "file": "m_class/view/deck_challenge.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/deck.lua",
-        "class": "TeamDeckView"
-      },
-      {
-        "file": "m_festival/arrange.lua",
-        "class": null
+        "file": "m_quest/view/briefing.lua",
+        "class": "QuestBriefingView"
       },
       {
         "file": "m_arena/elements/dream/dream_top.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/view/deck_challenge.lua",
         "class": null
       },
       {
@@ -1216,32 +1014,24 @@
         "class": null
       },
       {
-        "file": "m_event/challenge/arrange.lua",
+        "file": "m_arena/elements/match/match_top.lua",
         "class": null
       },
       {
-        "file": "m_live_menu/view/deck.lua",
-        "class": null
+        "file": "m_duel/view/deck.lua",
+        "class": "DuelDeckView"
       },
       {
         "file": "m_class/view/deck.lua",
         "class": "ClassDeckView"
       },
       {
-        "file": "m_arena/elements/match/match_top.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/view/briefing.lua",
-        "class": "QuestBriefingView"
-      },
-      {
         "file": "m_duel/model/duel.lua",
         "class": "DuelModel"
       },
       {
-        "file": "m_duel/view/deck.lua",
-        "class": "DuelDeckView"
+        "file": "m_team/view/deck.lua",
+        "class": "TeamDeckView"
       },
       {
         "file": "common/function_voice.lua",
@@ -1249,6 +1039,10 @@
       },
       {
         "file": "m_online/deck.lua",
+        "class": null
+      },
+      {
+        "file": "m_event/challenge/arrange.lua",
         "class": null
       }
     ]
@@ -1312,15 +1106,11 @@
         "class": null
       },
       {
+        "file": "m_duel/crowd_end.lua",
+        "class": null
+      },
+      {
         "file": "m_duel/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/crowd.lua",
         "class": null
       },
       {
@@ -1328,11 +1118,7 @@
         "class": null
       },
       {
-        "file": "m_duel/crowd_end.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/room_end.lua",
+        "file": "m_duel/model/crowd.lua",
         "class": null
       },
       {
@@ -1342,6 +1128,14 @@
       {
         "file": "m_team/model/team_event.lua",
         "class": "TeamEventModel"
+      },
+      {
+        "file": "m_team/room_end.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/model/matching.lua",
+        "class": null
       },
       {
         "file": "common/svext/duty.lua",
@@ -1355,24 +1149,24 @@
     "action": "history",
     "candidate_files": [
       {
-        "file": "m_team/view/history.lua",
-        "class": "TeamHistoryView"
-      },
-      {
-        "file": "m_team/view/priority.lua",
-        "class": "TeamViewPriority"
-      },
-      {
-        "file": "m_team/model/history.lua",
-        "class": null
+        "file": "m_reward/reward_history.lua",
+        "class": "RewardHistory"
       },
       {
         "file": "common/logger/energy.lua",
         "class": "EnergyLogger"
       },
       {
-        "file": "m_reward/reward_history.lua",
-        "class": "RewardHistory"
+        "file": "m_team/view/priority.lua",
+        "class": "TeamViewPriority"
+      },
+      {
+        "file": "m_team/view/history.lua",
+        "class": "TeamHistoryView"
+      },
+      {
+        "file": "m_team/model/history.lua",
+        "class": null
       }
     ]
   },
@@ -1457,30 +1251,6 @@
         "class": null
       },
       {
-        "file": "m_class/view/room/room_start.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/competition_final.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/crowd_private.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/duel.lua",
-        "class": "DuelModel"
-      },
-      {
         "file": "m_team/model/matching.lua",
         "class": null
       },
@@ -1489,8 +1259,12 @@
         "class": "TeamEventModel"
       },
       {
-        "file": "m_duel/model/crowd.lua",
+        "file": "m_duel/room_start.lua",
         "class": null
+      },
+      {
+        "file": "m_duel/controller.lua",
+        "class": "DuelController"
       },
       {
         "file": "m_team/deck.lua",
@@ -1501,12 +1275,32 @@
         "class": null
       },
       {
-        "file": "m_duel/room_start.lua",
+        "file": "m_class/view/room/room_start.lua",
         "class": null
       },
       {
-        "file": "m_duel/controller.lua",
-        "class": "DuelController"
+        "file": "m_duel/model/crowd_private.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/model/competition_final.lua",
+        "class": null
+      },
+      {
+        "file": "m_duel/model/matching.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/model/matching.lua",
+        "class": null
+      },
+      {
+        "file": "m_duel/model/duel.lua",
+        "class": "DuelModel"
+      },
+      {
+        "file": "m_duel/model/crowd.lua",
+        "class": null
       },
       {
         "file": "common/svext/duty.lua",
@@ -1521,7 +1315,7 @@
     "candidate_files": [
       {
         "file": "common/model/cheer_deck.lua",
-        "class": "UnitDeckCache"
+        "class": "CheerDeckModel"
       }
     ]
   },
@@ -1531,12 +1325,24 @@
     "action": "open",
     "candidate_files": [
       {
+        "file": "m_scenario_menu/dialog.lua",
+        "class": "ReleaseDialog"
+      },
+      {
         "file": "m_reward/reward_list.lua",
         "class": "RewardList"
       },
       {
+        "file": "m_quest/view/elements/event_info.lua",
+        "class": "QuestEventInfoForm"
+      },
+      {
         "file": "common/assets.lua",
         "class": null
+      },
+      {
+        "file": "common/mail_additional.lua",
+        "class": "MailAdditional"
       },
       {
         "file": "common/db_facilitator.lua",
@@ -1571,15 +1377,43 @@
         "class": null
       },
       {
+        "file": "common/dbext/common/live_time.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/vm_connection.lua",
+        "class": null
+      },
+      {
         "file": "common/dbapi/lottery_ticket/lottery_ticket.lua",
         "class": null
       },
       {
-        "file": "m_quest/view/elements/event_info.lua",
-        "class": "QuestEventInfoForm"
+        "file": "common/dbext/common/client_settings.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/duel_tutorial.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/online_tutorial.lua",
+        "class": null
       },
       {
         "file": "common/dbapi/online/online.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/client_datetime.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/live_log.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/basic_settings.lua",
         "class": null
       },
       {
@@ -1587,7 +1421,15 @@
         "class": null
       },
       {
+        "file": "common/dbext/common/user_datetime.lua",
+        "class": null
+      },
+      {
         "file": "common/dbapi/arena/arena.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/live_settings.lua",
         "class": null
       },
       {
@@ -1595,7 +1437,23 @@
         "class": null
       },
       {
+        "file": "common/dbext/unit/unit_list.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/unit_download.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/klabid.lua",
+        "class": null
+      },
+      {
         "file": "common/dbapi/duel/crowd.lua",
+        "class": null
+      },
+      {
+        "file": "common/dbext/common/basic_settings_live_adjust.lua",
         "class": null
       },
       {
@@ -1611,15 +1469,15 @@
         "class": null
       },
       {
-        "file": "common/mail_additional.lua",
-        "class": "MailAdditional"
-      },
-      {
         "file": "common/dbapi/live/live.lua",
         "class": null
       },
       {
         "file": "common/dbapi/quest/quest.lua",
+        "class": null
+      },
+      {
+        "file": "common/download/queue.lua",
         "class": null
       },
       {
@@ -1635,71 +1493,15 @@
         "class": null
       },
       {
-        "file": "common/dbapi/common/game_mater.lua",
-        "class": null
+        "file": "common/model/multi_unit_scenario.lua",
+        "class": "MultiUnitScenario"
       },
       {
-        "file": "common/dbapi/common/asset.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/boot_asset.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/navigation.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/other.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/bootstrap.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/cutin.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/system/error.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/multi_unit_scenario/multi_unit_scenario.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/shop/apple.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/effort/effort.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/trade/trade.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/concert/concert.lua",
+        "file": "common/dbapi/exchange/exchange.lua",
         "class": null
       },
       {
         "file": "common/dbapi/achievement/achievement.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario_menu/dialog.lua",
-        "class": "ReleaseDialog"
-      },
-      {
-        "file": "common/dbapi/rlive/rlive.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/exchange/exchange.lua",
         "class": null
       },
       {
@@ -1711,80 +1513,72 @@
         "class": null
       },
       {
+        "file": "common/dbapi/rlive/rlive.lua",
+        "class": null
+      },
+      {
         "file": "common/dbapi/unit/card.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/live_time.lua",
+        "file": "common/dbapi/common/game_mater.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/vm_connection.lua",
+        "file": "common/dbapi/concert/concert.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/client_settings.lua",
+        "file": "common/dbapi/shop/apple.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/live_settings.lua",
+        "file": "common/dbapi/effort/effort.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/duel_tutorial.lua",
+        "file": "common/dbapi/common/asset.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/online_tutorial.lua",
+        "file": "common/dbapi/system/error.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/client_datetime.lua",
+        "file": "common/dbapi/trade/trade.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/unit_download.lua",
+        "file": "common/dbapi/common/cutin.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/klabid.lua",
+        "file": "common/dbapi/common/other.lua",
         "class": null
       },
       {
-        "file": "common/dbext/common/basic_settings_live_adjust.lua",
+        "file": "common/dbapi/multi_unit_scenario/multi_unit_scenario.lua",
         "class": null
       },
       {
-        "file": "common/download/queue.lua",
+        "file": "common/dbapi/common/boot_asset.lua",
         "class": null
       },
       {
-        "file": "common/dbext/unit/unit_list.lua",
+        "file": "common/dbapi/common/navigation.lua",
         "class": null
       },
       {
-        "file": "common/model/multi_unit_scenario.lua",
-        "class": "MultiUnitScenario"
-      },
-      {
-        "file": "common/dbext/common/basic_settings.lua",
+        "file": "common/dbapi/common/bootstrap.lua",
         "class": null
-      },
-      {
-        "file": "common/dbext/common/user_datetime.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/subscenario.lua",
-        "class": "Subscenario"
       },
       {
         "file": "common/model/badge_model.lua",
         "class": "BadgeModel"
       },
       {
-        "file": "common/dbext/common/live_log.lua",
-        "class": null
+        "file": "common/model/subscenario.lua",
+        "class": "Subscenario"
       }
     ]
   },
@@ -1809,11 +1603,7 @@
     "action": "play",
     "candidate_files": [
       {
-        "file": "m_unit/view/rank_up/confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/elements/monitor.lua",
+        "file": "m_unit/unit_merge_result_stage.lua",
         "class": null
       },
       {
@@ -1821,32 +1611,16 @@
         "class": null
       },
       {
-        "file": "m_unit/unit_merge_result_stage.lua",
+        "file": "m_unit/view/rank_up/confirm.lua",
         "class": null
       },
       {
-        "file": "m_live_menu/live_list/live_info.lua",
-        "class": "LiveInfo"
+        "file": "m_live_adjust/note_manager.lua",
+        "class": "NoteManagerAdjust"
       },
       {
-        "file": "m_album/loading_with_option.lua",
-        "class": "LoadingWithOption"
-      },
-      {
-        "file": "m_event/challenge/intermission.lua",
+        "file": "m_festival/elements/monitor.lua",
         "class": null
-      },
-      {
-        "file": "common/event/bonus_effect.lua",
-        "class": "EventBonusEffect"
-      },
-      {
-        "file": "m_live/view/character.lua",
-        "class": "CharacterView"
-      },
-      {
-        "file": "m_live/note.lua",
-        "class": "Note"
       },
       {
         "file": "m_scenario/scenario_view.lua",
@@ -1857,55 +1631,11 @@
         "class": null
       },
       {
+        "file": "m_album/loading_with_option.lua",
+        "class": "LoadingWithOption"
+      },
+      {
         "file": "m_arena/elements/common/top_monitor.lua",
-        "class": null
-      },
-      {
-        "file": "common/ui/ui_movie.lua",
-        "class": "WUI_Movie"
-      },
-      {
-        "file": "m_live/elements/accuracy.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/hp_gauge.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/live_title.lua",
-        "class": null
-      },
-      {
-        "file": "m_shop/view/subscription_dialog.lua",
-        "class": "SubscriptionDialog"
-      },
-      {
-        "file": "common/live_goal.lua",
-        "class": "LiveGoal"
-      },
-      {
-        "file": "common/ui/uiCellAnim.lua",
-        "class": "WUI_CellAnim"
-      },
-      {
-        "file": "m_live/controller/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_boot/initialize.lua",
-        "class": null
-      },
-      {
-        "file": "common/ui/uiSWFPlayer.lua",
-        "class": "WUI_SWFPlayer"
-      },
-      {
-        "file": "common/view/live/precise_result.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/greeting.lua",
         "class": null
       },
       {
@@ -1913,15 +1643,7 @@
         "class": "SecretboxAnimationView"
       },
       {
-        "file": "m_login/view/comeback_login_bonus/item_stamp_effect.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_adjust/note_manager.lua",
-        "class": "NoteManagerAdjust"
-      },
-      {
-        "file": "m_login/view/login_bonus/login_bonus_dialog.lua",
+        "file": "m_event/challenge/intermission.lua",
         "class": null
       },
       {
@@ -1929,7 +1651,67 @@
         "class": null
       },
       {
+        "file": "common/event/bonus_effect.lua",
+        "class": "EventBonusEffect"
+      },
+      {
+        "file": "m_shop/view/subscription_dialog.lua",
+        "class": "SubscriptionDialog"
+      },
+      {
+        "file": "m_live_menu/live_list/live_info.lua",
+        "class": "LiveInfo"
+      },
+      {
+        "file": "m_live/view/character.lua",
+        "class": "CharacterView"
+      },
+      {
+        "file": "common/ui/ui_movie.lua",
+        "class": "WUI_Movie"
+      },
+      {
+        "file": "m_boot/initialize.lua",
+        "class": null
+      },
+      {
+        "file": "common/ui/uiCellAnim.lua",
+        "class": "WUI_CellAnim"
+      },
+      {
+        "file": "common/ui/uiSWFPlayer.lua",
+        "class": "WUI_SWFPlayer"
+      },
+      {
+        "file": "m_login/greeting.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/elements/live_title.lua",
+        "class": null
+      },
+      {
+        "file": "m_login/view/comeback_login_bonus/item_stamp_effect.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/elements/hp_gauge.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/base.lua",
+        "class": null
+      },
+      {
+        "file": "m_login/view/login_bonus/login_bonus_dialog.lua",
+        "class": null
+      },
+      {
         "file": "m_login/view/comeback_bonus/last_stamp_effect.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/elements/accuracy.lua",
         "class": null
       },
       {
@@ -1941,11 +1723,23 @@
         "class": null
       },
       {
+        "file": "common/header.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/note.lua",
+        "class": "Note"
+      },
+      {
         "file": "common/nowloading.lua",
         "class": "NowLoading"
       },
       {
-        "file": "common/header.lua",
+        "file": "common/live_goal.lua",
+        "class": "LiveGoal"
+      },
+      {
+        "file": "common/view/live/precise_result.lua",
         "class": null
       }
     ]
@@ -1956,16 +1750,16 @@
     "action": "request",
     "candidate_files": [
       {
+        "file": "m_friends/helper/friends_helper.lua",
+        "class": "FriendHelper"
+      },
+      {
         "file": "m_live_menu/dialog/friend_request.lua",
         "class": "LiveFriendRequestDialog"
       },
       {
         "file": "m_boot/initialize.lua",
         "class": null
-      },
-      {
-        "file": "m_friends/helper/friends_helper.lua",
-        "class": "FriendHelper"
       },
       {
         "file": "m_secretbox/model/detail.lua",
@@ -1991,16 +1785,8 @@
     "action": "detail",
     "candidate_files": [
       {
-        "file": "m_menu/gdpr.lua",
-        "class": null
-      },
-      {
         "file": "m_class/view/elements/competition_result.lua",
         "class": "ClassCompetitionResult"
-      },
-      {
-        "file": "m_class/view/elements/spectate_result_view.lua",
-        "class": "SpectateResultView"
       },
       {
         "file": "m_class/view/fame/top.lua",
@@ -2011,40 +1797,44 @@
         "class": null
       },
       {
-        "file": "m_secretbox/view/priority.lua",
-        "class": "SecretboxViewPriority"
-      },
-      {
-        "file": "m_secretbox/elements/pickup/pickup_appeal.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/mission.lua",
-        "class": null
-      },
-      {
         "file": "m_quest/view/detail.lua",
         "class": "QuestDetailView"
       },
       {
-        "file": "m_live_menu/live_list/live_info.lua",
-        "class": "LiveInfo"
+        "file": "m_class/view/elements/spectate_result_view.lua",
+        "class": "SpectateResultView"
       },
       {
-        "file": "m_quest/view/elements/live_jacket.lua",
-        "class": "QuestLiveJacketForm"
+        "file": "m_secretbox/view/priority.lua",
+        "class": "SecretboxViewPriority"
       },
       {
         "file": "m_quest/view/elements/mission_info.lua",
         "class": "QuestMissionInfoForm"
       },
       {
-        "file": "m_quest/view/priority.lua",
-        "class": "QuestViewPriority"
-      },
-      {
         "file": "m_quest/view/elements/live_info.lua",
         "class": "QuestLiveInfoForm"
+      },
+      {
+        "file": "m_class/model/mission.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/pickup/pickup_appeal.lua",
+        "class": null
+      },
+      {
+        "file": "m_quest/view/elements/live_jacket.lua",
+        "class": "QuestLiveJacketForm"
+      },
+      {
+        "file": "m_live_menu/live_list/live_info.lua",
+        "class": "LiveInfo"
+      },
+      {
+        "file": "m_quest/view/priority.lua",
+        "class": "QuestViewPriority"
       },
       {
         "file": "m_achievement/view/detail.lua",
@@ -2067,16 +1857,20 @@
         "class": null
       },
       {
+        "file": "common/event_cache.lua",
+        "class": "EventCache"
+      },
+      {
+        "file": "m_menu/gdpr.lua",
+        "class": null
+      },
+      {
         "file": "common/model/achievement/converter.lua",
         "class": null
       },
       {
         "file": "common/model/school_idol_skill.lua",
         "class": "SchoolIdolSkill"
-      },
-      {
-        "file": "common/event_cache.lua",
-        "class": "EventCache"
       }
     ]
   },
@@ -2094,63 +1888,7 @@
         "class": null
       },
       {
-        "file": "m_unit/view/rank_up/left_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/merge_by_item.lua",
-        "class": null
-      },
-      {
         "file": "m_unit/unit_merge_result_stage.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/status_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/exchange_point_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/costume/change.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/level_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/unit_helper.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/skill_level_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_menu/gdpr.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/multi_unit/confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/reward/notable_reward.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/multi_unit/result.lua",
         "class": null
       },
       {
@@ -2158,7 +1896,79 @@
         "class": null
       },
       {
+        "file": "m_unit/view/rank_up/result.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/merge_by_item.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/rank_up/left_form.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/unit_helper.lua",
+        "class": null
+      },
+      {
+        "file": "m_download/start.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/merge/status_form.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/merge/exchange_point_form.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/merge/level_form.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/deck_status.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/merge/confirm.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/costume/change.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/merge/skill_level_form.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/multi_unit/confirm.lua",
+        "class": null
+      },
+      {
+        "file": "m_unit/view/multi_unit/result.lua",
+        "class": null
+      },
+      {
+        "file": "m_duel/view/crowd_room.lua",
+        "class": "DuelCrowdRoomView"
+      },
+      {
+        "file": "m_duel/view/live_menu.lua",
+        "class": "DuelLiveMenuView"
+      },
+      {
+        "file": "m_arena/elements/reward/notable_reward.lua",
+        "class": null
+      },
+      {
         "file": "m_arena/elements/reward/reward_list.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/start.lua",
         "class": null
       },
       {
@@ -2166,8 +1976,8 @@
         "class": "Card3D"
       },
       {
-        "file": "m_duel/view/crowd_room.lua",
-        "class": "DuelCrowdRoomView"
+        "file": "m_duel/view/elements/room_player_list.lua",
+        "class": "DuelRoomPlayerListForm"
       },
       {
         "file": "m_arena/elements/common/deck_name.lua",
@@ -2178,59 +1988,7 @@
         "class": null
       },
       {
-        "file": "m_live_menu/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/deck_status.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/select_jacket.lua",
-        "class": "ClassLiveMenuSelectJacket"
-      },
-      {
-        "file": "m_arena/elements/common/deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/jacket_list.lua",
-        "class": "ClassJacketList"
-      },
-      {
         "file": "m_live_menu/view/deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/view/guest.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/collab_top_background.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/live_list/pager.lua",
-        "class": "LiveMenuPager"
-      },
-      {
-        "file": "m_duel/view/elements/room_player_list.lua",
-        "class": "DuelRoomPlayerListForm"
-      },
-      {
-        "file": "m_live_menu/common/deck_status.lua",
-        "class": "LiveDeckStatusForm"
-      },
-      {
-        "file": "m_live_menu/elements/training.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/elements/difficulty.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/collab_toggle_button.lua",
         "class": null
       },
       {
@@ -2238,32 +1996,24 @@
         "class": "DuelLiveMenuFocusItem"
       },
       {
-        "file": "m_live_menu/common/guest_form.lua",
-        "class": "GuestForm"
+        "file": "m_duel/view/crowd_result.lua",
+        "class": "DuelCrowdResultView"
       },
       {
-        "file": "m_class/view/live_menu.lua",
-        "class": "ClassLiveMenuView"
-      },
-      {
-        "file": "m_live_menu/elements/live_category.lua",
+        "file": "m_arena/elements/common/deck.lua",
         "class": null
       },
       {
-        "file": "m_class/live_menu.lua",
+        "file": "m_live_menu/view/guest.lua",
         "class": null
       },
       {
-        "file": "m_live_menu/common/unit_detail.lua",
-        "class": "LiveUnitDetail"
+        "file": "m_class/view/elements/select_jacket.lua",
+        "class": "ClassLiveMenuSelectJacket"
       },
       {
-        "file": "m_arena/elements/common/top_monitor.lua",
+        "file": "m_arena/elements/common/collab_top_background.lua",
         "class": null
-      },
-      {
-        "file": "m_duel/view/elements/result_info.lua",
-        "class": "DuelResultInfoForm"
       },
       {
         "file": "m_duel/view/elements/stamp_board.lua",
@@ -2274,44 +2024,268 @@
         "class": "DuelResultPlayerMyItem"
       },
       {
-        "file": "m_tutorial/tutorial_end.lua",
+        "file": "m_class/view/elements/jacket_list.lua",
+        "class": "ClassJacketList"
+      },
+      {
+        "file": "m_arena/elements/common/collab_toggle_button.lua",
         "class": null
       },
       {
-        "file": "m_duel/view/crowd_result.lua",
-        "class": "DuelCrowdResultView"
+        "file": "m_duel/view/elements/result_info.lua",
+        "class": "DuelResultInfoForm"
       },
       {
-        "file": "m_live_menu/live_list/live_list.lua",
-        "class": "LiveList"
-      },
-      {
-        "file": "m_download/start.lua",
+        "file": "m_arena/elements/common/top_monitor.lua",
         "class": null
-      },
-      {
-        "file": "m_duel/view/live_menu.lua",
-        "class": "DuelLiveMenuView"
-      },
-      {
-        "file": "m_live_menu/live_list/jacket.lua",
-        "class": "LiveJacket"
-      },
-      {
-        "file": "m_album/album_detail.lua",
-        "class": "AlbumDetailForm"
-      },
-      {
-        "file": "m_exchange/view/elements/point.lua",
-        "class": "ExchangePointForm"
       },
       {
         "file": "m_live/star.lua",
         "class": "Star"
       },
       {
+        "file": "m_live_menu/elements/training.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/view/live_menu.lua",
+        "class": "ClassLiveMenuView"
+      },
+      {
+        "file": "m_live/view/base.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/elements/difficulty.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/elements/live_category.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/live_list/pager.lua",
+        "class": "LiveMenuPager"
+      },
+      {
+        "file": "m_live/note.lua",
+        "class": "Note"
+      },
+      {
+        "file": "m_live/controller/other_member.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/accuracy_log.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/base.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/live_list/live_list.lua",
+        "class": "LiveList"
+      },
+      {
+        "file": "m_menu/gdpr.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/position_bonus.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/live_list/jacket.lua",
+        "class": "LiveJacket"
+      },
+      {
+        "file": "m_live/controller/score.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/gain_status.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/multi_ghost.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/note_log.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/assist_score.lua",
+        "class": null
+      },
+      {
+        "file": "m_class/live_menu.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/skill_effect/unison.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/ghost.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_menu/common/guest_form.lua",
+        "class": "GuestForm"
+      },
+      {
+        "file": "m_live/skill.lua",
+        "class": "Skill"
+      },
+      {
+        "file": "m_live_menu/common/deck_status.lua",
+        "class": "LiveDeckStatusForm"
+      },
+      {
+        "file": "m_live_menu/common/unit_detail.lua",
+        "class": "LiveUnitDetail"
+      },
+      {
+        "file": "m_live/model/same_timing_count.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/unit_detail_arrow.lua",
+        "class": "ArrowForm"
+      },
+      {
+        "file": "m_live/model/skill_count_trigger.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/base_combo.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/popup_detail.lua",
+        "class": "PopupUnit"
+      },
+      {
+        "file": "m_live/model/score.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/combo.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/unit_deck_cache.lua",
+        "class": "UnitDeckCache"
+      },
+      {
+        "file": "m_live/model/assist_skill_controller.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/new_unit_flag_cache.lua",
+        "class": "NewUnitFlagCache"
+      },
+      {
+        "file": "common/unit/unit_detail_content_form.lua",
+        "class": "UnitDetailContentForm"
+      },
+      {
+        "file": "m_live/character.lua",
+        "class": "Character"
+      },
+      {
+        "file": "m_live/model/duel.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/unit_detail_form.lua",
+        "class": "UnitDetailForm"
+      },
+      {
+        "file": "m_live/model/assist_effect/base.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/notes.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/assist_effect/super_support.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/elements/duel_score.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/assist_effect/multiply_score.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/card_image_form.lua",
+        "class": "CardImageForm"
+      },
+      {
+        "file": "m_live/elements/gain_score.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/unit_status_form.lua",
+        "class": "UnitStatusForm"
+      },
+      {
+        "file": "m_live/elements/arena_match_score.lua",
+        "class": null
+      },
+      {
+        "file": "common/gdpr.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/assist_effect/gain_status.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/trigger/skill_count_each.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/elements/score.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/total_status.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/elements/hp_gauge.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/elements/graph.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/damage_log.lua",
+        "class": null
+      },
+      {
+        "file": "m_exchange/view/elements/point.lua",
+        "class": "ExchangePointForm"
+      },
+      {
+        "file": "m_live/model/trigger/skill_count_group4.lua",
+        "class": null
+      },
+      {
         "file": "m_exchange/view/elements/list.lua",
         "class": "ExchangeListForm"
+      },
+      {
+        "file": "m_tutorial/tutorial_end.lua",
+        "class": null
       },
       {
         "file": "m_exchange/view/elements/arena_point.lua",
@@ -2326,51 +2300,7 @@
         "class": "ExchangeTopView"
       },
       {
-        "file": "m_live/view/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/duel_score.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/gain_score.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/arena_match_score.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/enhance.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/score.lua",
-        "class": null
-      },
-      {
-        "file": "m_event/card.lua",
-        "class": "NotableCard"
-      },
-      {
-        "file": "m_live/elements/hp_gauge.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/graph.lua",
-        "class": null
-      },
-      {
-        "file": "m_reward/view/reward_unit_detail_dialog.lua",
-        "class": "RewardUnitDetailDialog"
-      },
-      {
-        "file": "m_reward/view/reward_select_unit_detail_form.lua",
-        "class": "RewardSelectUnitDetailForm"
-      },
-      {
-        "file": "m_secretbox/elements/box/select_unit/select_unit_detail.lua",
+        "file": "m_live/model/trigger/skill_count_group1.lua",
         "class": null
       },
       {
@@ -2378,7 +2308,19 @@
         "class": null
       },
       {
-        "file": "m_secretbox/elements/box/select_unit/select_unit_list.lua",
+        "file": "m_live/elements/ghost_score.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/trigger/skill_count_group2.lua",
+        "class": null
+      },
+      {
+        "file": "m_accessory/enhance.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/model/trigger/sync_status.lua",
         "class": null
       },
       {
@@ -2386,19 +2328,11 @@
         "class": null
       },
       {
-        "file": "m_live/elements/ghost_score.lua",
+        "file": "m_live/model/trigger/skill_count_group3.lua",
         "class": null
       },
       {
-        "file": "m_secretbox/elements/box/select_unit/select_unit_window.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/accuracy_log.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/result/cost.lua",
+        "file": "m_live/model/trigger/skill_count_all.lua",
         "class": null
       },
       {
@@ -2406,39 +2340,7 @@
         "class": null
       },
       {
-        "file": "m_secretbox/elements/result/detail.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/other_member.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/result/single.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/base.lua",
-        "class": null
-      },
-      {
         "file": "m_accessory/elements/maker.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/result/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/score.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/multi_ghost.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/cost_base.lua",
         "class": null
       },
       {
@@ -2446,172 +2348,8 @@
         "class": null
       },
       {
-        "file": "common/gdpr.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/button_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/button_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/position_bonus.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/button_cost.lua",
-        "class": null
-      },
-      {
-        "file": "common/logger/energy.lua",
-        "class": "EnergyLogger"
-      },
-      {
-        "file": "m_live/model/note_log.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/skill_effect/unison.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/lootbox/top.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/lootbox/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/skill.lua",
-        "class": "Skill"
-      },
-      {
-        "file": "common/result/unit_reward_form.lua",
-        "class": "UnitRewardForm"
-      },
-      {
-        "file": "m_concert/elements/voltage.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/note.lua",
-        "class": "Note"
-      },
-      {
-        "file": "m_live/model/assist_effect/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/assist_effect/super_support.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/assist_effect/multiply_score.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_custom/note_preview_form.lua",
-        "class": "NotePreviewForm"
-      },
-      {
-        "file": "m_live_custom/view/live_background.lua",
-        "class": "LiveBackgroundView"
-      },
-      {
-        "file": "common/unit/unit_detail_arrow.lua",
-        "class": "ArrowForm"
-      },
-      {
-        "file": "m_live/model/assist_effect/gain_status.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/ghost.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/gain_status.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/total_status.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/damage_log.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/assist_score.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/skill_count_trigger.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/score.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/popup_detail.lua",
-        "class": "PopupUnit"
-      },
-      {
-        "file": "m_live/model/duel.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/notes.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/trigger/skill_count_each.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_deck_cache.lua",
-        "class": "UnitDeckCache"
-      },
-      {
-        "file": "m_live/model/trigger/sync_status.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/new_unit_flag_cache.lua",
-        "class": "NewUnitFlagCache"
-      },
-      {
-        "file": "common/unit/unit_detail_content_form.lua",
-        "class": "UnitDetailContentForm"
-      },
-      {
-        "file": "m_live/model/same_timing_count.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/trigger/skill_count_group4.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_detail_form.lua",
-        "class": "UnitDetailForm"
-      },
-      {
-        "file": "m_live/model/trigger/skill_count_group1.lua",
-        "class": null
+        "file": "common/skill_slot_form.lua",
+        "class": "SkillSlotForm"
       },
       {
         "file": "m_live_adjust/start.lua",
@@ -2622,123 +2360,35 @@
         "class": "CharacterWheelAdjust"
       },
       {
-        "file": "m_live/model/trigger/skill_count_group2.lua",
-        "class": null
-      },
-      {
         "file": "m_live_adjust/note_manager.lua",
         "class": "NoteManagerAdjust"
-      },
-      {
-        "file": "m_live/model/trigger/skill_count_group3.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/card_image_form.lua",
-        "class": "CardImageForm"
-      },
-      {
-        "file": "m_live_adjust/character.lua",
-        "class": "CharacterAdjust"
-      },
-      {
-        "file": "m_live/model/trigger/skill_count_all.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_status_form.lua",
-        "class": "UnitStatusForm"
-      },
-      {
-        "file": "m_live_adjust/live_adjust_manager.lua",
-        "class": "LiveAdjustManager"
-      },
-      {
-        "file": "m_live/model/base_combo.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_custom/view/tap_se.lua",
-        "class": "TapSEView"
-      },
-      {
-        "file": "m_live/model/combo.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/assist_skill_controller.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_custom/view/other.lua",
-        "class": "LiveOtherView"
-      },
-      {
-        "file": "m_live_custom/view/note_speed.lua",
-        "class": "NoteSpeedView"
-      },
-      {
-        "file": "m_live/character.lua",
-        "class": "Character"
-      },
-      {
-        "file": "m_live_custom/view/note_icon.lua",
-        "class": "NoteIconView"
-      },
-      {
-        "file": "m_team/view/mission.lua",
-        "class": "TeamMissionView"
-      },
-      {
-        "file": "m_live_custom/view/precise.lua",
-        "class": "LivePreciseView"
-      },
-      {
-        "file": "m_live_custom/view/volume.lua",
-        "class": "LiveVolumeView"
-      },
-      {
-        "file": "m_team/view/history.lua",
-        "class": "TeamHistoryView"
       },
       {
         "file": "m_team/view/elements/live_info.lua",
         "class": "TeamLiveInfoForm"
       },
       {
-        "file": "m_live_custom/live_customize_dialog.lua",
-        "class": "LiveCustomizeDialog"
+        "file": "m_live_adjust/character.lua",
+        "class": "CharacterAdjust"
       },
       {
-        "file": "m_live_custom/note_customize/note_customize_dialog.lua",
-        "class": "NoteCustomizeDialog"
-      },
-      {
-        "file": "m_team/model/all_user_mission.lua",
+        "file": "common/energy.lua",
         "class": null
+      },
+      {
+        "file": "m_live_adjust/live_adjust_manager.lua",
+        "class": "LiveAdjustManager"
       },
       {
         "file": "m_team/view/elements/goal_gauge.lua",
         "class": "TeamGoalGaugeForm"
       },
       {
-        "file": "common/skill_slot_form.lua",
-        "class": "SkillSlotForm"
-      },
-      {
         "file": "m_team/view/elements/current_mission.lua",
         "class": "TeamCurrentMissionForm"
       },
       {
-        "file": "common/energy.lua",
-        "class": "LiveBonusModel"
-      },
-      {
         "file": "common/guideline/button.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/deck/base.lua",
         "class": null
       },
       {
@@ -2746,15 +2396,7 @@
         "class": null
       },
       {
-        "file": "common/view/deck/hp_only_status.lua",
-        "class": null
-      },
-      {
         "file": "common/guideline/icon_label.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/accessory_detail.lua",
         "class": null
       },
       {
@@ -2770,11 +2412,87 @@
         "class": null
       },
       {
-        "file": "common/elements/unit_lineup/header.lua",
+        "file": "m_team/view/history.lua",
+        "class": "TeamHistoryView"
+      },
+      {
+        "file": "common/view/deck/base.lua",
+        "class": null
+      },
+      {
+        "file": "m_team/view/mission.lua",
+        "class": "TeamMissionView"
+      },
+      {
+        "file": "common/view/deck/hp_only_status.lua",
+        "class": null
+      },
+      {
+        "file": "common/download/prepare.lua",
+        "class": null
+      },
+      {
+        "file": "common/download/include.lua",
+        "class": "Download"
+      },
+      {
+        "file": "m_team/model/all_user_mission.lua",
         "class": null
       },
       {
         "file": "common/view/live/precise_result.lua",
+        "class": null
+      },
+      {
+        "file": "common/logger/energy.lua",
+        "class": "EnergyLogger"
+      },
+      {
+        "file": "common/result/unit_reward_form.lua",
+        "class": "UnitRewardForm"
+      },
+      {
+        "file": "common/view/unit_detail.lua",
+        "class": null
+      },
+      {
+        "file": "common/elements/accessory_detail.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/box/select_unit/select_unit_detail.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/box/select_unit/select_unit_window.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/box/select_unit/select_unit_list.lua",
+        "class": null
+      },
+      {
+        "file": "common/elements/unit_lineup/header.lua",
+        "class": null
+      },
+      {
+        "file": "common/elements/item_rank_up.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/result/cost.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/result/detail.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/result/single.lua",
+        "class": null
+      },
+      {
+        "file": "m_secretbox/elements/result/base.lua",
         "class": null
       },
       {
@@ -2786,11 +2504,11 @@
         "class": null
       },
       {
-        "file": "common/view/unit_detail.lua",
+        "file": "common/elements/favorite_button.lua",
         "class": null
       },
       {
-        "file": "common/elements/favorite_button.lua",
+        "file": "m_secretbox/elements/top/cost_base.lua",
         "class": null
       },
       {
@@ -2798,19 +2516,19 @@
         "class": "MultiUnitScenario"
       },
       {
-        "file": "m_boot/initialize.lua",
+        "file": "m_secretbox/elements/top/button_item.lua",
         "class": null
       },
       {
-        "file": "common/model/live_status.lua",
-        "class": "LiveStatus"
+        "file": "m_secretbox/elements/top/button_base.lua",
+        "class": null
       },
       {
         "file": "common/elements/accessory_icon.lua",
         "class": null
       },
       {
-        "file": "common/elements/item_rank_up.lua",
+        "file": "m_secretbox/elements/top/base.lua",
         "class": null
       },
       {
@@ -2818,60 +2536,136 @@
         "class": null
       },
       {
+        "file": "m_secretbox/elements/top/button_cost.lua",
+        "class": null
+      },
+      {
         "file": "common/elements/accessory_equipment.lua",
         "class": null
       },
       {
-        "file": "common/elements/sort_order.lua",
+        "file": "m_boot/initialize.lua",
         "class": null
-      },
-      {
-        "file": "common/gauge_form.lua",
-        "class": "GaugeForm"
       },
       {
         "file": "common/model/accessory.lua",
         "class": "AccessoryModel"
       },
       {
-        "file": "m_basicsettings/start.lua",
+        "file": "common/elements/sort_order.lua",
         "class": null
-      },
-      {
-        "file": "common/model/badge_model.lua",
-        "class": "BadgeModel"
       },
       {
         "file": "common/model/subscenario.lua",
         "class": "Subscenario"
       },
       {
-        "file": "common/model/exchange_point.lua",
-        "class": "ExchangePoint"
-      },
-      {
         "file": "common/model/class/class_info.lua",
         "class": "ClassInfo"
-      },
-      {
-        "file": "common/model/unit_lineup_filter.lua",
-        "class": "UnitLineupFilter"
       },
       {
         "file": "common/model/school_idol_skill.lua",
         "class": "SchoolIdolSkill"
       },
       {
-        "file": "common/download/prepare.lua",
-        "class": null
+        "file": "common/model/unit_lineup_filter.lua",
+        "class": "UnitLineupFilter"
       },
       {
-        "file": "common/download/include.lua",
-        "class": "Download"
+        "file": "common/gauge_form.lua",
+        "class": "GaugeForm"
+      },
+      {
+        "file": "common/model/live_status.lua",
+        "class": "LiveStatus"
+      },
+      {
+        "file": "common/model/exchange_point.lua",
+        "class": "ExchangePoint"
       },
       {
         "file": "common/model/unit/unit_list_cache.lua",
         "class": "UnitListCache"
+      },
+      {
+        "file": "common/model/badge_model.lua",
+        "class": "BadgeModel"
+      },
+      {
+        "file": "m_album/album_detail.lua",
+        "class": "AlbumDetailForm"
+      },
+      {
+        "file": "m_basicsettings/start.lua",
+        "class": null
+      },
+      {
+        "file": "m_reward/view/reward_unit_detail_dialog.lua",
+        "class": "RewardUnitDetailDialog"
+      },
+      {
+        "file": "m_live_custom/note_preview_form.lua",
+        "class": "NotePreviewForm"
+      },
+      {
+        "file": "m_reward/view/reward_select_unit_detail_form.lua",
+        "class": "RewardSelectUnitDetailForm"
+      },
+      {
+        "file": "m_live_custom/view/live_background.lua",
+        "class": "LiveBackgroundView"
+      },
+      {
+        "file": "m_event/card.lua",
+        "class": "NotableCard"
+      },
+      {
+        "file": "m_live_custom/view/tap_se.lua",
+        "class": "TapSEView"
+      },
+      {
+        "file": "m_live_custom/view/note_icon.lua",
+        "class": "NoteIconView"
+      },
+      {
+        "file": "m_live_custom/view/other.lua",
+        "class": "LiveOtherView"
+      },
+      {
+        "file": "m_live_custom/view/note_speed.lua",
+        "class": "NoteSpeedView"
+      },
+      {
+        "file": "m_live_custom/view/volume.lua",
+        "class": "LiveVolumeView"
+      },
+      {
+        "file": "m_live_custom/view/precise.lua",
+        "class": "LivePreciseView"
+      },
+      {
+        "file": "m_concert/start.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_custom/live_customize_dialog.lua",
+        "class": "LiveCustomizeDialog"
+      },
+      {
+        "file": "m_concert/lootbox/top.lua",
+        "class": null
+      },
+      {
+        "file": "m_concert/lootbox/result.lua",
+        "class": null
+      },
+      {
+        "file": "m_live_custom/note_customize/note_customize_dialog.lua",
+        "class": "NoteCustomizeDialog"
+      },
+      {
+        "file": "m_concert/elements/voltage.lua",
+        "class": null
       }
     ]
   },
@@ -2885,19 +2679,23 @@
         "class": "CharacterWheelView"
       },
       {
+        "file": "common/mail_additional.lua",
+        "class": "MailAdditional"
+      },
+      {
         "file": "m_boot/initialize.lua",
         "class": null
       },
       {
-        "file": "common/mail_additional.lua",
-        "class": "MailAdditional"
+        "file": "common/texture.lua",
+        "class": null
       },
       {
         "file": "m_notice/notice_popup.lua",
         "class": null
       },
       {
-        "file": "common/texture.lua",
+        "file": "common/data.lua",
         "class": null
       },
       {
@@ -2911,10 +2709,6 @@
       {
         "file": "m_live_adjust/character_wheel.lua",
         "class": "CharacterWheelAdjust"
-      },
-      {
-        "file": "common/data.lua",
-        "class": null
       }
     ]
   },
@@ -2925,7 +2719,7 @@
     "candidate_files": [
       {
         "file": "common/marquee.lua",
-        "class": "MarqueeShow"
+        "class": "Marquee"
       },
       {
         "file": "common/handover_passcode.lua",
@@ -2998,7 +2792,7 @@
         "class": null
       },
       {
-        "file": "m_boot/initialize.lua",
+        "file": "common/svext/live.lua",
         "class": null
       },
       {
@@ -3006,7 +2800,7 @@
         "class": null
       },
       {
-        "file": "common/svext/live.lua",
+        "file": "m_boot/initialize.lua",
         "class": null
       }
     ]
@@ -3036,11 +2830,11 @@
         "class": null
       },
       {
-        "file": "m_live_menu/select_friend_menu.lua",
+        "file": "m_live_menu/model/guest.lua",
         "class": null
       },
       {
-        "file": "m_live_menu/model/guest.lua",
+        "file": "m_live_menu/select_friend_menu.lua",
         "class": null
       },
       {
@@ -3055,12 +2849,12 @@
     "action": "publishPreciseScoreId",
     "candidate_files": [
       {
-        "file": "common/view/live/precise_result.lua",
-        "class": null
-      },
-      {
         "file": "common/model/live/precise_log.lua",
         "class": "PreciseLog"
+      },
+      {
+        "file": "common/view/live/precise_result.lua",
+        "class": null
       }
     ]
   },
@@ -3091,193 +2885,6 @@
       {
         "file": "m_login/action.lua",
         "class": null
-      }
-    ]
-  },
-  "marathon.top": {
-    "cache_key": "$marathonTop",
-    "fn_name": "marathonTop",
-    "action": "top",
-    "candidate_files": [
-      {
-        "file": "m_menu/menu_base.lua",
-        "class": null
-      },
-      {
-        "file": "common/polling.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/view/elements/difficulty.lua",
-        "class": "DuelDifficultyForm"
-      },
-      {
-        "file": "m_duel/view/elements/confirm.lua",
-        "class": "DuelConfirmForm"
-      },
-      {
-        "file": "m_duel/view/top.lua",
-        "class": "DuelTopView"
-      },
-      {
-        "file": "m_duel/view/priority.lua",
-        "class": "DuelViewPriority"
-      },
-      {
-        "file": "m_duel/view/elements/private_setting.lua",
-        "class": "DuelPrivateSettingForm"
-      },
-      {
-        "file": "m_top/banner.lua",
-        "class": "TopBanner"
-      },
-      {
-        "file": "common/klabid/connect.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/button.lua",
-        "class": null
-      },
-      {
-        "file": "common/klabid/disconnect.lua",
-        "class": null
-      },
-      {
-        "file": "common/klabid/main.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/check_box.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/icon_label.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/balloon.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/tab.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/board_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/switch_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/ghost/quest.lua",
-        "class": null
-      },
-      {
-        "file": "common/footer.lua",
-        "class": null
-      },
-      {
-        "file": "common/autovdoc.lua",
-        "class": null
-      },
-      {
-        "file": "m_location/model/location.lua",
-        "class": null
-      },
-      {
-        "file": "common/debug_ghost_player.lua",
-        "class": "GhostPlayer"
-      },
-      {
-        "file": "m_sns/model/sns.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/view/elements/background.lua",
-        "class": "SecretboxBackgroundForm"
-      },
-      {
-        "file": "common/model/event_reward.lua",
-        "class": "EventRewardModel"
-      },
-      {
-        "file": "m_secretbox/view/priority.lua",
-        "class": "SecretboxViewPriority"
-      },
-      {
-        "file": "m_team/view/elements/confirm_popup.lua",
-        "class": "TeamConfirmPopup"
-      },
-      {
-        "file": "m_team/view/elements/difficulty.lua",
-        "class": "TeamDifficultyForm"
-      },
-      {
-        "file": "m_secretbox/model/cost.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/mission_progress_effect.lua",
-        "class": "TeamMissionProgressEffect"
-      },
-      {
-        "file": "common/model/marathon.lua",
-        "class": "EventScenarioHelper"
-      },
-      {
-        "file": "m_team/view/elements/door_effect.lua",
-        "class": "DoorEffect"
-      },
-      {
-        "file": "m_team/view/elements/achieved_effect.lua",
-        "class": "TeamAchievedEffect"
-      },
-      {
-        "file": "m_team/view/top.lua",
-        "class": "TeamTopView"
-      },
-      {
-        "file": "m_team/view/priority.lua",
-        "class": "TeamViewPriority"
-      },
-      {
-        "file": "common/model/cheer_deck.lua",
-        "class": "UnitDeckCache"
-      },
-      {
-        "file": "common/model/event_model.lua",
-        "class": "Event"
-      },
-      {
-        "file": "m_item/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_item/view/buff_item_dialog.lua",
-        "class": "BuffItemDialog"
-      },
-      {
-        "file": "m_secretbox/elements/top/cost_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_item/model/item_list.lua",
-        "class": "ItemListModel"
-      },
-      {
-        "file": "m_secretbox/elements/top/cost_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/base.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/subscription.lua",
-        "class": "SubscriptionModel"
       }
     ]
   },
@@ -3325,12 +2932,24 @@
         "class": null
       },
       {
+        "file": "m_live_menu/model/owning_deck.lua",
+        "class": null
+      },
+      {
         "file": "m_arena/elements/private/private_top.lua",
         "class": null
       },
       {
         "file": "m_arena/elements/common/deck.lua",
         "class": null
+      },
+      {
+        "file": "m_duel/view/priority.lua",
+        "class": "DuelViewPriority"
+      },
+      {
+        "file": "m_duel/view/deck.lua",
+        "class": "DuelDeckView"
       },
       {
         "file": "m_arena/elements/common/deck_detail_button.lua",
@@ -3341,32 +2960,8 @@
         "class": null
       },
       {
-        "file": "m_duel/view/deck.lua",
-        "class": "DuelDeckView"
-      },
-      {
-        "file": "m_duel/view/priority.lua",
-        "class": "DuelViewPriority"
-      },
-      {
-        "file": "m_live_menu/model/owning_deck.lua",
-        "class": null
-      },
-      {
         "file": "m_online/online.lua",
         "class": "Online"
-      },
-      {
-        "file": "common/view/deck/base.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/deck/base_unit.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/deck.lua",
-        "class": "TeamDeckView"
       },
       {
         "file": "m_team/view/priority.lua",
@@ -3377,8 +2972,20 @@
         "class": "TeamHelpPowerForm"
       },
       {
+        "file": "m_team/view/deck.lua",
+        "class": "TeamDeckView"
+      },
+      {
         "file": "common/unit/unit_status_form.lua",
         "class": "UnitStatusForm"
+      },
+      {
+        "file": "common/view/deck/base.lua",
+        "class": null
+      },
+      {
+        "file": "common/view/deck/base_unit.lua",
+        "class": null
       },
       {
         "file": "common/model/unit/deck.lua",
@@ -3392,11 +2999,11 @@
     "action": "exhibitionResult",
     "candidate_files": [
       {
-        "file": "common/svext/online.lua",
+        "file": "m_online/model/exhibition.lua",
         "class": null
       },
       {
-        "file": "m_online/model/exhibition.lua",
+        "file": "common/svext/online.lua",
         "class": null
       }
     ]
@@ -3411,10 +3018,6 @@
         "class": null
       },
       {
-        "file": "m_unit/view/multi_unit/confirm.lua",
-        "class": null
-      },
-      {
         "file": "m_album/album_detail.lua",
         "class": "AlbumDetailForm"
       },
@@ -3423,32 +3026,8 @@
         "class": "MultiCard"
       },
       {
-        "file": "m_live/controller/score.lua",
+        "file": "m_unit/view/multi_unit/confirm.lua",
         "class": null
-      },
-      {
-        "file": "m_quest/view/elements/event_info.lua",
-        "class": "QuestEventInfoForm"
-      },
-      {
-        "file": "m_live/controller/multi_ghost.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/ghost.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/view/priority.lua",
-        "class": "QuestViewPriority"
-      },
-      {
-        "file": "m_quest/model/main_live.lua",
-        "class": "QuestMainLive"
-      },
-      {
-        "file": "common/general_reward_dialog.lua",
-        "class": "GeneralRewardDialog"
       },
       {
         "file": "m_museum/view/top.lua",
@@ -3471,19 +3050,39 @@
         "class": null
       },
       {
-        "file": "common/live_stub.lua",
-        "class": "LiveStub"
+        "file": "m_live/controller/score.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/multi_ghost.lua",
+        "class": null
+      },
+      {
+        "file": "m_live/controller/ghost.lua",
+        "class": null
+      },
+      {
+        "file": "common/general_reward_dialog.lua",
+        "class": "GeneralRewardDialog"
+      },
+      {
+        "file": "m_live/model/replay.lua",
+        "class": null
       },
       {
         "file": "m_top/banner.lua",
         "class": "TopBanner"
       },
       {
-        "file": "m_boot/initialize.lua",
+        "file": "m_live/model/tutorial_live.lua",
         "class": null
       },
       {
-        "file": "m_live/model/tutorial_live.lua",
+        "file": "common/live_stub.lua",
+        "class": "LiveStub"
+      },
+      {
+        "file": "m_boot/initialize.lua",
         "class": null
       },
       {
@@ -3491,8 +3090,16 @@
         "class": "Online"
       },
       {
-        "file": "m_live/model/replay.lua",
-        "class": null
+        "file": "m_quest/view/priority.lua",
+        "class": "QuestViewPriority"
+      },
+      {
+        "file": "m_quest/model/main_live.lua",
+        "class": "QuestMainLive"
+      },
+      {
+        "file": "m_quest/view/elements/event_info.lua",
+        "class": "QuestEventInfoForm"
       },
       {
         "file": "common/elements/custom_live_background.lua",
@@ -3529,2957 +3136,6 @@
     "candidate_files": [
       {
         "file": "common/store.lua",
-        "class": null
-      }
-    ]
-  },
-  "personalnotice.get": {
-    "cache_key": "$personalnoticeGet",
-    "fn_name": "personalnoticeGet",
-    "action": "get",
-    "candidate_files": [
-      {
-        "file": "m_event_menu/view/top.lua",
-        "class": "EventPageTopView"
-      },
-      {
-        "file": "m_event_menu/model/event_menu.lua",
-        "class": "ClassInfo"
-      },
-      {
-        "file": "m_ranking/ranking_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_ranking/ranking_event.lua",
-        "class": null
-      },
-      {
-        "file": "m_ranking/ranking_personal.lua",
-        "class": null
-      },
-      {
-        "file": "m_ranking/ranking_event_personal.lua",
-        "class": null
-      },
-      {
-        "file": "m_ranking/ranking_list.lua",
-        "class": "RankingList"
-      },
-      {
-        "file": "m_ranking/ranking_api_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_ranking/ranking_competition.lua",
-        "class": null
-      },
-      {
-        "file": "m_ranking/ranking_arena.lua",
-        "class": null
-      },
-      {
-        "file": "m_hint/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/deck/recommend_form.lua",
-        "class": "UnitRecommendForm"
-      },
-      {
-        "file": "m_unit/unit_merge_result_stage.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/unit_helper.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/deck/name_form.lua",
-        "class": "UnitDeckNameForm"
-      },
-      {
-        "file": "m_stamp/view/select_myset.lua",
-        "class": "SelectMysetDialog"
-      },
-      {
-        "file": "m_unit/unit_room_stage.lua",
-        "class": null
-      },
-      {
-        "file": "m_stamp/view/display.lua",
-        "class": "StampCustomizeView"
-      },
-      {
-        "file": "m_unit/unit_multiunit_result_stage.lua",
-        "class": null
-      },
-      {
-        "file": "m_stamp/view/stamp_options_form.lua",
-        "class": "StampOptionsForm"
-      },
-      {
-        "file": "m_unit/unit_menu_stage.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/arena_result.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/status_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/merge_by_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/exchange_point_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/live.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/level_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/difficulty.lua",
-        "class": "TeamDifficultyForm"
-      },
-      {
-        "file": "m_unit/view/merge/confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/select.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/recommend_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/view/start_dash_login_bonus/start_dash_login_bonus_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/lp_factor.lua",
-        "class": null
-      },
-      {
-        "file": "m_stamp/model/stamp_filter.lua",
-        "class": "StampFilter"
-      },
-      {
-        "file": "m_unit/view/merge/effect.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/private_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/bottom_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/room_player.lua",
-        "class": "TeamRoomPlayerForm"
-      },
-      {
-        "file": "m_team/view/mission.lua",
-        "class": "TeamMissionView"
-      },
-      {
-        "file": "m_arena/model/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/private_info.lua",
-        "class": "TeamPrivateInfoForm"
-      },
-      {
-        "file": "m_unit/view/rank_up/seal_item_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/view/comeback_login_bonus/comeback_login_bonus_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/partner_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/reinforce_item_select_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/rival_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/rankup_confirm_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/dream_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/skill_level_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/left_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/view/login_bonus/login_bonus_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/model/collab_asset.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/user_rank.lua",
-        "class": "TeamUserRankForm"
-      },
-      {
-        "file": "m_team/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_battle_event/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/merge/alert_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/sell/confirm_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/elements/current_goal.lua",
-        "class": "TeamCurrentGoalForm"
-      },
-      {
-        "file": "m_team/model/private.lua",
-        "class": null
-      },
-      {
-        "file": "m_battle_event/fail.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/unit_info_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/view/login_bonus/reward_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/rival/rival_reward.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/deck.lua",
-        "class": "TeamDeckView"
-      },
-      {
-        "file": "m_unit/view/rank_up/item_info_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/rival/rival_top.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/model/lp_factor.lua",
-        "class": "DutyLpFactor"
-      },
-      {
-        "file": "m_team/view/top.lua",
-        "class": "TeamTopView"
-      },
-      {
-        "file": "m_arena/elements/rival/rival_select_stage_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_battle_event/model/lp_factor.lua",
-        "class": "BattleLpFactor"
-      },
-      {
-        "file": "m_arena/elements/rival/rival_select_button.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/seal_info_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/view/room.lua",
-        "class": "TeamRoomView"
-      },
-      {
-        "file": "m_team/model/history_detail.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/fail.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/dream/dream_top.lua",
-        "class": null
-      },
-      {
-        "file": "m_battle_event/deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view_model/rank_up/seal_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/rank_up/exchange_point_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/model/history.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/dream/lp_confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/dream/dream_condition.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/view/preview.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view_model/rank_up/confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/model/team_event.lua",
-        "class": "TeamEventModel"
-      },
-      {
-        "file": "m_tutorial/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/view/reset_live_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/reward/daily_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_tutorial/tutorial_end.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/view/mission.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view_model/rank_up/material.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/reward/notable_reward.lua",
-        "class": null
-      },
-      {
-        "file": "m_battle_event/room/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_tutorial/include.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/reward/reward_info.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/model/bonus.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/reward/reward_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/costume/confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/private/private_top.lua",
-        "class": null
-      },
-      {
-        "file": "m_favorite_ranking/favorite_ranking.lua",
-        "class": "FavoriteRanking"
-      },
-      {
-        "file": "m_login/personal_notice.lua",
-        "class": null
-      },
-      {
-        "file": "m_favorite_ranking/ranking_mode.lua",
-        "class": "FavoriteRankingMode"
-      },
-      {
-        "file": "m_festival/elements/mission_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/costume/change.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_tutorial/live_menu/guest.lua",
-        "class": null
-      },
-      {
-        "file": "m_battle_event/room/form.lua",
-        "class": "BattleRoomForm"
-      },
-      {
-        "file": "m_live_menu/setting.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/multi_unit/confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/bonus.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/model/mission.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/view/deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_unit/view/multi_unit/confirm_dialog.lua",
-        "class": "MultiUnitConfirmDialog"
-      },
-      {
-        "file": "m_login/confirm_useragreement.lua",
-        "class": null
-      },
-      {
-        "file": "m_battle_event/room/end.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/view/guest.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/partner.lua",
-        "class": null
-      },
-      {
-        "file": "m_notice/notice_core.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/register.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/elements/time_limit.lua",
-        "class": null
-      },
-      {
-        "file": "m_team/room_start.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/festival_guest_bonus.lua",
-        "class": "FestivalGuestBonus"
-      },
-      {
-        "file": "m_battle_event/room/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/action.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/model/live_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_notice/notice_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/card_3d.lua",
-        "class": "Card3D"
-      },
-      {
-        "file": "m_login/bonus_extra.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/model/guest.lua",
-        "class": null
-      },
-      {
-        "file": "m_item/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/quest_guest_bonus.lua",
-        "class": "QuestGuestBonus"
-      },
-      {
-        "file": "m_arena/elements/common/deck_background.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/elements/jacket_monitor.lua",
-        "class": null
-      },
-      {
-        "file": "m_item/view/item_list.lua",
-        "class": "ItemListView"
-      },
-      {
-        "file": "m_live_menu/elements/training.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/view/live.lua",
-        "class": null
-      },
-      {
-        "file": "m_festival/elements/live_jacket.lua",
-        "class": null
-      },
-      {
-        "file": "m_item/view/buff_item_dialog.lua",
-        "class": "BuffItemDialog"
-      },
-      {
-        "file": "m_item/model/item_list.lua",
-        "class": "ItemListModel"
-      },
-      {
-        "file": "m_class/deck_general.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/common/idol_skill_form.lua",
-        "class": "IdolSkillForm"
-      },
-      {
-        "file": "m_arena/elements/common/deck_name.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/common/deck_status.lua",
-        "class": "LiveDeckStatusForm"
-      },
-      {
-        "file": "m_quest/briefing.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/common/focus_form.lua",
-        "class": "FocusForm"
-      },
-      {
-        "file": "m_challenge/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/common/guest_form.lua",
-        "class": "GuestForm"
-      },
-      {
-        "file": "m_quest/view/briefing.lua",
-        "class": "QuestBriefingView"
-      },
-      {
-        "file": "m_live_menu/common/deck_detail_form.lua",
-        "class": "DeckDetailForm"
-      },
-      {
-        "file": "m_login/deck_icon_download.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/deck_status.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/competition_reward/top.lua",
-        "class": null
-      },
-      {
-        "file": "m_basicsettings/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/view/animation.lua",
-        "class": "SecretboxAnimationView"
-      },
-      {
-        "file": "m_basicsettings/model/push.lua",
-        "class": "PushModel"
-      },
-      {
-        "file": "m_quest/view/elements/exchange_item.lua",
-        "class": "QuestExchangeItemForm"
-      },
-      {
-        "file": "m_live/model/assist_skill.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/top_footer.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/select_friend_menu.lua",
-        "class": null
-      },
-      {
-        "file": "m_challenge/model/lp_factor.lua",
-        "class": "ChallengeLpFactor"
-      },
-      {
-        "file": "m_basicsettings/birthday_registration_dialog.lua",
-        "class": "BirthdayRegistrationDialog"
-      },
-      {
-        "file": "m_class/view/challenge_reset.lua",
-        "class": "ClassChallengeReset"
-      },
-      {
-        "file": "m_live/model/hidden_character.lua",
-        "class": null
-      },
-      {
-        "file": "m_basicsettings/name_change_dialog.lua",
-        "class": "NameChangeDialog"
-      },
-      {
-        "file": "m_secretbox/model/cost.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/skill_controller.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/accuracy_log_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_album/album_detail.lua",
-        "class": "AlbumDetailForm"
-      },
-      {
-        "file": "m_arena/elements/common/deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_album/album_options_form.lua",
-        "class": "AlbumOptionsForm"
-      },
-      {
-        "file": "m_secretbox/model/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/result/live.lua",
-        "class": "LiveResultLive"
-      },
-      {
-        "file": "m_album/pair_form.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/view/elements/exchange_dialog.lua",
-        "class": "QuestExchangeDialogForm"
-      },
-      {
-        "file": "m_secretbox/model/animation.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/point_count.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/model/series.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/view/elements/exchange/popup.lua",
-        "class": "QuestExchangeItemPopUpForm"
-      },
-      {
-        "file": "m_secretbox/model/secretbox.lua",
-        "class": "SecretboxModel"
-      },
-      {
-        "file": "m_quest/view/elements/exchange_info.lua",
-        "class": "QuestExchangeInfoForm"
-      },
-      {
-        "file": "m_arena/elements/common/top_monitor.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/result/unit.lua",
-        "class": "LiveResultUnit"
-      },
-      {
-        "file": "m_quest/view/result.lua",
-        "class": "QuestResultView"
-      },
-      {
-        "file": "m_secretbox/elements/select/select_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/select_difficulty.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/record.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/common/live_jacket.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/competition_result.lua",
-        "class": "ClassCompetitionResult"
-      },
-      {
-        "file": "m_arena/elements/top.lua",
-        "class": null
-      },
-      {
-        "file": "m_album/model/album.lua",
-        "class": "AlbumModel"
-      },
-      {
-        "file": "m_class/view/elements/select_area.lua",
-        "class": "ClassSelectArea"
-      },
-      {
-        "file": "m_class/view/room/room_player.lua",
-        "class": "ClassRoomPlayerForm"
-      },
-      {
-        "file": "m_live_menu/live_list/live_info.lua",
-        "class": "LiveInfo"
-      },
-      {
-        "file": "m_arena/elements/match/opponent.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/competition_live_jacket_button.lua",
-        "class": "ClassCompetitionLiveJacketButton"
-      },
-      {
-        "file": "m_live_menu/live_list/finish.lua",
-        "class": "LiveMenuFinish"
-      },
-      {
-        "file": "m_class/view/elements/challenge_mission.lua",
-        "class": "ClassChallengeMissionForm"
-      },
-      {
-        "file": "m_secretbox/elements/pickup/pickup_appeal.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/live_list/live_list_options_form.lua",
-        "class": "LiveListOptionsForm"
-      },
-      {
-        "file": "m_class/view/elements/result_jacket.lua",
-        "class": "ClassResultJacketForm"
-      },
-      {
-        "file": "m_secretbox/elements/pickup/pickup_select_unit.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/live_list/live_cost_form.lua",
-        "class": "LiveCostForm"
-      },
-      {
-        "file": "m_class/view/elements/live_mission_item.lua",
-        "class": "ClassLiveMissionItemForm"
-      },
-      {
-        "file": "m_arena/elements/match/auto_purchase_confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_menu/live_list/live_menu_api.lua",
-        "class": "LiveMenuAPI"
-      },
-      {
-        "file": "m_secretbox/elements/confirm/dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/competition.lua",
-        "class": "ClassCompetitionForm"
-      },
-      {
-        "file": "m_class/view/room/room.lua",
-        "class": "CompetitionRoomView"
-      },
-      {
-        "file": "m_class/view/elements/final_result.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/cost/select_cost_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_achievement/result_manager.lua",
-        "class": "AchievementResult"
-      },
-      {
-        "file": "m_class/view/elements/final_promise.lua",
-        "class": "FinalPromiseView"
-      },
-      {
-        "file": "m_arena/elements/match/match_top.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/challenge_mission.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/final_result_view.lua",
-        "class": "FinalResultView"
-      },
-      {
-        "file": "m_live/model/notes_appearance.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/competition_final.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/spectate_result.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/spectate_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/match/challengeable_meter.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/challenge_confirm.lua",
-        "class": "UI_TYPE_2"
-      },
-      {
-        "file": "m_live/model/combo_log.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/box/select_member/select_member_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/model/free.lua",
-        "class": "QuestFree"
-      },
-      {
-        "file": "m_class/view/elements/competition_user_result.lua",
-        "class": "ClassCompetitionUserResult"
-      },
-      {
-        "file": "m_arena/elements/match/auto_recover_confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/final/general.lua",
-        "class": null
-      },
-      {
-        "file": "m_achievement/view/detail_new_arrivals.lua",
-        "class": "AchievementDetailNewArrivals"
-      },
-      {
-        "file": "m_class/view/elements/select_jacket.lua",
-        "class": "ClassLiveMenuSelectJacket"
-      },
-      {
-        "file": "m_quest/model/main_live.lua",
-        "class": "QuestMainLive"
-      },
-      {
-        "file": "m_class/model/final/general_spectate.lua",
-        "class": null
-      },
-      {
-        "file": "m_event/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_achievement/view/detail_reward.lua",
-        "class": "AchievementDetailReward"
-      },
-      {
-        "file": "m_live/model/log.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/final_vote.lua",
-        "class": "FinalVoteView"
-      },
-      {
-        "file": "m_quest/model/lp_factor.lua",
-        "class": "QuestLpFactor"
-      },
-      {
-        "file": "m_class/model/final_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/jacket_list.lua",
-        "class": "ClassJacketList"
-      },
-      {
-        "file": "m_quest/model/free_live.lua",
-        "class": "QuestFreeLive"
-      },
-      {
-        "file": "m_class/view/elements/accuracy.lua",
-        "class": "ClassResultAccuracyForm"
-      },
-      {
-        "file": "m_class/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_adjust/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_event/battle.lua",
-        "class": "Battle"
-      },
-      {
-        "file": "m_quest/model/map.lua",
-        "class": "QuestMap"
-      },
-      {
-        "file": "m_live_adjust/character_wheel.lua",
-        "class": "CharacterWheelAdjust"
-      },
-      {
-        "file": "m_quest/model/main.lua",
-        "class": "QuestMain"
-      },
-      {
-        "file": "m_class/view/elements/mission_item.lua",
-        "class": "ClassMissionItemForm"
-      },
-      {
-        "file": "m_live_adjust/note_manager.lua",
-        "class": "NoteManagerAdjust"
-      },
-      {
-        "file": "m_class/model/fame_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_arena/elements/result/reward_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/model/pin.lua",
-        "class": "QuestPin"
-      },
-      {
-        "file": "m_class/view/elements/challenge_mission_confirm.lua",
-        "class": "ClassChallengeMissionConfirmForm"
-      },
-      {
-        "file": "m_class/model/qualifying_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/rank_item.lua",
-        "class": "ClassRankItemForm"
-      },
-      {
-        "file": "m_class/model/general_deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/box/select_member/select_member_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/class.lua",
-        "class": "ClassModel"
-      },
-      {
-        "file": "m_class/view/elements/final_battle.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_adjust/live_adjust_manager.lua",
-        "class": "LiveAdjustManager"
-      },
-      {
-        "file": "m_arena/elements/result/score_info.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/model/qualifying/general.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/model/exchange/popup/cond_unlock.lua",
-        "class": "QuestExchangeItemPopUpCondUnlock"
-      },
-      {
-        "file": "m_class/view/elements/mission.lua",
-        "class": "ClassMissionForm"
-      },
-      {
-        "file": "m_event/challenge/arrange.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/elements/competition_live_info_dialog.lua",
-        "class": "ClassCompetitionLiveInfoDialog"
-      },
-      {
-        "file": "m_class/model/mission.lua",
-        "class": null
-      },
-      {
-        "file": "m_quest/model/quest.lua",
-        "class": "QuestModel"
-      },
-      {
-        "file": "m_quest/model/exchange/popup/cond_increase.lua",
-        "class": "QuestExchangeItemPopUpCondIncrease"
-      },
-      {
-        "file": "m_class/view/deck.lua",
-        "class": "ClassDeckView"
-      },
-      {
-        "file": "m_quest/model/exchange.lua",
-        "class": "QuestExchange"
-      },
-      {
-        "file": "m_class/deck_final_general.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/top.lua",
-        "class": "ClassTopView"
-      },
-      {
-        "file": "m_class/view/result.lua",
-        "class": "ClassResultView"
-      },
-      {
-        "file": "m_live/model/accessory_trigger.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/cost_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/top/button_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/live_menu.lua",
-        "class": "ClassLiveMenuView"
-      },
-      {
-        "file": "m_event/challenge/intermission.lua",
-        "class": null
-      },
-      {
-        "file": "m_class/view/fame/top.lua",
-        "class": null
-      },
-      {
-        "file": "common/navi.lua",
-        "class": null
-      },
-      {
-        "file": "m_event/card.lua",
-        "class": "NotableCard"
-      },
-      {
-        "file": "common/webview_command.lua",
-        "class": null
-      },
-      {
-        "file": "common/reward_result_dialog.lua",
-        "class": "RewardResultDialog"
-      },
-      {
-        "file": "m_reward/common.lua",
-        "class": "RewardCommon"
-      },
-      {
-        "file": "m_secretbox/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/box/select_unit/select_unit_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_reward/view/reward_select_unit_detail_form.lua",
-        "class": "RewardSelectUnitDetailForm"
-      },
-      {
-        "file": "m_live/model/total_status.lua",
-        "class": null
-      },
-      {
-        "file": "m_reward/view/reward_select_unit_form.lua",
-        "class": "RewardUnitSelectForm"
-      },
-      {
-        "file": "m_secretbox/elements/box/select_unit/select_unit_detail.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/event_icon.lua",
-        "class": null
-      },
-      {
-        "file": "common/event/chat/chat_common.lua",
-        "class": "ChatCommonForm"
-      },
-      {
-        "file": "m_secretbox/elements/result/pickup_ballon.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/skill_count_trigger.lua",
-        "class": null
-      },
-      {
-        "file": "common/event/chat/chat_action.lua",
-        "class": "ChatActionEffect"
-      },
-      {
-        "file": "m_live/model/score.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/box/select_unit/select_unit_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/normal_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/box/select_unit/select_unit_confirm.lua",
-        "class": null
-      },
-      {
-        "file": "common/polling.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/notes.lua",
-        "class": null
-      },
-      {
-        "file": "common/general_reward_dialog.lua",
-        "class": "GeneralRewardDialog"
-      },
-      {
-        "file": "common/game_mode.lua",
-        "class": "GameMode"
-      },
-      {
-        "file": "m_live/model/random_live.lua",
-        "class": null
-      },
-      {
-        "file": "common/event_scenario_helper.lua",
-        "class": "EventScenarioHelper"
-      },
-      {
-        "file": "m_live/model/free_live.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/si_skill.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/result/new_unit_num.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/accuracy.lua",
-        "class": null
-      },
-      {
-        "file": "m_museum/view/top.lua",
-        "class": "MuseumTop"
-      },
-      {
-        "file": "m_event/challenge/bonus_form.lua",
-        "class": "ChallengeBonusForm"
-      },
-      {
-        "file": "m_live/model/same_timing_count.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/accuracy_bonus.lua",
-        "class": null
-      },
-      {
-        "file": "m_museum/elements/voice/voice_contents.lua",
-        "class": null
-      },
-      {
-        "file": "m_museum/elements/voice/voice_item.lua",
-        "class": null
-      },
-      {
-        "file": "common/navi_background.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/help/help.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/fever_skill.lua",
-        "class": null
-      },
-      {
-        "file": "m_museum/elements/memorial_power.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/result/count_left.lua",
-        "class": null
-      },
-      {
-        "file": "m_museum/elements/thumbnail/item.lua",
-        "class": null
-      },
-      {
-        "file": "m_event/festival/arrange_list.lua",
-        "class": "FestivalArrangeList"
-      },
-      {
-        "file": "m_museum/elements/thumbnail/preview.lua",
-        "class": null
-      },
-      {
-        "file": "common/live_title.lua",
-        "class": "LiveTitle"
-      },
-      {
-        "file": "m_concert/start.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/login/bonus.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/lootbox/top.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/lootbox/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/elements/lootbox/pick_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/event/battle.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/elements/lootbox/box_reward_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/elements/lootbox/confirm_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/trigger/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/elements/voltage.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/event/event_common.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/elements/reward_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_secretbox/elements/result/unit.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/event/marathon.lua",
-        "class": null
-      },
-      {
-        "file": "m_concert/result.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/event/festival.lua",
-        "class": null
-      },
-      {
-        "file": "common/result/unit_reward_form.lua",
-        "class": "UnitRewardForm"
-      },
-      {
-        "file": "m_event/festival/arrange_form.lua",
-        "class": "FestivalArrangeForm"
-      },
-      {
-        "file": "m_live_custom/live_custom_helper.lua",
-        "class": "LiveCustomHelper"
-      },
-      {
-        "file": "common/dbapi/team_duty/team_duty.lua",
-        "class": null
-      },
-      {
-        "file": "m_event/challenge.lua",
-        "class": "Controller"
-      },
-      {
-        "file": "common/result/base_reward_form.lua",
-        "class": "BaseRewardForm"
-      },
-      {
-        "file": "m_event/festival.lua",
-        "class": "Festival"
-      },
-      {
-        "file": "m_live_custom/view/tap_se.lua",
-        "class": "TapSEView"
-      },
-      {
-        "file": "m_event/event.lua",
-        "class": "Event"
-      },
-      {
-        "file": "common/ui/uiScore.lua",
-        "class": "WUI_Score"
-      },
-      {
-        "file": "m_live_custom/view/other.lua",
-        "class": "LiveOtherView"
-      },
-      {
-        "file": "common/result/event_point_reward_form.lua",
-        "class": "EventPointRewardForm"
-      },
-      {
-        "file": "m_live_custom/view/note_icon.lua",
-        "class": "NoteIconView"
-      },
-      {
-        "file": "m_live/model/score_log.lua",
-        "class": null
-      },
-      {
-        "file": "common/ui/uiProgressBar.lua",
-        "class": "WUI_ProgressBar"
-      },
-      {
-        "file": "m_live_custom/live_customize_dialog.lua",
-        "class": "LiveCustomizeDialog"
-      },
-      {
-        "file": "common/top_info_once.lua",
-        "class": "TopInfoOnce"
-      },
-      {
-        "file": "m_live/model/fever.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_custom/note_customize/note_customize_dialog.lua",
-        "class": "NoteCustomizeDialog"
-      },
-      {
-        "file": "m_live/model/container.lua",
-        "class": null
-      },
-      {
-        "file": "m_live_custom/note_customize/note_customize_item.lua",
-        "class": "NoteCustomizeItem"
-      },
-      {
-        "file": "m_live/model/request_data.lua",
-        "class": null
-      },
-      {
-        "file": "common/payment_service_button.lua",
-        "class": "PaymentServiceButton"
-      },
-      {
-        "file": "common/cachable.lua",
-        "class": "Cachable"
-      },
-      {
-        "file": "m_top/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/model/assist_skill_controller.lua",
-        "class": null
-      },
-      {
-        "file": "common/add_type_helper.lua",
-        "class": "AddTypeHelper"
-      },
-      {
-        "file": "m_top/view.lua",
-        "class": "TopView"
-      },
-      {
-        "file": "common/live_stub.lua",
-        "class": "LiveStub"
-      },
-      {
-        "file": "m_live/model/replay.lua",
-        "class": null
-      },
-      {
-        "file": "m_top/top_functions.lua",
-        "class": "NewSymbol"
-      },
-      {
-        "file": "m_top/banner.lua",
-        "class": "TopBanner"
-      },
-      {
-        "file": "m_live/dialog.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_deck_cache_listener.lua",
-        "class": null
-      },
-      {
-        "file": "m_shop/view/subscription_dialog.lua",
-        "class": "SubscriptionDialog"
-      },
-      {
-        "file": "m_live/elements/duel_score.lua",
-        "class": null
-      },
-      {
-        "file": "common/skill_slot_form.lua",
-        "class": "SkillSlotForm"
-      },
-      {
-        "file": "common/unit/skill_detail_popup.lua",
-        "class": "SkillDetailPopup"
-      },
-      {
-        "file": "common/unit/unit_icon_form.lua",
-        "class": "UnitIconForm"
-      },
-      {
-        "file": "common/pulldown.lua",
-        "class": "Pulldown"
-      },
-      {
-        "file": "m_location/start.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/lottery_ticket/lottery_ticket.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/p_cutin.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_deck_cache.lua",
-        "class": "UnitDeckCache"
-      },
-      {
-        "file": "common/dbapi/online/online.lua",
-        "class": null
-      },
-      {
-        "file": "common/count_down_timer.lua",
-        "class": "CountDownTimer"
-      },
-      {
-        "file": "m_shop/view/elements/recover_item.lua",
-        "class": "RecoverItem"
-      },
-      {
-        "file": "m_live/elements/arena_match_score.lua",
-        "class": null
-      },
-      {
-        "file": "m_shop/view/elements/recover_select_number.lua",
-        "class": "RecoverSelectNumberForm"
-      },
-      {
-        "file": "m_shop/view/elements/product_info.lua",
-        "class": null
-      },
-      {
-        "file": "m_shop/view/elements/loveca_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_boot/initialize.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/hp_gauge.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/view/detail.lua",
-        "class": "ExchangeDetailPopup"
-      },
-      {
-        "file": "common/reward_dialog.lua",
-        "class": "RewardDialog"
-      },
-      {
-        "file": "m_live/elements/graph.lua",
-        "class": null
-      },
-      {
-        "file": "m_online/start.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/challenge/challenge.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/view/elements/cost.lua",
-        "class": "ExchangeCostForm"
-      },
-      {
-        "file": "m_online/online.lua",
-        "class": "Online"
-      },
-      {
-        "file": "m_shop/view/elements/recover_confirm.lua",
-        "class": "RecoverConfirmForm"
-      },
-      {
-        "file": "common/dbapi/arena/arena.lua",
-        "class": null
-      },
-      {
-        "file": "common/navi/model.lua",
-        "class": "NaviModel"
-      },
-      {
-        "file": "m_shop/view/elements/loveca_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/accuracy.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/member_tag_form.lua",
-        "class": "MemberTagForm"
-      },
-      {
-        "file": "common/dbapi/duel/duel.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/seek_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/duel/crowd.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_detail_content_form.lua",
-        "class": "UnitDetailContentForm"
-      },
-      {
-        "file": "common/dbapi/museum/museum.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/ghost_score.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/class/class.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/elements/live_title.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_basic_info_form.lua",
-        "class": "UnitBasicInfoForm"
-      },
-      {
-        "file": "m_online/view/result.lua",
-        "class": "OnlineResultView"
-      },
-      {
-        "file": "m_live/festival_bonus.lua",
-        "class": "LiveFestivalBonus"
-      },
-      {
-        "file": "common/dbapi/menu/menu.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/live/live.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/base.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/quest/quest.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/view/elements/select.lua",
-        "class": "ExchangeSelectButtonForm"
-      },
-      {
-        "file": "common/unit/costume_list_options_form.lua",
-        "class": "CostumeListOptionsForm"
-      },
-      {
-        "file": "common/dbapi/item/item.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/character.lua",
-        "class": null
-      },
-      {
-        "file": "m_online/model/exhibition.lua",
-        "class": null
-      },
-      {
-        "file": "m_shop/view/age_dialog.lua",
-        "class": "AgeDialog"
-      },
-      {
-        "file": "m_live/controller/score.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_detail_form.lua",
-        "class": "UnitDetailForm"
-      },
-      {
-        "file": "common/dbapi/collab/collab.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/duel.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/scenario/scenario.lua",
-        "class": null
-      },
-      {
-        "file": "m_online/elements/live_result.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/unit_list_options_form.lua",
-        "class": "UnitListOptionsForm"
-      },
-      {
-        "file": "m_online/elements/live_jacket.lua",
-        "class": null
-      },
-      {
-        "file": "common/unit/album_status_form.lua",
-        "class": "AlbumStatusForm"
-      },
-      {
-        "file": "m_shop/view/shop_dialog.lua",
-        "class": "ShopDialog"
-      },
-      {
-        "file": "m_exchange/view/elements/unit_form.lua",
-        "class": "ExchangeUnitDetailForm"
-      },
-      {
-        "file": "common/dbapi/common/game_mater.lua",
-        "class": null
-      },
-      {
-        "file": "m_shop/model/subscription_item.lua",
-        "class": "SubscriptionItem"
-      },
-      {
-        "file": "common/dbapi/common/asset.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/boot_asset.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/view/elements/item.lua",
-        "class": "ExchangeItemForm"
-      },
-      {
-        "file": "m_online/deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_online/result.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/navigation.lua",
-        "class": null
-      },
-      {
-        "file": "m_online/exhibition.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/other.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/common/bootstrap.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/live_guest_bonus.lua",
-        "class": "LiveGuestBonus"
-      },
-      {
-        "file": "common/dbapi/common/cutin.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/view/elements/point.lua",
-        "class": "ExchangePointForm"
-      },
-      {
-        "file": "m_live/skill.lua",
-        "class": "Skill"
-      },
-      {
-        "file": "m_exchange/view/elements/arena_point.lua",
-        "class": "ExchangeArenaPointForm"
-      },
-      {
-        "file": "common/unit/support_unit_picker.lua",
-        "class": "SupportUnitPicker"
-      },
-      {
-        "file": "m_shop/model/recover.lua",
-        "class": "RecoverModel"
-      },
-      {
-        "file": "m_exchange/view/elements/duel_point.lua",
-        "class": "ExchangeDuelPointForm"
-      },
-      {
-        "file": "m_shop/shop_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/view/top.lua",
-        "class": "ExchangeTopView"
-      },
-      {
-        "file": "common/unit/card_image_form.lua",
-        "class": "CardImageForm"
-      },
-      {
-        "file": "m_background/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_background/background_preview.lua",
-        "class": "BackgroundPreviewForm"
-      },
-      {
-        "file": "common/unit/unit_status_form.lua",
-        "class": "UnitStatusForm"
-      },
-      {
-        "file": "m_scenario_menu/model/scenario_menu.lua",
-        "class": "ScenarioMenuModel"
-      },
-      {
-        "file": "m_scenario_menu/dialog.lua",
-        "class": "ReleaseDialog"
-      },
-      {
-        "file": "m_shop/dialog.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/system/error.lua",
-        "class": null
-      },
-      {
-        "file": "m_player_profile/view_tab.lua",
-        "class": null
-      },
-      {
-        "file": "m_player_profile/user.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/model/base.lua",
-        "class": "ExchangeBaseModel"
-      },
-      {
-        "file": "m_exchange/model/exchange_filter.lua",
-        "class": "ExchangeFilter"
-      },
-      {
-        "file": "common/dbapi/multi_unit_scenario/multi_unit_scenario.lua",
-        "class": null
-      },
-      {
-        "file": "m_exchange/model/exchange.lua",
-        "class": "ExchangeModel"
-      },
-      {
-        "file": "common/function_voice.lua",
-        "class": "FunctionVoice"
-      },
-      {
-        "file": "m_award/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/enhance.lua",
-        "class": null
-      },
-      {
-        "file": "common/autovdoc.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/start.lua",
-        "class": null
-      },
-      {
-        "file": "common/energy.lua",
-        "class": "LiveBonusModel"
-      },
-      {
-        "file": "m_history/payment_history_detail.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/sell.lua",
-        "class": null
-      },
-      {
-        "file": "m_idol_skill/start.lua",
-        "class": null
-      },
-      {
-        "file": "common/handover_passcode.lua",
-        "class": null
-      },
-      {
-        "file": "common/grid_dialog.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_idol_skill/view/unit_popup.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/elements/box.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/elements/member.lua",
-        "class": null
-      },
-      {
-        "file": "m_idol_skill/view/sell_confirm.lua",
-        "class": null
-      },
-      {
-        "file": "m_history/payment_history_base.lua",
-        "class": null
-      },
-      {
-        "file": "m_download/start.lua",
-        "class": null
-      },
-      {
-        "file": "common/store.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario/collabo_arrange_view.lua",
-        "class": "CollaboArrangeView"
-      },
-      {
-        "file": "m_download/download_view.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/fail.lua",
-        "class": null
-      },
-      {
-        "file": "m_download/download_helper.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/shop/apple.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/event/festival.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/event/event.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario/backlog.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario/scenario_model.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/elements/auto_create.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/elements/info.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/elements/maker.lua",
-        "class": null
-      },
-      {
-        "file": "common/scenario/unlock_dialog.lua",
-        "class": "ScenarioUnlockDialog"
-      },
-      {
-        "file": "m_duel/view/elements/room_player.lua",
-        "class": "DuelRoomPlayerForm"
-      },
-      {
-        "file": "m_duel/view/elements/private_info.lua",
-        "class": "DuelPrivateInfoForm"
-      },
-      {
-        "file": "common/dbext/achievement/achievement.lua",
-        "class": null
-      },
-      {
-        "file": "common/dialog.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/duel/duel.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/duel/crowd.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/subscenario/subscenario.lua",
-        "class": null
-      },
-      {
-        "file": "common/header.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/live/live.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario/result/dialog.lua",
-        "class": "ScenarioResultDialog"
-      },
-      {
-        "file": "common/dbext/unit/unit.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/ad_reward.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/quest/quest.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario/submenu.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/event/button.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/event/footer.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/effort/effort.lua",
-        "class": null
-      },
-      {
-        "file": "m_scenario/scenario_result.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/lottery_result.lua",
-        "class": null
-      },
-      {
-        "file": "m_accessory/elements/alert.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/attribute_icon.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/common/game_settings.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/item_rank_up.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/sub_switch_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/trade/trade.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/view/elements/result_info.lua",
-        "class": "DuelResultInfoForm"
-      },
-      {
-        "file": "common/background_flash.lua",
-        "class": "BackgroundFlash"
-      },
-      {
-        "file": "common/dbapi/concert/concert.lua",
-        "class": null
-      },
-      {
-        "file": "common/local_notification.lua",
-        "class": "LocalNotification"
-      },
-      {
-        "file": "common/guideline/assets.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/view/elements/stamp_board.lua",
-        "class": "DuelStampBoardForm"
-      },
-      {
-        "file": "common/guideline/number.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/picker.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/view/elements/energy.lua",
-        "class": "DuelEnergyForm"
-      },
-      {
-        "file": "common/controller/live.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/subscription/detail.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/achievement/achievement.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbext/scenario/scenario.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/subscription/info.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/ll_series_select.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/attribute_score.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/switch_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/rlive/rlive.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/vdoc.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/slider.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/possession/change_window.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/label.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/si_skill/status.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/window.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/possession/number_window.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/si_skill/list.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/skit.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/data_transfer.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/custom_live_background.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/si_skill/slot.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/favorite_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/si_skill/auto_setting.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/si_skill/category.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/private_match.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/si_skill.lua",
-        "class": null
-      },
-      {
-        "file": "common/guideline/color.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/accessory_icon.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/aosc_transactions.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/delta_number.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/up_down_mark.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/lp_factor.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/accessory_equipment.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/unit_lineup/item.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/unit_lineup/unit_detail_popup.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/si_skill_info.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/unit_lineup/header.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/view/elements/goal.lua",
-        "class": "DuelGoalForm"
-      },
-      {
-        "file": "common/elements/ad_reward_lineup.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/enhance_list.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/product.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/unit_lineup/unit_lineup.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/accessory_detail.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/arena_unit_icon.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/event/reward_list.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/exchange/exchange.lua",
-        "class": null
-      },
-      {
-        "file": "common/gauge_form.lua",
-        "class": "GaugeForm"
-      },
-      {
-        "file": "m_duel/view/live_menu.lua",
-        "class": "DuelLiveMenuView"
-      },
-      {
-        "file": "common/elements/event/result/point_reward.lua",
-        "class": null
-      },
-      {
-        "file": "common/live_error.lua",
-        "class": "LiveError"
-      },
-      {
-        "file": "common/live/live_info_form.lua",
-        "class": "LiveInfoForm"
-      },
-      {
-        "file": "common/event_cache.lua",
-        "class": "EventCache"
-      },
-      {
-        "file": "m_duel/model/skill_trigger.lua",
-        "class": null
-      },
-      {
-        "file": "common/idol_skill_detail_form.lua",
-        "class": "IdolSkillDetailForm"
-      },
-      {
-        "file": "m_duel/model/assist_log.lua",
-        "class": null
-      },
-      {
-        "file": "common/live_state.lua",
-        "class": "LiveState"
-      },
-      {
-        "file": "common/view/deck/pager.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/unit_lineup/siskill_item.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/crowd_private.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/event/result.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/unit_storage.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/assist_deck.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/deck/base.lua",
-        "class": null
-      },
-      {
-        "file": "common/error.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/matching.lua",
-        "class": null
-      },
-      {
-        "file": "common/device_button.lua",
-        "class": null
-      },
-      {
-        "file": "common/elements/cheer_deck.lua",
-        "class": null
-      },
-      {
-        "file": "common/live_goal.lua",
-        "class": "LiveGoal"
-      },
-      {
-        "file": "common/lp_factor.lua",
-        "class": "LpFactor"
-      },
-      {
-        "file": "common/view/deck/menu.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/private.lua",
-        "class": null
-      },
-      {
-        "file": "common/shader/background/background_shader_param.lua",
-        "class": "BackgroundShaderParam"
-      },
-      {
-        "file": "m_duel/model/skill_range.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/subscenario/subscenario.lua",
-        "class": null
-      },
-      {
-        "file": "common/footer.lua",
-        "class": null
-      },
-      {
-        "file": "common/dbapi/unit/card.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/controller.lua",
-        "class": "DuelController"
-      },
-      {
-        "file": "common/dbapi/unit/unit.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/unit_list/base.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/recover.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/unit_list/album.lua",
-        "class": null
-      },
-      {
-        "file": "m_friends/view/friends_search.lua",
-        "class": "FriendSearch"
-      },
-      {
-        "file": "m_duel/model/energy.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/unit_list/unit.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/live/precise_result.lua",
-        "class": null
-      },
-      {
-        "file": "m_friends/view/elements/friend_confirm.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/unit_list/accessory.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/elements/assist_deck.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/crowd.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/live_log.lua",
-        "class": null
-      },
-      {
-        "file": "m_friends/view/elements/friend_mail.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/list/template.lua",
-        "class": null
-      },
-      {
-        "file": "m_friends/view/friends_list.lua",
-        "class": "FriendList"
-      },
-      {
-        "file": "common/view/effort_box.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/calc.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/unit_list/support_unit.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/unit_list/waiting_unit.lua",
-        "class": null
-      },
-      {
-        "file": "m_friends/friends_list.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/stamp.lua",
-        "class": null
-      },
-      {
-        "file": "m_friends/model/friend.lua",
-        "class": "FriendModel"
-      },
-      {
-        "file": "common/view/unit_list/costume.lua",
-        "class": null
-      },
-      {
-        "file": "m_duel/model/duel.lua",
-        "class": "DuelModel"
-      },
-      {
-        "file": "common/view/effort_effect.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/live_party_list.lua",
-        "class": "LivePartyList"
-      },
-      {
-        "file": "common/model/subscription.lua",
-        "class": "SubscriptionModel"
-      },
-      {
-        "file": "common/model/battle/battle_info.lua",
-        "class": "BattleInfo"
-      },
-      {
-        "file": "common/model/ad_reward.lua",
-        "class": "AdRewardModel"
-      },
-      {
-        "file": "common/model/battle/end_room.lua",
-        "class": "BattleEndRoom"
-      },
-      {
-        "file": "common/model/award.lua",
-        "class": "Award"
-      },
-      {
-        "file": "common/model/energy.lua",
-        "class": "EnergyModel"
-      },
-      {
-        "file": "common/model/battle/battle.lua",
-        "class": "EventScenarioHelper"
-      },
-      {
-        "file": "common/model/multi_unit_scenario.lua",
-        "class": "MultiUnitScenario"
-      },
-      {
-        "file": "common/model/data_transfer.lua",
-        "class": "DataTransfer"
-      },
-      {
-        "file": "common/model/background.lua",
-        "class": "Background"
-      },
-      {
-        "file": "common/model/unit_rarity.lua",
-        "class": "UnitRarity"
-      },
-      {
-        "file": "common/model/duty/duty_info.lua",
-        "class": "DutyInfo"
-      },
-      {
-        "file": "common/model/product.lua",
-        "class": "ProductModel"
-      },
-      {
-        "file": "common/model/school_idol_skill.lua",
-        "class": "SchoolIdolSkill"
-      },
-      {
-        "file": "common/model/unit.lua",
-        "class": "UnitModel"
-      },
-      {
-        "file": "common/model/card_asset.lua",
-        "class": "CardAsset"
-      },
-      {
-        "file": "common/model/user_birthday.lua",
-        "class": "ScatteringTutorial"
-      },
-      {
-        "file": "common/model/member_tag.lua",
-        "class": "MemberTag"
-      },
-      {
-        "file": "common/model/user/navi.lua",
-        "class": "UserNavi"
-      },
-      {
-        "file": "common/model/live_customize/timing_adjust_setting.lua",
-        "class": "TimingAdjustSetting"
-      },
-      {
-        "file": "common/model/user/user_info.lua",
-        "class": "UserInfo"
-      },
-      {
-        "file": "common/model/achievement/detail.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/live_customize/precise_setting.lua",
-        "class": "PreciseSetting"
-      },
-      {
-        "file": "common/model/achievement/converter.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/live_customize/note_speed_setting.lua",
-        "class": "NoteSpeedSetting"
-      },
-      {
-        "file": "common/model/achievement/achievement.lua",
-        "class": "AchievementModel"
-      },
-      {
-        "file": "common/model/navi/special_cutin.lua",
-        "class": "NaviSpecialCutin"
-      },
-      {
-        "file": "common/model/shop_time.lua",
-        "class": "ShopTime"
-      },
-      {
-        "file": "common/model/marathon.lua",
-        "class": "EventScenarioHelper"
-      },
-      {
-        "file": "common/model/live_customize/background_setting.lua",
-        "class": "BackgroundSetting"
-      },
-      {
-        "file": "common/model/marathon_info.lua",
-        "class": "MarathonInfo"
-      },
-      {
-        "file": "common/model/unit/preset_deck.lua",
-        "class": "PresetDeck"
-      },
-      {
-        "file": "common/model/accessory.lua",
-        "class": "AccessoryModel"
-      },
-      {
-        "file": "common/model/unit_lineup.lua",
-        "class": "UnitLineupModel"
-      },
-      {
-        "file": "common/model/live_customize/note_icon_setting.lua",
-        "class": "NoteIconSetting"
-      },
-      {
-        "file": "common/model/scenario.lua",
-        "class": "Scenario"
-      },
-      {
-        "file": "common/model/unit/navi_asset.lua",
-        "class": "UnitNaviAsset"
-      },
-      {
-        "file": "common/model/unit_type.lua",
-        "class": "UnitType"
-      },
-      {
-        "file": "common/model/unit/unit_list_cache.lua",
-        "class": "UnitListCache"
-      },
-      {
-        "file": "common/model/class/class_info.lua",
-        "class": "ClassInfo"
-      },
-      {
-        "file": "common/model/concert/base.lua",
-        "class": "ConcertModel"
-      },
-      {
-        "file": "common/model/live_customize/tap_se_setting.lua",
-        "class": "TapSESetting"
-      },
-      {
-        "file": "common/model/unit/merge.lua",
-        "class": "UnitMerge"
-      },
-      {
-        "file": "common/model/unit_lineup_filter.lua",
-        "class": "UnitLineupFilter"
-      },
-      {
-        "file": "common/model/exchange_point.lua",
-        "class": "ExchangePoint"
-      },
-      {
-        "file": "common/model/unit/multi_unit.lua",
-        "class": "UnitMulti"
-      },
-      {
-        "file": "common/model/unit/rank_up.lua",
-        "class": "UnitRankUp"
-      },
-      {
-        "file": "common/model/unit/unit_skill.lua",
-        "class": "UnitSkill"
-      },
-      {
-        "file": "common/model/event_model.lua",
-        "class": "Event"
-      },
-      {
-        "file": "common/model/live_customize/result_setting.lua",
-        "class": "ResultSetting"
-      },
-      {
-        "file": "common/model/unit/center_skill.lua",
-        "class": "UnitCenterSkill"
-      },
-      {
-        "file": "common/model/unit/hidden_unit_list.lua",
-        "class": "HiddenUnitList"
-      },
-      {
-        "file": "common/model/live/play_log.lua",
-        "class": "LivePlayLog"
-      },
-      {
-        "file": "common/model/unit/recommend_deck.lua",
-        "class": "UnitRecommendDeck"
-      },
-      {
-        "file": "common/model/live/custom_note.lua",
-        "class": "CustomNoteModel"
-      },
-      {
-        "file": "common/model/unit/lesson.lua",
-        "class": "UnitLessonModel"
-      },
-      {
-        "file": "common/model/challenge/challenge.lua",
-        "class": "ChallengeModel"
-      },
-      {
-        "file": "common/model/unit/costume.lua",
-        "class": "Costume"
-      },
-      {
-        "file": "common/model/unit/unit_level.lua",
-        "class": "UnitLevel"
-      },
-      {
-        "file": "common/model/live_customize/live_customize.lua",
-        "class": "LiveCustomize"
-      },
-      {
-        "file": "common/model/unit/skill_target.lua",
-        "class": "UnitSkillTarget"
-      },
-      {
-        "file": "common/model/live_customize/other_setting.lua",
-        "class": "OtherSetting"
-      },
-      {
-        "file": "common/model/subscenario.lua",
-        "class": "Subscenario"
-      },
-      {
-        "file": "common/model/live/precise_log.lua",
-        "class": "PreciseLog"
-      },
-      {
-        "file": "common/model/item/event_unit_rankup_item.lua",
-        "class": "EventUnitRankUpItem"
-      },
-      {
-        "file": "common/model/live_status.lua",
-        "class": "LiveStatus"
-      },
-      {
-        "file": "common/model/top_info.lua",
-        "class": "TopInfo"
-      },
-      {
-        "file": "common/model/live_customize/volume_setting.lua",
-        "class": "VolumeSetting"
-      },
-      {
-        "file": "common/model/enhance_item.lua",
-        "class": "EnhanceItemModel"
-      },
-      {
-        "file": "common/model/live/live_se.lua",
-        "class": "LiveSEModel"
-      },
-      {
-        "file": "common/model/live_customize/live_customize_cache_pool.lua",
-        "class": "LiveCustomizeCache"
-      },
-      {
-        "file": "common/model/live_customize/active_setting.lua",
-        "class": "ActiveSetting"
-      },
-      {
-        "file": "common/model/live/accuracy.lua",
-        "class": "LiveAccuracy"
-      },
-      {
-        "file": "common/model/live/random_live_asset.lua",
-        "class": "RandomLiveAsset"
-      },
-      {
-        "file": "common/model/museum/base.lua",
-        "class": "MuseumModel"
-      },
-      {
-        "file": "common/model/school_idol_skill/trigger.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/school_idol_skill/equipment.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/festival/festival.lua",
-        "class": "EventScenarioHelper"
-      },
-      {
-        "file": "common/model/festival/live.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/school_idol_skill/description.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/badge_model.lua",
-        "class": "BadgeModel"
-      },
-      {
-        "file": "common/model/school_idol_skill/deck.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/school_idol_skill/effect.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/stamp/stamp.lua",
-        "class": "Stamp"
-      },
-      {
-        "file": "common/model/festival/festival_info.lua",
-        "class": "FestivalInfo"
-      },
-      {
-        "file": "common/model/festival/live_set_list.lua",
-        "class": null
-      },
-      {
-        "file": "common/model/festival/mission_condition.lua",
         "class": null
       }
     ]
@@ -6596,10 +3252,6 @@
         "class": "TeamViewPriority"
       },
       {
-        "file": "m_live/controller/character.lua",
-        "class": null
-      },
-      {
         "file": "m_duel/view/elements/room_player.lua",
         "class": "DuelRoomPlayerForm"
       },
@@ -6614,6 +3266,10 @@
       {
         "file": "m_live/model/si_skill.lua",
         "class": null
+      },
+      {
+        "file": "m_live/controller/character.lua",
+        "class": null
       }
     ]
   },
@@ -6623,12 +3279,12 @@
     "action": "adReward",
     "candidate_files": [
       {
-        "file": "common/model/ad_reward.lua",
-        "class": "AdRewardModel"
-      },
-      {
         "file": "m_boot/initialize.lua",
         "class": null
+      },
+      {
+        "file": "common/model/ad_reward.lua",
+        "class": "AdRewardModel"
       }
     ]
   },
@@ -6802,36 +3458,16 @@
     "action": "progress",
     "candidate_files": [
       {
+        "file": "m_live_menu/result_tutorial.lua",
+        "class": "LiveResultTutorial"
+      },
+      {
         "file": "m_live_menu/result/live.lua",
         "class": "LiveResultLive"
       },
       {
         "file": "m_live_menu/result/unit.lua",
         "class": "LiveResultUnit"
-      },
-      {
-        "file": "m_live_menu/result_tutorial.lua",
-        "class": "LiveResultTutorial"
-      },
-      {
-        "file": "m_tutorial/tutorial.lua",
-        "class": "Tutorial"
-      },
-      {
-        "file": "m_tutorial/include.lua",
-        "class": null
-      },
-      {
-        "file": "m_boot/initialize.lua",
-        "class": null
-      },
-      {
-        "file": "m_download/start.lua",
-        "class": null
-      },
-      {
-        "file": "m_login/model/partner.lua",
-        "class": null
       },
       {
         "file": "common/result/unit_reward_form.lua",
@@ -6846,11 +3482,31 @@
         "class": "ResultReward"
       },
       {
-        "file": "common/download/main.lua",
+        "file": "m_download/start.lua",
+        "class": null
+      },
+      {
+        "file": "m_tutorial/tutorial.lua",
+        "class": "Tutorial"
+      },
+      {
+        "file": "m_tutorial/include.lua",
         "class": null
       },
       {
         "file": "common/download/callbacks.lua",
+        "class": null
+      },
+      {
+        "file": "common/download/main.lua",
+        "class": null
+      },
+      {
+        "file": "m_boot/initialize.lua",
+        "class": null
+      },
+      {
+        "file": "m_login/model/partner.lua",
         "class": null
       }
     ]
@@ -6885,6 +3541,22 @@
         "class": null
       },
       {
+        "file": "common/event/base_event_form.lua",
+        "class": "BaseEventForm"
+      },
+      {
+        "file": "m_festival/start.lua",
+        "class": null
+      },
+      {
+        "file": "m_challenge/start.lua",
+        "class": null
+      },
+      {
+        "file": "common/unit/unit_deck_cache.lua",
+        "class": "UnitDeckCache"
+      },
+      {
         "file": "m_live/touch_controller.lua",
         "class": "LiveTouchController"
       },
@@ -6893,11 +3565,11 @@
         "class": null
       },
       {
-        "file": "m_live/character.lua",
-        "class": "Character"
+        "file": "m_live/model/skill_effect/combo_bonus.lua",
+        "class": null
       },
       {
-        "file": "m_live/model/skill_effect/combo_bonus.lua",
+        "file": "common/view/unit_detail.lua",
         "class": null
       },
       {
@@ -6905,11 +3577,15 @@
         "class": null
       },
       {
-        "file": "m_challenge/start.lua",
+        "file": "m_live/model/assist_effect/base.lua",
         "class": null
       },
       {
-        "file": "m_live/model/assist_effect/base.lua",
+        "file": "m_live/character.lua",
+        "class": "Character"
+      },
+      {
+        "file": "m_live/model/cutin_controller.lua",
         "class": null
       },
       {
@@ -6929,31 +3605,11 @@
         "class": null
       },
       {
-        "file": "m_live/model/cutin_controller.lua",
-        "class": null
-      },
-      {
-        "file": "m_live/controller/skill_rate.lua",
-        "class": null
-      },
-      {
         "file": "m_live/skill.lua",
         "class": "Skill"
       },
       {
-        "file": "common/event/base_event_form.lua",
-        "class": "BaseEventForm"
-      },
-      {
-        "file": "common/unit/unit_deck_cache.lua",
-        "class": "UnitDeckCache"
-      },
-      {
-        "file": "m_festival/start.lua",
-        "class": null
-      },
-      {
-        "file": "common/view/unit_detail.lua",
+        "file": "m_live/controller/skill_rate.lua",
         "class": null
       }
     ]
@@ -6991,12 +3647,12 @@
         "class": null
       },
       {
-        "file": "common/model/accessory.lua",
-        "class": "AccessoryModel"
-      },
-      {
         "file": "common/elements/accessory_detail.lua",
         "class": null
+      },
+      {
+        "file": "common/model/accessory.lua",
+        "class": "AccessoryModel"
       }
     ]
   },
@@ -7077,12 +3733,12 @@
     "action": "addFriendMax",
     "candidate_files": [
       {
-        "file": "m_boot/initialize.lua",
-        "class": null
-      },
-      {
         "file": "m_shop/view/shop_dialog.lua",
         "class": "ShopDialog"
+      },
+      {
+        "file": "m_boot/initialize.lua",
+        "class": null
       }
     ]
   },
@@ -7092,15 +3748,15 @@
     "action": "addUnitMax",
     "candidate_files": [
       {
-        "file": "m_boot/initialize.lua",
-        "class": null
-      },
-      {
         "file": "m_shop/view/shop_dialog.lua",
         "class": "ShopDialog"
       },
       {
         "file": "m_shop/shop_base.lua",
+        "class": null
+      },
+      {
+        "file": "m_boot/initialize.lua",
         "class": null
       }
     ]
@@ -7141,11 +3797,11 @@
     "action": "getNavi",
     "candidate_files": [
       {
-        "file": "common/polling.lua",
+        "file": "m_boot/initialize.lua",
         "class": null
       },
       {
-        "file": "m_boot/initialize.lua",
+        "file": "common/polling.lua",
         "class": null
       },
       {

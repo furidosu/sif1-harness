@@ -62,10 +62,34 @@ def declared_paths(shape: dict | None, prefix: str = "") -> set[str]:
     return out
 
 
+# Match aggregate_listener_observations.py: strip every `.[N]` (and
+# `.[<string>]`) segment so list-element reads collapse to the parent
+# field name. Without this, accessed paths look like `foo.[1].bar` and
+# declared paths look like `foo.[1].bar` from declared_paths' list
+# expansion -- comparing them is fragile, and downstream consumers
+# (wire_compare regression mode) can't reliably diff `foo.[1].bar` from
+# one writer against `foo.bar` from the other. We KEEP the
+# `response_data.` prefix so declared/accessed share a namespace.
 def normalize_path(p: str) -> str:
-    if p.startswith("response_data."):
-        return p[len("response_data."):]
-    return p
+    parts = [
+        seg for seg in p.split(".")
+        if not (seg.startswith("[") and seg.endswith("]"))
+    ]
+    return ".".join(parts)
+
+
+# Envelope-level keys that cacheResponse touches as part of unpacking
+# the wire envelope -- they show up in every endpoint's accessed_keys
+# but they're not per-endpoint schema fields. Match
+# aggregate_listener_observations.py's whitelist.
+ENVELOPE_DECLARED = {
+    "response_data",
+    "status_code",
+    "response_data.server_timestamp",
+    "response_data.server_timestamp_sync_flag",
+    "response_data.present_cnt",
+    "response_data.museum_info",
+}
 
 
 def main() -> int:
@@ -84,10 +108,8 @@ def main() -> int:
             continue
         for fp in sorted(d.glob("*.json")):
             ep = fp.stem
-            try:
-                trace = json.load(fp.open())
-            except Exception:
-                continue
+            with fp.open() as f:
+                trace = json.load(f)
             keys = trace.get("accessed_keys") or []
             accessed_by_ep.setdefault(ep, set()).update(keys)
 
@@ -103,20 +125,31 @@ def main() -> int:
         # the per-batch endpoint of index N. They can also runaway-iterate
         # through sentinel phantoms (8000+ array elements observed for
         # personalnotice.get's bulkSend success_cb).
+        #
+        # Also drop `[table: 0x<addr>]` sentinel-as-key noise: when a
+        # listener stores a table value as a key (or iterates a permissive
+        # stub whose underlying t has a table key), the spy logs the
+        # tostring(table) form -- a heap-address string that changes every
+        # run and inflates discovery counts with run-specific churn.
         accessed = {
             k for k in accessed
-            if k.startswith("response_data.") and "." in k
+            if k.startswith("response_data.")
+            and "." in k
+            and "[table:" not in k
         }
         shape = get_shape(ep, promoted, synthesized)
-        declared = declared_paths(shape, "")
-        # Normalize: strip the response_data. prefix from accessed; declared
-        # paths come without it.
+        declared = declared_paths(shape, "") | ENVELOPE_DECLARED
+        # Normalize accessed paths the same way aggregate does: strip every
+        # `.[N]` segment so list-element reads collapse to the parent. The
+        # `response_data.` prefix stays so declared and accessed share a
+        # namespace (declared_paths walks the FULL envelope shape, which
+        # includes the outer `response_data` field).
         accessed_norm = {normalize_path(k) for k in accessed}
-        # Also drop paths that contain sentinel-iteration artifacts
-        # ([N] indices with no field follow, or extremely long chains).
+        # Drop empty paths (from a bare `[1]` access) and over-deep paths
+        # (sentinel runaway through a `__index = self`-style helper).
         accessed_norm = {
             k for k in accessed_norm
-            if not k.endswith(".[1]") and k.count(".") < 8
+            if k and k.count(".") < 8
         }
         discovered = sorted(accessed_norm - declared)
         union_paths |= set(discovered)
