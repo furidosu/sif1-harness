@@ -1,16 +1,16 @@
 # Coverage ceiling — what the harness can and can't reach
 
 Empirical analysis of the 358 endpoint surface and where the harness
-(notifyUpdate pass + invoke_classes UI-handler pass + static
-field-extraction pass) hits its ceiling.
+(notifyUpdate pass + invoke_classes UI-handler pass + two static
+field-extraction passes) hits its ceiling.
 
-## Summary (after Approach D `extract_ui_field_reads` lift)
+## Summary (after Approach D2 `extract_cache_consumer_reads` lift)
 
 | Bucket | Count | What it means |
 |---|---:|---|
-| `harness-covered` | **256** | Listener fired, UI handler invoked, OR static extraction harvested ≥1 field path from a per-call success closure / a registered cache listener (with helper-following one hop into same-file functions, line-aware resolution for decompiler-reused names). Schema-correctable from harness output. |
+| `harness-covered` | **261** | Listener fired, UI handler invoked, OR static extraction harvested ≥1 field path from one of: (a) a per-call success closure, (b) a registered `Cachable.addListener` body, or (c) a model file that pulls `Cachable.get(cache_key)` and destructures the cache value. Schema-correctable from harness output. |
 | `envelope-only` | **31** | Fire-and-forget acks (`cancel`, `leave`, `skip`, `set`, etc.). `extra="allow"` empty Pydantic stub is correct. |
-| `ui-only` | **54** | Static extraction found no anchor (no UI file references the cache_key / fn_name, the file has no `function(arg) ... arg.response_data` pattern AND no `Cachable.addListener("$key", fn)` whose `fn` body destructures, or the destructure flows through patterns the extractor doesn't handle yet — multi-LHS assignments, cross-file helpers, polling-via-`m_boot/initialize.lua` setup). Remaining residual after Approaches B + D. |
+| `ui-only` | **49** | Static extraction found no anchor (no UI file references the cache_key / fn_name, the file has no `function(arg) ... arg.response_data` pattern, no `Cachable.addListener("$key", fn)` listener body that destructures, AND no `Cachable.get(cache_key)` consumer body — or the destructure flows through patterns the extractor doesn't handle yet, like wrapper functions one indirection deep, multi-LHS assignments, cross-file helpers). Remaining residual after Approaches B + D + D2. |
 | `needs-Frida` | **17** | Neither listener nor UI file references the cache_key/fn_name. State-dependent: matching queues, polling streams, handover token flow, KLab ID sync, download URL signing. |
 
 Each `harness-covered` field path carries a confidence label on
@@ -202,7 +202,7 @@ docstring overstates its reach — kept for the rare case where a future
 endpoint's `on_success` does more than envelope plumbing, but not part
 of the production pipeline.
 
-## The 256 `harness-covered` endpoints — what we ship
+## The 261 `harness-covered` endpoints — what we ship
 
 These have either ≥1 discovered field path (a listener read of a field
 the schema didn't declare, OR a static-extraction harvest from a UI
@@ -257,19 +257,23 @@ done: ~75 endpoints with >=1 kept field, ~35 with 0;
       ~330 fields kept, ~55 dropped by corpus filter,
       ~50 verified by listener; ~4s
 
-# Step 7: merge invoke_classes + static traces into observations
-$ python src/tools/merge_observations.py
-  endpoints with discoveries: 149
-  unique field paths: 253
+# Step 7: static field-extraction over Cachable.get consumers (Approach D2)
+$ python src/tools/extract_cache_consumer_reads.py
+done: ~52 endpoints with >=1 harvested field; ~195 field paths total; ~2s
 
-# Step 8: re-classify with merged data (full union of all three passes)
+# Step 8: merge all trace dirs (notifyUpdate + invoke_classes + static + cache-consumer)
+$ python src/tools/merge_observations.py
+  endpoints with discoveries: 166
+  unique field paths: 356
+
+# Step 9: re-classify with merged data (full union of all four passes)
 $ python src/tools/classify_coverage.py
   envelope-only        31
-  harness-covered      256
+  harness-covered      261
   needs-Frida          17
-  ui-only              54
+  ui-only              49
 
-# Step 9: wire-compare vs NPPS4
+# Step 10: wire-compare vs NPPS4
 $ python integration/npps4/wire_compare.py --mode static-diff
 wrote build/wire_compare_static.md
 ```

@@ -27,7 +27,7 @@ TRACES := $(BUILD)/runtime/traces
 NPPS4_SRC ?= ./npps4
 DLAPI_SRC ?= ./npps4-dlapi
 
-.PHONY: help harness aggregate ui-classes ui-static merge classify priors compare test compare-npps4 clean
+.PHONY: help harness aggregate ui-classes ui-static ui-cache-consumer merge classify priors compare test compare-npps4 clean
 
 help:
 	@echo "Targets:"
@@ -35,7 +35,8 @@ help:
 	@echo "  aggregate       Aggregate notifyUpdate traces into observations.json"
 	@echo "  ui-classes      Run invoke_classes for ui-only bucket (Approach B)"
 	@echo "  ui-static       Static field-extraction over UI source (Approach D)"
-	@echo "  merge           Merge ui-classes + ui-static traces into observations.json"
+	@echo "  ui-cache-consumer Static extraction over Cachable.get(cache_key) consumers (Approach D2)"
+	@echo "  merge           Merge ui-classes + ui-static + ui-cache-consumer traces into observations.json"
 	@echo "  classify        Bucket each endpoint (harness-covered/ui-only/etc)"
 	@echo "  priors          Extract NPPS4 priors (requires NPPS4_SRC=$(NPPS4_SRC))"
 	@echo "  compare         Run wire-compare static-diff vs NPPS4"
@@ -79,7 +80,16 @@ ui-static: ui-classes
 	$(PY) src/tools/extract_ui_field_reads.py \
 	  --out $(BUILD)/runtime/traces_static
 
-merge: ui-static
+# Approach D2: static field-extraction over Cachable.get(cache_key)
+# consumer files. Catches model files that pull the cached response
+# value and destructure it (e.g. common/model/exchange_point.lua reads
+# Cachable.get("$exchangeOwningPoint").exchange_point_list.[i].rarity).
+# Pulls 10-15 additional endpoints out of ui-only on top of ui-static.
+ui-cache-consumer: ui-static
+	$(PY) src/tools/extract_cache_consumer_reads.py \
+	  --out $(BUILD)/runtime/traces_cache_consumer
+
+merge: ui-cache-consumer
 	$(PY) src/tools/merge_observations.py
 	$(PY) src/tools/classify_coverage.py
 
@@ -110,14 +120,14 @@ test: classify
 	  print(f'OK: {total} endpoints classified')"
 	@$(PY) -c "import json; d=json.load(open('$(BUILD)/runtime_listener_observations.json')); \
 	  n=sum(1 for v in d.values() if v.get('runtime_discovered_field_names')); \
-	  assert n>=60, f'discovered <60 endpoints ({n}); regression?'; \
-	  print(f'OK: {n} endpoints have discovered field names (floor: 60)')"
+	  assert n>=150, f'discovered <150 endpoints ({n}); regression?'; \
+	  print(f'OK: {n} endpoints have discovered field names (floor: 150)')"
 	@$(PY) -c "import json; d=json.load(open('$(BUILD)/coverage_classification.json')); \
 	  by_b={}; \
 	  [by_b.setdefault(c['bucket'], []).append(ep) for ep, c in d['endpoints'].items()]; \
 	  hc = len(by_b.get('harness-covered', [])); \
-	  assert hc >= 160, f'harness-covered regressed to {hc} (floor: 160)'; \
-	  print(f'OK: {hc} endpoints harness-covered (floor: 160)')"
+	  assert hc >= 250, f'harness-covered regressed to {hc} (floor: 250)'; \
+	  print(f'OK: {hc} endpoints harness-covered (floor: 250)')"
 
 compare-npps4: compare
 

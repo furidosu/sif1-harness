@@ -31,11 +31,11 @@ plus aggregation, classification, and NPPS4 wire-compare) runs in
 | Metric | Count |
 |---|---:|
 | Endpoints exercised | **358 / 358** |
-| Endpoints with field-path discoveries | **71** |
-| Unique field paths discovered | **81** |
-| Endpoints classified `harness-covered` | **178** |
+| Endpoints with field-path discoveries | **166** |
+| Unique field paths discovered | **356** |
+| Endpoints classified `harness-covered` | **261** |
 | Endpoints classified `envelope-only` | **31** |
-| Endpoints classified `ui-only` | **132** |
+| Endpoints classified `ui-only` | **49** |
 | Endpoints classified `needs-Frida` (state-dependent) | **17** |
 | `wire-compare --mode static-diff` endpoints with disagreement | **86** |
 | ↳ client-reads-NPPS4-doesn't-emit (server bug candidates) | **35** |
@@ -119,11 +119,11 @@ uv run --no-project python integration/npps4/wire_compare.py --mode static-diff 
 
 | Layer | Best tool |
 |---|---|
-| Top-level + nested response field paths (harness-covered: 178 endpoints) | This harness |
+| Top-level + nested response field paths (harness-covered: 261 endpoints) | This harness |
 | Nested field shapes when listeners or UI handlers destructure them | This harness |
 | Per-endpoint behavior, state machines, validation | NPPS4 |
 | State-dependent endpoint shapes (17 needs-Frida) | Frida companion + NPPS4 |
-| Residual UI-handler endpoints (132 ui-only) where invoke_classes didn't land | Per-endpoint hand-wiring |
+| Residual UI-handler endpoints (49 ui-only) where invoke_classes didn't land | Per-endpoint hand-wiring |
 
 The harness produces empirical evidence per field; NPPS4 absorbs that
 evidence into typed Pydantic models. The output of `make compare-npps4`

@@ -245,7 +245,11 @@
       "response_data.__root__.[1]",
       "response_data.__root__.[1].achievement_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.achievement_list",
+      "response_data.achievement_list.achievement_id",
+      "response_data.achievement_list.is_new"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.__root__",
       "response_data.__root__.achievement_list"
@@ -266,9 +270,16 @@
       "response_data.__root__.[1].achievement_list.[1]",
       "response_data.__root__.[1].count",
       "response_data.__root__.[1].filter_category_id",
-      "response_data.__root__.[1].is_last"
+      "response_data.__root__.[1].is_last",
+      "response_data.achievement_list",
+      "response_data.achievement_list.achievement_id",
+      "response_data.achievement_list.is_new"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.achievement_list",
+      "response_data.achievement_list.achievement_id",
+      "response_data.achievement_list.is_new"
+    ],
     "static_extracted_verified": []
   },
   "ad.changeAd": {
@@ -1581,7 +1592,9 @@
       "response_data.rival_info.deck_info",
       "response_data.rival_info.deck_info.unit_list",
       "response_data.rival_info.deck_info.unit_list.total_status",
-      "response_data.rival_info.deck_info.unit_list.unit_id"
+      "response_data.rival_info.deck_info.unit_list.unit_id",
+      "response_data.user_status",
+      "response_data.user_status.auto_playable_count"
     ],
     "runtime_list_shaped_fields": [
       "response_data.cheer_unit_deck_detail",
@@ -1620,9 +1633,14 @@
       "response_data.rival_info.[1].deck_info.unit_list",
       "response_data.rival_info.[1].deck_info.unit_list.[<permissive>]",
       "response_data.rival_info.[1].deck_info.unit_list.[<permissive>].total_status",
-      "response_data.rival_info.[1].deck_info.unit_list.[<permissive>].unit_id"
+      "response_data.rival_info.[1].deck_info.unit_list.[<permissive>].unit_id",
+      "response_data.user_status",
+      "response_data.user_status.auto_playable_count"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.user_status",
+      "response_data.user_status.auto_playable_count"
+    ],
     "static_extracted_verified": []
   },
   "award.awardInfo": {
@@ -1796,7 +1814,11 @@
     "runtime_discovered": [
       "response_data.banner_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.banner_list.banner_type",
+      "response_data.banner_list.is_registered",
+      "response_data.banner_list.target_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.banner_list"
     ],
@@ -1811,9 +1833,16 @@
     "runtime_accessed_keys": [
       "response_data.banner_list",
       "response_data.banner_list.[1]",
+      "response_data.banner_list.banner_type",
+      "response_data.banner_list.is_registered",
+      "response_data.banner_list.target_id",
       "response_data.time_limit"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.banner_list.banner_type",
+      "response_data.banner_list.is_registered",
+      "response_data.banner_list.target_id"
+    ],
     "static_extracted_verified": []
   },
   "battle.battleInfo": {
@@ -1890,7 +1919,11 @@
       "response_data.class_system.competition_info",
       "response_data.class_system.is_opened",
       "response_data.class_system.rank_info",
-      "response_data.class_system.rank_info.after_class_rank_id"
+      "response_data.class_system.rank_info.after_class_rank_id",
+      "response_data.end_wait_time",
+      "response_data.live_difficulty_id",
+      "response_data.live_difficulty_id_list",
+      "response_data.polling_interval"
     ],
     "runtime_list_shaped_fields": [
       "response_data.effort_point",
@@ -1921,10 +1954,14 @@
       "response_data.daily_reward_info",
       "response_data.effort_point",
       "response_data.effort_point.[1]",
+      "response_data.end_wait_time",
       "response_data.event_info",
       "response_data.goal_accomp_info",
       "response_data.hi_score",
       "response_data.is_high_score",
+      "response_data.live_difficulty_id",
+      "response_data.live_difficulty_id_list",
+      "response_data.polling_interval",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_unit_list",
@@ -1934,7 +1971,12 @@
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.end_wait_time",
+      "response_data.live_difficulty_id",
+      "response_data.live_difficulty_id_list",
+      "response_data.polling_interval"
+    ],
     "static_extracted_verified": []
   },
   "battle.endWait": {
@@ -2026,7 +2068,9 @@
       "response_data.after_user_info.level",
       "response_data.after_user_info.license_recover_end_time",
       "response_data.after_user_info.over_max_energy",
-      "response_data.event_info.event_point_info.after_event_point"
+      "response_data.event_info.event_point_info.after_event_point",
+      "response_data.event_info.event_point_info.base_event_point",
+      "response_data.event_info.event_point_info.clear_event_point"
     ],
     "runtime_list_shaped_fields": [
       "response_data.live_info",
@@ -2052,13 +2096,18 @@
       "response_data.event_info.event_id",
       "response_data.event_info.event_point_info",
       "response_data.event_info.event_point_info.after_event_point",
+      "response_data.event_info.event_point_info.base_event_point",
+      "response_data.event_info.event_point_info.clear_event_point",
       "response_data.event_info.event_reward_info",
       "response_data.live_info",
       "response_data.live_info.[1]",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.event_info.event_point_info.base_event_point",
+      "response_data.event_info.event_point_info.clear_event_point"
+    ],
     "static_extracted_verified": []
   },
   "battle.liveEnd": {
@@ -2216,7 +2265,8 @@
       "response_data.ended_flag",
       "response_data.matching_user",
       "response_data.matching_user.user_info",
-      "response_data.start_flag"
+      "response_data.start_flag",
+      "response_data.start_wait_time"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -2234,7 +2284,8 @@
       "response_data.ended_flag",
       "response_data.matching_user",
       "response_data.matching_user.user_info",
-      "response_data.start_flag"
+      "response_data.start_flag",
+      "response_data.start_wait_time"
     ],
     "static_extracted_unverified": [
       "response_data.available_live_resume",
@@ -2242,7 +2293,8 @@
       "response_data.ended_flag",
       "response_data.matching_user",
       "response_data.matching_user.user_info",
-      "response_data.start_flag"
+      "response_data.start_flag",
+      "response_data.start_wait_time"
     ],
     "static_extracted_verified": []
   },
@@ -2303,7 +2355,8 @@
       "response_data.base_info.asset_bgm_id",
       "response_data.base_info.event_id",
       "response_data.challenge_status",
-      "response_data.challenge_status.should_proceed"
+      "response_data.challenge_status.should_proceed",
+      "response_data.challenge_status.should_retire"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -2319,9 +2372,17 @@
       "response_data.base_info.event_id",
       "response_data.challenge_info",
       "response_data.challenge_status",
-      "response_data.challenge_status.should_proceed"
+      "response_data.challenge_status.should_proceed",
+      "response_data.challenge_status.should_retire"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.base_info",
+      "response_data.base_info.asset_bgm_id",
+      "response_data.base_info.event_id",
+      "response_data.challenge_status",
+      "response_data.challenge_status.should_proceed",
+      "response_data.challenge_status.should_retire"
+    ],
     "static_extracted_verified": []
   },
   "challenge.checkpoint": {
@@ -2513,9 +2574,11 @@
       "response_data.reward_item_list.[1].accessory_owning_user_id"
     ],
     "runtime_discovered_field_names": [
+      "response_data.base_reward_info",
       "response_data.event_info.event_point_info",
       "response_data.event_info.event_point_info.after_event_point",
       "response_data.event_info.event_point_info.after_total_event_point",
+      "response_data.is_incomplete",
       "response_data.reward_item_list.accessory_owning_user_id"
     ],
     "runtime_list_shaped_fields": [
@@ -2532,16 +2595,21 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.after_user_info",
+      "response_data.base_reward_info",
       "response_data.event_info",
       "response_data.event_info.event_point_info",
       "response_data.event_info.event_point_info.after_event_point",
       "response_data.event_info.event_point_info.after_total_event_point",
       "response_data.event_info.event_reward_info",
+      "response_data.is_incomplete",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_item_list.[1].accessory_owning_user_id"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.base_reward_info",
+      "response_data.is_incomplete"
+    ],
     "static_extracted_verified": []
   },
   "challenge.init": {
@@ -2984,7 +3052,13 @@
       "response_data.live_info.[1]",
       "response_data.reward_item_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.is_finished_qualifying_term",
+      "response_data.ranking_info",
+      "response_data.ranking_info.general",
+      "response_data.ranking_info.general.user_info",
+      "response_data.ranking_info.general.user_info.rank"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.live_info",
       "response_data.reward_item_list"
@@ -3002,12 +3076,23 @@
       "response_data.after_user_info",
       "response_data.class_system",
       "response_data.daily_reward_info",
+      "response_data.is_finished_qualifying_term",
       "response_data.live_info",
       "response_data.live_info.[1]",
+      "response_data.ranking_info",
+      "response_data.ranking_info.general",
+      "response_data.ranking_info.general.user_info",
+      "response_data.ranking_info.general.user_info.rank",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.is_finished_qualifying_term",
+      "response_data.ranking_info",
+      "response_data.ranking_info.general",
+      "response_data.ranking_info.general.user_info",
+      "response_data.ranking_info.general.user_info.rank"
+    ],
     "static_extracted_verified": []
   },
   "class.competitionLivePlay": {
@@ -4791,10 +4876,14 @@
       "response_data.unlocked_subscenario_ids.[1]"
     ],
     "runtime_discovered_field_names": [
+      "response_data.achievement_rate",
       "response_data.class_system.competition_info",
       "response_data.class_system.is_opened",
       "response_data.class_system.rank_info",
-      "response_data.class_system.rank_info.after_class_rank_id"
+      "response_data.class_system.rank_info.after_class_rank_id",
+      "response_data.combo_rank",
+      "response_data.player_count",
+      "response_data.score_rank"
     ],
     "runtime_list_shaped_fields": [
       "response_data.effort_point",
@@ -4816,12 +4905,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.achievement_rate",
       "response_data.after_user_info",
       "response_data.class_system",
       "response_data.class_system.competition_info",
       "response_data.class_system.is_opened",
       "response_data.class_system.rank_info",
       "response_data.class_system.rank_info.after_class_rank_id",
+      "response_data.combo_rank",
       "response_data.daily_reward_info",
       "response_data.effort_point",
       "response_data.effort_point.[1]",
@@ -4829,16 +4920,23 @@
       "response_data.goal_accomp_info",
       "response_data.hi_score",
       "response_data.is_high_score",
+      "response_data.player_count",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
       "response_data.reward_unit_list",
       "response_data.reward_unit_list.[1]",
+      "response_data.score_rank",
       "response_data.unlocked_multi_unit_scenario_ids",
       "response_data.unlocked_multi_unit_scenario_ids.[1]",
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.achievement_rate",
+      "response_data.combo_rank",
+      "response_data.player_count",
+      "response_data.score_rank"
+    ],
     "static_extracted_verified": []
   },
   "duel.endWait": {
@@ -5125,7 +5223,9 @@
       "response_data.live_list.[1]",
       "response_data.live_list.[1].live_info"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.live_list"
+    ],
     "static_extracted_verified": []
   },
   "duel.matching": {
@@ -5875,7 +5975,9 @@
     ],
     "runtime_accessed_count": 3,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.has_next"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -5885,9 +5987,12 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.has_next",
       "response_data.room_list"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.has_next"
+    ],
     "static_extracted_verified": []
   },
   "duty.historyDetail": {
@@ -6808,7 +6913,9 @@
     "runtime_discovered": [
       "response_data.exchange_item_info.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.exchange_item_info.exchange_item_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.exchange_item_info"
     ],
@@ -6823,9 +6930,12 @@
     "runtime_accessed_keys": [
       "response_data.exchange_item_info",
       "response_data.exchange_item_info.[1]",
+      "response_data.exchange_item_info.exchange_item_id",
       "response_data.exchange_point_list"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.exchange_item_info.exchange_item_id"
+    ],
     "static_extracted_verified": []
   },
   "exchange.owningPoint": {
@@ -7018,7 +7128,11 @@
     "runtime_discovered": [
       "response_data.festival_previous_item_ids.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.base_info",
+      "response_data.base_info.event_id",
+      "response_data.base_info.max_skill_activation_rate"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.festival_previous_item_ids"
     ],
@@ -7031,11 +7145,18 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.base_info",
+      "response_data.base_info.event_id",
+      "response_data.base_info.max_skill_activation_rate",
       "response_data.festival",
       "response_data.festival_previous_item_ids",
       "response_data.festival_previous_item_ids.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.base_info",
+      "response_data.base_info.event_id",
+      "response_data.base_info.max_skill_activation_rate"
+    ],
     "static_extracted_verified": []
   },
   "festival.gameover": {
@@ -7069,7 +7190,9 @@
       "response_data.after_user_info.level",
       "response_data.after_user_info.license_recover_end_time",
       "response_data.after_user_info.over_max_energy",
-      "response_data.event_info.event_point_info.after_event_point"
+      "response_data.event_info.event_point_info.after_event_point",
+      "response_data.festival",
+      "response_data.live_difficulty_id_list"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -7089,9 +7212,14 @@
       "response_data.event_info.event_id",
       "response_data.event_info.event_point_info",
       "response_data.event_info.event_point_info.after_event_point",
-      "response_data.event_info.event_reward_info"
+      "response_data.event_info.event_reward_info",
+      "response_data.festival",
+      "response_data.live_difficulty_id_list"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.festival",
+      "response_data.live_difficulty_id_list"
+    ],
     "static_extracted_verified": []
   },
   "festival.liveReward": {
@@ -7135,7 +7263,8 @@
       "response_data.class_system.competition_info",
       "response_data.class_system.is_opened",
       "response_data.class_system.rank_info",
-      "response_data.class_system.rank_info.after_class_rank_id"
+      "response_data.class_system.rank_info.after_class_rank_id",
+      "response_data.reward_item_list.add_type"
     ],
     "runtime_list_shaped_fields": [
       "response_data.effort_point",
@@ -7172,6 +7301,7 @@
       "response_data.is_high_score",
       "response_data.reward_item_list",
       "response_data.reward_item_list.[1]",
+      "response_data.reward_item_list.add_type",
       "response_data.reward_unit_list",
       "response_data.reward_unit_list.[1]",
       "response_data.unlocked_multi_unit_scenario_ids",
@@ -7179,7 +7309,9 @@
       "response_data.unlocked_subscenario_ids",
       "response_data.unlocked_subscenario_ids.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.reward_item_list.add_type"
+    ],
     "static_extracted_verified": []
   },
   "festival.liveSetList": {
@@ -8872,6 +9004,10 @@
       "response_data.start_dash_sheets.[1]"
     ],
     "runtime_discovered_field_names": [
+      "response_data.calendar_info.current_month",
+      "response_data.calendar_info.current_month.days",
+      "response_data.calendar_info.current_month.days.ad_received",
+      "response_data.calendar_info.current_month.days.day",
       "response_data.class_system.is_opened",
       "response_data.class_system.rank_info",
       "response_data.class_system.rank_info.after_class_rank_id"
@@ -8907,6 +9043,10 @@
       "response_data.added_achievement_list.[1]",
       "response_data.after_user_info",
       "response_data.calendar_info",
+      "response_data.calendar_info.current_month",
+      "response_data.calendar_info.current_month.days",
+      "response_data.calendar_info.current_month.days.ad_received",
+      "response_data.calendar_info.current_month.days.day",
       "response_data.class_system",
       "response_data.class_system.is_opened",
       "response_data.class_system.rank_info",
@@ -8925,7 +9065,12 @@
       "response_data.total_login_info",
       "response_data.unaccomplished_achievement_cnt"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.calendar_info.current_month",
+      "response_data.calendar_info.current_month.days",
+      "response_data.calendar_info.current_month.days.ad_received",
+      "response_data.calendar_info.current_month.days.day"
+    ],
     "static_extracted_verified": []
   },
   "live.continue": {
@@ -9038,7 +9183,9 @@
       "response_data.special_live_status_list.[1]",
       "response_data.training_live_status_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.live_status_list"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.free_live_status_list",
       "response_data.marathon_live_status_list",
@@ -9062,6 +9209,7 @@
       "response_data.can_resume_live",
       "response_data.free_live_status_list",
       "response_data.free_live_status_list.[1]",
+      "response_data.live_status_list",
       "response_data.marathon_live_status_list",
       "response_data.marathon_live_status_list.[1]",
       "response_data.normal_live_status_list",
@@ -9071,7 +9219,9 @@
       "response_data.training_live_status_list",
       "response_data.training_live_status_list.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.live_status_list"
+    ],
     "static_extracted_verified": []
   },
   "live.partyList": {
@@ -9447,7 +9597,18 @@
       "response_data.training_live_list.[1]"
     ],
     "runtime_discovered_field_names": [
-      "response_data.limited_bonus_common_list.live_type"
+      "response_data.event_list.close_date",
+      "response_data.event_list.event_category",
+      "response_data.event_list.event_id",
+      "response_data.event_list.open_date",
+      "response_data.limited_bonus_common_list.live_type",
+      "response_data.live_list.end_date",
+      "response_data.live_list.is_random",
+      "response_data.live_list.live_difficulty_id",
+      "response_data.live_list.start_date",
+      "response_data.training_live_list.is_random",
+      "response_data.training_live_list.live_difficulty_id",
+      "response_data.training_live_list.start_date"
     ],
     "runtime_list_shaped_fields": [
       "response_data.event_list",
@@ -9476,6 +9637,10 @@
     "runtime_accessed_keys": [
       "response_data.event_list",
       "response_data.event_list.[1]",
+      "response_data.event_list.close_date",
+      "response_data.event_list.event_category",
+      "response_data.event_list.event_id",
+      "response_data.event_list.open_date",
       "response_data.free_live_list",
       "response_data.free_live_list.[1]",
       "response_data.limited_bonus_common_list",
@@ -9486,12 +9651,31 @@
       "response_data.limited_bonus_list.[1].live_difficulty_id",
       "response_data.live_list",
       "response_data.live_list.[1]",
+      "response_data.live_list.end_date",
+      "response_data.live_list.is_random",
+      "response_data.live_list.live_difficulty_id",
+      "response_data.live_list.start_date",
       "response_data.random_live_list",
       "response_data.random_live_list.[1]",
       "response_data.training_live_list",
-      "response_data.training_live_list.[1]"
+      "response_data.training_live_list.[1]",
+      "response_data.training_live_list.is_random",
+      "response_data.training_live_list.live_difficulty_id",
+      "response_data.training_live_list.start_date"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.event_list.close_date",
+      "response_data.event_list.event_category",
+      "response_data.event_list.event_id",
+      "response_data.event_list.open_date",
+      "response_data.live_list.end_date",
+      "response_data.live_list.is_random",
+      "response_data.live_list.live_difficulty_id",
+      "response_data.live_list.start_date",
+      "response_data.training_live_list.is_random",
+      "response_data.training_live_list.live_difficulty_id",
+      "response_data.training_live_list.start_date"
+    ],
     "static_extracted_verified": []
   },
   "liveicon.liveiconInfo": {
@@ -9523,7 +9707,9 @@
     "runtime_accessed_keys": [
       "response_data.live_notes_icon_list"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.live_notes_icon_list"
+    ],
     "static_extracted_verified": []
   },
   "livese.liveseInfo": {
@@ -9639,7 +9825,12 @@
       "response_data.exchange_badge_cnt.[1]",
       "response_data.using_buff_info.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.license_info.badge_flag",
+      "response_data.license_info.expired_info",
+      "response_data.license_info.licensed_info",
+      "response_data.live_skip_open_flag"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.exchange_badge_cnt",
       "response_data.using_buff_info"
@@ -9669,14 +9860,25 @@
       "response_data.is_today_birthday",
       "response_data.klab_id_task_can_sync",
       "response_data.license_info",
+      "response_data.license_info.badge_flag",
+      "response_data.license_info.expired_info",
+      "response_data.license_info.licensed_info",
+      "response_data.live_skip_open_flag",
       "response_data.notice_friend_datetime",
       "response_data.notice_mail_datetime",
+      "response_data.present_cnt",
       "response_data.secret_box_badge_flag",
       "response_data.server_datetime",
+      "response_data.server_timestamp",
       "response_data.using_buff_info",
       "response_data.using_buff_info.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.license_info.badge_flag",
+      "response_data.license_info.expired_info",
+      "response_data.license_info.licensed_info",
+      "response_data.live_skip_open_flag"
+    ],
     "static_extracted_verified": []
   },
   "login.topInfoOnce": {
@@ -9705,7 +9907,9 @@
     ],
     "runtime_accessed_count": 13,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.limited_effort_box"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -9717,6 +9921,7 @@
     "runtime_accessed_keys": [
       "response_data.arena_si_skill_unique_check",
       "response_data.costume_status",
+      "response_data.limited_effort_box",
       "response_data.live_daily_reward_exist",
       "response_data.new_achievement_cnt",
       "response_data.notification",
@@ -9727,7 +9932,9 @@
       "response_data.training_energy_max",
       "response_data.unaccomplished_achievement_cnt"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.limited_effort_box"
+    ],
     "static_extracted_verified": []
   },
   "login.unitList": {
@@ -9838,6 +10045,10 @@
     ],
     "runtime_discovered_field_names": [
       "response_data.event_id",
+      "response_data.event_point",
+      "response_data.event_scenario",
+      "response_data.event_scenario.event_scenario_status",
+      "response_data.event_scenario.event_scenario_status.event_scenario_id",
       "response_data.event_status",
       "response_data.start"
     ],
@@ -9854,6 +10065,10 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.event_id",
+      "response_data.event_point",
+      "response_data.event_scenario",
+      "response_data.event_scenario.event_scenario_status",
+      "response_data.event_scenario.event_scenario_status.event_scenario_id",
       "response_data.event_status",
       "response_data.marathon_info_list",
       "response_data.marathon_info_list.[1]",
@@ -9861,6 +10076,10 @@
     ],
     "static_extracted_unverified": [
       "response_data.event_id",
+      "response_data.event_point",
+      "response_data.event_scenario",
+      "response_data.event_scenario.event_scenario_status",
+      "response_data.event_scenario.event_scenario_status.event_scenario_id",
       "response_data.event_status",
       "response_data.start"
     ],
@@ -10092,7 +10311,12 @@
     "runtime_discovered": [
       "response_data.special_cutin_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.special_cutin_list.navi_special_cutin_id",
+      "response_data.special_cutin_list.rate",
+      "response_data.special_cutin_list.unit_navi_asset_id",
+      "response_data.special_cutin_list.unit_type_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.special_cutin_list"
     ],
@@ -10106,9 +10330,18 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.special_cutin_list",
-      "response_data.special_cutin_list.[1]"
+      "response_data.special_cutin_list.[1]",
+      "response_data.special_cutin_list.navi_special_cutin_id",
+      "response_data.special_cutin_list.rate",
+      "response_data.special_cutin_list.unit_navi_asset_id",
+      "response_data.special_cutin_list.unit_type_id"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.special_cutin_list.navi_special_cutin_id",
+      "response_data.special_cutin_list.rate",
+      "response_data.special_cutin_list.unit_navi_asset_id",
+      "response_data.special_cutin_list.unit_type_id"
+    ],
     "static_extracted_verified": []
   },
   "notice.noticeFriendGreeting": {
@@ -10142,6 +10375,7 @@
       "response_data.level.add_type",
       "response_data.license_recover_end_time",
       "response_data.notice_list.filter_id",
+      "response_data.notice_list.notice_id",
       "response_data.over_max_energy"
     ],
     "runtime_list_shaped_fields": [],
@@ -10170,6 +10404,7 @@
       "response_data.next_id",
       "response_data.notice_list",
       "response_data.notice_list.filter_id",
+      "response_data.notice_list.notice_id",
       "response_data.over_max_energy"
     ],
     "static_extracted_unverified": [
@@ -10186,6 +10421,7 @@
       "response_data.level.add_type",
       "response_data.license_recover_end_time",
       "response_data.notice_list.filter_id",
+      "response_data.notice_list.notice_id",
       "response_data.over_max_energy"
     ],
     "static_extracted_verified": []
@@ -10460,7 +10696,10 @@
     ],
     "runtime_accessed_count": 4,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.online",
+      "response_data.online.play_count"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10471,9 +10710,14 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.is_open",
+      "response_data.online",
+      "response_data.online.play_count",
       "response_data.online_info"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.online",
+      "response_data.online.play_count"
+    ],
     "static_extracted_verified": []
   },
   "online.play": {
@@ -10721,7 +10965,18 @@
     ],
     "runtime_accessed_count": 9,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.subscription_list.name",
+      "response_data.subscription_list.price",
+      "response_data.subscription_list.subscription_status",
+      "response_data.subscription_list.subscription_status.badge_flag",
+      "response_data.subscription_list.subscription_status.license_id",
+      "response_data.subscription_list.subscription_status.license_type",
+      "response_data.subscription_list.subscription_status.user_status",
+      "response_data.subscription_list.subscription_status.user_status.is_licensed",
+      "response_data.under_age_info.limit_amount",
+      "response_data.under_age_info.month_used"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -10735,11 +10990,32 @@
       "response_data.restriction_info",
       "response_data.sns_product_list",
       "response_data.subscription_list",
+      "response_data.subscription_list.name",
+      "response_data.subscription_list.price",
+      "response_data.subscription_list.subscription_status",
+      "response_data.subscription_list.subscription_status.badge_flag",
+      "response_data.subscription_list.subscription_status.license_id",
+      "response_data.subscription_list.subscription_status.license_type",
+      "response_data.subscription_list.subscription_status.user_status",
+      "response_data.subscription_list.subscription_status.user_status.is_licensed",
       "response_data.under_age_info",
       "response_data.under_age_info.birth_set",
-      "response_data.under_age_info.has_limit"
+      "response_data.under_age_info.has_limit",
+      "response_data.under_age_info.limit_amount",
+      "response_data.under_age_info.month_used"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.subscription_list.name",
+      "response_data.subscription_list.price",
+      "response_data.subscription_list.subscription_status",
+      "response_data.subscription_list.subscription_status.badge_flag",
+      "response_data.subscription_list.subscription_status.license_id",
+      "response_data.subscription_list.subscription_status.license_type",
+      "response_data.subscription_list.subscription_status.user_status",
+      "response_data.subscription_list.subscription_status.user_status.is_licensed",
+      "response_data.under_age_info.limit_amount",
+      "response_data.under_age_info.month_used"
+    ],
     "static_extracted_verified": []
   },
   "payment.receipt": {
@@ -11221,7 +11497,15 @@
     ],
     "runtime_accessed_count": 2,
     "runtime_discovered": [],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.center_unit_info",
+      "response_data.center_unit_info.costume",
+      "response_data.friend_status",
+      "response_data.navi_unit_info",
+      "response_data.navi_unit_info.costume",
+      "response_data.user_info",
+      "response_data.user_info.elapsed_time_from_login"
+    ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
       "response_data.museum_info",
@@ -11230,8 +11514,24 @@
       "response_data.server_timestamp_sync_flag"
     ],
     "runtime_listener_errors": 0,
-    "runtime_accessed_keys": [],
-    "static_extracted_unverified": [],
+    "runtime_accessed_keys": [
+      "response_data.center_unit_info",
+      "response_data.center_unit_info.costume",
+      "response_data.friend_status",
+      "response_data.navi_unit_info",
+      "response_data.navi_unit_info.costume",
+      "response_data.user_info",
+      "response_data.user_info.elapsed_time_from_login"
+    ],
+    "static_extracted_unverified": [
+      "response_data.center_unit_info",
+      "response_data.center_unit_info.costume",
+      "response_data.friend_status",
+      "response_data.navi_unit_info",
+      "response_data.navi_unit_info.costume",
+      "response_data.user_info",
+      "response_data.user_info.elapsed_time_from_login"
+    ],
     "static_extracted_verified": []
   },
   "profile.profileRegister": {
@@ -11364,6 +11664,7 @@
       "response_data.quest_item_list.[1]"
     ],
     "runtime_discovered_field_names": [
+      "response_data.exchange_seal_list",
       "response_data.quest_event_id"
     ],
     "runtime_list_shaped_fields": [
@@ -11378,11 +11679,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.exchange_seal_list",
       "response_data.quest_event_id",
       "response_data.quest_item_list",
       "response_data.quest_item_list.[1]"
     ],
     "static_extracted_unverified": [
+      "response_data.exchange_seal_list",
       "response_data.quest_event_id"
     ],
     "static_extracted_verified": []
@@ -11406,6 +11709,7 @@
       "response_data.seal_list.[1]"
     ],
     "runtime_discovered_field_names": [
+      "response_data.exchange_seal_list",
       "response_data.quest_event_id"
     ],
     "runtime_list_shaped_fields": [
@@ -11420,11 +11724,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.exchange_seal_list",
       "response_data.quest_event_id",
       "response_data.seal_list",
       "response_data.seal_list.[1]"
     ],
     "static_extracted_unverified": [
+      "response_data.exchange_seal_list",
       "response_data.quest_event_id"
     ],
     "static_extracted_verified": []
@@ -11482,6 +11788,7 @@
       "response_data.quest_list.[1]"
     ],
     "runtime_discovered_field_names": [
+      "response_data.event_id",
       "response_data.quest_event_id"
     ],
     "runtime_list_shaped_fields": [
@@ -11496,11 +11803,13 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.event_id",
       "response_data.quest_event_id",
       "response_data.quest_list",
       "response_data.quest_list.[1]"
     ],
     "static_extracted_unverified": [
+      "response_data.event_id",
       "response_data.quest_event_id"
     ],
     "static_extracted_verified": []
@@ -12546,7 +12855,8 @@
     "runtime_discovered_field_names": [
       "response_data.energy_full_time",
       "response_data.license_recover_end_time",
-      "response_data.over_max_energy"
+      "response_data.over_max_energy",
+      "response_data.token"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -12561,12 +12871,14 @@
       "response_data.license_recover_end_time",
       "response_data.live_info",
       "response_data.live_info.live_difficulty_id",
-      "response_data.over_max_energy"
+      "response_data.over_max_energy",
+      "response_data.token"
     ],
     "static_extracted_unverified": [
       "response_data.energy_full_time",
       "response_data.license_recover_end_time",
-      "response_data.over_max_energy"
+      "response_data.over_max_energy",
+      "response_data.token"
     ],
     "static_extracted_verified": []
   },
@@ -12591,7 +12903,9 @@
       "response_data.live_list.[1]",
       "response_data.rank_info.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.marathon_event_id"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.live_list",
       "response_data.rank_info"
@@ -12609,10 +12923,13 @@
       "response_data.live_info",
       "response_data.live_list",
       "response_data.live_list.[1]",
+      "response_data.marathon_event_id",
       "response_data.rank_info",
       "response_data.rank_info.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.marathon_event_id"
+    ],
     "static_extracted_verified": []
   },
   "rlive.reward": {
@@ -12797,7 +13114,10 @@
     "runtime_discovered": [
       "response_data.scenario_status_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.scenario_status_list.scenario_id",
+      "response_data.scenario_status_list.status"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.scenario_status_list"
     ],
@@ -12811,9 +13131,14 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.scenario_status_list",
-      "response_data.scenario_status_list.[1]"
+      "response_data.scenario_status_list.[1]",
+      "response_data.scenario_status_list.scenario_id",
+      "response_data.scenario_status_list.status"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.scenario_status_list.scenario_id",
+      "response_data.scenario_status_list.status"
+    ],
     "static_extracted_verified": []
   },
   "scenario.startup": {
@@ -14083,7 +14408,9 @@
     "runtime_discovered": [
       "response_data.unit_deck_list.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.__cached_timestamp"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.unit_deck_list"
     ],
@@ -14096,11 +14423,14 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.__cached_timestamp",
       "response_data.active_deck_index",
       "response_data.unit_deck_list",
       "response_data.unit_deck_list.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.__cached_timestamp"
+    ],
     "static_extracted_verified": []
   },
   "unit.deckName": {
@@ -14627,6 +14957,9 @@
       "response_data.owning_info.[1].unit_removable_skill_id"
     ],
     "runtime_discovered_field_names": [
+      "response_data.equipment_info.detail",
+      "response_data.equipment_info.detail.unit_removable_skill_id",
+      "response_data.equipment_info.unit_owning_user_id",
       "response_data.owning_info.unit_removable_skill_id"
     ],
     "runtime_list_shaped_fields": [
@@ -14643,11 +14976,18 @@
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
       "response_data.equipment_info",
+      "response_data.equipment_info.detail",
+      "response_data.equipment_info.detail.unit_removable_skill_id",
+      "response_data.equipment_info.unit_owning_user_id",
       "response_data.owning_info",
       "response_data.owning_info.[1]",
       "response_data.owning_info.[1].unit_removable_skill_id"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.equipment_info.detail",
+      "response_data.equipment_info.detail.unit_removable_skill_id",
+      "response_data.equipment_info.unit_owning_user_id"
+    ],
     "static_extracted_verified": []
   },
   "unit.removableSkillRankUp": {
@@ -14929,7 +15269,9 @@
       "response_data.active.[1]",
       "response_data.waiting.[1]"
     ],
-    "runtime_discovered_field_names": [],
+    "runtime_discovered_field_names": [
+      "response_data.__cached_timestamp"
+    ],
     "runtime_list_shaped_fields": [
       "response_data.active",
       "response_data.waiting"
@@ -14944,12 +15286,15 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.__cached_timestamp",
       "response_data.active",
       "response_data.active.[1]",
       "response_data.waiting",
       "response_data.waiting.[1]"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.__cached_timestamp"
+    ],
     "static_extracted_verified": []
   },
   "unit.wait": {
@@ -15468,8 +15813,28 @@
       "response_data.user.energy_max"
     ],
     "runtime_discovered_field_names": [
+      "response_data.birth",
+      "response_data.birth.birth_day",
+      "response_data.birth.birth_month",
       "response_data.user.energy_full_need_time",
-      "response_data.user.energy_max"
+      "response_data.user.energy_full_time",
+      "response_data.user.energy_max",
+      "response_data.user.friend_max",
+      "response_data.user.game_coin",
+      "response_data.user.invite_code",
+      "response_data.user.level",
+      "response_data.user.license_live_energy_recoverly_time",
+      "response_data.user.license_recover_end_time",
+      "response_data.user.name",
+      "response_data.user.over_max_energy",
+      "response_data.user.paid_sns_coin",
+      "response_data.user.social_point",
+      "response_data.user.training_energy",
+      "response_data.user.training_energy_max",
+      "response_data.user.tutorial_state",
+      "response_data.user.unit_max",
+      "response_data.user.user_id",
+      "response_data.user.waiting_unit_max"
     ],
     "runtime_list_shaped_fields": [],
     "runtime_declared_but_unread": [
@@ -15484,13 +15849,56 @@
     ],
     "runtime_listener_errors": 0,
     "runtime_accessed_keys": [
+      "response_data.birth",
+      "response_data.birth.birth_day",
+      "response_data.birth.birth_month",
       "response_data.user",
       "response_data.user.energy_full_need_time",
+      "response_data.user.energy_full_time",
       "response_data.user.energy_max",
+      "response_data.user.friend_max",
+      "response_data.user.game_coin",
+      "response_data.user.invite_code",
+      "response_data.user.level",
+      "response_data.user.license_live_energy_recoverly_time",
+      "response_data.user.license_recover_end_time",
       "response_data.user.lp_recovery_item",
-      "response_data.user.sns_coin"
+      "response_data.user.name",
+      "response_data.user.over_max_energy",
+      "response_data.user.paid_sns_coin",
+      "response_data.user.sns_coin",
+      "response_data.user.social_point",
+      "response_data.user.training_energy",
+      "response_data.user.training_energy_max",
+      "response_data.user.tutorial_state",
+      "response_data.user.unit_max",
+      "response_data.user.user_id",
+      "response_data.user.waiting_unit_max"
     ],
-    "static_extracted_unverified": [],
+    "static_extracted_unverified": [
+      "response_data.birth",
+      "response_data.birth.birth_day",
+      "response_data.birth.birth_month",
+      "response_data.user.energy_full_need_time",
+      "response_data.user.energy_full_time",
+      "response_data.user.energy_max",
+      "response_data.user.friend_max",
+      "response_data.user.game_coin",
+      "response_data.user.invite_code",
+      "response_data.user.level",
+      "response_data.user.license_live_energy_recoverly_time",
+      "response_data.user.license_recover_end_time",
+      "response_data.user.name",
+      "response_data.user.over_max_energy",
+      "response_data.user.paid_sns_coin",
+      "response_data.user.social_point",
+      "response_data.user.training_energy",
+      "response_data.user.training_energy_max",
+      "response_data.user.tutorial_state",
+      "response_data.user.unit_max",
+      "response_data.user.user_id",
+      "response_data.user.waiting_unit_max"
+    ],
     "static_extracted_verified": []
   }
 }
