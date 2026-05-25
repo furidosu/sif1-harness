@@ -83,6 +83,47 @@ end                                       --   this branch.
 Tractable but not done — open question for the NPPS4 collaboration
 whether the additional time investment is worth it.
 
+### What we tried: Approach C (`invoke_stub`) — confirmed dead end
+
+`src/tools/run_invoke_stub.py` + the `dispatch_invoke_stub` path in
+`src/harness/harness.lua` drive `svapi.<module>.<action>Stub(...)`
+directly and fire the returned `descriptor.on_success` against a spied
+envelope. Hypothesis: the per-call success closure lives on the
+descriptor, so invoking it bypasses the outer-function discovery
+problem that bounds `invoke_classes`.
+
+Probed against all 131 ui-only endpoints in a 2026-05-25 experiment:
+
+- **122/131** return `Stub not found` — those endpoints don't expose
+  a `<action>Stub` builder under `svapi.<module>`. Structurally
+  unreachable through this path.
+- **9/131** have a Stub: `battle.battleInfo`, `concert.livePartyList`,
+  `livese.liveseInfo`, `marathon.marathonInfo`,
+  `notice.noticeFriendGreeting`, `quest.questInfo`, `reward.rewardHistory`,
+  `scenario.scenarioStatus`, `tos.tosCheck`.
+
+For those 9, even after patching the dispatcher to (a) seed
+`response_data` from the schema-derived candidate and (b) replace
+`user_cb` with a real function that walks each table arg via
+`pairs()`+`__index` to depth 3, the only paths logged were top-level
+declared fields (e.g. `response_data.tos_id`, `response_data.is_agreed`,
+`response_data.party_list.[1]`). **Zero novel discoveries; zero bucket
+moves.**
+
+Why this is a ceiling, not a tuning knob: `pairs()` over a spied table
+only yields keys that exist in the underlying candidate, so the walk
+can confirm declared fields but cannot discover undeclared ones. Novel
+discovery requires the destructuring code to ask for a specific
+undeclared key by name (e.g. `data.item_count` in the `RewardList`
+example above) — and that code lives in per-screen closures inside
+the *outer* module function, not on the Stub descriptor.
+
+Net: `invoke_stub` is kept in-tree as a diagnostic but is not wired
+into the Makefile / `merge_observations.py`. The shelf-tool's
+docstring overstates its reach — kept for the rare case where a future
+endpoint's `on_success` does more than envelope plumbing, but not part
+of the production pipeline.
+
 ## The 178 `harness-covered` endpoints — what we ship
 
 These have either ≥1 discovered field path (a listener read of a field
