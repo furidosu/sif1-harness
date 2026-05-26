@@ -44,11 +44,16 @@ INITIAL_OUT_MD = ROOT / "build" / "coverage_classification_initial.md"
 
 # Heuristic: action names matching these prefixes are typically fire-and-forget
 # acks that legitimately have no response body of interest. PLAN Priors §1
-# names this bucket "~110 envelope-only acks".
+# names this bucket "~110 envelope-only acks". The trailing `(?=[A-Z]|$)` is a
+# camelCase boundary — without it `^use` swallows `userInfo`/`userRankUp`,
+# `^init` swallows `initialAccomplishedList`, `^set` swallows `setup*`, etc.,
+# and the static extractor (which imports this regex) then demotes those
+# endpoints to cache-consumer-only harvest, dropping Pass 1 / Pass 2 fields.
 ACK_PREFIXES = re.compile(
     r"^(cancel|leave|skip|set|reserve|abort|read|wait|init|use|expel|response|"
     r"agree|clearCache|disconnect|kidRegister|syncDeactivate|removeAccount|"
     r"abortDelete|reserveDelete|setBirth|setNotification)"
+    r"(?=[A-Z]|$)"
 )
 ACK_SUFFIXES = re.compile(r"(Set|Cancel|Skip|Leave|Read|Ack|Init)$")
 

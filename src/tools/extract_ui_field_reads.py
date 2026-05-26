@@ -413,7 +413,7 @@ def find_cache_listener_fn_idents(
             # ident's correct definition.
             cls, field = cw.group(1), cw.group(2)
             for bcls, bfield, bident, bline in field_bindings:
-                if (bcls == cls and bfield == field) or bfield == field:
+                if bcls == cls and bfield == field:
                     body = resolve_body(bident, bline)
                     if body is not None and id(body[1]) not in seen_starts:
                         seen_starts.add(id(body[1]))
@@ -575,7 +575,31 @@ def harvest_one_function(
 
     ident_re = re.compile(r"\b(\w+)\b")
 
-    for line in body:
+    def _detach(lhs: str) -> None:
+        """Drop all bindings that pointed at lhs's previous value.
+
+        Decompiled bytecode aggressively reuses locals — once a local is
+        overwritten with an unrelated value, every prior binding (taint,
+        alias, get-fn method ref) referring to it must be dropped.
+        """
+        nonlocal alias_map
+        if lhs in taint:
+            del taint[lhs]
+        if lhs in alias_map:
+            alias_map = dict(alias_map)
+            del alias_map[lhs]
+        get_fns.discard(lhs)
+
+    def _resolve_through_alias(name: str) -> str:
+        """Transitive alias resolution (terminates on cycles)."""
+        seen = set()
+        cur = name
+        while cur in alias_map and cur not in seen:
+            seen.add(cur)
+            cur = alias_map[cur]
+        return cur
+
+    for body_idx, line in enumerate(body):
         s = strip_noise(line)
 
         # (1) ENVELOPE-MODE HARVEST: direct `<arg>.response_data.<field>`
@@ -595,15 +619,45 @@ def harvest_one_function(
 
         # (3) FOR-LOOP ITERATION TAINT. `for K, V in <iter> do` -- if any
         # ident in <iter> is currently tainted, V (or K if no V) inherits
-        # that prefix (list-element index collapses in merger).
+        # `<tainted_ident>.<field_chain>`, where the chain is the literal
+        # `.x.y.z` suffix trailing the ident inside iter_expr. Without the
+        # chain, `for k,v in pairs(cached.unit_list)` would taint v with
+        # cached's bare prefix and downstream `v.id` reads would collapse
+        # to root-level `id` (corpus-filtered) instead of `unit_list.id`.
+        #
+        # The K/V locals are first DE-TAINTED so a stale taint from a
+        # PREVIOUS for-loop reusing the same local name (very common in
+        # decompiled bytecode) doesn't leak into the new loop.
         fm = FOR_ITER_RE.search(s)
         if fm:
             k_var, v_var, iter_expr = fm.group(1), fm.group(2), fm.group(3)
+            _detach(k_var)
+            if v_var:
+                _detach(v_var)
             target = v_var or k_var
             if target:
                 for ident in ident_re.findall(iter_expr):
                     if ident in taint:
-                        taint[target] = taint[ident]
+                        parent_prefix = taint[ident]
+                        chain_m = re.search(
+                            rf"\b{re.escape(ident)}((?:\.[a-z_][a-z0-9_]*)+)",
+                            iter_expr,
+                        )
+                        chain = chain_m.group(1).lstrip(".") if chain_m else ""
+                        if chain:
+                            new_prefix = (
+                                f"{parent_prefix}.{chain}"
+                                if parent_prefix else chain
+                            )
+                            # Also harvest each parent segment as it's
+                            # transparently being accessed by the iter call.
+                            cur = parent_prefix
+                            for seg in chain.split("."):
+                                cur = f"{cur}.{seg}" if cur else seg
+                                fields.add(cur)
+                        else:
+                            new_prefix = parent_prefix
+                        taint[target] = new_prefix
                         break
 
         # (4) HELPER-CALL CANDIDATES: queue for post-pass recursion. We
@@ -625,11 +679,6 @@ def harvest_one_function(
                     (resolved, dict(taint), {"first_arg": first_arg})
                 )
 
-    # Recurse into queued helper calls. Each helper-name in file_fn_index
-    # may bind to MULTIPLE definitions (decompiler reuses names); harvest
-    # the first one (earliest def, typically the one captured by a
-    # class-field assignment right after).
-
         # (4b) RETURN TRACKING. `return <local>` — if the local is
         # tainted, surface that prefix to the caller so it can mark
         # this function as cache-returning.
@@ -643,11 +692,20 @@ def harvest_one_function(
         # call site beats the generic field-access copy detector
         # below (which would otherwise de-taint the lhs).
         #
-        # Pattern A: bind .get method off a Cachable module local.
+        # Pattern A: bind .get method off a Cachable module local. The
+        # RHS object is resolved through alias_map so wrappers that copy
+        # the Cachable local into another name before `.get` are caught.
         m_bind = GET_BIND_INLINE_RE.match(s)
-        if m_bind and m_bind.group(2) in cachable_locals:
-            get_fns.add(m_bind.group(1))
-            continue
+        if m_bind:
+            rhs_obj = _resolve_through_alias(m_bind.group(2))
+            if (m_bind.group(2) in cachable_locals
+                    or rhs_obj in cachable_locals):
+                lhs = m_bind.group(1)
+                # Detach any prior bindings on lhs first — this is a
+                # rebind to a fresh method ref.
+                _detach(lhs)
+                get_fns.add(lhs)
+                continue
 
         # Pattern B: call to a known get-fn local OR a known
         # cache-returning ident. Match both the single-LHS form
@@ -661,26 +719,28 @@ def harvest_one_function(
             )
             args_split = [a.strip() for a in args_str.split(",") if a.strip()]
             first_arg = args_split[0] if args_split else ""
-            handled = False
+            # Resolve the new taint prefix BEFORE _detach(lhs), because
+            # the decompiler emits `L = L(arg)` patterns where callee ==
+            # lhs and _detach would clear the alias_map / get_fns entry
+            # we need to inspect.
+            new_taint: str | None = None
             # B1: Cachable.get(cache_key) — taint at cache root.
             if (callee in get_fns
                     and cache_key
                     and _arg_resolves_to_cache_key(
-                        first_arg, body, line, cache_key, cache_key_objs
+                        first_arg, body, body_idx, cache_key, cache_key_objs
                     )):
-                taint[lhs] = ""
-                handled = True
+                new_taint = ""
             # B2: call to a cache-returning ident (wrapper).
             elif callee in cache_returning_idents:
-                taint[lhs] = cache_returning_idents[callee]
-                handled = True
+                new_taint = cache_returning_idents[callee]
             # B3: call to an alias_map ident that resolves to a
             # cache-returning ident.
-            elif (callee in alias_map
-                    and alias_map[callee] in cache_returning_idents):
-                taint[lhs] = cache_returning_idents[alias_map[callee]]
-                handled = True
-            if handled:
+            elif callee in alias_map and alias_map[callee] in cache_returning_idents:
+                new_taint = cache_returning_idents[alias_map[callee]]
+            if new_taint is not None:
+                _detach(lhs)
+                taint[lhs] = new_taint
                 continue
 
         # (5) ASSIGNMENT-BASED TAINT UPDATES. Order matters: check the
@@ -697,11 +757,13 @@ def harvest_one_function(
                 if rhs_match:
                     rhs = rhs_match.group(1)
                     if rd_root_re.match(rhs):
+                        _detach(lhs)
                         taint[lhs] = ""
                         cap_done = True
                     else:
                         mfx = rd_root_field_re.match(rhs)
                         if mfx:
+                            _detach(lhs)
                             taint[lhs] = mfx.group(1)
                             fields.add(mfx.group(1))
                             cap_done = True
@@ -727,10 +789,19 @@ def harvest_one_function(
                 taint[lhs] = taint[rhs]
             elif lhs in taint:
                 del taint[lhs]
+            # get_fns propagates with identifier copy: if rhs holds a
+            # Cachable.get method ref, lhs now references the same one.
+            # Otherwise lhs is freshly rebound, so clear any stale entry.
+            if rhs in get_fns:
+                get_fns.add(lhs)
+            else:
+                get_fns.discard(lhs)
             continue
 
         # Field-access copy: `lhs = ident.field` -- propagates taint if
-        # ident is tainted (prefix.field).
+        # ident is tainted (prefix.field). lhs is being rebound to a
+        # field VALUE (not a function ref / not an ident alias), so any
+        # stale alias_map or get_fns entry must be cleared.
         mf = LOCAL_FIELD_ASSIGN_RE.match(s)
         if mf:
             lhs, rhs_ident, rhs_field = mf.group(1), mf.group(2), mf.group(3)
@@ -741,8 +812,10 @@ def harvest_one_function(
                 fields.add(new_prefix)
             elif lhs in taint:
                 del taint[lhs]
-            # Also note this isn't an identifier alias for helper-following
-            # purposes (alias_map tracks only ident-to-ident).
+            if lhs in alias_map:
+                alias_map = dict(alias_map)
+                del alias_map[lhs]
+            get_fns.discard(lhs)
             continue
 
         # Generic assignment to ANY rhs -- if the RHS isn't one of the
@@ -751,19 +824,16 @@ def harvest_one_function(
         # bytecode aggressively reuses locals.
         ag = ANY_ASSIGN_RE.match(s)
         if ag:
-            lhs = ag.group(1)
-            if lhs in taint:
-                del taint[lhs]
-            # Drop alias too -- the local no longer points at the
-            # previously-aliased function ident.
-            if lhs in alias_map:
-                alias_map = dict(alias_map)
-                del alias_map[lhs]
+            _detach(ag.group(1))
 
     # Recurse into queued helper calls. file_fn_index maps each name to
-    # a LIST of (arg, body, start_line) (decompiler reuses local names);
-    # harvest the FIRST definition -- earliest in file, typically the
-    # one captured by a class-field assignment right after.
+    # a LIST of (arg, body, start_line) (decompiler reuses local names).
+    # Without file-line position tracked through every harvest layer we
+    # can't reliably pick the single "correct" body via pick_body_at_line,
+    # so we union over all definitions and let the corpus filter scrub
+    # noise from wrong-body harvests. This trades a small over-collection
+    # bias for robustness against name reuse, which was previously a
+    # silent under-collection bug (only bodies[0] was ever harvested).
     for resolved, taint_snapshot, info in pending_recurse:
         first_arg = info["first_arg"]
         if first_arg not in taint_snapshot:
@@ -771,21 +841,21 @@ def harvest_one_function(
         bodies = file_fn_index.get(resolved) or []
         if not bodies:
             continue
-        helper_arg, helper_body = bodies[0][0], bodies[0][1]
         new_visited = visited | {resolved}
-        sub_fields, _ret = harvest_one_function(
-            helper_arg,
-            helper_body,
-            file_fn_index=file_fn_index,
-            base_prefix=taint_snapshot[first_arg],
-            visited=new_visited,
-            max_depth=max_depth - 1,
-            cache_key=cache_key,
-            cachable_locals=cachable_locals,
-            cache_key_objs=cache_key_objs,
-            cache_returning_idents=cache_returning_idents,
-        )
-        fields |= sub_fields
+        for helper_arg, helper_body, _start in bodies:
+            sub_fields, _ret = harvest_one_function(
+                helper_arg,
+                helper_body,
+                file_fn_index=file_fn_index,
+                base_prefix=taint_snapshot[first_arg],
+                visited=new_visited,
+                max_depth=max_depth - 1,
+                cache_key=cache_key,
+                cachable_locals=cachable_locals,
+                cache_key_objs=cache_key_objs,
+                cache_returning_idents=cache_returning_idents,
+            )
+            fields |= sub_fields
 
     return fields, return_taint
 
@@ -844,11 +914,11 @@ def compute_cache_returning_idents(
 def _arg_resolves_to_cache_key(
     arg: str,
     body: list[str],
-    current_line: str,
+    body_idx: int,
     cache_key: str,
     cache_key_objs: set[str],
 ) -> bool:
-    """Walk backward from current_line to see if `arg` resolves to cache_key.
+    """Walk backward from body[body_idx] to see if `arg` resolves to cache_key.
 
     Two recognized forms:
       1. Inline literal: `arg = "$cacheKey"` somewhere earlier in body.
@@ -857,12 +927,15 @@ def _arg_resolves_to_cache_key(
          (passed in via cache_key_objs).
     Stops the walk at any unrecognized reassignment of `arg` to avoid
     a stale earlier binding being mistaken for the current value.
+
+    The caller passes an EXPLICIT body index — using `body.index(line)`
+    would return the FIRST occurrence of the line's text, which is wrong
+    when the decompiler emits duplicate short lines (e.g.
+    `L2_2 = L2_2(L3_2)` after local-reuse).
     """
-    try:
-        idx = body.index(current_line)
-    except ValueError:
+    if body_idx < 0 or body_idx > len(body):
         return False
-    for prev in body[:idx][::-1]:
+    for prev in body[:body_idx][::-1]:
         ps = prev.strip()
         m_str = STR_ASSIGN_LINE_RE.match(ps)
         if m_str and m_str.group(1) == arg:
@@ -937,7 +1010,15 @@ def filter_by_corpus(fields: set[str], corpus: dict[str, int]) -> tuple[set[str]
     """
     total = corpus.get("__total_files__", 0)
     if total <= 0:
-        return fields, set()
+        # The corpus filter is the ONLY safeguard against several known
+        # over-collection paths (Pass-2 leniency `taint[''] = ''`, alias
+        # leaks, etc.). With an empty corpus every raw token would land in
+        # the kept set, polluting downstream classify_coverage. Fail loud.
+        raise SystemExit(
+            "corpus is empty (no m_*/ Lua files found under SOURCE_ROOT); "
+            "static-extraction would over-report without the corpus filter — "
+            f"check that {SOURCE_ROOT} contains the decompiled tree"
+        )
     threshold = total * CORPUS_THRESHOLD
     kept: set[str] = set()
     dropped: set[str] = set()
@@ -1225,7 +1306,6 @@ def main(argv: list[str] | None = None) -> int:
     #   everything else (ui-only, harness-covered, needs-Frida): full
     #     harvest. Their candidate files don't tend to be the shared
     #     listener-registration sinks, so Pass 1 stays scoped.
-    cache_only_keys_set: set[str] = set()
     keys: list[str]
     if args.endpoint:
         keys = list(args.endpoint)
@@ -1236,18 +1316,25 @@ def main(argv: list[str] | None = None) -> int:
             if c["bucket"] == args.bucket
         ])
     else:
-        # All endpoints with a cache_key; tag the ack-style ones to
-        # downgrade them to cache-consumer-only harvest.
-        from classify_coverage import ACK_PREFIXES, ACK_SUFFIXES  # noqa: PLC0415
-        keys = []
-        for ep in sorted(merged.keys()):
-            if not (merged.get(ep) or {}).get("cache_key"):
-                continue
-            keys.append(ep)
-            action = ep.split(".", 1)[1] if "." in ep else ep
-            if ACK_PREFIXES.match(action) or ACK_SUFFIXES.search(action):
-                cache_only_keys_set.add(ep)
-    cache_only_set = cache_only_keys_set
+        # Every endpoint in merged_endpoints.json has a cache_key (verified
+        # invariant of the SIF1 dataset — 358/358). The set is closed; no
+        # new endpoints will be added. So we iterate all of them without a
+        # cache_key filter, which would otherwise silently drop a future
+        # no-cache-key endpoint from the static pass without any warning.
+        keys = sorted(merged.keys())
+
+    # Tag ack-style endpoints in EVERY dispatch path so they get the
+    # cache-consumer-only safe harvest. Without this, `--bucket
+    # envelope-only` or `--endpoint <ack>` runs the leaky Pass 1
+    # (closure-anchored) over shared listener-registration files like
+    # m_boot/initialize.lua and attributes every co-located closure's
+    # response_data reads to the target endpoint.
+    from classify_coverage import ACK_PREFIXES, ACK_SUFFIXES  # noqa: PLC0415
+    cache_only_set: set[str] = set()
+    for ep in keys:
+        action = ep.split(".", 1)[1] if "." in ep else ep
+        if ACK_PREFIXES.match(action) or ACK_SUFFIXES.search(action):
+            cache_only_set.add(ep)
 
     traces_dir = Path(args.out)
     if not traces_dir.is_absolute():
@@ -1275,6 +1362,13 @@ def main(argv: list[str] | None = None) -> int:
     # complementary: re-running with augmented candidates only fires
     # listeners whose dispatch fn exists; the production trace already
     # ran the dispatch for every endpoint.
+    #
+    # IMPORTANT: merge_observations.py unions static-extraction paths
+    # into `runtime_accessed_keys`, so on any re-run after a prior `make
+    # merge`, this file contains the previous pass's static fields.
+    # Subtract `static_extracted_{verified,unverified}` to recover the
+    # listener-only set — otherwise cross-check 1 self-verifies on every
+    # subsequent run and the verification confidence label collapses.
     obs_path = ROOT / "build" / "runtime_listener_observations.json"
     listener_obs: dict[str, set[str]] = {}
     if obs_path.exists():
@@ -1283,13 +1377,17 @@ def main(argv: list[str] | None = None) -> int:
             if not isinstance(rec, dict):
                 continue
             ep_keys = rec.get("runtime_accessed_keys") or []
+            static_paths = (
+                set(rec.get("static_extracted_unverified") or [])
+                | set(rec.get("static_extracted_verified") or [])
+            )
             norm = set()
             for k in ep_keys:
                 if not k.startswith("response_data."):
                     continue
                 parts = [s for s in k.split(".") if not (s.startswith("[") and s.endswith("]"))]
                 p = ".".join(parts)
-                if p:
+                if p and p not in static_paths:
                     norm.add(p)
             listener_obs[ep_k] = norm
 

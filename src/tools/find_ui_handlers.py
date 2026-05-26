@@ -111,17 +111,31 @@ def extract_define_name(file_path: Path) -> str | None:
     if not m_def:
         return None
     def_var = m_def.group(1)
+    # The decompiler may reuse `def_var` for an unrelated call BEFORE the
+    # `def_var = define` binding (e.g. `L9_1 = L4_1.addListener;
+    # L9_1(L10_1, L11_1)` followed by `L9_1 = define; L10_1 = "ClassName";
+    # L9_1(L10_1, L11_1)`). The define-call is the FIRST `def_var(L...)`
+    # AFTER the `= define` binding; naive first-match-in-tail picks the
+    # earlier addListener invocation.
+    def_pos = m_def.start()
     m_call = re.search(
-        rf'\b{re.escape(def_var)}\s*\(\s*(L\d+_\d+)\b', tail
+        rf'\b{re.escape(def_var)}\s*\(\s*(L\d+_\d+)\b', tail[def_pos:]
     )
     if not m_call:
         return None
     name_var = m_call.group(1)
-    m_str = re.search(
-        rf'\b{re.escape(name_var)}\s*=\s*"([A-Z][A-Za-z0-9_]+)"', tail
-    )
-    if m_str:
-        name = m_str.group(1)
+    # Position in the full tail (search was offset by def_pos).
+    call_start = def_pos + m_call.start()
+    # Among all `name_var = "Cap..."` assignments BEFORE the define call,
+    # the LAST one is the binding active at the call site. First-match
+    # would return an earlier assignment (e.g. a button label) when the
+    # decompiler reused name_var.
+    assigns = list(re.finditer(
+        rf'\b{re.escape(name_var)}\s*=\s*"([A-Z][A-Za-z0-9_]+)"',
+        tail[:call_start],
+    ))
+    if assigns:
+        name = assigns[-1].group(1)
         if len(name) >= 4:
             return name
     return None
