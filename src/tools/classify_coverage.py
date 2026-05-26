@@ -3,7 +3,7 @@
 Sort all 358 endpoints into one of four buckets and emit
 build/coverage_classification.json + a markdown summary.
 
-Buckets (from PLAN.md Stage 2):
+Buckets (see docs/COVERAGE_CEILING.md for the long-form definitions):
   - harness-covered: listener-discovered field paths exist
   - envelope-only:   no listener fires; URL/method/cache_key extracted only
   - ui-only:         listener body present but reads no fields; UI handler

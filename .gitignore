@@ -30,3 +30,8 @@ __pycache__/
 # Reports generated locally
 report.md
 *.local.md
+
+# Local working plan. The hard-won priors + gotchas are extracted into
+# docs/PRIORS.md and stay committed; PLAN.md keeps the rotting stage-by-
+# stage scaffolding and decision-point scratchwork out of the repo.
+PLAN.md
